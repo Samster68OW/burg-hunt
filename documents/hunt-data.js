@@ -2,7 +2,7 @@
 
 
 
-const cpRooms = [
+const cpRoomsDefault = [
     // Permanent Roooms
     "Beach",
     "Beacon",
@@ -26,17 +26,16 @@ const cpRooms = [
     "Ski Lodge",
     "Ski Village",
     "Snow Forts",
-    "Town",
-    // Temporary Rooms
-    "Ship's Hold"
+    "Town"
 ];
 
 
 
 const jan2026Event = {
-    introText: "",
+    title: "Legacy Scavenger Hunt",
+    introText: "During the Zero Winter Party, Burg lost some of Rockhopper's cargo! Can you help him find it?",
     imgSource: "jan2026",
-    list: [
+    itemList: [
         {item:"A rocking horse", location:"Lodge Attic"},
         {item:"A golf bag", location:"Ship's Hold"},
         {item:"3 red thumbtacks", location:"Boiler Room"},
@@ -47,5 +46,31 @@ const jan2026Event = {
         {item:"The words 'Fish Dish'", location:"Pizza Parlor"},
         {item:"A pair of big red shoes", location:"Gift Shop"},
         {item:"A picture of 2 pink penguins", location:"Book Room"}
+    ],
+    roomList: [
+        "Beach",
+        "Beacon",
+        "Boiler Room",
+        "Book Room",
+        "Cave",
+        "Coffee Shop",
+        "Dance Lounge",
+        "Dock",
+        "Dojo",
+        "Gift Shop",
+        "Ice Rink",
+        "Lighthouse",
+        "Lodge Attic",
+        "Mine",
+        "Mine Shack",
+        "Night Club",
+        "Pizza Parlor",
+        "Plaza",
+        "Ship's Hold",
+        "Ski Hill",
+        "Ski Lodge",
+        "Ski Village",
+        "Snow Forts",
+        "Town"
     ]
 };

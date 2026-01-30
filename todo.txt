@@ -1,7 +1,11 @@
 TODO LIST
 
 
-- Complete the home page
-- Create a favicon
-- Create the Jan 21st hunt!
-- A postcard collection!
+- Find an image for the home page.
+- Collect the screenshots for the Jan scavenger hunt.
+
+
+FUTURE IDEAS
+
+- Create a postcard collection! (Using LocalStorage)
+- Add a randomizer! There is a long list of objects it can pick 10 from.

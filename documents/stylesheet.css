@@ -17,6 +17,17 @@ body {
 }
 
 
+#current-status-p {
+    background-color: rgb(22, 22, 173);
+    padding:20px;
+    border-radius: 15px;
+}
+#current-status-p:hover {
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+
 .page-main {
     color: white;
     text-shadow: 1px 1px 2px black;
@@ -33,6 +44,34 @@ body {
 h1 {
     font-weight: bold;
     text-shadow: 3px 3px 5px black;
+}
+
+
+#hunt-container {
+    background-color: rgb(22, 22, 173);
+    border-radius: 15px;
+    height: 500px;
+    padding: 25px;
+}
+#hunt-header {
+    font-weight: bold;
+}
+#item-img-spot {
+    height: 200px;
+}
+#item-img-spot img {
+    background-color: rgb(47, 47, 47);
+    height: 200px;
+    width: 200px;
+}
+#room-dropdown-spot {
+    height:50px;
+}
+#room-dropdown {
+    width: 300px;
+}
+#postcard-spot img {
+    box-shadow: 10px 10px 20px black;
 }
 
 
