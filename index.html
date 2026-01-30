@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Burg's Scavenger Hunt</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <!-- Internal Documents -->
+    <script type="text/javascript" src="documents/code.js"></script>
+    <script type="text/javascript" src="documents/hunt-data.js"></script>
+    <link rel="stylesheet" href="documents/stylesheet.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+
+
+    <nav class="navbar navbar-inverted burg-navbar">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="navbar-brand" style="color:white;">Burg's Scavenger Hunt</span>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav" style="background-color:blue;">
+            <li><a onclick="loadPage('home');" href="#" class="glyphicon glyphicon-home" aria-hidden="true"></a></li>
+            <li><a onclick="loadPage('about');" href="#" class="glyphicon glyphicon-info-sign" aria-hidden="true"></a></li>
+            <li class="dropdown" data-bs-theme="dark">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Scavenger Hunts <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a onclick="loadPage('jan2026');" href="#">Legacy Scavenger Hunt <span class="label label-primary">Available</span></a></li>
+                <li role="separator" class="divider"></li>
+                <li><a onclick="loadPage('feb2026');" href="#">February 2026 Scavenger Hunt <span class="label label-warning">Coming Soon!</span></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+
+    <!-- Standard Pages -->
+    <div class="container">
+      <div class="page-main" id="page-home" hidden>
+        <div class="title-area">
+          <h1>Burg's Scavenger Hunt</h1><br>
+          <p class="lead">Welcome to Burg's Scavenger Hunt!<br> All you get is this text and a mostly barebones HTML document.</p>
+        </div>
+      </div><div class="page-main" id="page-about" hidden>
+        <div class="title-area">
+          <h1>About</h1><br>
+          <p class="lead">Burg's Scavenger Hunt was conceptualized in January of 2026 on the Club Penguin Zero Discord. When scavenger hunts are available, players may start one on this website while exploring Club Penguin Island. The objective is to help Burg find all of the objects scattered across the island. Once you find them all, you win the game! You can find the latest scavenger hunts using the dropdown in the top left of the screen.</p>
+          <p class="lead">This site was created using GitHub Pages, <a href="https://getbootstrap.com/docs/3.4/">Bootstrap 3.4.1</a>, and <a href="https://www.glyphicons.com">Glyphicons</a>.</p><br>
+          <img src="images/about_screen_img.png" style="width:800px; height:auto;" alt="Burg at the Beacon"><br><br>
+          <img src="images/samster68.png" style="width:100px; height:auto;" alt="Samster68">
+        </div>
+      </div>
+
+
+
+      <!-- Individual Pages -->
+      <div class="page-main" id="page-jan2026" hidden>
+        <div class="title-area">
+          <h1>Legacy Scavenger Hunt</h1><br>
+          <p class="lead">On January 21st, 2026, the image below was unofficially released on the Zero Nation Discord server. This hunt was created during the 2026 Holiday Party. It contains the original ideas for the scavenger hunt including Burg himself. While this page was not used when this hunt was created, it was left on the site to test its features.</p><br>
+          <button type="button" class="btn btn-success" onclick="startHunt(0);">Click here to start the scavenger hunt!</button><br>
+          Availability: Jan 21 - Ongoing<br><br><br>
+          <img src="images/jan2026_scavenger_hunt.png" style="width:800px; height:auto;" alt="Burg asking for help">
+        </div>
+      </div>
+      <div class="page-main" id="page-feb2026" hidden>
+        <div class="title-area">
+          <h1>February 2026 Scavenger Hunt</h1><br>
+          <p class="lead">Will be released on Friday, February 13th!</p><br>
+          <button type="button" class="btn btn-warning" onclick="">This hunt is currently unavailable.</button><br>
+          Availability: Coming soon!<br><br><br>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="footer">
+        <p>Made by fans. This site is not affiliated with Club Penguin Zero.</p>
+    </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+
+
+    <script type="text/javascript">
+
+
+
+$(document).ready(function(){
+  loadPage('home');
+});
+
+function loadPage(name) {
+  const fadeTimer = 200;
+  $('.page-main').fadeOut(fadeTimer);
+  setTimeout(function(){
+    $(`#page-${name}`).fadeIn(fadeTimer);
+  },fadeTimer);
+};
+
+
+    </script>
+  </body>
+</html>

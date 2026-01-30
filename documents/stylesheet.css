@@ -1,0 +1,47 @@
+body {
+    background: #0280CD;
+    background: radial-gradient(circle,rgba(2, 128, 205, 1) 0%, rgba(0, 82, 155, 1) 100%);
+}
+
+
+.navbar {
+    background-color: rgb(22, 22, 173);
+    border: none;
+}
+.navbar a {
+    color: white;
+    font-size: 16px;
+}
+.navbar a:hover {
+    color:black;
+}
+
+
+.page-main {
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+.page-main a {
+    color: yellow;
+}
+.page-main a:hover {
+    color: rgb(0, 198, 0);
+}
+.title-area {
+    text-align: center;
+}
+h1 {
+    font-weight: bold;
+    text-shadow: 3px 3px 5px black;
+}
+
+
+.footer {
+    bottom: 0;
+    color: white;
+    padding: 30px;
+    position: fixed;
+    text-align :center;
+    text-shadow: 1px 1px 2px black;
+    width: 100%;
+}
