@@ -4,16 +4,13 @@ body {
 }
 
 
-.navbar {
-    background-color: rgb(22, 22, 173);
-    border: none;
-}
-.navbar a {
+.burg-navbar {
     color: white;
-    font-size: 16px;
 }
-.navbar a:hover {
-    color:black;
+.img-savior {
+    border:3px solid white;
+    border-radius:20px;
+    margin: auto;
 }
 
 
@@ -65,7 +62,7 @@ h1 {
     width: 200px;
 }
 #room-dropdown-spot {
-    height:50px;
+    height: 50px;
 }
 #room-dropdown {
     width: 300px;
@@ -75,12 +72,10 @@ h1 {
 }
 
 
-.footer {
-    bottom: 0;
+#footer {
     color: white;
     padding: 30px;
-    position: fixed;
-    text-align :center;
+    text-align: center;
     text-shadow: 1px 1px 2px black;
     width: 100%;
 }
