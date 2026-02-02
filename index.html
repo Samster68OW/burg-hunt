@@ -163,6 +163,7 @@ $(document).ready(function(){
 function loadPage(name) {
   const fadeTimer = 200;
   $('.page-main').fadeOut(fadeTimer);
+  $(".navbar-collapse").collapse('hide');
   setTimeout(function(){
     $(`#page-${name}`).fadeIn(fadeTimer);
   },fadeTimer);
