@@ -2,8 +2,8 @@
 
 
 
+// Permanent Roooms
 const cpRoomsDefault = [
-    // Permanent Roooms
     "Beach",
     "Beacon",
     "Boiler Room",
@@ -26,6 +26,7 @@ const cpRoomsDefault = [
     "Ski Lodge",
     "Ski Village",
     "Snow Forts",
+    "Sports Shop",
     "Town"
 ];
 
@@ -72,4 +73,13 @@ const jan2026Event = {
         "Snow Forts",
         "Town"
     ]
+};
+
+
+
+const feb2026Event = {
+    title: "February 2026 Scavenger Hunt",
+    imgSource: "feb2026",
+    itemList: [],
+    roomList: []
 };
