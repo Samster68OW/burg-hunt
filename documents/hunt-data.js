@@ -33,7 +33,6 @@ const cpRoomsDefault = [
 
 const jan2026Event = {
     title: "Legacy Scavenger Hunt",
-    introText: "During the Zero Winter Party, Burg lost some of Rockhopper's cargo! Can you help him find it?",
     imgSource: "jan2026",
     itemList: [
         {item:"A rocking horse", location:"Lodge Attic"},

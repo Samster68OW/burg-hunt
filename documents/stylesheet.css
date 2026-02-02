@@ -4,6 +4,8 @@ body {
 }
 
 
+
+/* Universal */
 .burg-navbar {
     color: white;
 }
@@ -12,19 +14,17 @@ body {
     border-radius:20px;
     margin: auto;
 }
-
-
-#current-status-p {
-    background-color: rgb(22, 22, 173);
-    padding:20px;
-    border-radius: 15px;
-}
-#current-status-p:hover {
-    cursor: pointer;
-    opacity: 0.5;
+#footer {
+    color: white;
+    padding: 30px;
+    text-align: center;
+    text-shadow: 1px 1px 2px black;
+    width: 100%;
 }
 
 
+
+/* Text */
 .page-main {
     color: white;
     text-shadow: 1px 1px 2px black;
@@ -44,14 +44,18 @@ h1 {
 }
 
 
+
+/* Hunts */
 #hunt-container {
-    background-color: rgb(22, 22, 173);
+    background: #177cd4;
+    background: radial-gradient(circle,rgba(23, 124, 212, 1) 0%, rgba(22, 22, 173, 1) 100%);
     border-radius: 15px;
-    height: 500px;
+    height: 550px;
     padding: 25px;
 }
 #hunt-header {
     font-weight: bold;
+    height: 45px;
 }
 #item-img-spot {
     height: 200px;
@@ -65,17 +69,8 @@ h1 {
     height: 50px;
 }
 #room-dropdown {
-    width: 300px;
+    width: 200px;
 }
 #postcard-spot img {
     box-shadow: 10px 10px 20px black;
-}
-
-
-#footer {
-    color: white;
-    padding: 30px;
-    text-align: center;
-    text-shadow: 1px 1px 2px black;
-    width: 100%;
 }

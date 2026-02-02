@@ -46,7 +46,7 @@ function loadNextItem() {
     let currentNum = currentHunt.currentItem + 1;
     $('#hunt-header').html(`Item #${currentNum}: Where can you find this item?`);
     $('#current-item').html(`${currentHunt.itemList[currentHunt.currentItem].item}`);
-    $('#item-img-spot').html(`<img src="images/item/unknown.png" alt="?" class="img-rounded">`);
+    $('#item-img-spot').html(`<img src="images/item/unknown.png" alt="?" class="img-rounded img-savior">`);
     $('#submit-button').html('Submit Answer');
     generateDropdown();
 };
@@ -74,8 +74,15 @@ function submitAnswer() {
             }
         // If correct
             if (answerCorrect === true) {
-                $('#hunt-header').html(`Correct!`);
-                $('#item-img-spot').html(`<img src="images/item/${currentHunt.imgSource}/item_${currentHunt.itemList[currentHunt.currentItem].itemID}.png" alt="${currentHunt.itemList[currentHunt.currentItem].item}" class="img-rounded">`);
+                let currentPercent = currentHunt.currentItem + 1;
+                currentPercent = currentPercent / currentHunt.itemList.length * 100;
+                let display = `<div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: ${currentPercent}%;">
+                        <span>Correct!</span>
+                    </div>
+                </div>`;
+                $('#hunt-header').html(display);
+                $('#item-img-spot').html(`<img src="images/item/${currentHunt.imgSource}/item_${currentHunt.itemList[currentHunt.currentItem].itemID}.png" alt="${currentHunt.itemList[currentHunt.currentItem].item}" class="img-rounded img-savior">`);
                 $('#room-dropdown-spot').html(`<p class="lead">${currentHunt.itemList[currentHunt.currentItem].location}</p>`);
                 if (currentHunt.currentItem === currentHunt.itemList.length - 1) {
                     $('#submit-button').html('Finish Hunt');
@@ -99,7 +106,7 @@ function submitAnswer() {
         loadNextItem();
     }
     else if (currentHunt.activity === 'complete') {
-        $('#postcard-spot').html(`<img src="images/item/${currentHunt.imgSource}/postcard.png" style="width:auto; height:350px;" alt="Postcard">`);
+        $('#postcard-spot').html(`<img src="images/item/${currentHunt.imgSource}/postcard.png" class="img-responsive img-savior" style="width:600px;" alt="Postcard">`);
         loadPage('winScreen');
     }
 };
