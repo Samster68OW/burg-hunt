@@ -85,6 +85,7 @@ const feb2026Event = {
 
 
 
+// NEVER REMOVE ELEMENTS FROM THIS ARRAY
 const huntList = [
     jan2026Event,
     feb2026Event

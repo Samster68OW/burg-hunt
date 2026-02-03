@@ -37,5 +37,15 @@ function savePlayerData() {
 
 
 function displayPostcards() {
-    // TODO
+    // Generate display
+        let display = ``;
+        for (var a=huntList.length-1; a>-1; a--) {
+            if (player.postcardData[a] === 'T') {
+                display += `<p class="lead">${huntList[a].title}</p>`;
+                display += `<img src="images/item/${huntList[a].imgSource}/postcard.png" class="img-responsive img-savior" style="width:600px;" alt="Postcard"><br>`;
+                display += `(Postcard courtesy of ${huntList[a].postcardCredit}.)<br><br><br>`;
+            }
+        }
+    // Show postcards
+        $('#postcard-display-spot').html(display);
 };
