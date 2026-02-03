@@ -2,39 +2,11 @@
 
 
 
-// Permanent Roooms
-const cpRoomsDefault = [
-    "Beach",
-    "Beacon",
-    "Boiler Room",
-    "Book Room",
-    "Cave",
-    "Coffee Shop",
-    "Dance Lounge",
-    "Dock",
-    "Dojo",
-    "Gift Shop",
-    "Ice Rink",
-    "Lighthouse",
-    "Lodge Attic",
-    "Mine",
-    "Mine Shack",
-    "Night Club",
-    "Pizza Parlor",
-    "Plaza",
-    "Ski Hill",
-    "Ski Lodge",
-    "Ski Village",
-    "Snow Forts",
-    "Sports Shop",
-    "Town"
-];
-
-
-
 const jan2026Event = {
     title: "Legacy Scavenger Hunt",
     imgSource: "jan2026",
+    postcardCredit: "Samster68",
+    randomize: true,
     itemList: [
         {item:"A rocking horse", location:"Lodge Attic"},
         {item:"A golf bag", location:"Ship's Hold"},
@@ -80,6 +52,40 @@ const jan2026Event = {
 const feb2026Event = {
     title: "February 2026 Scavenger Hunt",
     imgSource: "feb2026",
+    postcardCredit: "Samster68",
+    randomize: true,
     itemList: [],
-    roomList: []
+    roomList: [
+        "Beach",
+        "Beacon",
+        "Boiler Room",
+        "Book Room",
+        "Cave",
+        "Coffee Shop",
+        "Dance Lounge",
+        "Dock",
+        "Dojo",
+        "Gift Shop",
+        "Ice Rink",
+        "Lighthouse",
+        "Lodge Attic",
+        "Mine",
+        "Mine Shack",
+        "Night Club",
+        "Pizza Parlor",
+        "Plaza",
+        "Ski Hill",
+        "Ski Lodge",
+        "Ski Village",
+        "Snow Forts",
+        "Sports Shop",
+        "Town"
+    ]
 };
+
+
+
+const huntList = [
+    jan2026Event,
+    feb2026Event
+];

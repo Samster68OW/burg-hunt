@@ -8,35 +8,27 @@ let currentHunt;
 
 function startHunt(huntID) {
     // Load item data
-        switch (huntID) {
-            case 'jan2026Event':
-                currentHunt = jan2026Event;
-                break;
-        }
+        currentHunt = huntList[huntID];
+        currentHunt.huntID = huntID;
     // Load Page
         for (var b=0; b<currentHunt.itemList.length; b++) {
             currentHunt.itemList[b].itemID = b;
         }
-        shuffle(currentHunt.itemList);
+        if (currentHunt.randomize === true) {
+            shuffle(currentHunt.itemList);
+        }
         $('#hunt-title').html(currentHunt.title);
         currentHunt.currentItem = 0;
         loadPage('hunt');
         loadNextItem();
 };
 function shuffle(array) {
-  let currentIndex = array.length;
-
-  // While there remain elements to shuffle...
-  while (currentIndex != 0) {
-
-    // Pick a remaining element...
-    let randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
-  }
+    let currentIndex = array.length;
+    while (currentIndex != 0) {
+        let randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+        [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
 };
 
 
@@ -90,7 +82,7 @@ function submitAnswer() {
                 }
                 else {
                     $('#submit-button').html('Next Item');
-                currentHunt.activity = 'found';
+                    currentHunt.activity = 'found';
                 }
             }
         // If incorrect
@@ -106,7 +98,10 @@ function submitAnswer() {
         loadNextItem();
     }
     else if (currentHunt.activity === 'complete') {
+        $('#courtesy-spot').html(`(Postcard courtesy of ${currentHunt.postcardCredit}.)`);
         $('#postcard-spot').html(`<img src="images/item/${currentHunt.imgSource}/postcard.png" class="img-responsive img-savior" style="width:600px;" alt="Postcard">`);
         loadPage('winScreen');
+        player.postcardData = replaceChar(player.postcardData, 'T', currentHunt.huntID);
+        savePlayerData();
     }
 };
