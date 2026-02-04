@@ -6,7 +6,7 @@ const jan2026Event = {
     title: "Legacy Scavenger Hunt",
     imgSource: "jan2026",
     postcardCredit: "Samster68",
-    style: "free",
+    style: 'free',
     randomize: false,
     itemList: [
         {item:"A rocking horse", location:"Lodge Attic"},
@@ -54,8 +54,8 @@ const feb2026Event = {
     title: "February 2026 Scavenger Hunt",
     imgSource: "feb2026",
     postcardCredit: "Samster68",
-    style: "linear",
-    randomize: true,
+    style: 'free',
+    randomize: false,
     itemList: [],
     roomList: [
         "Beach",

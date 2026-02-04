@@ -17,7 +17,7 @@ function loadFreeItems() {
                 currentHunt.currentProgress.push(false);
                 display += `<div class="col-md-4" style='height:120px;'>
                     <span style='font-size:18px;'>${currentHunt.itemList[a].item}</span><br>
-                    <span id="item-drop-${a}-spot" class='lead'>${generateDropdown(a)}</span>
+                    <span id="item-drop-${a}-spot">${generateDropdown(a)}</span>
                     </div>`;
             if (a % itemsPerRow === itemsPerRow - 1) {
                 display += `</div>`;
@@ -42,7 +42,9 @@ function checkFreeAnswers() {
                     // This item is correct.
                         if (text === currentHunt.itemList[a].location) {
                             currentHunt.currentProgress[a] = true;
-                            $(`#item-drop-${a}-spot`).html(currentHunt.itemList[a].location);
+                            $(`#item-drop-${a}-spot`).html(`<span class="glyphicon glyphicon-ok"></span> ${currentHunt.itemList[a].location}`);
+                            $(`#item-drop-${a}-spot`).addClass('lead');
+                            $(`#item-drop-${a}-spot`).addClass('correctAnswerClass');
                         }
 
                     // This item is wrong.

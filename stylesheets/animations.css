@@ -1,0 +1,25 @@
+/* Animations */
+
+
+
+/* Source */
+/* https://prismic.io/blog/css-text-animations */
+
+
+
+/* Animation Classes */
+.correctAnswerClass {
+    animation: correctAnswer 0.8s;
+    color: yellow;
+}
+@keyframes correctAnswer {
+    0% {
+        color: yellow;
+    }
+    50% {
+        color: green;
+    }
+    100% {
+        color: yellow;
+    }
+}

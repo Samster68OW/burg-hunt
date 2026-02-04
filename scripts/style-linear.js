@@ -26,16 +26,10 @@ function checkLinearAnswer() {
             }
         // If correct
             if (answerCorrect === true) {
-                let currentPercent = currentHunt.currentItem + 1;
-                currentPercent = currentPercent / currentHunt.itemList.length * 100;
-                let display = `<div class="progress">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: ${currentPercent}%;">
-                        <span>Correct!</span>
-                    </div>
-                </div>`;
-                $('.hunt-header').html(display);
+                $('.hunt-header').html('Correct! Well done!');
                 $('#item-img-spot').html(`<img src="images/item/${currentHunt.imgSource}/item_${currentHunt.itemList[currentHunt.currentItem].itemID}.png" alt="${currentHunt.itemList[currentHunt.currentItem].item}" class="img-rounded img-savior">`);
-                $('#room-dropdown-spot').html(`<p class="lead">${currentHunt.itemList[currentHunt.currentItem].location}</p>`);
+                $('#room-dropdown-spot').html(`<p class="lead"><span class="glyphicon glyphicon-ok"></span> ${currentHunt.itemList[currentHunt.currentItem].location}</p>`);
+                $(`#room-dropdown-spot`).addClass('correctAnswerClass');
                 if (currentHunt.currentItem === currentHunt.itemList.length - 1) {
                     $('#submit-button-0').html('Finish Hunt');
                     currentHunt.activity = 'complete';
@@ -54,6 +48,7 @@ function checkLinearAnswer() {
             }
     }
     else if (currentHunt.activity === 'found') {
+        $(`#room-dropdown-spot`).removeClass('correctAnswerClass');
         currentHunt.currentItem++;
         loadNextItem();
     }
