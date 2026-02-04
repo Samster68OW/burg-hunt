@@ -2,7 +2,7 @@
 
 
 
-// Permanent Roooms
+// Permanent Rooms (that are accessible to everyone)
 const cpRoomsDefault = [
     "Beach",
     "Beacon",

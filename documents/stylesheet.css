@@ -53,14 +53,13 @@ h1 {
 
 
 /* Hunts */
-#hunt-container {
+.hunt-container {
     background: #177cd4;
     background: radial-gradient(circle,rgba(23, 124, 212, 1) 0%, rgba(22, 22, 173, 1) 100%);
     border-radius: 15px;
-    height: 550px;
     padding: 25px;
 }
-#hunt-header {
+.hunt-header {
     font-weight: bold;
     height: 45px;
 }
@@ -75,7 +74,7 @@ h1 {
 #room-dropdown-spot {
     height: 50px;
 }
-#room-dropdown {
+.room-dropdown {
     width: 200px;
 }
 #postcard-spot img {

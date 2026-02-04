@@ -6,7 +6,8 @@ const jan2026Event = {
     title: "Legacy Scavenger Hunt",
     imgSource: "jan2026",
     postcardCredit: "Samster68",
-    randomize: true,
+    style: "free",
+    randomize: false,
     itemList: [
         {item:"A rocking horse", location:"Lodge Attic"},
         {item:"A golf bag", location:"Ship's Hold"},
@@ -53,6 +54,7 @@ const feb2026Event = {
     title: "February 2026 Scavenger Hunt",
     imgSource: "feb2026",
     postcardCredit: "Samster68",
+    style: "linear",
     randomize: true,
     itemList: [],
     roomList: [
@@ -82,6 +84,12 @@ const feb2026Event = {
         "Town"
     ]
 };
+
+
+
+// Hunt Styles
+// linear - Show one item at a time. An image is revealed when it is correct.
+// free - Show every item on the scren at a time. Correct answers are set inlayed.
 
 
 
