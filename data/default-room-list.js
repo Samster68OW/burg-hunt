@@ -2,6 +2,10 @@
 
 
 
+// This list should be copy and pasted into new hunts to start the list.
+
+
+
 // Permanent Rooms (that are accessible to everyone)
 const cpRoomsDefault = [
     "Beach",

@@ -24,6 +24,7 @@ body {
 }
 #footer {
     color: white;
+    font-size: 9px;
     padding: 30px;
     text-align: center;
     text-shadow: 1px 1px 2px black;
@@ -31,6 +32,15 @@ body {
 }
 #postcard-display-spot img {
     box-shadow: 10px 10px 20px black;
+}
+.carousel {
+    background-color: white;
+    margin: auto;
+    max-width: 1000px;
+}
+.carousel-inner img {
+    border: 3px solid white;
+    margin: auto;
 }
 
 
