@@ -50,24 +50,24 @@
           <ul class="nav navbar-nav">
             <li><a href="#" onclick="loadPage('home');">Home</a></li>
             <li><a href="#" onclick="loadPage('about');">About</a></li>
+            <li><a href="#" onclick="loadPage('fan-art');">Fan Art</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Comics <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="#" onclick="loadPage('comic'); loadComic(0);">Burg's Tales Issue #1 <span class="label label-success">New!</span></a></li>
               </ul>
             </li>
-            <li><a href="#" onclick="loadPage('fan-art');">Fan Art</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Scavenger Hunts <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#" onclick="loadPage('feb2026');">February 2026 Scavenger Hunt <span class="label label-warning">Coming Soon!</span></a></li>
+                <li><a href="#" onclick="loadPage('feb2026');">Burg's First Scavenger Hunt <span class="label label-warning">Coming Soon!</span></a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#" onclick="loadPage('jan2026');">Legacy Scavenger Hunt</a></li>
               </ul>
             </li>
             <li><a href="#" onclick="loadPage('postcards'); displayPostcards();">Your Postcards</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+        </div>
       </div>
     </nav>
 
@@ -82,7 +82,7 @@
             <div class="row">
               <div class="col-md-6">
                 <h2>Welcome!</h2>
-                <p class="lead p-savior">Welcome to Burg's Scavenger Hunt! This is a fun activity to play while waddling around <a href="https://play.cpzero.net/">Club Penguin Zero</a>. Burg lost some of Captain Rockhopper's cargo and needs your help to locate it! By using the clues provided, you will need to explore Club Penguin Island and identify the locations of his cargo. You cannot fail a hunt, so relax and have fun!</p>
+                <p class="lead p-savior">Welcome to Burg's Scavenger Hunt! This is a fun activity to play while waddling around <a href="https://play.cpzero.net/" target="_black">Club Penguin Zero</a>. Burg lost some of Captain Rockhopper's cargo and needs your help to locate it! By using the clues provided, you will need to explore Club Penguin Island and identify the locations of his cargo. You cannot fail a hunt, so relax, take your time, and have fun! Please keep in mind that this project is not affiliated with Club Penguin Zero and is made by fans.</p>
                 Scavenger Hunt Status<br>
                 <button type="button" class="btn btn-warning" onclick="">There are no active hunts.</button>
                 <br><br>
@@ -100,10 +100,23 @@
       <div class="page-main" id="page-about" hidden>
         <div class="title-area">
           <h1>About</h1><br>
-          <p class="lead p-savior">Burg's Scavenger Hunt was conceptualized in January of 2026 on the <a href="https://discord.gg/JdQA5J7SsZ">Zero Nation Discord server</a>. When scavenger hunts are available, players may start one on this website while exploring Club Penguin Island. The objective is to help Burg find all of the objects scattered across the island. Once you find them all, you win the game! You can find the latest scavenger hunts using the navigation bar at the top of the screen. This site was created using <a href="https://github.com/Samster68OW/burg-hunt">GitHub Pages</a>, <a href="https://getbootstrap.com/docs/3.4/">Bootstrap 3.4.1</a>, and <a href="https://www.glyphicons.com">Glyphicons</a>. It does not collect any user data, but stores a couple variables on the user's browser.</p>
+          <p class="lead p-savior">Burg's Scavenger Hunt was conceptualized in January of 2026 on the <a href="https://discord.gg/JdQA5J7SsZ" target="_black">Zero Nation Discord server</a>. When scavenger hunts are available, players may start one on this website while exploring Club Penguin Island. The objective is to help Burg find all of the objects scattered across the island. Once you find them all, you win the game! You can find the latest scavenger hunts using the navigation bar at the top of the screen. This site was created using GitHub Pages, <a href="https://getbootstrap.com/docs/3.4/" target="_black">Bootstrap 3.4.1</a>, and <a href="https://www.glyphicons.com" target="_black">Glyphicons</a>. It does not collect any user data, but stores a couple variables on the user's browser.</p>
           <p class="lead">The latest CPZero version this site recognizes is v1.0.5.7</p><br>
           <img src="images/site/about_screen_img.png" class="img-responsive img-savior" style="width:800px;" alt="Burg at the Beacon"><br><br>
+
+          <h2>The History of Burg's Hunts</h2><br>
+          <p class="lead p-savior">January 22nd, 2026: The first scavenger hunt image was made, and it was decided to make it an official event on Zero Nation. It was headed by samuel, Samster68, and Litdia. You can find the original hunt <a href="#" onclick="loadPage('jan2026');">here</a>.</p>
+          <p class="lead p-savior">January 30th, 2026: The first build of this site was made public online, missing a lot of its current features. It was not officially released or announced at this point.</p>
+          <p class="lead p-savior">February 12th, 2026: The first <a href="https://www.youtube.com/watch?v=OMqhPY9PAUk" target="_black">YouTube video</a> featuring Burg was released, setting up his story and introducing him to Zero Nation for the first time. The first comic was adjusted slightly to work with this storyline.</p>
+
           <img src="images/site/samster68.png" style="width:100px; height:auto;" alt="Samster68">
+        </div>
+      </div>
+      <div class="page-main" id="page-fan-art" hidden>
+        <div class="title-area">
+          <h1>Fan Art</h1><br>
+          <p class="lead">To be featured here, submit artwork or screenshots from your scavenger hunt on the <a href="https://discord.gg/JdQA5J7SsZ" target="_black">Zero Nation Discord server</a>!</p>
+          <div id="fanart-display-spot"></div>
         </div>
       </div>
       <div class="page-main" id="page-comic" hidden>
@@ -125,13 +138,6 @@
             </a>
           </div>
           <br><span id="comic-publish-spot">???</span>
-        </div>
-      </div>
-      <div class="page-main" id="page-fan-art" hidden>
-        <div class="title-area">
-          <h1>Fan Art</h1><br>
-          <p class="lead">To be featured here, submit artwork or screenshots from your scavenger hunt on the <a href="https://discord.gg/JdQA5J7SsZ">Zero Nation Discord server</a>!</p>
-          <div id="fanart-display-spot"></div>
         </div>
       </div>
       <div class="page-main" id="page-postcards" hidden>
@@ -178,16 +184,17 @@
       <div class="page-main" id="page-jan2026" hidden>
         <div class="title-area">
           <h1>Legacy Scavenger Hunt</h1><br>
-          <p class="lead p-savior">On January 21st, 2026, the image below was unofficially released on the <a href="https://discord.gg/JdQA5J7SsZ">Zero Nation Discord server</a>. This hunt was created during the <a href="https://cpzero.wiki/wiki/Winter_Party">2026 Winter Party</a>. It contains the original ideas for the scavenger hunt, including Burg himself. While this page is not used, it was left on the site to test the site's features. This hunt is not available and it is no longer canon.</p>
+          <p class="lead p-savior">On January 21st, 2026, the image below was unofficially released on the <a href="https://discord.gg/JdQA5J7SsZ" target="_black">Zero Nation Discord server</a>. This hunt was created during the <a href="https://cpzero.wiki/wiki/Winter_Party" target="_black">2026 Winter Party</a>. It contains the original ideas for the scavenger hunt, including Burg himself. While this page is not used, it was left on the site to test the site's features. This hunt is not available and it is no longer canon.</p>
           <br><img src="images/site/jan2026_scavenger_hunt.png" class="img-responsive img-savior" style="width:800px;" alt="Burg asking for help">
         </div>
       </div>
       <div class="page-main" id="page-feb2026" hidden>
         <div class="title-area">
-          <h1>February 2026 Scavenger Hunt</h1><br>
-          <p class="lead p-savior">Will be released on Friday, February 13th!</p><br>
+          <h1>Burg's First Scavenger Hunt</h1><br>
+          <p class="lead p-savior">Rockhopper has entrusted Burg to load his cargo back onto the Migrator, but he accidently left without him! Get caught up on Burg's misadventures by watching this event's trailer on <a href="https://www.youtube.com/watch?v=OMqhPY9PAUk" target="_black">YouTube</a>, and by reading one of the <a href="#" onclick="loadPage('comic'); loadComic(0);">comics</a>. Burg is looking for helpful penguins to help him find all of the items on his list scattered around Club Penguin Island. Good luck!</p><br>
           <button type="button" class="btn btn-warning" onclick="">This scavenger hunt is currently unavailable.</button><br>
-          Availability: Feb 13th<br><br><br>
+          Availability: 3pm PST on Feb 13th<br><br>
+          <br><img src="images/site/feb2026_hunt_trailer.png" class="img-responsive img-savior" style="width:800px;" alt="Trailer screengrab">
         </div>
       </div>
 

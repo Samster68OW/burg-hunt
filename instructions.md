@@ -2,11 +2,11 @@
 
 This document contains step-by-step instructions on how to add more content to the site following its pre-established formula. Below is a list of the featured sections:
 
-- [Adding more Fan Art](#add-fanart)
-- [Adding more Comics](#add-comics)
-- [Adding more Scavenger Hunts](#add-scavengerhunts)
+- [Adding Fan Art](#adding-fan-art)
+- [Adding Comics](#adding-comics)
+- [Adding Scavenger Hunts](#adding-scavenger-hunts)
 
-##  Adding more Fan Art
+##  Adding Fan Art
 
 1. Place the new image inside `images/fan-art`.
 2. Navigate to `data/fan-art-data.js`.
@@ -14,7 +14,7 @@ This document contains step-by-step instructions on how to add more content to t
 4. Update the fields inside the new element including `title` for the name of the art piece, `imgSource` for the name of the file itself, and `fanartCredit` to display the name of its creator.
 5. Remember to save!
 
-## Adding more Comics
+## Adding Comics
 
 ### Adding Comic Page Images and Data
 
@@ -37,7 +37,7 @@ This document contains step-by-step instructions on how to add more content to t
 4. I also recommend updating the Home Page to reflect the new comic strip.
 5. Remember to save!
 
-## Adding more Scavenger Hunts
+## Adding Scavenger Hunts
 
 ### Creating the Scavenger Hunt's Data
 
@@ -60,4 +60,12 @@ This document contains step-by-step instructions on how to add more content to t
 
 ### Creating the Scavenger Hunt's Page
 
-- TODO
+1. Search `index.html` for a div with an id of `page-feb2026`.
+2. Copy this entire element and use it as a template. It needs to be pasted elsewhere in the document.
+3. Change `feb2026` to something else. We'll call it the huntID.
+4. Customize the page however you see fit. Remember to add a button with `onclick="startHunt(n);"` so that users can access the scavenger hunt.
+5. To add the scavenger hunt to the dropdown, search for `loadPage('feb2026')` in `index.html`.
+2. Once you find the lines containing the dropdown items, copy one and fill in your information.
+3. The n value in the `loadPage(n)` function should be the huntID.
+4. I also recommend updating the Home Page to reflect the new scavenger hunt.
+5. Remember to save!
