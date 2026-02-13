@@ -13,8 +13,8 @@ function loadPlayerData() {
         if (localStorage.getItem('postcardData') !== null) {
             player.postcardData = localStorage.getItem('postcardData');
         }
-        if (player.postcardData.length < huntList.length) {
-            for (var a=player.postcardData.length-1; a<huntList.length-1; a++) {
+        if (player.postcardData.length < postcardList.length) {
+            for (var a=player.postcardData.length-1; a<postcardList.length-1; a++) {
                 player.postcardData = `${player.postcardData}F`;
             }
             savePlayerData();
@@ -39,11 +39,11 @@ function savePlayerData() {
 function displayPostcards() {
     // Generate display
         let display = ``;
-        for (var a=huntList.length-1; a>-1; a--) {
+        for (var a=postcardList.length-1; a>-1; a--) {
             if (player.postcardData[a] === 'T') {
-                display += `<p class="lead">${huntList[a].title}</p>`;
-                display += `<img src="images/item/${huntList[a].imgSource}/postcard.png" class="img-responsive img-postcard" style="width:600px;" alt="Postcard"><br>`;
-                display += `(Postcard courtesy of ${huntList[a].postcardCredit}.)<br><br><br>`;
+                display += `<p class="lead">${postcardList[a].title}</p>`;
+                display += `<img src="images/${postcardList[a].imgSource}" class="img-responsive img-postcard" style="width:600px;" alt="Postcard"><br>`;
+                display += `(Postcard courtesy of ${postcardList[a].postcardCredit}.)<br><br><br>`;
             }
         }
     // Show postcards
