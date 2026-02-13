@@ -12,7 +12,7 @@ const cpRoomsDefault = [
     "Beacon",
     "Boiler Room",
     "Book Room",
-    "Cave",
+    "Cave (Pool Room)",
     "Coffee Shop",
     "Dance Lounge",
     "Dock",

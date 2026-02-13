@@ -19,7 +19,7 @@ body {
     margin: auto;
 }
 .img-postcard {
-    border: 3px solid white;
+    background-color: black;
     margin: auto;
 }
 #footer {
