@@ -60,7 +60,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Scavenger Hunts <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#" onclick="loadPage('feb2026');">Burg's First Scavenger Hunt <span class="label label-warning">Coming Soon!</span></a></li>
+                <li><a href="#" onclick="loadPage('feb2026');">Burg's First Scavenger Hunt <span class="label label-success">New!</span></a></li>
                 <li role="separator" class="divider"></li>
                 <li><a href="#" onclick="loadPage('jan2026');">Legacy Scavenger Hunt</a></li>
               </ul>
@@ -84,10 +84,8 @@
                 <h2>Welcome!</h2>
                 <p class="lead p-savior">Welcome to Burg's Scavenger Hunt! This is a fun activity to play while waddling around <a href="https://play.cpzero.net/" target="_black">Club Penguin Zero</a>. Burg lost some of Captain Rockhopper's cargo and needs your help to locate it! By using the clues provided, you will need to explore Club Penguin Island and identify the locations of his cargo. You cannot fail a hunt, so relax, take your time, and have fun! Please keep in mind that this project is not affiliated with Club Penguin Zero and is made by fans.</p>
                 Scavenger Hunt Status<br>
-                <button type="button" class="btn btn-warning" onclick="">There are no active hunts.</button>
+                <button type="button" class="btn btn-success" onclick="loadPage('feb2026');">Click here to view the hunt.</button>
                 <br><br>
-                Latest Comic Strip<br>
-                <button type="button" class="btn btn-success" onclick="loadPage('comic'); loadComic(0);">Burg's Tales: Issue #1</button>
                 <br><br>
               </div>
               <div class="col-md-6">
@@ -193,7 +191,7 @@
           <h1>Burg's First Scavenger Hunt</h1><br>
           <p class="lead p-savior">Rockhopper has entrusted Burg to load his cargo back onto the Migrator, but he accidently left without him! Get caught up on Burg's misadventures by watching this event's trailer on <a href="https://www.youtube.com/watch?v=OMqhPY9PAUk" target="_black">YouTube</a>, and by reading one of the <a href="#" onclick="loadPage('comic'); loadComic(0);">comics</a>. Burg is looking for helpful penguins to help him find all of the items on his list scattered around Club Penguin Island. Good luck!</p>
           <p class="lead p-savior">Most items will be found by simply waddling around the map. However, some may be found in catalogs, books, or magazines. None of the items are found inside of a minigame.</p>
-          <button type="button" class="btn btn-warning" onclick="">This scavenger hunt is currently unavailable.</button><br>
+          <button type="button" class="btn btn-success" onclick="startHunt(1);">Click here to start the hunt!</button><br>
           Availability: 3pm PST on Feb 13th<br><br>
           <br><img src="images/site/feb2026_hunt_trailer.png" class="img-responsive img-savior" style="width:800px;" alt="Trailer screengrab">
         </div>
