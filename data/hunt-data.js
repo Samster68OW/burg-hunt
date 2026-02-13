@@ -5,7 +5,7 @@
 const jan2026Event = {
     title: "Legacy Scavenger Hunt",
     imgSource: "jan2026",
-    postcardCredit: "Samster68",
+    postcardEarnedID: 0,
     style: 'free',
     randomize: false,
     itemList: [
@@ -53,10 +53,12 @@ const jan2026Event = {
 const feb2026Event = {
     title: "Burg's First Scavenger Hunt",
     imgSource: "feb2026",
-    postcardCredit: "samuel",
+    postcardEarnedID: 1,
     style: 'free',
     randomize: true,
     itemList: [
+        // Congratulations, you ruined the hunt for yourself.
+        // Please do not ruin it for other players.
         {item:"A blue jellyfish", location:"Cave (Pool Room)"},
         {item:"Green penguin with a monocle", location:"Gift Shop"},
         {item:"A triple black diamond", location:"Ski Hill"},

@@ -9,7 +9,7 @@ This document contains step-by-step instructions on how to add more content to t
 ##  Adding Fan Art
 
 1. Place the new image inside `images/fan-art`.
-2. Navigate to `data/fan-art-data.js`.
+2. Navigate to `data/misc-data.js`.
 3. Copy an element or line from the array `fanartList` and add it to the end of the array.
 4. Update the fields inside the new element including `title` for the name of the art piece, `imgSource` for the name of the file itself, and `fanartCredit` to display the name of its creator.
 5. Remember to save!
@@ -20,7 +20,7 @@ This document contains step-by-step instructions on how to add more content to t
 
 1. Navigate to `images/comic`. Add a folder with a unique name.
 2. Place your images into this folder using the naming format seen in other folders. (It's zero-indexed)
-3. Navigate to `data/fan-art-data.js`.
+3. Navigate to `data/misc-data.js`.
 3. Copy an element or line from the array `comicList` and add it to the end of the array.
 4. Fill in the fields of the object.
     - `title`: The name of the comic strip.
@@ -48,7 +48,7 @@ This document contains step-by-step instructions on how to add more content to t
     - `imgSource`: Create a folder in `images/item` to hold all of the images for the hunt. Place the name of the folder here.
         - Be sure to add an image called `postcard.png` to this folder.
         - If you are using the linear hunt style, you can add images of each object to this folder.
-    - `postcardCredit`: Input the name of the artist that created the postcard.
+    - `postcardEarnedID`: See the below section.
     - `style`: This can be either of the following:
         - `"linear"`: A linear hunt only shows one object and its image at a time.
         - `"free"`: A free hunt shows every object at a time with no images.
@@ -57,6 +57,15 @@ This document contains step-by-step instructions on how to add more content to t
     - `roomList`: By navigating to `data/default-room-list.js`, you can find a default room list to copy for this array. It can then be further motified to add or remove the rooms that will show up on the player's dropdowns.
 4. Once you are ready to add your scavenger hunt to the site, find the array `huntList` at the bottom of `hunt-data.js` and add your hunt variable to it.
 5. Remember to save!
+
+##  Adding the Scavenger Hunt's Postcard
+
+1. Place the new image somewhere inside the `images` folder.
+2. Navigate to `data/misc-data.js`.
+3. Copy an element or line from the array `postcardList` and add it to the end of the array.
+4. Update the fields inside the new element including `title` for the display name of the postcard, `imgSource` for the name of the file itself, and `postcardCredit` to display the name of its creator.
+5. Back in your `hunt-data` variable, `postcardEarnedID` needs to match the index of the postcard element in `postcardList`.
+6. Remember to save!
 
 ### Creating the Scavenger Hunt's Page
 

@@ -12,8 +12,8 @@
     <link rel="icon" type="image/x-icon" href="images/site/favicon.ico">
     <!-- Internal Javascript -->
      <!-- Data -->
-        <script type="text/javascript" src="data/fan-art-data.js"></script>
         <script type="text/javascript" src="data/hunt-data.js"></script>
+        <script type="text/javascript" src="data/misc-data.js"></script>
      <!-- Scripts -->
         <script type="text/javascript" src="scripts/fan-art-loader.js"></script>
         <script type="text/javascript" src="scripts/hunt-loader.js"></script>
@@ -223,6 +223,10 @@ function loadPage(name) {
   setTimeout(function(){
     $(`#page-${name}`).fadeIn(fadeTimer);
   },fadeTimer);
+};
+
+function devTest() {
+  // I'll use this for stuff later.
 };
 
 
