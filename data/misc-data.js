@@ -13,7 +13,9 @@ const postcardList = [
 
 // Fan Art Data
 const fanartList = [
-    {title: "Burg's Player Card", imgSource: "burg_portrait.png", fanartCredit: "Burg"}
+    {title: "Burg's Player Card", imgSource: "burg_portrait.png", fanartCredit: "Burg"},
+    {title: "Zero Nation Post (Feb 13th, 2026)", imgSource: "ZN_Post_Feb13.png", fanartCredit: "samuel"},
+    {title: "My Friends", imgSource: "my_friends.png", fanartCredit: "Burg"}
 ];
 
 

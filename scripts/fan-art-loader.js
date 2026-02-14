@@ -6,7 +6,7 @@ function loadFanArtPage() {
     // Generate display
         let display = ``;
         for (var a=fanartList.length-1; a>-1; a--) {
-            display += `<p class="lead">${fanartList[a].title} by ${fanartList[a].fanartCredit}</p>`;
+            display += `<p class="lead">"${fanartList[a].title}" by ${fanartList[a].fanartCredit}</p>`;
             display += `<img src="images/fan-art/${fanartList[a].imgSource}" class="img-responsive img-postcard" style="width:600px;" alt="Postcard"><br><br><br>`;
         }
     // Show postcards
