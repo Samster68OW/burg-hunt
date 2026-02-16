@@ -73,7 +73,7 @@ function generateDropdown(dropdownID) {
 // Hunt Complete!
 function completeHunt() {
     $('#courtesy-spot').html(`(Postcard courtesy of ${postcardList[currentHunt.postcardEarnedID].postcardCredit}.)`);
-    $('#postcard-spot').html(`<img src="images/item/${currentHunt.imgSource}/postcard.png" class="img-responsive img-postcard" style="width:600px;" alt="Postcard">`);
+    $('#postcard-spot').html(`<img src="images/postcard/${currentHunt.imgSource}" class="img-responsive img-postcard" style="width:600px;" alt="Postcard">`);
     loadPage('winScreen');
     player.postcardData = replaceChar(player.postcardData, 'T', currentHunt.postcardEarnedID);
     savePlayerData();

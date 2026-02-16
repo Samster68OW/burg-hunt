@@ -40,9 +40,9 @@ function displayPostcards() {
     // Generate display
         let display = ``;
         for (var a=postcardList.length-1; a>-1; a--) {
-            if (player.postcardData[a] === 'T') {
+            if (player.postcardData[a] === 'T' | postcardList[a].alwaysSeen === true) {
                 display += `<p class="lead">${postcardList[a].title}</p>`;
-                display += `<img src="images/${postcardList[a].imgSource}" class="img-responsive img-postcard" style="width:600px;" alt="Postcard"><br>`;
+                display += `<img src="images/postcard/${postcardList[a].imgSource}" class="img-responsive img-postcard" style="width:600px;" alt="Postcard"><br>`;
                 display += `(Postcard courtesy of ${postcardList[a].postcardCredit}.)<br><br><br>`;
             }
         }

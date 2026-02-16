@@ -57,8 +57,6 @@ const feb2026Event = {
     style: 'free',
     randomize: true,
     itemList: [
-        // Congratulations, you ruined the hunt for yourself.
-        // Please do not ruin it for other players.
         {item:"A blue jellyfish", location:"Cave (Pool Room)"},
         {item:"Green penguin with a monocle", location:"Gift Shop"},
         {item:"A triple black diamond", location:"Ski Hill"},
@@ -102,17 +100,3 @@ const feb2026Event = {
         "Town"
     ]
 };
-
-
-
-// Hunt Styles
-// linear - Show one item at a time. An image is revealed when it is correct.
-// free - Show every item on the scren at a time. Correct answers are set inlayed.
-
-
-
-// NEVER REMOVE ELEMENTS FROM THIS ARRAY
-const huntList = [
-    jan2026Event,
-    feb2026Event
-];

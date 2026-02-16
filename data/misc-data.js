@@ -5,8 +5,8 @@
 // Postcard Data
 // NEVER REMOVE ELEMENTS FROM THIS ARRAY
 const postcardList = [
-    {title: "Legacy Scavenger Hunt", imgSource: "item/jan2026/postcard.png", postcardCredit:"Samster68"},
-    {title: "Burg's First Scavenger Hunt", imgSource: "item/feb2026/postcard.png", postcardCredit:"samuel"}
+    {title: "Legacy Scavenger Hunt", imgSource: "placeholder.png", postcardCredit:"Samster68", alwaysSeen:false},
+    {title: "Burg's First Scavenger Hunt", imgSource: "feb2026.png", postcardCredit:"samuel", alwaysSeen:true}
 ];
 
 
