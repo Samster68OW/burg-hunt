@@ -17,3 +17,8 @@ const huntList = [
 const activeHunt = false;
 // Set the status of the active hunt. (false = coming soon, true = available)
 const activeHuntStatus = false;
+
+
+
+// Latest CPZ Version
+const latestVersion = `v0.1.5.9`;
