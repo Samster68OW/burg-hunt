@@ -70,6 +70,26 @@ h1 {
 
 
 
+/* Progression Page */
+#progress-form input {
+    margin-right: 0.8rem;
+}
+.progress-form {
+    background: #177cd4;
+    background: radial-gradient(circle,rgba(23, 124, 212, 1) 0%, rgb(15, 15, 122) 100%);
+    border-radius: 15px;
+    padding: 15px;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.custom-text-field {
+    color: black;
+    text-align: right;
+    width: 50px;
+}
+
+
+
 /* Hunts */
 .hunt-container {
     background: #177cd4;

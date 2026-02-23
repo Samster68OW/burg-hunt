@@ -5,6 +5,7 @@
 const jan2026Event = {
     title: "Legacy Scavenger Hunt",
     imgSource: "jan2026",
+    availability: "Jan 21st - 25th, 2026",
     postcardEarnedID: 0,
     style: 'free',
     randomize: false,
@@ -53,6 +54,7 @@ const jan2026Event = {
 const feb2026Event = {
     title: "Burg's First Scavenger Hunt",
     imgSource: "feb2026",
+    availability: "Feb 13th - 14th, 2026",
     postcardEarnedID: 1,
     style: 'free',
     randomize: true,
@@ -72,6 +74,47 @@ const feb2026Event = {
         {item:"A pair of big blue shoes", location:"Sports Shop"},
         {item:"The word 'Express'", location:"Ski Hill"},
         {item:"The word 'MENU'", location:"Pizza Parlor"}
+    ],
+    roomList: [
+        "Beach",
+        "Beacon",
+        "Boiler Room",
+        "Book Room",
+        "Cave (Pool Room)",
+        "Coffee Shop",
+        "Dance Lounge",
+        "Dock",
+        "Dojo",
+        "Gift Shop",
+        "Ice Rink",
+        "Lighthouse",
+        "Lodge Attic",
+        "Mine",
+        "Mine Shack",
+        "Night Club",
+        "Pizza Parlor",
+        "Plaza",
+        "Ski Hill",
+        "Ski Lodge",
+        "Ski Village",
+        "Snow Forts",
+        "Sports Shop",
+        "Town"
+    ]
+};
+
+
+
+// TODO
+const mar2026Event = {
+    title: "????",
+    imgSource: "mar2026",
+    availability: "Coming Soon!",
+    postcardEarnedID: 2,
+    style: 'free',
+    randomize: true,
+    itemList: [
+        {item:"", location:""},
     ],
     roomList: [
         "Beach",

@@ -20,14 +20,14 @@ function generateDropdowns() {
             for (var a=huntList.length-1; a>-1; a--) {
                 if (a !== activeHunt) {
                     display += `<li><a href="#" onclick="loadPage('${huntList[a].imgSource}');">${huntList[a].title}</a></li>`;
-                    $(`#${huntList[a].imgSource}-btn-spot`).html(`<button type="button" class="btn btn-danger" onclick="">This hunt is no longer available.</button>`);
+                    $(`#${huntList[a].imgSource}-btn-spot`).html(`<button type="button" class="btn btn-danger" onclick="">This hunt is no longer available.</button><br>Availability: ${huntList[a].availability}`);
                 }
                 else if (a === activeHunt) {
                     if (activeHuntStatus === false) {
-                        $(`#${huntList[a].imgSource}-btn-spot`).html(`<button type="button" class="btn btn-warning" onclick="">This hunt is coming soon!</button>`);
+                        $(`#${huntList[a].imgSource}-btn-spot`).html(`<button type="button" class="btn btn-warning" onclick="">This hunt is coming soon!</button><br>Availability: ${huntList[a].availability}`);
                     }
                     else if (activeHuntStatus === true) {
-                        $(`#${huntList[a].imgSource}-btn-spot`).html(`<button type="button" class="btn btn-success" onclick="startHunt(${a});">Click to start the scavenger hunt!</button>`);
+                        $(`#${huntList[a].imgSource}-btn-spot`).html(`<button type="button" class="btn btn-success" onclick="startHunt(${a});">Click to start the scavenger hunt!</button><br>Availability: ${huntList[a].availability}`);
                     }
                 }
             }
@@ -50,7 +50,7 @@ function generateDropdowns() {
         display = ``;
         for (var a=comicList.length-1; a>-1; a--) {
             if (a === comicList.length-1) {
-                display += `<li><a href="#" onclick="loadPage('comic'); loadComic(${a});">${comicList[a].title} <span class="label label-success">Newest!</span></a></li>`;
+                display += `<li><a href="#" onclick="loadPage('comic'); loadComic(${a});">${comicList[a].title} <span class="label label-success">New!</span></a></li>`;
             }
             else {
                 display += `<li><a href="#" onclick="loadPage('comic'); loadComic(${a});">${comicList[a].title}</a></li>`;

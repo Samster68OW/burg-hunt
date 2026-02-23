@@ -2,12 +2,7 @@
 
 
 
-/* Source */
-/* https://prismic.io/blog/css-text-animations */
-
-
-
-/* Animation Classes */
+/* Correct Answer */
 .correctAnswerClass {
     animation: correctAnswer 0.8s;
     color: yellow;

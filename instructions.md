@@ -15,6 +15,7 @@ The script `control-center.js` controls which scavenger hunts are currently acti
 - `activeHuntStatus`: Defaults to false. When `activeHunt` is a number, this variable becomes relevant.
     - `false`: This means that the selected hunt is coming soon. It cannot be played, but it will be showcased on the Home page and the dropdown.
     - `true`: This means that the selected hunt is active and available to be played. It will be showcased on the Home page and the dropdown.
+- `latestVersion`: Displays the latest version of Club Penguin Zero that the website is built for. Controls nothing.
 
 ## Adding Scavenger Hunts
 
@@ -27,6 +28,7 @@ The script `control-center.js` controls which scavenger hunts are currently acti
     - `imgSource`: Create a folder in `images/item` to hold all of the images for the hunt. Place the name of the folder here.
         - Be sure to add an image called `postcard.png` to this folder.
         - If you are using the linear hunt style, you can add images of each object to this folder.
+    - `availability`: Displays below the button on the hunt's main page. Effects nothing.
     - `postcardEarnedID`: See the below section.
     - `style`: This can be either of the following:
         - `"linear"`: A linear hunt only shows one object and its image at a time.
