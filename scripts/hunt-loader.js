@@ -21,6 +21,7 @@ function startHunt(huntID) {
     // Hunt Styles
         $('#hunt-container-linear').fadeOut(0);
         $('#hunt-container-free').fadeOut(0);
+        $('#hunt-container-bingo').fadeOut(0);
         $(`#hunt-container-${currentHunt.style}`).fadeIn(0);
     // Load Page
         loadHuntContent();
@@ -36,6 +37,8 @@ function loadHuntContent() {
             break;
         case 'free': loadFreeItems();
             break;
+        case 'bingo': loadBingoCard();
+            break;
     }
 };
 function submitAnswer() {
@@ -43,6 +46,8 @@ function submitAnswer() {
         case 'linear': checkLinearAnswer();
             break;
         case 'free': checkFreeAnswers();
+            break;
+        case 'bingo': submitBingoCard();
             break;
     }
 };
@@ -72,8 +77,8 @@ function generateDropdown(dropdownID) {
 
 // Hunt Complete!
 function completeHunt() {
-    $('#courtesy-spot').html(`(Postcard courtesy of ${postcardList[currentHunt.postcardEarnedID].postcardCredit}.)`);
-    $('#postcard-spot').html(`<img src="images/postcard/${currentHunt.imgSource}" class="img-responsive img-postcard" style="width:600px;" alt="Postcard">`);
+    $('#win-msg-spot').html(`${currentHunt.winMsg}<br>(Postcard courtesy of ${postcardList[currentHunt.postcardEarnedID].postcardCredit}.)`);
+    $('#postcard-spot').html(`<img src="images/postcard/${postcardList[currentHunt.postcardEarnedID].imgSource}" class="img-responsive img-postcard" style="width:600px;" alt="Postcard">`);
     loadPage('winScreen');
     player.postcardData = replaceChar(player.postcardData, 'T', currentHunt.postcardEarnedID);
     savePlayerData();

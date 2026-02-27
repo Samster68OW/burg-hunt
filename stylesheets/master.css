@@ -67,25 +67,10 @@ h1 {
     text-align: left;
     text-indent: 50px;
 }
-
-
-
-/* Progression Page */
-#progress-form input {
-    margin-right: 0.8rem;
-}
-.progress-form {
-    background: #177cd4;
-    background: radial-gradient(circle,rgba(23, 124, 212, 1) 0%, rgb(15, 15, 122) 100%);
+.lore-box {
+    background: radial-gradient(circle,rgba(23, 124, 212, 1) 0%, rgba(22, 22, 173, 1) 100%);
     border-radius: 15px;
-    padding: 15px;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-.custom-text-field {
-    color: black;
-    text-align: right;
-    width: 50px;
+    padding: 20px;
 }
 
 
@@ -117,4 +102,20 @@ h1 {
 }
 #postcard-spot img {
     box-shadow: 10px 10px 20px black;
+}
+#bingo-table {
+    background: radial-gradient(circle,rgba(22, 22, 173, 1) 0%, rgb(11, 11, 83) 100%);
+    margin: auto;
+}
+#bingo-table td {
+    background-size: 100%;
+    border: 2px solid white;
+    height: 120px;
+    padding: 5px;
+    text-align: center;
+    width: 120px;
+}
+#bingo-table td:hover {
+    cursor: pointer;
+    opacity: 0.5;
 }

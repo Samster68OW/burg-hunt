@@ -20,14 +20,14 @@ function generateDropdowns() {
             for (var a=huntList.length-1; a>-1; a--) {
                 if (a !== activeHunt) {
                     display += `<li><a href="#" onclick="loadPage('${huntList[a].imgSource}');">${huntList[a].title}</a></li>`;
-                    $(`#${huntList[a].imgSource}-btn-spot`).html(`<button type="button" class="btn btn-danger" onclick="">This hunt is no longer available.</button><br>Availability: ${huntList[a].availability}`);
+                    $(`#${huntList[a].imgSource}-btn-spot`).html(`<button type="button" class="btn btn-danger" onclick="">This adventure is no longer available.</button><br>Availability: ${huntList[a].availability}`);
                 }
                 else if (a === activeHunt) {
                     if (activeHuntStatus === false) {
-                        $(`#${huntList[a].imgSource}-btn-spot`).html(`<button type="button" class="btn btn-warning" onclick="">This hunt is coming soon!</button><br>Availability: ${huntList[a].availability}`);
+                        $(`#${huntList[a].imgSource}-btn-spot`).html(`<button type="button" class="btn btn-warning" onclick="">This adventure is coming soon!</button><br>Availability: ${huntList[a].availability}`);
                     }
                     else if (activeHuntStatus === true) {
-                        $(`#${huntList[a].imgSource}-btn-spot`).html(`<button type="button" class="btn btn-success" onclick="startHunt(${a});">Click to start the scavenger hunt!</button><br>Availability: ${huntList[a].availability}`);
+                        $(`#${huntList[a].imgSource}-btn-spot`).html(`<button type="button" class="btn btn-success" onclick="startHunt(${a});">Click to start the adventure!</button><br>Availability: ${huntList[a].availability}`);
                     }
                 }
             }
@@ -35,14 +35,14 @@ function generateDropdowns() {
 
     // Generate button on Home Page
         if (activeHunt === false) {
-            $(`#home-btn-spot`).html(`<button type="button" class="btn btn-warning" onclick="">There are no active hunts.</button>`);
+            $(`#home-btn-spot`).html(`<button type="button" class="btn btn-danger" onclick="">There are no active adventures.</button>`);
         }
         else {
             if (activeHuntStatus === false) {
-                $(`#home-btn-spot`).html(`<button type="button" class="btn btn-warning" onclick="loadPage('${huntList[activeHunt].imgSource}');">There is a hunt coming soon!</button>`);
+                $(`#home-btn-spot`).html(`<button type="button" class="btn btn-warning" onclick="loadPage('${huntList[activeHunt].imgSource}');">There is an adventure coming soon!</button>`);
             }
             else if (activeHuntStatus === true) {
-                $(`#home-btn-spot`).html(`<button type="button" class="btn btn-success" onclick="loadPage('${huntList[activeHunt].imgSource}');">View the ongoing scavenger hunt!</button>`);
+                $(`#home-btn-spot`).html(`<button type="button" class="btn btn-success" onclick="loadPage('${huntList[activeHunt].imgSource}');">View the ongoing adventure!</button>`);
             }
         }
     

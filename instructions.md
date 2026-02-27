@@ -33,8 +33,9 @@ The script `control-center.js` controls which scavenger hunts are currently acti
     - `style`: This can be either of the following:
         - `"linear"`: A linear hunt only shows one object and its image at a time.
         - `"free"`: A free hunt shows every object at a time with no images.
+        - `"bingo"`: Creates a 5x5 grid of objectives. 5 in a line must be completed for the card to be turned in.
     - `randomize`: Can be either true or false. Determines if the objects should be show to the player in a random order.
-    - `itemList`: An array of objects. Each element has the description of what the player is looking for, as well as the room where it is located.
+    - `itemList`: An array of objects. Each element has the description of what the player is looking for, as well as the room where it is located. In the bingo style, objectives are inserted instead.
     - `roomList`: By navigating to `data/default-room-list.js`, you can find a default room list to copy for this array. It can then be further motified to add or remove the rooms that will show up on the player's dropdowns.
 4. Once you are ready to add your scavenger hunt to the site, find the array `huntList` at the top of `control-center.js` and add your hunt variable to it.
 5. Remember to save!

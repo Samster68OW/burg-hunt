@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Burg's Scavenger Hunt</title>
+    <title>Burg's Adventures</title>
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
@@ -18,7 +18,7 @@
         <script type="text/javascript" src="scripts/hunt-loader.js"></script>
         <script type="text/javascript" src="scripts/misc-loader.js"></script>
         <script type="text/javascript" src="scripts/player-data.js"></script>
-        <script type="text/javascript" src="scripts/progression.js"></script>
+        <script type="text/javascript" src="scripts/style-bingo.js"></script>
         <script type="text/javascript" src="scripts/style-free.js"></script>
         <script type="text/javascript" src="scripts/style-linear.js"></script>
         <script type="text/javascript" src="control-center.js"></script>
@@ -46,14 +46,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Burg's Scavenger Hunt</a>
+          <a class="navbar-brand" href="#">Burg's Adventures</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li><a href="#" onclick="loadPage('home');">Home</a></li>
             <li><a href="#" onclick="loadPage('burgs-story');">Burg's Story</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Scavenger Hunts <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adventures <span class="caret"></span></a>
               <ul class="dropdown-menu" id="hunt-dropdown-spot"></ul>
             </li>
             <li class="dropdown">
@@ -63,11 +63,11 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artwork <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#" onclick="loadPage('postcards'); displayPostcards();">Your Postcards</a></li>
+                <li><a href="#" onclick="loadPage('postcards');">Your Postcards</a></li>
                 <li><a href="#" onclick="loadPage('fan-art');">Fan Art</a></li>
               </ul>
             </li>
-            <!--<li><a href="#" onclick="loadPage('cpz-progress'); updateProgressStats();">CPZ Progression</a></li>-->
+            <!--<li><a href="#" onclick="loadPage('cpz-progress');">CPZ Progression</a></li>-->
           </ul>
         </div>
       </div>
@@ -79,13 +79,13 @@
     <div class="container">
       <div class="page-main" id="page-home" hidden>
         <div class="title-area">
-          <h1>Burg's Scavenger Hunt</h1><br>
+          <h1>Burg's Adventures</h1><br>
           <div class="container">
             <div class="row">
               <div class="col-md-6">
                 <h2>Welcome!</h2>
-                <p class="lead p-savior">Welcome to Burg's Scavenger Hunt! This is a fun activity to play while waddling around <a href="https://play.cpzero.net/" target="_black">Club Penguin Zero</a>. Burg lost some of Captain Rockhopper's cargo and needs your help to locate it! By using the clues provided, you will need to explore Club Penguin Island and identify the locations of his cargo. You cannot fail a hunt, so relax, take your time, and have fun! Please keep in mind that this project is not affiliated with Club Penguin Zero and is made by fans.</p>
-                Scavenger Hunt Status<br>
+                <p class="lead p-savior">Welcome to Burg's Adventures! This is a simple program to play while waddling around <a href="https://play.cpzero.net/" target="_black">Club Penguin Zero</a>. Each adventure features a minigame or puzzle that you complete by playing the game. You cannot lose an adventure, so relax, take your time, and have fun! Please keep in mind that this project is not affiliated with Club Penguin Zero and is made by fans.</p>
+                Adventure Status<br>
                 <div id="home-btn-spot"></div>
                 <br><br><br>
               </div>
@@ -96,15 +96,16 @@
             <div class="row">
               <div class="col-md-12">
                 <h1>About</h1><br>
-                <p class="lead p-savior">Burg's Scavenger Hunt was conceptualized in January of 2026 on the <a href="https://discord.gg/JdQA5J7SsZ" target="_black">Zero Nation Discord server</a>. When scavenger hunts are available, players may start one on this website while exploring Club Penguin Island. The objective is to help Burg find all of the objects scattered across the island. Once you find them all, you win the game! You can find the latest scavenger hunts using the navigation bar at the top of the screen. This site was created using GitHub Pages, <a href="https://getbootstrap.com/docs/3.4/" target="_black">Bootstrap 3.4.1</a>, and <a href="https://www.glyphicons.com" target="_black">Glyphicons</a>. It does not collect any user data.</p>
+                <p class="lead p-savior">Burg's Adventures (originally called "Burg's Scavenger Hunts") was conceptualized in January of 2026 on the <a href="https://discord.gg/JdQA5J7SsZ" target="_black">Zero Nation Discord server</a>. When adventures are available, players may start one on this website while exploring Club Penguin Island. You can find the latest adventure using the navigation bar at the top of the screen. This site was created using GitHub Pages, <a href="https://getbootstrap.com/docs/3.4/" target="_black">Bootstrap 3.4.1</a>, and <a href="https://www.glyphicons.com" target="_black">Glyphicons</a>. It does not collect any user data.</p>
                 <p class="lead">The latest CPZero version this site recognizes is <span id="cpz-v-spot"></span>.</p><br>
                 <img src="images/site/about_screen_img.png" class="img-responsive img-savior" style="width:800px;" alt="Burg at the Beacon"><br><br>
 
-                <h2>The History of Burg's Hunts</h2><br>
+                <h2>The History of Burg's Adventures</h2><br>
                 <p class="lead p-savior">January 22nd, 2026: The first scavenger hunt image was made, and it was decided to make it an official event on Zero Nation. It was headed by samuel, Samster68, and Litdia. You can find the original hunt <a href="#" onclick="loadPage('jan2026');">here</a>.</p>
                 <p class="lead p-savior">January 30th, 2026: The first build of this site was made public online, missing a lot of its current features. It was not officially released or announced at this point.</p>
                 <p class="lead p-savior">February 11th, 2026: The first <a href="https://www.youtube.com/watch?v=OMqhPY9PAUk" target="_black">YouTube video</a> featuring Burg was released, setting up his story and introducing him to Zero Nation for the first time. The first comic was adjusted slightly to work with this storyline.</p>
                 <p class="lead p-savior">February 13th, 2026: The <a href="#" onclick="loadPage('feb2026');">first scavenger hunt</a> began with Burg making a few appearances in public! Penguins got to see the site and particpate in the hunt, and then chat with Burg afterwards. We learned a lot about what players' expectations of events are as well as the best ways to time Burg's appearances.</p>
+                <p class="lead p-savior">February 26th, 2026: The site was renamed to "Burg's Adventures".</p>
 
                 <img src="images/site/samster68.png" style="width:100px; height:auto;" alt="Samster68">
               </div>
@@ -115,7 +116,7 @@
       <div class="page-main" id="page-burgs-story" hidden>
         <div class="title-area">
           <h1>Burg's Story</h1><br>
-            <div class="progress-form">
+            <div class="lore-box">
 
               <h2>Merry Walrus 2025</h2>
               <p class="lead p-savior">Mid-December - The Migrator arrived on Club Penguin Island for Merry Walrus.</p>
@@ -123,7 +124,7 @@
               <p class="lead p-savior">January 25th - Rockhopper asks Burg to help him collect his supplies before they leave the island. Burg heads out to find it, but the Migrator leaves! (<a href="https://www.youtube.com/watch?v=OMqhPY9PAUk" target="_black">Watch Video</a>)</p>
               <p class="lead p-savior">February 1st - Burg goes to Gary in the Sports Shop to help him transport all of Rockhopper's supplies. Gary lets him use his new Cargo Transporter 2999. Unfortunately, it exploded and scattered the cargo all across Club Penguin Zero! Burg got flung into the sea and started to slowly drift back to shore... (<a href="https://www.youtube.com/watch?v=OMqhPY9PAUk" target="_black">Watch Video</a>)</p>
               <p class="lead p-savior">February 13th - Burg wakes up on the Beach and realizes that both the cargo and the Migrator are gone. He finds a place to live in the forest. Then he decided to recruit friendly penguins to help him locate Rockhopper's cargo. (<a href="#" onclick="loadPage('comic'); loadComic(0);">View Comic</a>)</p>
-              <p class="lead p-savior">February 14th-15th - Burg had help from dozens of penguins across the island locate Rockhopper's cargo. He waddles around and made lots of new friends! (<a href="#" onclick="loadPage('feb2026');">View Hunt</a>)</p>
+              <p class="lead p-savior">February 14th-15th - Burg had help from dozens of penguins across the island to locate Rockhopper's cargo. He waddles around and made lots of new friends! (<a href="#" onclick="loadPage('feb2026');">View Adventure</a>)</p>
               <h2>Late February 2026</h2>
               <p class="lead p-savior">February 21st - The Migrator turned around to return to the island because Rockhopper forgot his car keys. (<a href="https://www.youtube.com/watch?v=A_2wxQbjZ1o" target="_black">YouTube video</a>)</p>
 
@@ -133,14 +134,14 @@
       <div class="page-main" id="page-fan-art" hidden>
         <div class="title-area">
           <h1>Fan Art</h1><br>
-          <p class="lead">To be featured here, submit artwork or screenshots from your scavenger hunt on the <a href="https://discord.gg/JdQA5J7SsZ" target="_black">Zero Nation Discord server</a>!</p>
+          <p class="lead">To be featured here, submit artwork or screenshots from your adventures on the <a href="https://discord.gg/JdQA5J7SsZ" target="_black">Zero Nation Discord server</a>!</p>
           <div id="fanart-display-spot"></div>
         </div>
       </div>
       <div class="page-main" id="page-postcards" hidden>
         <div class="title-area">
           <h1>Your Postcards</h1><br>
-          <p class="lead">Complete scavenger hunts to unlock more postcards!</p>
+          <p class="lead">Complete adventures to unlock more postcards!</p>
           <div id="postcard-display-spot"></div>
         </div>
       </div>
@@ -165,52 +166,10 @@
           <br><span id="comic-publish-spot">???</span>
         </div>
       </div>
-      <div class="page-main" id="page-cpz-progress" hidden>
-        <div class="title-area">
-          <h1>Club Penguin Zero Progression</h1><br>
-          <div class="container">
-            <div class="row progress-form">
-              <div class="col-md-6">
-                <h2>Statistics</h2><br>
-                <div>Stamp Completion</div>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="player-stamp-progress-bar"></div>
-                </div>
-                <div>Total Completion</div>
-                <div class="progress">
-                  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="player-total-progress-bar"></div>
-                </div>
-                <br><br>
-              </div>
-              <div class="col-md-6">
-                <h2>Objectives</h2>
-                <div style="text-align:left;">
-                  <form role="form" id="progress-form">
-                    <h3>Stampbook</h3>
-                    <input type="number" placeholder="0" class="custom-text-field" min="0" max="92" id="stamp-text-field"> / 92 Stamps<br>
-                    <h3>Game Upgrades</h3>
-                    <input type="checkbox" id="upgrade-1"><label for="upgrade-1"> Hydro Hopper: Purchase a Wakeboard</label><br>
-                    <input type="checkbox" id="upgrade-2"><label for="upgrade-2"> Ice Fishing: Purchase a Fishing Rod</label><br>
-                    <input type="checkbox" id="upgrade-3"><label for="upgrade-3"> DJ3K: Purchase all 7 Records</label><br>
-                    <h3>Miscellaneous</h3>
-                    <input type="checkbox" id="misc-1"><label for="misc-1"> PSA: Obtain the Spy Phone</label><br>
-                    <h3>Minigame Mastery</h3>
-                    <input type="checkbox" id="minigame-1"><label for="minigame-1"> Bean Counters: Score ???? Points</label><br>
-                    <input type="checkbox" id="minigame-2"><label for="minigame-2"> Hydro Hopper: Score ???? Points</label><br>
-                    <input type="checkbox" id="minigame-3"><label for="minigame-3"> Jellybean Counters: Score ???? Points</label><br>
-                    <input type="checkbox" id="minigame-4"><label for="minigame-4"> Snow Trekker: Score 450 Points</label><br>
-                  </form>
-                </div>
-                <br>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div class="page-main" id="page-winScreen" hidden>
         <div class="title-area">
           <h1>Congratulations!</h1><br>
-          <p class="lead">You completed the scavenger hunt! Burg gave you a postcard as thanks.<br><span id="courtesy-spot"></span></p><br>
+          <p class="lead" id="win-msg-spot">???</p><br>
           <div id="postcard-spot"></div><br><br><br>
           <button type="button" class="btn btn-success" onclick="loadPage('home');">Thank you!</button>
         </div>
@@ -234,6 +193,12 @@
             <p class="lead hunt-header">???</p>
             <div id="free-list-spot"></div>
             <button type="button" class="btn btn-success" onclick="submitAnswer();" id="submit-button-1">???</button>
+          </div>
+          <div id="hunt-container-bingo" class="hunt-container" hidden>
+            <p class="hunt-title">???</p>
+            <p class="lead hunt-header">???</p>
+            <div id="bingo-card-spot"></div><br><br>
+            <button type="button" class="btn" onclick="submitAnswer();" id="submit-button-2">???</button>
           </div>
         </div>
       </div>
@@ -286,15 +251,13 @@ function loadPage(name) {
   const fadeTimer = 200;
   $('.page-main').fadeOut(fadeTimer);
   $(".navbar-collapse").collapse('hide');
+  switch (name) {
+    case 'postcards': displayPostcards(); break;
+  };
   setTimeout(function(){
     $(`#page-${name}`).fadeIn(fadeTimer);
   },fadeTimer);
 };
-
-let progressForm = document.getElementById('progress-form');
-progressForm.addEventListener('input', function (event) {
-  updateProgressStats();
-});
 
 
 
