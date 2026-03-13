@@ -6,7 +6,8 @@
 // NEVER REMOVE ELEMENTS FROM THIS ARRAY
 const huntList = [
     jan2026Event,
-    feb2026Event
+    feb2026Event,
+    mar2026Event
 ];
 
 
@@ -14,11 +15,11 @@ const huntList = [
 // Active Scavenger Hunt
 // Set this to false if there are no active hunts.
 // Set this to the index of the hunt above.
-const activeHunt = false;
+const activeHunt = 2;
 // Set the status of the active hunt. (false = coming soon, true = available)
 const activeHuntStatus = false;
 
 
 
 // Latest CPZ Version
-const latestVersion = `v0.1.6.7`;
+const latestVersion = `v1.0.7.1`;

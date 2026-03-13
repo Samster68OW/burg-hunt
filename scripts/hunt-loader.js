@@ -10,6 +10,16 @@ function startHunt(huntID) {
     // Load item data
         currentHunt = huntList[huntID];
         currentHunt.huntID = huntID;
+    // Works on mobile?
+        if (player.deviceType === 'mobile') {
+            switch (currentHunt.style) {
+                case 'bingo':
+                    alert("This adventure cannot be played on a mobile device.");
+                    return
+                    break;
+            }
+        }
+    // Setup items
         for (var b=0; b<currentHunt.itemList.length; b++) {
             currentHunt.itemList[b].itemID = b;
         }
@@ -22,6 +32,7 @@ function startHunt(huntID) {
         $('#hunt-container-linear').fadeOut(0);
         $('#hunt-container-free').fadeOut(0);
         $('#hunt-container-bingo').fadeOut(0);
+        $('#hunt-container-math').fadeOut(0);
         $(`#hunt-container-${currentHunt.style}`).fadeIn(0);
     // Load Page
         loadHuntContent();
@@ -39,6 +50,8 @@ function loadHuntContent() {
             break;
         case 'bingo': loadBingoCard();
             break;
+        case 'math': loadMathItems();
+            break;
     }
 };
 function submitAnswer() {
@@ -48,6 +61,8 @@ function submitAnswer() {
         case 'free': checkFreeAnswers();
             break;
         case 'bingo': submitBingoCard();
+            break;
+        case 'math': checkMathAnswers();
             break;
     }
 };

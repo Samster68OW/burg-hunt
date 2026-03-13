@@ -3,12 +3,18 @@
 
 
 let player = {
-    postcardData: ''
+    postcardData: '',
+    deviceType: ''
 };
 
 
 
 function loadPlayerData() {
+    // Device Type
+        player.deviceType = 'desktop';
+        if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
+            player.deviceType = 'mobile';
+        }
     // Postcard Data
         if (localStorage.getItem('postcardData') !== null) {
             player.postcardData = localStorage.getItem('postcardData');

@@ -34,6 +34,7 @@ The script `control-center.js` controls which scavenger hunts are currently acti
         - `"linear"`: A linear hunt only shows one object and its image at a time.
         - `"free"`: A free hunt shows every object at a time with no images.
         - `"bingo"`: Creates a 5x5 grid of objectives. 5 in a line must be completed for the card to be turned in.
+        - `"math"`: A more customizable style with text fields. Numbers are placed in the fields to calculate a given value.
     - `randomize`: Can be either true or false. Determines if the objects should be show to the player in a random order.
     - `itemList`: An array of objects. Each element has the description of what the player is looking for, as well as the room where it is located. In the bingo style, objectives are inserted instead.
     - `roomList`: By navigating to `data/default-room-list.js`, you can find a default room list to copy for this array. It can then be further motified to add or remove the rooms that will show up on the player's dropdowns.

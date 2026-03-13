@@ -107,8 +107,32 @@ const feb2026Event = {
 
 
 
-// TODO
 const mar2026Event = {
+    title: "The Pi Day Puzzle",
+    imgSource: "mar2026",
+    availability: "March 14th - 15th, 2026",
+    postcardEarnedID: 0,
+    style: 'math',
+    randomize: false,
+    winMsg: "You solved the math problem!",
+    itemList: [
+        {item: "Item 1", flavorText: "Bottom text"},
+        {item: "Item 2", flavorText: "Bottom text"},
+        {item: "Item 3", flavorText: "Bottom text"},
+        {item: "Item 4", flavorText: "Bottom text"},
+        {item: "Item 5", flavorText: "Bottom text"},
+        {item: "Item 6", flavorText: "Bottom text"},
+        {item: "Item 7", flavorText: "Bottom text"},
+        {item: "Item 8", flavorText: "Bottom text"},
+        {item: "Item 9", flavorText: "Bottom text"},
+        {item: "Item 10", flavorText: "Bottom text"}
+    ]
+};
+
+
+
+// Unused
+const bingoTestEvent = {
     title: "Bingo Test",
     imgSource: "mar2026",
     availability: "Testing!",
@@ -118,29 +142,29 @@ const mar2026Event = {
     winMsg: "You scored a bingo! You were given a postcard as thanks.",
     itemList: [
         {obj: "Score 400 points in one round of Snow Trekker"},
-        {obj: "Take a selfie with Sell"},
+        {obj: "Take a screenshot selfie with Sell"},
         {obj: "Earn coins in the Coffee Shop"},
         {obj: "Earn 3000 points in one round of Hydro Hopper"},
         {obj: "Be in the same room as a dev or mod"},
         {obj: "Win a match of Find Four"},
         {obj: "Catch the Mullet"},
         {obj: "Like an igloo with less than 100 Likes"},
-        {obj: "Obj 1-3"},
-        {obj: "Obj 1-4"},
-        {obj: "Obj 2-0"},
-        {obj: "Obj 2-1"},
-        {obj: "Obj 2-2"},
-        {obj: "Obj 2-3"},
-        {obj: "Obj 2-4"},
-        {obj: "Obj 3-0"},
-        {obj: "Obj 3-1"},
-        {obj: "Obj 3-2"},
-        {obj: "Obj 3-3"},
-        {obj: "Obj 3-4"},
-        {obj: "Obj 4-0"},
-        {obj: "Obj 4-1"},
-        {obj: "Obj 4-2"},
-        {obj: "Obj 4-3"},
-        {obj: "Obj 4-4"},
+        {obj: "Win a match of Mancala"},
+        {obj: "Form a band of four penguins in the Lighthouse"},
+        {obj: "Earn 50 or more coins in the Coffee Shop"},
+        {obj: "Throw pizza at a penguin playing the piano"},
+        {obj: "Use the Night Vision goggles somewhere dark"},
+        {obj: "Score 4000 points in a round of Cart Surfer"},
+        {obj: "Complete 5 levels of Thin Ice as inefficiently as possible"},
+        {obj: "Beat 5 levels of Astro Barrier without missing a shot"},
+        {obj: "Cover a puffle's face in snow"},
+        {obj: "Dress up like a mascot, CPZ dev, or ZN staff member"},
+        {obj: "Unload 5 trucks in Bean Counters"},
+        {obj: "Read a story in the Book Room"},
+        {obj: "Spot a crab in the Cave (Pool Room)"},
+        {obj: "Win a Sled Race"},
+        {obj: "Don't lose a puffle in a round of Puffle Roundup"},
+        {obj: "Meditate for 1 minute in the Dojo"},
+        {obj: "Complete a game of Pizzatron"},
     ]
 };
