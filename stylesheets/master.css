@@ -119,3 +119,9 @@ h1 {
     cursor: pointer;
     opacity: 0.5;
 }
+.text-input {
+    color: black;
+    font-size: 18px;
+    text-align: center;
+    width: 80px;
+}

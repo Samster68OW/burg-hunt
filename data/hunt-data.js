@@ -108,24 +108,24 @@ const feb2026Event = {
 
 
 const mar2026Event = {
-    title: "The Pi Day Puzzle",
+    title: "Beeker's Pi Day Puzzle",
     imgSource: "mar2026",
-    availability: "March 14th - 15th, 2026",
-    postcardEarnedID: 0,
+    availability: "March 13th - 15th, 2026",
+    postcardEarnedID: 2,
     style: 'math',
     randomize: false,
     winMsg: "You solved the math problem!",
     itemList: [
-        {item: "Item 1", flavorText: "Bottom text"},
-        {item: "Item 2", flavorText: "Bottom text"},
-        {item: "Item 3", flavorText: "Bottom text"},
-        {item: "Item 4", flavorText: "Bottom text"},
-        {item: "Item 5", flavorText: "Bottom text"},
-        {item: "Item 6", flavorText: "Bottom text"},
-        {item: "Item 7", flavorText: "Bottom text"},
-        {item: "Item 8", flavorText: "Bottom text"},
-        {item: "Item 9", flavorText: "Bottom text"},
-        {item: "Item 10", flavorText: "Bottom text"}
+        {item: "Item 1", flavorText: "Here is the first number we need.", answer: 355},
+        {item: "Item 2", flavorText: "Second, we add this value to it.", answer: 113},
+        {item: "Item 3", flavorText: "Bottom text", answer: 0},
+        {item: "Item 4", flavorText: "Bottom text", answer: 0},
+        {item: "Item 5", flavorText: "Bottom text", answer: 0},
+        {item: "Item 6", flavorText: "Bottom text", answer: 0},
+        {item: "Item 7", flavorText: "Bottom text", answer: 0},
+        {item: "Item 8", flavorText: "Bottom text", answer: 0},
+        {item: "Item 9", flavorText: "Bottom text", answer: 0},
+        {item: "Item 10", flavorText: "Bottom text", answer: 0}
     ]
 };
 
