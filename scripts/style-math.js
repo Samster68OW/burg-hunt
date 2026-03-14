@@ -27,7 +27,16 @@ function loadMathItems() {
         display += ``;
         $('#math-list-spot').html(display);
     $('#submit-button-3').html('Submit Answers');
-    $('#math-output-spot').html(`Result: 0`);
+    $('#math-output-spot').html(`0`);
+
+    // Update events
+        for (var a=0; a<currentHunt.itemList.length; a++) {
+            let inputElement = document.getElementById(`number-input-${a}`);
+            inputElement.addEventListener("input", (event) => {
+                mar2026Math();
+            });
+        }
+    
 };
 
 
@@ -79,7 +88,7 @@ function checkMathAnswers() {
     else if (currentHunt.activity === 'complete') {
         completeHunt();
     }
-    $('#math-output-spot').html(`Result: ${mar2026Math()}`);
+    mar2026Math();
 };
 
 
@@ -123,5 +132,5 @@ function mar2026Math() {
         lowerResult -= playerInput[10];
     result = result / lowerResult;
     result = result.toFixed(6);
-    return result
+    $('#math-output-spot').html(`${result}`);
 };

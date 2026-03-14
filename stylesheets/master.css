@@ -119,6 +119,14 @@ h1 {
     cursor: pointer;
     opacity: 0.5;
 }
+#math-output-spot {
+    background-color: black;
+    border: 5px solid green;
+    display: inline-block;
+    padding: 10px;
+    text-align: right;
+    width: 150px;
+}
 .text-input {
     color: black;
     font-size: 18px;
