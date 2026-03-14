@@ -5,7 +5,7 @@
 function loadMathItems() {
     currentHunt.activity = 'searching';
     currentHunt.currentProgress = [];
-    const itemsPerRow = 2;
+    const itemsPerRow = 1;
     $('.hunt-header').html(`Help find the answer by filling out the fields below!`);
     // Generate item field
         let display = ``;
@@ -15,8 +15,8 @@ function loadMathItems() {
             }
             // This item
                 currentHunt.currentProgress.push(false);
-                display += `<div class="col-md-6" style='height:120px;'>
-                    <span style='font-size:14px; font-weight:bold;'>${currentHunt.itemList[a].flavorText}</span><br><br>
+                display += `<div class="col-md-12" style='height:120px;'>
+                    <span style='font-size:14px; font-weight:bold;'>${currentHunt.itemList[a].flavorText}</span><br>
                     <span style='font-size:18px;'>#${a+1}: ${currentHunt.itemList[a].item}</span><br>
                     <span id='field-input-spot-${a}'><input type="text" class="text-input" id="number-input-${a}" placeholder="0" maxlength=3></span>
                     </div>`;
@@ -100,25 +100,28 @@ function mar2026Math() {
     }
     let result = 0;
     // Field 0
-        result = playerInput[0];
+        result = playerInput[0] * playerInput[0];
     // Field 1
-        result = playerInput[0] / playerInput[1];
+        result += playerInput[1];
     // Field 2
-        // calculations go here
+        result += playerInput[2];
     // Field 3
-        // calculations go here
+        result += playerInput[3] * playerInput[3];
     // Field 4
-        // calculations go here
+        result += playerInput[4];
     // Field 5
-        // calculations go here
+        result += playerInput[5];
     // Field 6
-        // calculations go here
+        result += playerInput[6];
     // Field 7
-        // calculations go here
+        let lowerResult = playerInput[7];
     // Field 8
-        // calculations go here
+        lowerResult -= playerInput[8];
     // Field 9
-        // calculations go here
-    result = result.toFixed(7);
+        lowerResult -= playerInput[9];
+    // Field 10
+        lowerResult -= playerInput[10];
+    result = result / lowerResult;
+    result = result.toFixed(6);
     return result
 };

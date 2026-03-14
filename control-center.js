@@ -17,7 +17,7 @@ const huntList = [
 // Set this to the index of the hunt above.
 const activeHunt = 2;
 // Set the status of the active hunt. (false = coming soon, true = available)
-const activeHuntStatus = false;
+const activeHuntStatus = true;
 
 
 

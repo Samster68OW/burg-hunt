@@ -116,16 +116,17 @@ const mar2026Event = {
     randomize: false,
     winMsg: "You solved the math problem!",
     itemList: [
-        {item: "Item 1", flavorText: "Here is the first number we need.", answer: 355},
-        {item: "Item 2", flavorText: "Second, we add this value to it.", answer: 113},
-        {item: "Item 3", flavorText: "Bottom text", answer: 0},
-        {item: "Item 4", flavorText: "Bottom text", answer: 0},
-        {item: "Item 5", flavorText: "Bottom text", answer: 0},
-        {item: "Item 6", flavorText: "Bottom text", answer: 0},
-        {item: "Item 7", flavorText: "Bottom text", answer: 0},
-        {item: "Item 8", flavorText: "Bottom text", answer: 0},
-        {item: "Item 9", flavorText: "Bottom text", answer: 0},
-        {item: "Item 10", flavorText: "Bottom text", answer: 0}
+        {item: "Amount of seats in the Lighthouse", flavorText: "First we need our numerator. I'll square this number.", answer: 15},
+        {item: "Amount of tiles on the dance floor", flavorText: "Next, we add this number.", answer: 40},
+        {item: "The book page number with a picture of Jeff", flavorText: "Next, we add this number.", answer: 19},
+        {item: "Amount of burgers on the picnic tables", flavorText: "Next, we add the square of this number.", answer: 7},
+        {item: "Jersey number in the Pizza Parlor", flavorText: "Next, we add this number.", answer: 4},
+        {item: "Amount of holes at Puffle Feeding", flavorText: "Next, we add this number.", answer: 17},
+        {item: "Fire Extinguishers on the island", flavorText: "Finally, we add this number.", answer: 1},
+        {item: "Total coins in Snow Trekker map", flavorText: "Now we need the denominator. First we need this number.", answer: 150},
+        {item: "The day in March when the Puffle Shop opens", flavorText: "Next, we subtract this number.", answer: 17},
+        {item: "Amount of puffles at the Ski Village", flavorText: "Next, we subtract this number.", answer: 12},
+        {item: "Amount of Find Four boards", flavorText: "Next, we subtract this number. This gives us our denominator.", answer: 8}
     ]
 };
 
