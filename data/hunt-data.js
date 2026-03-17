@@ -110,7 +110,7 @@ const feb2026Event = {
 const mar2026Event = {
     title: "Beeker's Pi Day Puzzle",
     imgSource: "mar2026",
-    availability: "March 13th - 15th, 2026",
+    availability: "March 14th - 16th, 2026",
     postcardEarnedID: 2,
     style: 'math',
     randomize: false,
