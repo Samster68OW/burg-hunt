@@ -7,7 +7,7 @@
 const postcardList = [
     {title: "Legacy Scavenger Hunt", imgSource: "placeholder.png", postcardCredit: "Samster68", alwaysSeen: false},
     {title: "Burg's First Scavenger Hunt", imgSource: "feb2026.png", postcardCredit: "samuel", alwaysSeen: true},
-    {title: "Beeker's Pi Day Puzzle",  imgSource: "mar2026.png", postcardCredit: "Silverpetals", alwaysSeen: false}
+    {title: "Beeker's Pi Day Puzzle",  imgSource: "mar2026.png", postcardCredit: "Silverpetals", alwaysSeen: true}
 ];
 
 

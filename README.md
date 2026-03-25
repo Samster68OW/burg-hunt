@@ -1,5 +1,5 @@
-# Burg's Scavenger Hunt
-This simple GitHub Pages site is designed for the Zero Nation Discord Server. Join in on the scavenger hunts and help Burg locate his missing cargo! Please reach out if you have any ideas or suggestions.
+# Burg's Adventures
+This simple GitHub Pages site is designed for the Zero Nation Discord Server. Join in on the adventures and help Burg locate his missing cargo! Please reach out if you have any ideas or suggestions.
 
 - Created by Samster68
 
