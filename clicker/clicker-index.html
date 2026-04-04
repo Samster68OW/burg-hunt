@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Burg's Day Out</title>
+
+    <!--<link rel="icon" type="image/x-icon" href="images/site/favicon.ico"> TODO-->
+    <!-- Internal Javascript -->
+      <!-- Data -->
+        <script type="text/javascript" src="game-data.js"></script>
+      <!-- Scripts -->
+        <script type="text/javascript" src="scripts/game-code.js"></script>
+    <!-- Internal CSS -->
+        <link rel="stylesheet" href="stylesheet.css">
+
+  </head>
+  <body>
+
+
+    <div id="game-frame">
+        <div id="coin-display">Coins: 0</div>
+        <button onclick="clickCoin();">Click</button>
+        <br><br><br>
+        <div id="building-list-display"></div>
+    </div>
+    
+
+    <br><br>
+    <p id="footer">Made by fans. This site is not affiliated with Club Penguin Zero or any of its properties.</p>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+
+
+$(document).ready(function(){
+    startGame();
+});
+
+
+
+    </script>
+  </body>
+</html>
