@@ -20,15 +20,38 @@
 
 
     <div id="game-frame">
-        <div id="coin-display">Coins: 0</div>
-        <button onclick="clickCoin();">Click</button>
-        <br><br><br>
-        <div id="building-list-display"></div>
+        <table id="main-table">
+          <tr><td colspan="3" id="top-cell">
+            Burg's Day Out (v0.1.0)
+          </td></tr>
+          <tr>
+            <td id="left-cell" class="main-cell">
+              <h2>Click da coin</h2>
+              <br><br><br>
+              <div id="coin-display">???</div>
+              <div id="cps-display">???</div>
+              <br><br><br><br>
+              <div id="clickable-coin" onclick="clickCoin();"></div>
+            </td>
+            <td id="middle-cell" class="main-cell">
+              <table id="middle-top-tab-table"><tr>
+                <td>Statistics</td>
+                <td>Achievements</td>
+              </tr></table>
+            </td>
+            <td id="right-cell" class="main-cell">
+              <table id="right-top-tab-table"><tr>
+                <td>Minigames</td>
+                <td>Upgrades</td>
+                <td>Puffles</td>
+              </tr></table>
+              <div id="minigame-page"></div>
+            </td>
+          </tr>
+        </table>
     </div>
     
 
-    <br><br>
-    <p id="footer">Made by fans. This site is not affiliated with Club Penguin Zero or any of its properties.</p>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
