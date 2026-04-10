@@ -7,7 +7,8 @@
 const postcardList = [
     {title: "Legacy Scavenger Hunt", imgSource: "placeholder.png", postcardCredit: "Samster68", alwaysSeen: false},
     {title: "Burg's First Scavenger Hunt", imgSource: "feb2026.png", postcardCredit: "samuel", alwaysSeen: true},
-    {title: "Beeker's Pi Day Puzzle",  imgSource: "mar2026.png", postcardCredit: "Silverpetals", alwaysSeen: true}
+    {title: "Beeker's Pi Day Puzzle",  imgSource: "mar2026.png", postcardCredit: "Silverpetals", alwaysSeen: true},
+    {title: "Burg's Stargazer",  imgSource: "apr2026.png", postcardCredit: "N/A", alwaysSeen: false}
 ];
 
 
@@ -25,4 +26,11 @@ const fanartList = [
 // Comic Data
 const comicList = [
     {title: "Burg's Tales: Issue #1", imgSource: "BT-Issue-01", pages: 5, publishDate: "February 7th, 2026"}
+];
+
+
+
+// Secret Code Data
+const codeList = [
+    {code: "SAMSTERSFRIEND", reward: {type: "postcard", postcardID: 0}, message: "How did you find this code? This is just a placeholder!"}
 ];

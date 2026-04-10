@@ -68,7 +68,7 @@
                 <li><a href="#" onclick="loadPage('fan-art');">Fan Art</a></li>
               </ul>
             </li>
-            <!--<li><a href="#" onclick="loadPage('cpz-progress');">CPZ Progression</a></li>-->
+            <li><a href="#" onclick="loadPage('enter-code');">Enter Code</a></li>
           </ul>
         </div>
       </div>
@@ -176,6 +176,17 @@
           <p class="lead" id="win-msg-spot">???</p><br>
           <div id="postcard-spot"></div><br><br><br>
           <button type="button" class="btn btn-success" onclick="loadPage('home');">Thank you!</button>
+        </div>
+      </div>
+      <div class="page-main" id="page-enter-code" hidden>
+        <div class="title-area">
+          <h1>Enter Secret Code</h1><br>
+          <p class="lead"></p>
+          <div class="hunt-container">
+            <p class="lead hunt-header">Enter a secret code to recieve a prize!</p>
+            <input type="text" class="text-input-large" id="secret-code-input" maxlength=15><br><br>
+            <button type="button" class="btn btn-success" onclick="submitSecretCode();" id="submit-button-code">Submit</button>
+          </div>
         </div>
       </div>
 

@@ -42,6 +42,13 @@ body {
     border: 3px solid white;
     margin: auto;
 }
+.text-input-large {
+    color: black;
+    font-size: 18px;
+    text-align: right;
+    text-transform: uppercase;
+    width: 200px;
+}
 
 
 

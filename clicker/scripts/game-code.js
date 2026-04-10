@@ -4,28 +4,41 @@
 
 let player = {
     coins: 0,
+    coinsPerClick: 1,
     cpts: 0,
-    building: []
+    building: [],
+    upgrade: []
 };
 
 
 
 function startGame() {
     
-    // Generate Building Data
+    // Generate Player Data
         for (var a=0; a<buildingData.length; a++) {
             player.building.push({
                 owned: 0, currentCost: buildingData[a].baseCost, coinsPer: 0
             });
         }
+        for (a=0; a<upgradeData.length; a++) {
+            player.upgrade.push(false);
+        }
 
     // Generate building display
         let display = `<table>`;
         for (var b=0; b<player.building.length; b++) {
-            display += `<tr><td id='building-${b}-spot' onclick='purchaseBuilding(${b});' hidden></td></tr>`;
+            display += `<tr><td id='building-${b}-spot' onclick='purchaseBuilding(${b});' onmouseenter='hoverTextMinigame(${b})' onmouseleave='hoverTextClear();' hidden></td></tr>`;
         }
         display += `</table>`;
         $('#minigame-page').html(display);
+    
+    // Generate upgrade display
+        display = `<table>`;
+        for (var b=0; b<player.upgrade.length; b++) {
+            display += `<tr><td id='upgrade-${b}-spot' onclick='purchaseUpgrade(${b});' onmouseenter='hoverTextUpgrade(${b})' onmouseleave='hoverTextClear();' hidden><b>${upgradeData[b].name}</b></td></tr>`;
+        }
+        display += `</table>`;
+        $('#upgrade-page').html(display);
 
     startGameLoop();
 
@@ -49,7 +62,7 @@ function startGameLoop() {
 
 function clickCoin() {
 
-    player.coins++;
+    player.coins += player.coinsPerClick;
     updateDisplay();
 
 };
@@ -64,6 +77,18 @@ function purchaseBuilding(num) {
             player.building[num].owned++;
             player.building[num].currentCost = Math.floor(player.building[num].currentCost * 1.2);
             updateMath();
+            hoverTextMinigame(num);
+        }
+
+};
+function purchaseUpgrade(num) {
+
+    // Check price
+        if (player.coins >= upgradeData[num].cost) {
+            player.coins -= upgradeData[num].cost;
+            player.upgrade[num] = true;
+            updateMath();
+            hoverTextClear();
         }
 
 };
@@ -78,6 +103,17 @@ function updateMath() {
     // Update building numbers
         for (var a=0; a<player.building.length; a++) {
             player.building[a].coinsPer = player.building[a].owned * buildingData[a].baseCoinsPerSec;
+        }
+    
+    // Check the upgrades
+        for (a=0; a<player.upgrade.length; a++) {
+            if (player.upgrade[a] === true && upgradeData[a]) {
+
+            }
+        }
+
+    // Sum the building CPTS
+        for (var a=0; a<player.building.length; a++) {
             player.cpts += player.building[a].coinsPer;
         }
 
@@ -98,7 +134,7 @@ function updateDisplay() {
 
     // Update Building List
         for (var a=0; a<player.building.length; a++) {
-            $(`#building-${a}-spot`).html(`<b>${buildingData[a].name}</b> - Hired ${player.building[a].owned}<br>$${disNum(player.building[a].currentCost)}`);
+            $(`#building-${a}-spot`).html(`<b>${buildingData[a].name}</b> - Hired ${player.building[a].owned}<br>${disNum(player.building[a].currentCost)} ${emojiInsert('coin')}`);
             // Unlocked
                 if (a === 0) {$(`#building-${a}-spot`).fadeIn(0);}
                 else if (player.building[a-1].owned > 0) {$(`#building-${a}-spot`).fadeIn(0);}
@@ -112,6 +148,24 @@ function updateDisplay() {
                 }
         }
 
+    // Update Upgrade List
+        for (a=0; a<player.upgrade.length; a++) {
+            if (checkUpReq(a) === true) {
+                if (player.upgrade[a] === false) {$(`#upgrade-${a}-spot`).fadeIn(0);}
+                else {$(`#upgrade-${a}-spot`).fadeOut(0);}
+            }
+        }
+
+};
+function checkUpReq(upID) {
+    let upgradeReq = upgradeData[upID].requirement;
+    switch (upgradeReq.type) {
+        case 'Building':
+            if (player.building[upgradeReq.building].owned >= upgradeReq.own) {return true;}
+            else {return false;}
+            break;
+    }
+    return false;
 };
 
 

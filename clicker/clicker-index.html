@@ -11,6 +11,7 @@
       <!-- Data -->
         <script type="text/javascript" src="game-data.js"></script>
       <!-- Scripts -->
+        <script type="text/javascript" src="scripts/display-code.js"></script>
         <script type="text/javascript" src="scripts/game-code.js"></script>
     <!-- Internal CSS -->
         <link rel="stylesheet" href="stylesheet.css">
@@ -38,14 +39,17 @@
                 <td>Statistics</td>
                 <td>Achievements</td>
               </tr></table>
+              <div id="hover-spot"></div>
             </td>
             <td id="right-cell" class="main-cell">
               <table id="right-top-tab-table"><tr>
-                <td>Minigames</td>
-                <td>Upgrades</td>
-                <td>Puffles</td>
+                <td onclick="loadRightPage('minigame');">Minigames</td>
+                <td onclick="loadRightPage('upgrade');">Upgrades</td>
+                <td onclick="loadRightPage('puffle');">Puffles</td>
               </tr></table>
-              <div id="minigame-page"></div>
+              <div id="minigame-page" class="right-page" hidden></div>
+              <div id="upgrade-page" class="right-page" hidden></div>
+              <div id="puffle-page" class="right-page" hidden></div>
             </td>
           </tr>
         </table>
@@ -61,8 +65,16 @@
 
 
 $(document).ready(function(){
-    startGame();
+  startGame();
+  loadRightPage('minigame');
 });
+
+
+
+function loadRightPage(input) {
+  $('.right-page').fadeOut(0);
+  $(`#${input}-page`).fadeIn(0);
+};
 
 
 

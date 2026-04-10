@@ -92,3 +92,28 @@ function loadComic(num) {
     $('#car-inn-spot').html(display);
     $('#comic-publish-spot').html(`Published on ${comicData.publishDate}.`);
 };
+
+
+
+// Secret Codes
+function submitSecretCode() {
+    let value = document.getElementById(`secret-code-input`).value;
+    let codeFound = false;
+    for (var a=0; a<codeList.length; a++) {
+        if (value === codeList[a].code) {
+            codeFound = true;
+            $('#win-msg-spot').html(codeList[a].message);
+            switch (codeList[a].reward.type) {
+                case "postcard":
+                    $('#postcard-spot').html(`<img src="images/postcard/${postcardList[codeList[a].reward.postcardID].imgSource}" class="img-responsive img-postcard" style="width:600px;" alt="Postcard">`);
+                    loadPage('winScreen');
+                    player.postcardData = replaceChar(player.postcardData, 'T', codeList[a].reward.postcardID);
+                    savePlayerData();
+                    break;
+            }
+        }
+    }
+    if (codeFound === false) {
+
+    }
+};

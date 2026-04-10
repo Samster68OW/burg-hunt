@@ -9,6 +9,7 @@ body {
 #game-frame {
     background-color: black;
     height: 600px;
+    margin: auto;
     width: 900px;
 }
 #main-table {
