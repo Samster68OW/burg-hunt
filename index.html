@@ -185,7 +185,7 @@
           <div class="hunt-container">
             <p class="lead hunt-header">Enter a secret code to recieve a prize!</p>
             <input type="text" class="text-input-large" id="secret-code-input" maxlength=15><br><br>
-            <button type="button" class="btn btn-success" onclick="submitSecretCode();" id="submit-button-code">Submit</button>
+            <input type="submit" class="btn btn-success" onclick="submitSecretCode();" id="submit-button-code">
           </div>
         </div>
       </div>
@@ -292,6 +292,16 @@ function loadPage(name) {
     $(`#page-${name}`).fadeIn(fadeTimer);
   },fadeTimer);
 };
+
+
+
+// Secret Code Page
+const inputField = document.querySelector('#secret-code-input');
+inputField.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    submitSecretCode();
+  }
+});
 
 
 

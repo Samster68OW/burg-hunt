@@ -43,8 +43,9 @@ body {
     margin: auto;
 }
 .text-input-large {
-    color: black;
+    color: rgb(67, 67, 67);
     font-size: 18px;
+    padding: 5px;
     text-align: right;
     text-transform: uppercase;
     width: 200px;

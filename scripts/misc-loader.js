@@ -98,6 +98,7 @@ function loadComic(num) {
 // Secret Codes
 function submitSecretCode() {
     let value = document.getElementById(`secret-code-input`).value;
+    value = value.toUpperCase();
     let codeFound = false;
     for (var a=0; a<codeList.length; a++) {
         if (value === codeList[a].code) {
@@ -114,6 +115,9 @@ function submitSecretCode() {
         }
     }
     if (codeFound === false) {
-
+        $(`#secret-code-input`).css('background-color','red');
+        setTimeout(function() {
+            $(`#secret-code-input`).css('background-color','white');
+        },100);
     }
 };

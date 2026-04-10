@@ -32,5 +32,5 @@ const comicList = [
 
 // Secret Code Data
 const codeList = [
-    {code: "SAMSTERSFRIEND", reward: {type: "postcard", postcardID: 0}, message: "How did you find this code? This is just a placeholder!"}
+    {code: "SAMSTERSFRIEND", reward: {type: "postcard", postcardID: 0}, message: "How did you get this code? This is just a placeholder!"}
 ];
