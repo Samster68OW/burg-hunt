@@ -7,6 +7,9 @@
     <title>Burg's Day Out</title>
 
     <!--<link rel="icon" type="image/x-icon" href="images/site/favicon.ico"> TODO-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <!-- Internal Javascript -->
       <!-- Data -->
         <script type="text/javascript" src="game-data.js"></script>
@@ -21,31 +24,42 @@
 
 
     <div id="game-frame">
+        <div id="achievement-dropdown">
+          <b>Achievement Unlocked!</b><br>
+          <span id="current-ach-name"></span>
+        </div>
         <table id="main-table">
           <tr><td colspan="3" id="top-cell">
             Burg's Day Out (v0.1.0)
           </td></tr>
           <tr>
             <td id="left-cell" class="main-cell">
-              <h2>Click da coin</h2>
-              <br><br><br>
-              <div id="coin-display">???</div>
+              <br>
+              <h2>Burg's Day Out!</h2><br>
+              <span id="coin-display">???</span>
               <div id="cps-display">???</div>
-              <br><br><br><br>
-              <div id="clickable-coin" onclick="clickCoin();"></div>
+              <br><br><br><br><br><br>
+              <div style="height:150px;">
+                <div id="clickable-coin" onclick="clickCoin();"></div>
+                <img src="images/starburst.png" id="starburst-behind-coin">
+              </div>
+              <br><br><br>
+              <div id="coins-click-display">???</div>
             </td>
             <td id="middle-cell" class="main-cell">
               <table id="middle-top-tab-table"><tr>
-                <td>Statistics</td>
-                <td>Achievements</td>
+                <td onclick="loadMiddlePage('statistics');" id="statistics-tab">Statistics</td>
+                <td onclick="loadMiddlePage('achievements');" id="achievements-tab">Achievements</td>
               </tr></table>
+              <div id="statistics-page" class="middle-page"></div>
+              <div id="achievements-page" class="middle-page"></div>
               <div id="hover-spot"></div>
             </td>
             <td id="right-cell" class="main-cell">
               <table id="right-top-tab-table"><tr>
-                <td onclick="loadRightPage('minigame');">Minigames</td>
-                <td onclick="loadRightPage('upgrade');">Upgrades</td>
-                <td onclick="loadRightPage('puffle');">Puffles</td>
+                <td onclick="loadRightPage('minigame');" id="minigame-tab">Minigames</td>
+                <td onclick="loadRightPage('upgrade');" id="upgrade-tab" hidden>Upgrades</td>
+                <td onclick="loadRightPage('puffle');" id="puffle-tab" hidden>Puffles</td>
               </tr></table>
               <div id="minigame-page" class="right-page" hidden></div>
               <div id="upgrade-page" class="right-page" hidden></div>
@@ -67,14 +81,41 @@
 $(document).ready(function(){
   startGame();
   loadRightPage('minigame');
+  loadMiddlePage('statistics');
+  hoverTextClear();
 });
 
 
 
 function loadRightPage(input) {
-  $('.right-page').fadeOut(0);
-  $(`#${input}-page`).fadeIn(0);
+
+  // Content
+    $('.right-page').fadeOut(0);
+    $(`#${input}-page`).fadeIn(0);
+  // Top Menu
+    $('#right-top-tab-table td').css('opacity', '0.4');
+    $(`#${input}-tab`).css('opacity', '1.0');
+
 };
+function loadMiddlePage(input) {
+
+  // Content
+    $('.middle-page').fadeOut(0);
+    $(`#${input}-page`).fadeIn(0);
+  // Top Menu
+    $('#middle-top-tab-table td').css('opacity', '0.4');
+    $(`#${input}-tab`).css('opacity', '1.0');
+
+};
+
+
+
+//var circle = document.getElementsByTagName("circle")[0];
+//var change = document.getElementById("change");
+
+//circle.addEventListener("animationend", function() {
+		//change.innerHTML = "The animation has ended!";
+//});
 
 
 

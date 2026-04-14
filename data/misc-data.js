@@ -8,7 +8,7 @@ const postcardList = [
     {title: "Legacy Scavenger Hunt", imgSource: "placeholder.png", postcardCredit: "Samster68", alwaysSeen: false},
     {title: "Burg's First Scavenger Hunt", imgSource: "feb2026.png", postcardCredit: "samuel", alwaysSeen: true},
     {title: "Beeker's Pi Day Puzzle",  imgSource: "mar2026.png", postcardCredit: "Silverpetals", alwaysSeen: true},
-    {title: "Burg's Stargazer",  imgSource: "apr2026.png", postcardCredit: "N/A", alwaysSeen: false}
+    {title: "The Iceberg Stargazing Party",  imgSource: "apr2026.png", postcardCredit: "starryskyez", alwaysSeen: false}
 ];
 
 
@@ -32,5 +32,6 @@ const comicList = [
 
 // Secret Code Data
 const codeList = [
-    {code: "SAMSTERSFRIEND", reward: {type: "postcard", postcardID: 0}, message: "How did you get this code? This is just a placeholder!"}
+    {code: "SAMSTERSFRIEND", reward: {type: "postcard", postcardID: 0}, message: "How did you get this code? This is just a placeholder!"},
+    {code: "STARGAZERS", reward: {type: "postcard", postcardID: 3}, message: "Thank you for attending the Iceberg Stargazing Party!"}
 ];

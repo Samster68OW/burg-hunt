@@ -6,6 +6,7 @@ This document contains step-by-step instructions on how to add more content to t
 - [Adding Adventures](#adding-adventures)
 - [Adding Fan Art](#adding-fan-art)
 - [Adding Comics](#adding-comics)
+- [Adding Secret Codes](#adding-secret-codes)
 
 ## Using the Control Center
 
@@ -81,4 +82,14 @@ The script `control-center.js` controls which adventures are currently active an
     - `pages`: The number of images in the folder.
     - `publishDate`: The date it was created. (Purely for the webpage display)
 5. The comic will automatically be added to the dropdown.
+6. Remember to save!
+
+## Adding Secret Codes
+
+1. Navigate to `data/misc-data.js`.
+3. Copy an element or line from the array `codeList` and add it to the end of the array.
+4. Fill in the fields of the object.
+    - `code`: The code the user will enter.
+    - `reward`: Object. Determines what the user will receive.
+    - `message`: A message to be displayed on the reward screen when the user enters the code.
 6. Remember to save!
