@@ -38,7 +38,18 @@ function startGame() {
     // Generate building display
         let display = `<div class='middle-header'>Minigames</div><table>`;
         for (var b=0; b<player.building.length; b++) {
-            display += `<tr><td id='building-${b}-spot' onclick='purchaseBuilding(${b});' onmouseenter='hoverTextMinigame(${b})' onmouseleave='hoverTextClear();' hidden></td></tr>`;
+            display += `<tr><td id='building-${b}-spot' onclick='purchaseBuilding(${b});' onmouseenter='hoverTextMinigame(${b})' onmouseleave='hoverTextClear();' hidden>
+                <table>
+                    <tr>
+                        <td style='width:55px;'><img src='images/minigame/minigame${b}.png' height=${buildingData[b].img.hei} width=${buildingData[b].img.wid}></td>
+                        <td style='text-align:left; vertical-align:top; width:130px;'>
+                            <b>${buildingData[b].name}</b><br>
+                            Cost: ${disNum(player.building[b].currentCost)} ${emojiInsert('coin')}
+                        </td>
+                        <td style='font-size:30px; text-align:right; width:50px;'>${player.building[b].owned}</td>
+                    </tr>
+                </table>
+            </td></tr>`;
         }
         display += `</table>`;
         $('#minigame-page').html(display);
@@ -75,8 +86,9 @@ function startGame() {
 
 
 
+let gameLoop;
 function startGameLoop() {
-    setInterval(function(){
+    gameLoop = setInterval(function(){
 
         // Gain coins from buildings
             player.coins += (player.cpts * player.cptsMult);
@@ -128,6 +140,7 @@ function purchaseBuilding(num) {
             player.building[num].currentCost = Math.floor(player.building[num].currentCost * 1.1);
             updateMath();
             hoverTextMinigame(num);
+            updateBuilding(num);
         }
 
 };

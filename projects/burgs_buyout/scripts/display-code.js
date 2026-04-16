@@ -61,20 +61,6 @@ function updateDisplay() {
 
     // Update Building List
         for (var a=0; a<player.building.length; a++) {
-            // Building Cell
-                let display = `
-                    <table>
-                        <tr>
-                            <td style='width:55px;'><img src='images/minigame/minigame${a}.png' height=${buildingData[a].img.hei} width=${buildingData[a].img.wid}></td>
-                            <td style='text-align:left; vertical-align:top; width:130px;'>
-                                <b>${buildingData[a].name}</b><br>
-                                Cost: ${disNum(player.building[a].currentCost)} ${emojiInsert('coin')}
-                            </td>
-                            <td style='font-size:30px; text-align:right; width:50px;'>${player.building[a].owned}</td>
-                        </tr>
-                    </table>
-                `;
-                $(`#building-${a}-spot`).html(display);
             // Unlocked
                 if (a === 0) {$(`#building-${a}-spot`).fadeIn(0);}
                 else if (player.building[a-1].owned > 0) {$(`#building-${a}-spot`).fadeIn(0);}
@@ -138,6 +124,21 @@ function checkUpReq(upID) {
     }
     return false;
 };
+function updateBuilding(a) {
+    let display = `
+        <table>
+            <tr>
+                <td style='width:55px;'><img src='images/minigame/minigame${a}.png' height=${buildingData[a].img.hei} width=${buildingData[a].img.wid}></td>
+                <td style='text-align:left; vertical-align:top; width:130px;'>
+                    <b>${buildingData[a].name}</b><br>
+                    Cost: ${disNum(player.building[a].currentCost)} ${emojiInsert('coin')}
+                </td>
+                <td style='font-size:30px; text-align:right; width:50px;'>${player.building[a].owned}</td>
+            </tr>
+        </table>
+    `;
+    $(`#building-${a}-spot`).html(display);
+}
 
 
 
