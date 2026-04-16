@@ -8,32 +8,48 @@ function updateDisplay() {
         $('#coin-display').html(`${disNum(player.coins)} coins`);
         $('#cps-display').html(`per second: ${disNum(player.cpts * 10)} ${emojiInsert('coin')}`);
         $('#coins-click-display').html(`per click: ${disNum(player.coinsPerClick)} ${emojiInsert('coin')}`);
+        if (puffleStat.green.timeLeftOnAbility > 0) {
+            if (puffleStat.green.currentAbility === 'Boost CPS') {
+                $('#cps-display').css('color','#19b025');
+            }
+            else if (puffleStat.green.currentAbility === 'Boost Clicks') {
+                $('#coins-click-display').css('color','#19b025');
+            }
+        }
+        else {
+            $('#cps-display').css('color','white');
+            $('#coins-click-display').css('color','white');
+        }
 
     // Update Statistics Page
+        // Calculate Time Played
+            let timeLeft = player.timePlayed;
+            let hours = Math.floor(timeLeft / 36000);
+            timeLeft -= hours * 36000;
+            let minutes = Math.floor(timeLeft / 600);
+            timeLeft -= minutes * 600;
+            let seconds = Math.floor(timeLeft / 10);
+            let timeDisplay = ``;
+            if (hours > 0) {timeDisplay = `${hours}hr ${minutes}m ${seconds}s`;}
+            else {timeDisplay = `${minutes}m ${seconds}s`;}
         let display =  `
-            <div id='middle-header'>Statistics</div><br>
+            <div class='middle-header'>How to Play</div><br>
+            Burg needs our help! We need to raise coins to repair the Migrator after it hit an iceberg. Click the large coin on the left to collect coins. Then reinvest those coins into hiring penguins to play minigames for you. Good luck!
+            <br><br>
+            <div class='middle-header'>Statistics</div><br>
             Lifetime Coins Earned: ${disNum(player.lifetimeCoins)} ${emojiInsert('coin')}<br>
-            Coins Clicked: ${disNum(player.coinClicks)}
+            Time Played: ${timeDisplay}<br>
+            Coin Clicks: ${disNum(player.coinClicks)} ${emojiInsert('tap')}<br>
         `;
-        $('#statistics-page').html(display);
-
-    // Update Achievements Page
-        // Count achievements
-            let achCount = 0;
-            for (var b=0; b<player.achievement.length; b++) {
-                if (player.achievement[b] === true) {achCount++;}
+        if (player.building[3].owned > 0) {
+            if (player.equippedPuffle === -1) {
+                display += `Equipped Puffle: None`;
             }
-        let achDisplay = `<div id='middle-header'>Achievements: ${achCount} of ${player.achievement.length}</div><br>`;
-        for (var a=0; a<achievementData.length; a++) {
-            if (player.achievement[a] === true) {
-                achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:rgb(133, 233, 133)'>${achievementData[a].name}</span><br>`;
+            if (player.equippedPuffle >= 0) {
+                display += `Equipped Puffle: ${puffleData[player.equippedPuffle].name} ${emojiInsert(puffleData[player.equippedPuffle].emoji)}`;
             }
-            else {
-                achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:gray;'>????????</span><br>`;
-            }
-            
         }
-        $('#achievements-page').html(achDisplay);
+        $('#statistics-page').html(display);
     
     // Update Right Side Tabs
         // Unlock Upgrades by buying Bean Counters
@@ -84,6 +100,27 @@ function updateDisplay() {
                     $(`#upgrade-${a}-spot`).css("opacity", "0.6");
                 }
             }
+            if (player.upgrade[a] === true) {
+                $(`#purchased-upgrade-${a}-spot`).fadeIn(0);
+            }
+        }
+
+    // Update Puffle List
+        for (a=0; a<player.puffle.length; a++) {
+            // Not purchased
+                if (player.puffle[a] === false) {
+                    if (player.coins >= puffleData[a].cost) {
+                        $(`#puffle-${a}`).css("opacity", "1.0");
+                    }
+                    else {
+                        $(`#puffle-${a}`).css("opacity", "0.6");
+                    }
+                }
+            // Is Purchased
+                else if (player.puffle[a] === true) {
+                    $(`#puffle-${a}`).css("opacity", "1.0");
+                    $(`#puffle-${a}`).html(`${emojiInsert(puffleData[a].emoji)} <b>${puffleData[a].name}</b> - Key: ${puffleData[a].key}`);
+                }
         }
 
 };
@@ -100,6 +137,30 @@ function checkUpReq(upID) {
             break;
     }
     return false;
+};
+
+
+
+function achievementDisplay() {
+
+    // Count achievements
+        let achCount = 0;
+        for (var b=0; b<player.achievement.length; b++) {
+            if (player.achievement[b] === true) {achCount++;}
+        }
+    let achDisplay = `<div class='middle-header'>Achievements: ${achCount} of ${player.achievement.length}</div><br><table id='ach-table'><tr><td>`;
+    for (var a=0; a<achievementData.length; a++) {
+        if (a === 15) {achDisplay += `</td><td>`;}
+        if (player.achievement[a] === true) {
+            achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:rgb(133, 233, 133)'>${achievementData[a].name}</span><br>`;
+        }
+        else {
+            achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:gray;'>????????</span><br>`;
+        }
+    }
+    achDisplay += `</td></tr></table>`;
+    $('#achievements-page').html(achDisplay);
+
 };
 
 
@@ -124,7 +185,7 @@ function hoverTextMinigame(num) {
 function hoverTextUpgrade(num) {
 
     // Display
-        let display = `<b>${upgradeData[num].name} [Upgrade]</b><br>
+        let display = `${emojiInsert(upgradeData[num].emoji)} <b>${upgradeData[num].name} [Upgrade]</b><br>
             <br>
             ${upgradeData[num].desc}<br>
             <br>
@@ -155,6 +216,18 @@ function hoverTextAchievement(num) {
         $('#hover-spot').css('opacity', '1.0');
 
 };
+function hoverTextPuffle(num) {
+
+    // Display
+        let display = `${emojiInsert(puffleData[num].emoji)} <b>${puffleData[num].name} [${puffleData[num].key}] [Puffle]</b><br>
+            <br>
+            ${puffleData[num].desc}<br>
+            <br>
+            <span class='flavorText'>${puffleData[num].flavorText}</span>`;
+        $('#hover-spot').html(display);
+        $('#hover-spot').css('opacity', '1.0');
+
+};
 function hoverTextClear() {
     $('#hover-spot').html('');
     $('#hover-spot').css('opacity', '0.0');
@@ -165,8 +238,9 @@ function hoverTextClear() {
 const numNames = [``,` thousand`, ` million`, ` billion`, ` trillion`, ` quadrillion`];
 function disNum(input) {
 
-    if (input < 1 && input > 0) {
-        return `<1`
+    if (input < 10 && input > 0) {
+        input = Math.round(input * 100) / 100;
+        return `${input}`;
     }
 
     // Fix input

@@ -111,6 +111,10 @@ function submitSecretCode() {
                     player.postcardData = replaceChar(player.postcardData, 'T', codeList[a].reward.postcardID);
                     savePlayerData();
                     break;
+                case "link":
+                    $('#postcard-spot').html(`<a target='blank_' href=${codeList[a].reward.linkURL}>Link to Website</a>`);
+                    loadPage('winScreen');
+                    break;
             }
         }
     }

@@ -33,5 +33,6 @@ const comicList = [
 // Secret Code Data
 const codeList = [
     {code: "SAMSTERSFRIEND", reward: {type: "postcard", postcardID: 0}, message: "How did you get this code? This is just a placeholder!"},
-    {code: "STARGAZERS", reward: {type: "postcard", postcardID: 3}, message: "Thank you for attending the Iceberg Stargazing Party!"}
+    {code: "STARGAZERS", reward: {type: "postcard", postcardID: 3}, message: "Thank you for attending the Iceberg Stargazing Party!"},
+    {code: "BETATESTER", reward: {type: "link", linkURL: "projects/burgs_buyout/index.html"}, message: "Thank you for agreeing to playtest my new little game! Keep in mind that this game <u>does not save yet</u>. Let me know what you think!"}
 ];

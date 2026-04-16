@@ -4,18 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Burg's Day Out</title>
+    <title>Burg's Buyout</title>
+    <link rel="icon" type="image/x-icon" href="images/site/favicon.ico">
 
-    <!--<link rel="icon" type="image/x-icon" href="images/site/favicon.ico"> TODO-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- External -->
+      <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <!-- Internal Javascript -->
-      <!-- Data -->
-        <script type="text/javascript" src="game-data.js"></script>
       <!-- Scripts -->
         <script type="text/javascript" src="scripts/display-code.js"></script>
         <script type="text/javascript" src="scripts/game-code.js"></script>
+        <script type="text/javascript" src="scripts/game-data.js"></script>
+        <script type="text/javascript" src="scripts/sound-engine.js"></script>
     <!-- Internal CSS -->
         <link rel="stylesheet" href="stylesheet.css">
 
@@ -30,21 +32,22 @@
         </div>
         <table id="main-table">
           <tr><td colspan="3" id="top-cell">
-            Burg's Day Out (v0.1.0)
+            Burg's Buyout v0.1.0 - Beta Test
           </td></tr>
           <tr>
             <td id="left-cell" class="main-cell">
               <br>
-              <h2>Burg's Day Out!</h2><br>
+              <h1 style="rotate:-3deg; text-decoration:underline;">Burg's Buyout!</h1><br>
               <span id="coin-display">???</span>
               <div id="cps-display">???</div>
               <br><br><br><br><br><br>
               <div style="height:150px;">
                 <div id="clickable-coin" onclick="clickCoin();"></div>
-                <img src="images/starburst.png" id="starburst-behind-coin">
+                <img src="images/site/starburst.png" id="starburst-behind-coin">
               </div>
-              <br><br><br>
+              <br><br>
               <div id="coins-click-display">???</div>
+              <div id="puffle-display-spot"></div>
             </td>
             <td id="middle-cell" class="main-cell">
               <table id="middle-top-tab-table"><tr>
@@ -54,6 +57,7 @@
               <div id="statistics-page" class="middle-page"></div>
               <div id="achievements-page" class="middle-page"></div>
               <div id="hover-spot"></div>
+              <img id="samster-img" src="images/site/samster.png">
             </td>
             <td id="right-cell" class="main-cell">
               <table id="right-top-tab-table"><tr>
@@ -62,11 +66,20 @@
                 <td onclick="loadRightPage('puffle');" id="puffle-tab" hidden>Puffles</td>
               </tr></table>
               <div id="minigame-page" class="right-page" hidden></div>
-              <div id="upgrade-page" class="right-page" hidden></div>
+              <div id="upgrade-page" class="right-page" hidden>
+                <div class='middle-header'>Upgrades</div><br>
+                <div id="new-upgrade-list"></div><br>
+                <div class='middle-header'>Purchased Upgrades</div><br>
+                <div id="owned-upgrade-list"></div>
+              </div>
               <div id="puffle-page" class="right-page" hidden></div>
             </td>
           </tr>
         </table>
+    </div>
+    <div id="footer">
+      This game is not affiliated with Club Penguin Zero. It is made by fans. No artificial intelligence was used in the creation of this game. <br>
+      Game too small? Try zooming in with your browser's settings!
     </div>
     
 
@@ -110,12 +123,9 @@ function loadMiddlePage(input) {
 
 
 
-//var circle = document.getElementsByTagName("circle")[0];
-//var change = document.getElementById("change");
-
-//circle.addEventListener("animationend", function() {
-		//change.innerHTML = "The animation has ended!";
-//});
+document.addEventListener('keydown', (event) => {
+    keyboardInput(event.key.toString());
+});
 
 
 
