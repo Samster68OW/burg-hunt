@@ -30,6 +30,13 @@ const comicList = [
 
 
 
+// Fun Stuff
+const funStuffList = [
+    {title: "Comedian's Coloring Pages", fileSource: "coloring-pages-set.pdf", publishDate: "April 16th, 2026"}
+];
+
+
+
 // Secret Code Data
 const codeList = [
     {code: "SAMSTERSFRIEND", reward: {type: "postcard", postcardID: 0}, message: "How did you get this code? This is just a placeholder!"},
