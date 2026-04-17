@@ -30,7 +30,7 @@ const buildingData = [
     },
     {
         name: "Pizzatron 3000", baseCost: 1000000, baseCoinsPerSec: 200,
-        flavorText: "TODO",
+        flavorText: "Is it a machine? A job title? No idea. All I know is that it makes good pizza.",
         img: {hei: 40, wid: 45}
     },
     {
@@ -164,54 +164,54 @@ const upgradeData = [
         },
     // Pizzatron 3000
         {
-            name: "TODO", desc: "Doubles the CPS of Pizzatron 3000.", emoji: 'upgrade', cost: 1500000,
+            name: "Extra Cheese", desc: "Doubles the CPS of Pizzatron 3000.", emoji: 'upgrade', cost: 1500000,
             requirement: {type: "Building", building: 5, own: 5},
             effect: {type: "Building-Mult", building: 5, mult: 2},
-            flavorText: "TODO"
+            flavorText: "Wait, you can only put on one layer of cheese? Nevermind, then."
         },
         {
-            name: "TODO", desc: "Doubles the CPS of Pizzatron 3000 again.", emoji: 'upgrade', cost: 10000000,
+            name: "Exactly 5 Squids", desc: "Doubles the CPS of Pizzatron 3000 again.", emoji: 'upgrade', cost: 10000000,
             requirement: {type: "Building", building: 5, own: 10},
             effect: {type: "Building-Mult", building: 5, mult: 2},
-            flavorText: "TODO"
+            flavorText: "Why does this penguin have such a specific order?"
         },
         {
-            name: "TODO", desc: "Your clicks are equal to the CPS of Pizzatron 3000.", emoji: 'tap', cost: 15000000,
+            name: "Candy Pizza!", desc: "Your clicks are equal to the CPS of Pizzatron 3000.", emoji: 'tap', cost: 15000000,
             requirement: {type: "Building", building: 5, own: 15},
             effect: {type: "Click-Building", building: 5},
-            flavorText: "TODO"
+            flavorText: "Cavities guaranteed."
         },
     // Dance Contest
         {
-            name: "TODO", desc: "Doubles the CPS of Dance Contest.", emoji: 'upgrade', cost: 20000000,
+            name: "Colored Lights", desc: "Doubles the CPS of Dance Contest.", emoji: 'upgrade', cost: 20000000,
             requirement: {type: "Building", building: 6, own: 5},
             effect: {type: "Building-Mult", building: 6, mult: 2},
-            flavorText: "TODO"
+            flavorText: "Did you know the devs can change the lights of the Night Club whenever they want?"
         },
         {
-            name: "TODO", desc: "Triples the CPS of Dance Contest.", emoji: 'upgrade', cost: 100000000,
+            name: "Remapped Songs", desc: "Doubles the CPS of Dance Contest again.", emoji: 'upgrade', cost: 100000000,
             requirement: {type: "Building", building: 6, own: 10},
-            effect: {type: "Building-Mult", building: 6, mult: 3},
-            flavorText: "TODO"
+            effect: {type: "Building-Mult", building: 6, mult: 2},
+            flavorText: "Some of the note maps for these songs are rough."
         },
         {
-            name: "TODO", desc: "Your clicks are equal to the CPS of Dance Contest.", emoji: 'tap', cost: 200000000,
+            name: "DJ's Teachings", desc: "Your clicks are equal to the CPS of Dance Contest.", emoji: 'tap', cost: 200000000,
             requirement: {type: "Building", building: 6, own: 15},
             effect: {type: "Click-Building", building: 6},
-            flavorText: "TODO"
+            flavorText: "For a small fee, DJ Cadence will teach you her greatest dances!"
         },
     // Snow Trekker
         {
-            name: "TODO", desc: "Doubles the CPS of Snow Trekker.", emoji: 'upgrade', cost: 500000000,
+            name: "Revert the Nerf!", desc: "Doubles the CPS of Snow Trekker.", emoji: 'upgrade', cost: 500000000,
             requirement: {type: "Building", building: 7, own: 10},
             effect: {type: "Building-Mult", building: 7, mult: 2},
-            flavorText: "TODO"
+            flavorText: "Snow Trekker used to give 100 extra coins for completing the course. Honestly, removing that was a good idea."
         },
         {
-            name: "TODO", desc: "Your clicks are equal to the CPS of Snow Trekker.", emoji: 'tap', cost: 800000000,
+            name: "Optimal Strategy", desc: "Your clicks are equal to the CPS of Snow Trekker.", emoji: 'tap', cost: 800000000,
             requirement: {type: "Building", building: 7, own: 15},
             effect: {type: "Click-Building", building: 7},
-            flavorText: "TODO"
+            flavorText: "The key is to complete the level as quickly as possible, not collect every coin."
         },
     // Endgame
         {
@@ -357,34 +357,34 @@ const achievementData = [
             flavorText: "Did they fix the double obstacles yet, or am I just trash at the game?"
         },
         {
-            name: "TODO", desc: "Hire a penguin to play Pizzatron 3000.",
+            name: "Open for Business!", desc: "Hire a penguin to play Pizzatron 3000.",
             criteria: {type: "Building-Amount", building: 5, amount: 1},
-            flavorText: "TODO"
+            flavorText: "The Pizza Parlor features a pizza minigame, a live performance, and a chill atmosphere."
         },
         {
-            name: "TODO", desc: "Hire 15 penguins to play Pizzatron 3000.",
+            name: "Fully Staffed", desc: "Hire 15 penguins to play Pizzatron 3000.",
             criteria: {type: "Building-Amount", building: 5, amount: 15},
-            flavorText: "TODO"
+            flavorText: "We need three penguins on stage and a few waiting tables. Everyone else in the kitchen!"
         },
         {
-            name: "TODO", desc: "Hire a penguin to play Dance Contest.",
+            name: "Open Mic Night", desc: "Hire a penguin to play Dance Contest.",
             criteria: {type: "Building-Amount", building: 6, amount: 1},
-            flavorText: "TODO"
+            flavorText: "No, the DJ refuses to play Wonderwall."
         },
         {
-            name: "TODO", desc: "Hire 15 penguins to play Dance Contest.",
+            name: "Disco Party", desc: "Hire 15 penguins to play Dance Contest.",
             criteria: {type: "Building-Amount", building: 6, amount: 15},
-            flavorText: "TODO"
+            flavorText: "Sure beats Astro Barrier."
         },
         {
-            name: "TODO", desc: "Hire a penguin to play Snow Trekker.",
+            name: "Into the Wilds", desc: "Hire a penguin to play Snow Trekker.",
             criteria: {type: "Building-Amount", building: 7, amount: 1},
-            flavorText: "TODO"
+            flavorText: "I'm using this block of flavor text to advertise Outer Wilds, the greatest video game ever made. Please just go play it. It's so good!"
         },
         {
-            name: "TODO", desc: "Hire 15 penguins to play Snow Trekker.",
+            name: "150 Coin Run", desc: "Hire 15 penguins to play Snow Trekker.",
             criteria: {type: "Building-Amount", building: 7, amount: 15},
-            flavorText: "TODO"
+            flavorText: "Sometimes you can glitch into the lake. This is a reference to the hit video game, FNAF World. In this essay..."
         },
     // Endgame
         {
