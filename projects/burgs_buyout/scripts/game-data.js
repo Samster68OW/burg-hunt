@@ -27,22 +27,22 @@ const buildingData = [
         name: "Cart Surfer", baseCost: 100000, baseCoinsPerSec: 10,
         flavorText: "Cart Surfer is all about high-speed adventures and cool tricks. Why does nobody wear a hard hat?",
         img: {hei: 40, wid: 45}
+    },
+    {
+        name: "Pizzatron 3000", baseCost: 0, baseCoinsPerSec: 0,
+        flavorText: "TODO",
+        img: {hei: 40, wid: 45}
+    },
+    {
+        name: "Dance Contest", baseCost: 0, baseCoinsPerSec: 0,
+        flavorText: "The Party Starts Now!",
+        img: {hei: 40, wid: 43}
+    },
+    {
+        name: "Snow Trekker", baseCost: 0, baseCoinsPerSec: 0,
+        flavorText: "Originally from the Nintendo DS game, Elite Penguin Force, there is no faster way to earn coins on Club Penguin Zero.",
+        img: {hei: 40, wid: 42}
     }
-    //{
-    //    name: "Pizzatron 3000", baseCost: 0, baseCoinsPerSec: 0,
-    //    flavorText: "TODO",
-    //    img: {hei: 40, wid: 45}
-    //},
-    //{
-    //    name: "Dance Contest", baseCost: 0, baseCoinsPerSec: 0,
-    //    flavorText: "The Party Starts Now!",
-    //    img: {hei: 40, wid: 43}
-    //},
-    //{
-    //    name: "Snow Trekker", baseCost: 0, baseCoinsPerSec: 0,
-    //    flavorText: "Originally from the Nintendo DS game, Elite Penguin Force, there is no faster way to earn coins on Club Penguin Zero.",
-    //    img: {hei: 40, wid: 42}
-    //}
 ];
 
 
@@ -185,19 +185,19 @@ const puffleData = [
     {
         name: "Green Puffle", desc: "(Passive: Circus) Every 3 minutes, either your CPS or coins per click will be buffed for 20 seconds.", emoji: 'green_puffle', cost: 300000,
         key: 3, flavorText: "Silly and playful. Always up to shenanigans."
+    },
+    {
+        name: "Black Puffle", desc: "TODO", emoji: 'black_puffle', cost: 999,
+        key: 4, flavorText: "TODO"
+    },
+    {
+        name: "Purple Puffle", desc: "(Passive: Celebrity) Boosts a random minigame for 5 minutes. Once the 5 minutes are over, it picks a new one.", emoji: 'purple_puffle', cost: 999,
+        key: 5, flavorText: "TODO"
+    },
+    {
+        name: "Red Puffle", desc: "(Passive: Completionist) Applies a CPS multiplier based on how many achievements you have collected.", emoji: 'red_puffle', cost: 999,
+        key: 6, flavorText: "TODO"
     }
-    //{
-    //    name: "Black Puffle", desc: "TODO", emoji: 'black_puffle', cost: 0,
-    //    key: 4, flavorText: "TODO"
-    //},
-    //{
-    //    name: "Purple Puffle", desc: "(Passive: Celebrity) Boosts a random minigame for 5 minutes. Once the 5 minutes are over, it picks a new one.", emoji: 'purple_puffle', cost: 0,
-    //    key: 5, flavorText: "TODO"
-    //},
-    //{
-    //    name: "Red Puffle", desc: "(Passive: Completionist) Applies a CPS multiplier based on how many achievements you have collected.", emoji: 'red_puffle', cost: 0,
-    //    key: 6, flavorText: "TODO"
-    //}
 ];
 let puffleStat = {
     blueMult: 1.0,
@@ -275,7 +275,7 @@ const achievementData = [
             flavorText: "I wonder if the puffles will help us earn more coins...?"
         },
         {
-            name: "That's enough Puffles!", desc: "Hire 25 penguins to play Puffle Roundup.",
+            name: "Too many Puffles!", desc: "Hire 25 penguins to play Puffle Roundup.",
             criteria: {type: "Building-Amount", building: 3, amount: 25},
             flavorText: "Great work finding all of these puffles, but what are we suppoed to do with them?"
         },
@@ -289,36 +289,36 @@ const achievementData = [
             criteria: {type: "Building-Amount", building: 4, amount: 25},
             flavorText: "Did they fix the double obstacles yet, or am I just trash at the game?"
         },
-        //{
-        //    name: "TODO", desc: "Hire a penguin to play Pizzatron 3000.",
-        //    criteria: {type: "Building-Amount", building: 5, amount: 1},
-        //    flavorText: "TODO"
-        //},
-        //{
-        //    name: "TODO", desc: "Hire 25 penguins to play Pizzatron 3000.",
-        //    criteria: {type: "Building-Amount", building: 5, amount: 25},
-        //    flavorText: "TODO"
-        //},
-        //{
-        //    name: "TODO", desc: "Hire a penguin to play Dance Contest.",
-        //    criteria: {type: "Building-Amount", building: 6, amount: 1},
-        //    flavorText: "TODO"
-        //},
-        //{
-        //    name: "TODO", desc: "Hire 25 penguins to play Dance Contest.",
-        //    criteria: {type: "Building-Amount", building: 6, amount: 25},
-        //    flavorText: "TODO"
-        //},
-        //{
-        //    name: "TODO", desc: "Hire a penguin to play Snow Trekker.",
-        //    criteria: {type: "Building-Amount", building: 7, amount: 1},
-        //    flavorText: "TODO"
-        //},
-        //{
-        //    name: "TODO", desc: "Hire 25 penguins to play Snow Trekker.",
-        //    criteria: {type: "Building-Amount", building: 7, amount: 25},
-        //    flavorText: "TODO"
-        //},
+        {
+            name: "TODO", desc: "Hire a penguin to play Pizzatron 3000.",
+            criteria: {type: "Building-Amount", building: 5, amount: 1},
+            flavorText: "TODO"
+        },
+        {
+            name: "TODO", desc: "Hire 25 penguins to play Pizzatron 3000.",
+            criteria: {type: "Building-Amount", building: 5, amount: 25},
+            flavorText: "TODO"
+        },
+        {
+            name: "TODO", desc: "Hire a penguin to play Dance Contest.",
+            criteria: {type: "Building-Amount", building: 6, amount: 1},
+            flavorText: "TODO"
+        },
+        {
+            name: "TODO", desc: "Hire 25 penguins to play Dance Contest.",
+            criteria: {type: "Building-Amount", building: 6, amount: 25},
+            flavorText: "TODO"
+        },
+        {
+            name: "TODO", desc: "Hire a penguin to play Snow Trekker.",
+            criteria: {type: "Building-Amount", building: 7, amount: 1},
+            flavorText: "TODO"
+        },
+        {
+            name: "TODO", desc: "Hire 25 penguins to play Snow Trekker.",
+            criteria: {type: "Building-Amount", building: 7, amount: 25},
+            flavorText: "TODO"
+        },
     // Endgame
         {
             name: "Puffle Rangler", desc: "Unlock every Puffle species.",

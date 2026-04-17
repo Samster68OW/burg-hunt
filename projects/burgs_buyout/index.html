@@ -9,6 +9,7 @@
 
     <!-- Internal Javascript -->
       <!-- Scripts -->
+        <script type="text/javascript" src="scripts/save-player.js"></script>
         <script type="text/javascript" src="scripts/display-code.js"></script>
         <script type="text/javascript" src="scripts/game-code.js"></script>
         <script type="text/javascript" src="scripts/game-data.js"></script>
@@ -27,7 +28,8 @@
         </div>
         <table id="main-table">
           <tr><td colspan="3" id="top-cell">
-            Burg's Buyout v0.1.2 - Beta Test
+            Burg's Buyout v0.1.3 - Beta Test
+            <span id="save-popup" hidden>[Game Saved!]</span>
           </td></tr>
           <tr>
             <td id="left-cell" class="main-cell">
@@ -52,7 +54,7 @@
               <div id="statistics-page" class="middle-page"></div>
               <div id="achievements-page" class="middle-page"></div>
               <div id="hover-spot"></div>
-              <img id="samster-img" src="images/site/samster.png">
+              <img id="burg-img" src="images/site/burg_normal.png">
             </td>
             <td id="right-cell" class="main-cell">
               <table id="right-top-tab-table"><tr>

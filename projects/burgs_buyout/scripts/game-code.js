@@ -2,24 +2,6 @@
 
 
 
-let player = {
-    coins: 0,
-    lifetimeCoins: 0,
-    timePlayed: 0,
-    coinsPerClick: 1,
-    cpts: 0,
-    cptsMult: 1,
-    building: [],
-    upgrade: [],
-    puffle: [],
-    equippedPuffle: -1,
-    achievement: [],
-    coinClicks: 0,
-    debug: false
-};
-
-
-
 function startGame() {
     
     // Generate Player Data
@@ -80,6 +62,7 @@ function startGame() {
     // Generate Achievement Display
         achievementDisplay();
 
+    loadGame();
     startGameLoop();
 
 };
@@ -109,10 +92,15 @@ function startGameLoop() {
 
 
 
+let musicStarted = false;
 function clickCoin() {
 
     // Sounds
         playSound('Click Coin');
+        if (musicStarted === false) {
+            musicStarted = true;
+            playSound('BG Music');
+        }
 
     // Click
         player.coinClicks++;
@@ -184,6 +172,7 @@ function updateMath() {
     // Reset CPTS
         player.cpts = 0;
         player.cptsMult = 1;
+        player.coinsPerClick = 1;
 
     // Update building numbers
         for (var a=0; a<player.building.length; a++) {
@@ -301,6 +290,9 @@ function keyboardInput(key) {
         case '1':
         case '2':
         case '3':
+        case '4':
+        case '5':
+        case '6':
             swapPuffle(Number(key - 1));
             break;
     };
