@@ -3,6 +3,8 @@
 
 
 function startGame() {
+
+    $('#burg-img').css('background-image',`url("images/site/burg_normal.png")`);
     
     // Generate Player Data
         for (var a=0; a<buildingData.length; a++) {
@@ -18,7 +20,7 @@ function startGame() {
         }
 
     // Generate building display
-        let display = `<div class='middle-header'>Minigames</div><table>`;
+        let display = `<div class='middle-header'>Minigames</div><br><table>`;
         for (var b=0; b<player.building.length; b++) {
             display += `<tr><td id='building-${b}-spot' onclick='purchaseBuilding(${b});' onmouseenter='hoverTextMinigame(${b})' onmouseleave='hoverTextClear();' hidden>
                 <table>
@@ -81,10 +83,13 @@ function startGameLoop() {
 
         // Progress Time
             player.timePlayed++;
+            if (player.timePlayed % 300 === 0) {saveGame();}
 
         // Update display
             checkAchievements();
             greenPuffle();
+            blackPuffle();
+            purplePuffle();
             updateDisplay();
 
     },100);
@@ -93,13 +98,15 @@ function startGameLoop() {
 
 
 let musicStarted = false;
-function clickCoin() {
+function clickCoin(user) {
 
     // Sounds
-        playSound('Click Coin');
-        if (musicStarted === false) {
-            musicStarted = true;
-            playSound('BG Music');
+        if (user === 'player') {
+            playSound('Click Coin');
+            if (musicStarted === false) {
+                musicStarted = true;
+                playSound('BG Music');
+            }
         }
 
     // Click
@@ -136,7 +143,9 @@ function purchaseUpgrade(num) {
 
     // Check price
         if (player.coins >= upgradeData[num].cost) {
-            playSound('Purchase');
+            if (num === 26) {playSound('Ship Bought');}
+            else {playSound('Purchase');}
+            
             player.coins -= upgradeData[num].cost;
             // Pink Puffle
                 if (player.equippedPuffle === 1) {player.coins += upgradeData[num].cost * puffleStat.pinkMult;}
@@ -199,9 +208,24 @@ function updateMath() {
             }
         }
 
+    // Purple Puffle
+        if (puffleStat.purple.timeLeftOnMinigame > 0) {
+            player.building[puffleStat.purple.currentMinigame].coinsPer *= 2.0;
+        }
+
     // Sum the building CPTS
         for (var a=0; a<player.building.length; a++) {
             player.cpts += player.building[a].coinsPer;
+        }
+    
+    // Red Puffle
+        if (player.equippedPuffle === 5) {
+            let achCount = 0;
+            for (var b=0; b<player.achievement.length; b++) {
+                if (player.achievement[b] === true) {achCount++;}
+            }
+            puffleStat.redMult = 1 + (achCount * 0.03);
+            player.cpts *= puffleStat.redMult;
         }
     
     // Green Puffle
@@ -309,16 +333,19 @@ function swapPuffle(num) {
             }
         }
         updateMath();
+        displayPuffle();
+        for (var c=0; c<player.building.length; c++) {
+            updateBuilding(c);
+        }
     
-    // Display Puffle
-        if (player.equippedPuffle === -1) {
-            $('#puffle-display-spot').html(``);
-        }
-        else {
-            $('#puffle-display-spot').html(`<img src='images/puffle/${puffleData[player.equippedPuffle].emoji}.png' onmouseenter='hoverTextPuffle(${player.equippedPuffle})' onmouseleave='hoverTextClear();'>`);
-        }
-        
-
+};
+function displayPuffle() {
+    if (player.equippedPuffle === -1) {
+        $('#puffle-display-spot').html(``);
+    }
+    else {
+        $('#puffle-display-spot').html(`<img src='images/puffle/${puffleData[player.equippedPuffle].emoji}.png' onmouseenter='hoverTextPuffle(${player.equippedPuffle})' onmouseleave='hoverTextClear();'>`);
+    }
 };
 function greenPuffle() {
 
@@ -350,10 +377,54 @@ function greenPuffle() {
                             puffleStat.green.currentAbility = 'Boost Clicks';
                             break;
                     }
-                    playSound('Green Boost');
+                    playSound('Puffle Boost');
                     updateMath();
 
             }
         }
+
+};
+function purplePuffle() {
+
+    // Reduce current ability's countdown
+        if (puffleStat.purple.timeLeftOnMinigame > 0) {
+            puffleStat.purple.timeLeftOnMinigame--;
+            if (puffleStat.purple.timeLeftOnMinigame === 0) {
+                puffleStat.purple.currentMinigame = 'None';
+                updateMath();
+            }
+        }
+        if (puffleStat.purple.timeLeftOnMinigame === 0) {
+            puffleStat.purple.currentMinigame = 'None';
+        }
+
+    // Check for Purple Puffle's countdown
+        if (puffleStat.purple.countdown > 0 && player.equippedPuffle === 4) {
+            puffleStat.purple.countdown--;
+            if (puffleStat.purple.countdown <= 0) {
+                puffleStat.purple.countdown = 1800; // 3 minutes
+                puffleStat.purple.timeLeftOnMinigame = 1800; // 3 minutes
+
+                // Select ability
+                    let buildList = [];
+                    for (var a=0; a<player.building.length; a++) {
+                        if (player.building[a].owned > 0) {
+                            buildList.push(a);
+                        }
+                    }
+                    puffleStat.purple.currentMinigame = buildList[Math.floor(Math.random()*buildList.length)];
+                    playSound('Puffle Boost');
+                    updateMath();
+                    updateBuilding(puffleStat.purple.currentMinigame);
+
+            }
+        }
+
+};
+function blackPuffle() {
+
+    if (player.equippedPuffle === 3) {
+        if (player.timePlayed % 5 === 0) {clickCoin('puffle');}
+    }
 
 };

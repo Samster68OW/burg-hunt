@@ -4,22 +4,30 @@
 
 function updateDisplay() {
 
+    // Burg Image
+        if (player.achievement[24] === true) {
+            $('#burg-img').css('background-image',`url("images/site/burg_cool.png")`);
+        }
+
     // Update Left Cell
-        $('#coin-display').html(`${disNum(player.coins)} coins`);
+        $('#coin-display').html(`${disNum(Math.floor(player.coins))} coins`);
         $('#cps-display').html(`per second: ${disNum(player.cpts * 10)} ${emojiInsert('coin')}`);
-        $('#coins-click-display').html(`per click: ${disNum(player.coinsPerClick)} ${emojiInsert('coin')}`);
-        if (puffleStat.green.timeLeftOnAbility > 0) {
-            if (puffleStat.green.currentAbility === 'Boost CPS') {
-                $('#cps-display').css('color','#19b025');
+        $('#coins-click-display').html(`per click: ${disNum(Math.floor(player.coinsPerClick))} ${emojiInsert('coin')}`);
+
+        // Boosts
+            let CPSBoost = false;
+            let clickBoost = false;
+            if (player.equippedPuffle === 0) {clickBoost = true;}
+            if (puffleStat.green.timeLeftOnAbility > 0) {
+                if (puffleStat.green.currentAbility === 'Boost CPS') {CPSBoost = true;}
+                else if (puffleStat.green.currentAbility === 'Boost Clicks') {clickBoost = true;}
             }
-            else if (puffleStat.green.currentAbility === 'Boost Clicks') {
-                $('#coins-click-display').css('color','#19b025');
-            }
-        }
-        else {
-            $('#cps-display').css('color','white');
-            $('#coins-click-display').css('color','white');
-        }
+            if (player.equippedPuffle === 5) {CPSBoost = true;}
+            // Results
+            if (CPSBoost === true) {$('#cps-display').css('color','#19b025');}
+            else {$('#cps-display').css('color','white');}
+            if (clickBoost === true) {$('#coins-click-display').css('color','#19b025');}
+            else {$('#coins-click-display').css('color','white');}
 
     // Update Statistics Page
         // Calculate Time Played
@@ -125,13 +133,26 @@ function checkUpReq(upID) {
     return false;
 };
 function updateBuilding(a) {
+
+    // Pink Puffle
+        let costColor = 'white';
+        if (player.equippedPuffle === 1) {
+            costColor = '#19b025';
+        }
+    
+    // Purple Puffle
+        let nameColor = 'white';
+        if (puffleStat.purple.currentMinigame === a) {
+            nameColor = '#19b025';
+        }
+
     let display = `
         <table>
             <tr>
                 <td style='width:55px;'><img src='images/minigame/minigame${a}.png' height=${buildingData[a].img.hei} width=${buildingData[a].img.wid}></td>
                 <td style='text-align:left; vertical-align:top; width:130px;'>
-                    <b>${buildingData[a].name}</b><br>
-                    Cost: ${disNum(player.building[a].currentCost)} ${emojiInsert('coin')}
+                    <b style='color:${nameColor}'>${buildingData[a].name}</b><br>
+                    <span style='color:${costColor}'>Cost: ${disNum(player.building[a].currentCost)} ${emojiInsert('coin')}</span>
                 </td>
                 <td style='font-size:30px; text-align:right; width:50px;'>${player.building[a].owned}</td>
             </tr>
@@ -151,7 +172,7 @@ function achievementDisplay() {
         }
     let achDisplay = `<div class='middle-header'>Achievements: ${achCount} of ${player.achievement.length}</div><br><table id='ach-table'><tr><td>`;
     for (var a=0; a<achievementData.length; a++) {
-        if (a === 15) {achDisplay += `</td><td>`;}
+        if (a === 13) {achDisplay += `</td><td>`;}
         if (player.achievement[a] === true) {
             achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:rgb(133, 233, 133)'>${achievementData[a].name}</span><br>`;
         }

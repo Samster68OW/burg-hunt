@@ -26,11 +26,12 @@ var masterVolume = 0.5; // Can be anywhere from 0 to 1.
 // mode: Can be 'default' or 'loop'.
 var soundData = [
     // Bread
+        {name:'BG Music', src:'paris.mp3', vol:0.1, mode:'loop'},
         {name:'Achievement', src:'achievement.wav', vol:0.2, mode:'play'},
         {name:'Click Coin', src:'click_coin.wav', vol:0.3, mode:'play'},
-        {name:'Green Boost', src:'green_boost.wav', vol:0.1, mode:'play'},
+        {name:'Puffle Boost', src:'puffle_boost.wav', vol:0.1, mode:'play'},
         {name:'Purchase', src:'purchase.wav', vol:0.3, mode:'play'},
-        {name:'BG Music', src:'paris.mp3', vol:0.05, mode:'loop'},
+        {name:'Ship Bought', src:'ship_bought.wav', vol:0.3, mode:'play'},
 ];
 
 

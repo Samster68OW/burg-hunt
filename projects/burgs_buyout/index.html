@@ -28,8 +28,7 @@
         </div>
         <table id="main-table">
           <tr><td colspan="3" id="top-cell">
-            Burg's Buyout v0.1.3 - Beta Test
-            <span id="save-popup" hidden>[Game Saved!]</span>
+            Burg's Buyout v0.2.0 - Alpha Test | <span class='settings-button' onclick="toggleSettings();">Settings</span> | <span id="save-popup" hidden>Game Saved!</span>
           </td></tr>
           <tr>
             <td id="left-cell" class="main-cell">
@@ -39,7 +38,7 @@
               <div id="cps-display">???</div>
               <br><br><br><br><br><br>
               <div style="height:150px;">
-                <div id="clickable-coin" onclick="clickCoin();"></div>
+                <div id="clickable-coin" onclick="clickCoin('player');"></div>
                 <img src="images/site/starburst.png" id="starburst-behind-coin">
               </div>
               <br><br>
@@ -54,7 +53,7 @@
               <div id="statistics-page" class="middle-page"></div>
               <div id="achievements-page" class="middle-page"></div>
               <div id="hover-spot"></div>
-              <img id="burg-img" src="images/site/burg_normal.png">
+              <div id="burg-img"></div>
             </td>
             <td id="right-cell" class="main-cell">
               <table id="right-top-tab-table"><tr>
@@ -73,10 +72,24 @@
             </td>
           </tr>
         </table>
+        <div id="settings-div" hidden>
+          <div style="padding: 15px;">
+            <h1>Settings</h1>
+            <div class="settings-button" onclick="resetGame();">[ Reset Game ]</div>
+            <br><br>
+            <h1>Credits</h1>
+            Developer: Samster68<br>
+            Burg images: samuel<br>
+            Music: "Paris St. Germain" from Club Penguin
+            <br><br><br><br>
+            <span class='settings-button' onclick="toggleSettings();">[ Back ]</span>
+            <img id="samster-img" src="images/site/samster.png">
+          </div>
+        </div>
     </div>
     <div id="footer">
       This game is not affiliated with Club Penguin Zero. It is made by fans. No artificial intelligence was used in the creation of this game. <br>
-      Game too small? Try zooming in with your browser's settings!
+      Game too small? Try zooming in with your browser's settings! Music and sounds annoying? Try muting the tab!
     </div>
     
 
@@ -93,6 +106,12 @@ $(document).ready(function(){
   loadRightPage('minigame');
   loadMiddlePage('statistics');
   hoverTextClear();
+  achievementDisplay();
+  displayPuffle();
+  for (var c=0; c<player.building.length; c++) {
+      updateBuilding(c);
+  }
+  updateMath();
 });
 
 
@@ -116,6 +135,22 @@ function loadMiddlePage(input) {
     $('#middle-top-tab-table td').css('opacity', '0.4');
     $(`#${input}-tab`).css('opacity', '1.0');
 
+};
+
+
+
+let settingsOpen = false;
+function toggleSettings() {
+  if (settingsOpen === false) {
+    settingsOpen = true;
+    $('#main-table').fadeOut(0);
+    $('#settings-div').fadeIn(0);
+  }
+  else if (settingsOpen === true) {
+    settingsOpen = false;
+    $('#main-table').fadeIn(0);
+    $('#settings-div').fadeOut(0);
+  }
 };
 
 

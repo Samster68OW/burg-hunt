@@ -56,6 +56,31 @@ body {
 
 
 
+/* Settings Screen */
+#settings-div {
+    background: radial-gradient(circle,rgba(22, 22, 173, 1) 0%, rgb(11, 11, 83) 100%);
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+.settings-button:hover {
+    color: yellow;
+    cursor: url('images/cursor/pointer.png'), auto;
+    text-decoration: underline;
+}
+#samster-img {
+    bottom: 10px;
+    height: 480px;
+    right: 10px;
+    opacity: 0.2;
+    position: absolute;
+    transform: scaleX(-1);
+    width: 320px;
+    z-index: 2;
+}
+
+
+
 /* Achievement Dropdown */
 #achievement-dropdown {
     background: #0280CD;
@@ -150,6 +175,7 @@ body {
   }
 }
 #burg-img {
+    background-size: 100% 100%;
     bottom: 10px;
     height: 210px;
     left: 10px;
@@ -232,15 +258,6 @@ body {
     color: #b0b0b0;
     font-style: italic;
     text-shadow: none;
-}
-#samster-img {
-    bottom: 5px;
-    height: 240px;
-    left: 5px;
-    opacity: 0.2;
-    position: absolute;
-    width: 160px;
-    z-index: 2;
 }
 
 

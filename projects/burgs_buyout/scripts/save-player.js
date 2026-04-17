@@ -45,9 +45,8 @@ function saveGame() {
     // Show popup
         $('#save-popup').fadeIn(0);
         setTimeout(function(){
-            console.log(localStorage.getItem('playerData'));
             $('#save-popup').fadeOut(2000);
-        },5000);
+        },3000);
 };
 function resetGame() {
     if (confirm("Would you like to reset your game?") === false) {return;}
@@ -68,5 +67,9 @@ function resetGame() {
         coinClicks: 0,
         debug: false
     };
+    toggleSettings();
     startGame();
+    loadRightPage('minigame');
+    loadMiddlePage('statistics');
+    displayPuffle();
 };

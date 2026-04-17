@@ -29,17 +29,17 @@ const buildingData = [
         img: {hei: 40, wid: 45}
     },
     {
-        name: "Pizzatron 3000", baseCost: 0, baseCoinsPerSec: 0,
+        name: "Pizzatron 3000", baseCost: 1000000, baseCoinsPerSec: 200,
         flavorText: "TODO",
         img: {hei: 40, wid: 45}
     },
     {
-        name: "Dance Contest", baseCost: 0, baseCoinsPerSec: 0,
+        name: "Dance Contest", baseCost: 2000000, baseCoinsPerSec: 1000,
         flavorText: "The Party Starts Now!",
         img: {hei: 40, wid: 43}
     },
     {
-        name: "Snow Trekker", baseCost: 0, baseCoinsPerSec: 0,
+        name: "Snow Trekker", baseCost: 20000000, baseCoinsPerSec: 20000,
         flavorText: "Originally from the Nintendo DS game, Elite Penguin Force, there is no faster way to earn coins on Club Penguin Zero.",
         img: {hei: 40, wid: 42}
     }
@@ -88,13 +88,13 @@ const upgradeData = [
         },
     // Bean Counters
         {
-            name: "Imported Beans", desc: "Doubles the CPS of Bean Counters.", emoji: 'upgrade', cost: 600,
+            name: "Imported Beans", desc: "Doubles the CPS of Bean Counters.", emoji: 'upgrade', cost: 1200,
             requirement: {type: "Building", building: 1, own: 10},
             effect: {type: "Building-Mult", building: 1, mult: 2},
             flavorText: "Can't a white boy speak a little italiano?"
         },
         {
-            name: "Jellybean Counters", desc: "Triples the CPS of Bean Counters.", emoji: 'upgrade', cost: 1600,
+            name: "Jellybean Counters", desc: "Triples the CPS of Bean Counters.", emoji: 'upgrade', cost: 4000,
             requirement: {type: "Building", building: 1, own: 20},
             effect: {type: "Building-Mult", building: 1, mult: 3},
             flavorText: "The worst minigame for colorblind penguins."
@@ -126,19 +126,19 @@ const upgradeData = [
         },
     // Puffle Roundup
         {
-            name: "Scarier Cursor", desc: "Doubles the CPS of Puffle Roundup.", emoji: 'upgrade', cost: 50000,
+            name: "Scarier Cursor", desc: "Doubles the CPS of Puffle Roundup.", emoji: 'upgrade', cost: 75000,
             requirement: {type: "Building", building: 3, own: 10},
             effect: {type: "Building-Mult", building: 3, mult: 2},
             flavorText: "Interesting how a game about collecting puffles is all about scaring them into their pen."
         },
         {
-            name: "New Puffballs", desc: "Triples the CPS of Puffle Roundup.", emoji: 'upgrade', cost: 100000,
+            name: "New Puffballs", desc: "Triples the CPS of Puffle Roundup.", emoji: 'upgrade', cost: 300000,
             requirement: {type: "Building", building: 3, own: 20},
             effect: {type: "Building-Mult", building: 3, mult: 3},
             flavorText: "Club Penguin had many weird Puffles over the years. There was even an 'Olaf' puffle!"
         },
         {
-            name: "My First Friend", desc: "Your clicks are equal to the CPS of Puffle Roundup.", emoji: 'tap', cost: 150000,
+            name: "My First Friend", desc: "Your clicks are equal to the CPS of Puffle Roundup.", emoji: 'tap', cost: 500000,
             requirement: {type: "Building", building: 3, own: 25},
             effect: {type: "Click-Building", building: 3},
             flavorText: "I tried naming a puffle 'drop table' once. Fortunately CPZ team validates the puffle name data."
@@ -146,26 +146,77 @@ const upgradeData = [
     // Cart Surfer
         {
             name: "Oiled Wheels", desc: "Doubles the CPS of Cart Surfer.", emoji: 'upgrade', cost: 400000,
-            requirement: {type: "Building", building: 4, own: 10},
+            requirement: {type: "Building", building: 4, own: 5},
             effect: {type: "Building-Mult", building: 4, mult: 2},
             flavorText: "Once Gary got the oil back from the robots, we tried putting it on the minecarts. Makes grinds easier."
         },
         {
-            name: "Endless Mode", desc: "Triples the CPS of Cart Surfer.", emoji: 'upgrade', cost: 1000000,
-            requirement: {type: "Building", building: 4, own: 20},
-            effect: {type: "Building-Mult", building: 4, mult: 3},
+            name: "Endless Mode", desc: "Doubles the CPS of Cart Surfer again.", emoji: 'upgrade', cost: 1000000,
+            requirement: {type: "Building", building: 4, own: 15},
+            effect: {type: "Building-Mult", building: 4, mult: 2},
             flavorText: "You want more points? Just play the game a little longer!"
         },
         {
-            name: "Optimized Surfing", desc: "Your clicks are equal to the CPS of Cart Surfer.", emoji: 'tap', cost: 2000000,
-            requirement: {type: "Building", building: 4, own: 25},
+            name: "Optimized Surfing", desc: "Your clicks are equal to the CPS of Cart Surfer.", emoji: 'tap', cost: 1000000,
+            requirement: {type: "Building", building: 4, own: 20},
             effect: {type: "Click-Building", building: 4},
             flavorText: "Alternating between different tricks improves how many points you score overall."
         },
+    // Pizzatron 3000
+        {
+            name: "TODO", desc: "Doubles the CPS of Pizzatron 3000.", emoji: 'upgrade', cost: 1500000,
+            requirement: {type: "Building", building: 5, own: 5},
+            effect: {type: "Building-Mult", building: 5, mult: 2},
+            flavorText: "TODO"
+        },
+        {
+            name: "TODO", desc: "Doubles the CPS of Pizzatron 3000 again.", emoji: 'upgrade', cost: 10000000,
+            requirement: {type: "Building", building: 5, own: 10},
+            effect: {type: "Building-Mult", building: 5, mult: 2},
+            flavorText: "TODO"
+        },
+        {
+            name: "TODO", desc: "Your clicks are equal to the CPS of Pizzatron 3000.", emoji: 'tap', cost: 15000000,
+            requirement: {type: "Building", building: 5, own: 15},
+            effect: {type: "Click-Building", building: 5},
+            flavorText: "TODO"
+        },
+    // Dance Contest
+        {
+            name: "TODO", desc: "Doubles the CPS of Dance Contest.", emoji: 'upgrade', cost: 20000000,
+            requirement: {type: "Building", building: 6, own: 5},
+            effect: {type: "Building-Mult", building: 6, mult: 2},
+            flavorText: "TODO"
+        },
+        {
+            name: "TODO", desc: "Triples the CPS of Dance Contest.", emoji: 'upgrade', cost: 100000000,
+            requirement: {type: "Building", building: 6, own: 10},
+            effect: {type: "Building-Mult", building: 6, mult: 3},
+            flavorText: "TODO"
+        },
+        {
+            name: "TODO", desc: "Your clicks are equal to the CPS of Dance Contest.", emoji: 'tap', cost: 200000000,
+            requirement: {type: "Building", building: 6, own: 15},
+            effect: {type: "Click-Building", building: 6},
+            flavorText: "TODO"
+        },
+    // Snow Trekker
+        {
+            name: "TODO", desc: "Doubles the CPS of Snow Trekker.", emoji: 'upgrade', cost: 500000000,
+            requirement: {type: "Building", building: 7, own: 10},
+            effect: {type: "Building-Mult", building: 7, mult: 2},
+            flavorText: "TODO"
+        },
+        {
+            name: "TODO", desc: "Your clicks are equal to the CPS of Snow Trekker.", emoji: 'tap', cost: 800000000,
+            requirement: {type: "Building", building: 7, own: 15},
+            effect: {type: "Click-Building", building: 7},
+            flavorText: "TODO"
+        },
     // Endgame
         {
-            name: "Repair the Migrator", desc: "Repairs the Migrator!", emoji: 'coin', cost: 5000000,
-            requirement: {type: "Building", building: 4, own: 1},
+            name: "Repair the Migrator", desc: "Repairs the Migrator and grants a x2 CPS boost!", emoji: 'coin', cost: 1000000000,
+            requirement: {type: "Building", building: 7, own: 1},
             effect: {type: "CPS-Multiplier", mult: 2},
             flavorText: "We almost have enough coins to repair Rockhopper's ship, the Migrator!"
         }
@@ -187,16 +238,16 @@ const puffleData = [
         key: 3, flavorText: "Silly and playful. Always up to shenanigans."
     },
     {
-        name: "Black Puffle", desc: "TODO", emoji: 'black_puffle', cost: 999,
-        key: 4, flavorText: "TODO"
+        name: "Black Puffle", desc: "(Passive: Clicker) Clicks the coin twice a second.", emoji: 'black_puffle', cost: 1500000,
+        key: 4, flavorText: "This puffle seems to want to do things its own way."
     },
     {
-        name: "Purple Puffle", desc: "(Passive: Celebrity) Boosts a random minigame for 5 minutes. Once the 5 minutes are over, it picks a new one.", emoji: 'purple_puffle', cost: 999,
-        key: 5, flavorText: "TODO"
+        name: "Purple Puffle", desc: "(Passive: Celebrity) Doubles a random minigame's CPS for 3 minutes. Once the 3 minutes are over, it picks a new one.", emoji: 'purple_puffle', cost: 6000000,
+        key: 5, flavorText: "What a diva."
     },
     {
-        name: "Red Puffle", desc: "(Passive: Completionist) Applies a CPS multiplier based on how many achievements you have collected.", emoji: 'red_puffle', cost: 999,
-        key: 6, flavorText: "TODO"
+        name: "Red Puffle", desc: "(Passive: Completionist) Applies a CPS multiplier based on how many achievements you have collected. (1 = +3% CPS)", emoji: 'red_puffle', cost: 30000000,
+        key: 6, flavorText: "Never backs down from a challenge. He's here to see this mission to its end."
     }
 ];
 let puffleStat = {
@@ -206,7 +257,13 @@ let puffleStat = {
         countdown: 1800, // 3 minutes
         currentAbility: 'None',
         timeLeftOnAbility: 0
-    }
+    },
+    purple: {
+        countdown: 1800, // 3 minutes
+        currentMinigame: 'None',
+        timeLeftOnMinigame: 0
+    },
+    redMult: 1.0
 };
 
 
@@ -237,6 +294,16 @@ const achievementData = [
             name: "At the Game's Limit", desc: "Earn 1 million lifetime coins.",
             criteria: {type: "Coins-Lifetime", amount: 1000000},
             flavorText: "Club Penguin itself will stop giving you coins at this point. A few penguins have actually achieved this."
+        },
+        {
+            name: "Beyond Reason", desc: "Earn 10 million lifetime coins.",
+            criteria: {type: "Coins-Lifetime", amount: 10000000},
+            flavorText: "Your greed sickens me."
+        },
+        {
+            name: "A Thousand Penguins", desc: "Earn 1 billion lifetime coins.",
+            criteria: {type: "Coins-Lifetime", amount: 1000000000},
+            flavorText: "I bet Rockhopper doesn't have to pay a cent in taxes."
         },
     // Buildings
         {
@@ -285,8 +352,8 @@ const achievementData = [
             flavorText: "... and they call it a mine. A <u>MINE!</u>"
         },
         {
-            name: "10k Surfer", desc: "Hire 25 penguins to play Cart Surfer.",
-            criteria: {type: "Building-Amount", building: 4, amount: 25},
+            name: "10k Surfer", desc: "Hire 20 penguins to play Cart Surfer.",
+            criteria: {type: "Building-Amount", building: 4, amount: 20},
             flavorText: "Did they fix the double obstacles yet, or am I just trash at the game?"
         },
         {
@@ -295,8 +362,8 @@ const achievementData = [
             flavorText: "TODO"
         },
         {
-            name: "TODO", desc: "Hire 25 penguins to play Pizzatron 3000.",
-            criteria: {type: "Building-Amount", building: 5, amount: 25},
+            name: "TODO", desc: "Hire 15 penguins to play Pizzatron 3000.",
+            criteria: {type: "Building-Amount", building: 5, amount: 15},
             flavorText: "TODO"
         },
         {
@@ -305,8 +372,8 @@ const achievementData = [
             flavorText: "TODO"
         },
         {
-            name: "TODO", desc: "Hire 25 penguins to play Dance Contest.",
-            criteria: {type: "Building-Amount", building: 6, amount: 25},
+            name: "TODO", desc: "Hire 15 penguins to play Dance Contest.",
+            criteria: {type: "Building-Amount", building: 6, amount: 15},
             flavorText: "TODO"
         },
         {
@@ -315,8 +382,8 @@ const achievementData = [
             flavorText: "TODO"
         },
         {
-            name: "TODO", desc: "Hire 25 penguins to play Snow Trekker.",
-            criteria: {type: "Building-Amount", building: 7, amount: 25},
+            name: "TODO", desc: "Hire 15 penguins to play Snow Trekker.",
+            criteria: {type: "Building-Amount", building: 7, amount: 15},
             flavorText: "TODO"
         },
     // Endgame
@@ -327,7 +394,7 @@ const achievementData = [
         },
         {
             name: "Mission Complete!", desc: "Repair the Migrator.",
-            criteria: {type: "Upgrade-Purchased", upgrade: 21},
+            criteria: {type: "Upgrade-Purchased", upgrade: 26},
             flavorText: "Congratulations on completing the game! Why not earn a few more coins while you're here?"
         }
 ];
