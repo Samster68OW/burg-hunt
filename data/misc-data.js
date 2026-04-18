@@ -8,7 +8,8 @@ const postcardList = [
     {title: "Legacy Scavenger Hunt", imgSource: "placeholder.png", postcardCredit: "Samster68", alwaysSeen: false},
     {title: "Burg's First Scavenger Hunt", imgSource: "feb2026.png", postcardCredit: "samuel", alwaysSeen: true},
     {title: "Beeker's Pi Day Puzzle",  imgSource: "mar2026.png", postcardCredit: "Silverpetals", alwaysSeen: true},
-    {title: "The Iceberg Stargazing Party",  imgSource: "apr2026.png", postcardCredit: "starryskyez", alwaysSeen: false}
+    {title: "The Iceberg Stargazing Party",  imgSource: "apr2026.png", postcardCredit: "starryskyez", alwaysSeen: false},
+    {title: "Burg's Buyout",  imgSource: "buyout2026.png", postcardCredit: "samuel", alwaysSeen: false}
 ];
 
 
@@ -41,5 +42,6 @@ const funStuffList = [
 const codeList = [
     {code: "SAMSTERSFRIEND", reward: {type: "postcard", postcardID: 0}, message: "How did you get this code? This is just a placeholder!"},
     {code: "STARGAZERS", reward: {type: "postcard", postcardID: 3}, message: "Thank you for attending the Iceberg Stargazing Party!"},
-    {code: "ALPHATESTER", reward: {type: "link", linkURL: "projects/burgs_buyout/index.html"}, message: "Thank you for agreeing to playtest my new little game! Let me know what you think. :)"}
+    {code: "ALPHATESTER", reward: {type: "link", linkURL: "projects/burgs_buyout/index.html"}, message: "Thank you for agreeing to playtest my new little game! Let me know what you think. :)"},
+    {code: "COINSRAISED", reward: {type: "postcard", postcardID: 4}, message: "Good job reaching 1 billion coins!"}
 ];

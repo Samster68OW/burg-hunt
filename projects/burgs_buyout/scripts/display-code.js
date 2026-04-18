@@ -84,6 +84,15 @@ function updateDisplay() {
         }
         $('#statistics-page').html(display);
     
+    // Update Gold Pile
+        const minGoldHeight = 155;
+        const maxGoldHeight = -10;
+        const goldDiff = minGoldHeight - maxGoldHeight;
+        let currPercent = logPercentage(player.lifetimeCoins, 1000000000);
+        let newValue = currPercent * goldDiff;
+        newValue = minGoldHeight - newValue;
+        $("#gold-pile").css("background-position-y", `${newValue}px`)
+    
     // Update Right Side Tabs
         // Unlock Upgrades by buying Bean Counters
             if (player.building[1].owned > 0) {$('#upgrade-tab').fadeIn(0);}
@@ -212,76 +221,6 @@ function achievementDisplay() {
 
 
 
-function hoverTextMinigame(num) {
-
-    // Calculate Percentage
-        let CpsPercentage = Math.floor(player.building[num].coinsPer / player.cpts * 100);
-        if (player.building[num].coinsPer === 0) {CpsPercentage = 0;}
-
-    // Display
-        let display = `<b>${buildingData[num].name} [Minigame]</b><br>
-            <br>
-            Your ${player.building[num].owned} penguin(s) are generating ${disNum(player.building[num].coinsPer * 10)} CPS.<br>
-            (${CpsPercentage}% of total CPS)<br>
-            <br>
-            <span class='flavorText'>${buildingData[num].flavorText}</span>`;
-        $('#hover-spot').html(display);
-        $('#hover-spot').css('opacity', '1.0');
-
-};
-function hoverTextUpgrade(num) {
-
-    // Display
-        let display = `${emojiInsert(upgradeData[num].emoji)} <b>${upgradeData[num].name} [Upgrade]</b><br>
-            <br>
-            ${upgradeData[num].desc}<br>
-            <br>
-            <span class='flavorText'>${upgradeData[num].flavorText}</span>`;
-        $('#hover-spot').html(display);
-        $('#hover-spot').css('opacity', '1.0');
-
-};
-function hoverTextAchievement(num) {
-
-    // Display
-        let display = ``;
-        if (player.achievement[num] === true) {
-            display = `<b>${achievementData[num].name}</b><br>
-            <br>
-            ${achievementData[num].desc}<br>
-            <br>
-            <span class='flavorText'>${achievementData[num].flavorText}</span>`;
-        }
-        else {
-            display = `<b>????????</b><br>
-            <br>
-            ${achievementData[num].desc}<br>
-            <br>
-            <span class='flavorText'>????????</span>`;
-        }
-        $('#hover-spot').html(display);
-        $('#hover-spot').css('opacity', '1.0');
-
-};
-function hoverTextPuffle(num) {
-
-    // Display
-        let display = `${emojiInsert(puffleData[num].emoji)} <b>${puffleData[num].name} [${puffleData[num].key}] [Puffle]</b><br>
-            <br>
-            ${puffleData[num].desc}<br>
-            <br>
-            <span class='flavorText'>${puffleData[num].flavorText}</span>`;
-        $('#hover-spot').html(display);
-        $('#hover-spot').css('opacity', '1.0');
-
-};
-function hoverTextClear() {
-    $('#hover-spot').html('');
-    $('#hover-spot').css('opacity', '0.0');
-};
-
-
-
 const numNames = [``,` thousand`, ` million`, ` billion`, ` trillion`, ` quadrillion`];
 function disNum(input) {
 
@@ -324,9 +263,21 @@ function disTime(input) {
     return timeDisplay;
 
 };
+function logPercentage(value, max) {
 
+    if (value <= 0) {return 0;}
+    else if (value >= max) {return 1;}
 
+    // Calculate logarithms base 10
+    const logMin = Math.log10(1);
+    const logMax = Math.log10(max);
+    const logValue = Math.log10(value);
 
+    // Normalize and convert to percentage
+    const percentage = ((logValue - logMin) / (logMax - logMin));
+
+    return percentage;
+};
 function emojiInsert(input) {
     return `<img height=10 src='images/emoji/${input}.png'>`;
 };

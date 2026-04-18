@@ -395,6 +395,6 @@ const achievementData = [
         {
             name: "Mission Complete!", desc: "Repair the Migrator.",
             criteria: {type: "Upgrade-Purchased", upgrade: 26},
-            flavorText: "Congratulations on completing the game! Why not earn a few more coins while you're here?"
+            flavorText: "Congratulations on completing the game! Use the code 'COINSRAISED' on Burg's site to unlock a new postcard!"
         }
 ];
