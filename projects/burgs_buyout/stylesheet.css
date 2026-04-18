@@ -184,13 +184,16 @@ body {
     width: 150px;
     z-index: 2;
 }
-#puffle-display-spot {
+#puffle-big-spot {
     bottom: 5px;
-    height: 80px;
-    left: 95px;
+    left: 5px;
     position: absolute;
-    width: 80px;
+    width: 290px;
     z-index: 3;
+}
+#puffle-display-spot {
+    height: 80px;
+    width: 80px;
 }
 #puffle-display-spot img {
     bottom: 10px;

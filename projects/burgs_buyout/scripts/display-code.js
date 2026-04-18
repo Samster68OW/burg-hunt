@@ -19,8 +19,8 @@ function updateDisplay() {
             let clickBoost = false;
             if (player.equippedPuffle === 0) {clickBoost = true;}
             if (puffleStat.green.timeLeftOnAbility > 0) {
-                if (puffleStat.green.currentAbility === 'Boost CPS') {CPSBoost = true;}
-                else if (puffleStat.green.currentAbility === 'Boost Clicks') {clickBoost = true;}
+                if (puffleStat.green.currentAbility === 'CPS') {CPSBoost = true;}
+                else if (puffleStat.green.currentAbility === 'Clicks') {clickBoost = true;}
             }
             if (player.equippedPuffle === 5) {CPSBoost = true;}
             // Results
@@ -29,17 +29,42 @@ function updateDisplay() {
             if (clickBoost === true) {$('#coins-click-display').css('color','#19b025');}
             else {$('#coins-click-display').css('color','white');}
 
+    // Update Puffle Info
+        switch (player.equippedPuffle) {
+            case -1:
+                $('#puffle-info-spot').html(``);
+                break;
+            case 0:
+                let disBoost = Math.floor((puffleStat.blueMult - 1) * 10000) / 100;
+                $('#puffle-info-spot').html(`<b>Blue Puffle</b><br>Click Boost: +${disBoost}%`);
+                break;
+            case 1:
+                $('#puffle-info-spot').html(`<b>Pink Puffle</b><br>Coin return active!`);
+                break;
+            case 2:
+                let timeUntilActivate = disTime(puffleStat.green.countdown);
+                $('#puffle-info-spot').html(`<b>Green Puffle</b><br>Time until boost: ${timeUntilActivate}<br>Current Boost: ${puffleStat.green.currentAbility}`);
+                break;
+            case 3:
+                $('#puffle-info-spot').html(`<b>Black Puffle</b><br>Busy clicking the coin.`);
+                break;
+            case 4:
+                let timeUntilActivate2 = disTime(puffleStat.purple.countdown);
+                let minigameName = 'None';
+                if (puffleStat.purple.currentMinigame !== 'None') {
+                    minigameName = buildingData[puffleStat.purple.currentMinigame].name
+                }
+                $('#puffle-info-spot').html(`<b>Purple Puffle</b><br>Time until boost: ${timeUntilActivate2}<br>Boosting: ${minigameName}`);
+                break;
+            case 5:
+                let cpsBoostDis = Math.floor((puffleStat.redMult - 1) * 100);
+                $('#puffle-info-spot').html(`<b>Red Puffle</b><br>CPS Boost: +${cpsBoostDis}%`);
+                break;
+        }
+
     // Update Statistics Page
         // Calculate Time Played
-            let timeLeft = player.timePlayed;
-            let hours = Math.floor(timeLeft / 36000);
-            timeLeft -= hours * 36000;
-            let minutes = Math.floor(timeLeft / 600);
-            timeLeft -= minutes * 600;
-            let seconds = Math.floor(timeLeft / 10);
-            let timeDisplay = ``;
-            if (hours > 0) {timeDisplay = `${hours}hr ${minutes}m ${seconds}s`;}
-            else {timeDisplay = `${minutes}m ${seconds}s`;}
+            let timeDisplay = disTime(player.timePlayed);
         let display =  `
             <div class='middle-header'>How to Play</div><br>
             Burg needs our help! We need to raise coins to repair the Migrator after it hit an iceberg. Click the large coin on the left to collect coins. Then reinvest those coins into hiring penguins to play minigames for you. Good luck!
@@ -281,6 +306,22 @@ function disNum(input) {
         input = Math.round(input * 100) / 100;
     
     return `${input}${numNames[loop]}`;
+
+};
+function disTime(input) {
+
+    let timeLeft = input;
+    let hours = Math.floor(timeLeft / 36000);
+    timeLeft -= hours * 36000;
+    let minutes = Math.floor(timeLeft / 600);
+    timeLeft -= minutes * 600;
+    let seconds = Math.floor(timeLeft / 10);
+
+    let timeDisplay = ``;
+    if (hours > 0) {timeDisplay = `${hours}hr ${minutes}m ${seconds}s`;}
+    else if (minutes > 0) {timeDisplay = `${minutes}m ${seconds}s`;}
+    else {timeDisplay = `${seconds}s`;}
+    return timeDisplay;
 
 };
 

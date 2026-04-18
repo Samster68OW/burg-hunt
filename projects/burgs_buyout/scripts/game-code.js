@@ -113,6 +113,10 @@ function clickCoin(user) {
         player.coinClicks++;
         player.lifetimeCoins += player.coinsPerClick;
         player.coins += player.coinsPerClick;
+    
+    // Update Blue & Red Puffle
+        // This doesn't matter for calculations, but for the boost display.
+        puffleStat.blueMult = 1 + (player.coinClicks / 10000);
 
     // Coin Animation
         $('#clickable-coin').removeClass('coinPulseClass');
@@ -230,10 +234,10 @@ function updateMath() {
     
     // Green Puffle
         if (puffleStat.green.timeLeftOnAbility > 0) {
-            if (puffleStat.green.currentAbility === 'Boost CPS') {
+            if (puffleStat.green.currentAbility === 'CPS') {
                 player.cpts *= 3.0;
             }
-            else if (puffleStat.green.currentAbility === 'Boost Clicks') {
+            else if (puffleStat.green.currentAbility === 'Clicks') {
                 player.coinsPerClick *= 3.0;
             }
         }
@@ -304,6 +308,13 @@ function earnAchievement(num) {
             $('#achievement-dropdown').addClass('dropdownClass');
         },10);
         achievementDisplay();
+    
+    // Red Puffle
+        let achCount = 0;
+        for (var b=0; b<player.achievement.length; b++) {
+            if (player.achievement[b] === true) {achCount++;}
+        }
+        puffleStat.redMult = 1 + (achCount * 0.03);
 
 };
 
@@ -371,10 +382,10 @@ function greenPuffle() {
                 // Select ability
                     switch (Math.floor(Math.random()*2)) {
                         case 0:
-                            puffleStat.green.currentAbility = 'Boost CPS';
+                            puffleStat.green.currentAbility = 'CPS';
                             break;
                         case 1:
-                            puffleStat.green.currentAbility = 'Boost Clicks';
+                            puffleStat.green.currentAbility = 'Clicks';
                             break;
                     }
                     playSound('Puffle Boost');
