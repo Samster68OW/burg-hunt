@@ -78,6 +78,13 @@ body {
     width: 320px;
     z-index: 2;
 }
+#title-img {
+    top: 10px;
+    right: 10px;
+    opacity: 0.2;
+    position: absolute;
+    z-index: 2;
+}
 
 
 
