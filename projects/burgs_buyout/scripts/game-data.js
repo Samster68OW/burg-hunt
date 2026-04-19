@@ -226,15 +226,15 @@ const upgradeData = [
 
 const puffleData = [
     {
-        name: "Blue Puffle", desc: "(Passive: Companion) Every coin click makes your clicks stronger. (100 clicks = +1% coins)", emoji: 'blue_puffle', cost: 5000,
+        name: "Blue Puffle", desc: "(Passive: Companion) Every coin click makes your clicks stronger. (100 clicks = +1% coins, Max +100%)", emoji: 'blue_puffle', cost: 5000,
         key: 1, flavorText: "Loyal team players. This is the puffle you want to be your best friend."
     },
     {
-        name: "Pink Puffle", desc: "(Passive: Commission) Receive 20% of your coins back when purchasing minigames and upgrades.", emoji: 'pink_puffle', cost: 50000,
+        name: "Pink Puffle", desc: "(Passive: Commission) Receive 25% of your coins back when purchasing minigames and upgrades.", emoji: 'pink_puffle', cost: 50000,
         key: 2, flavorText: "Athletic and cheerful. I heard they are good with lassos, too."
     },
     {
-        name: "Green Puffle", desc: "(Passive: Circus) Every 3 minutes, either your CPS or coins per click will be buffed for 20 seconds.", emoji: 'green_puffle', cost: 300000,
+        name: "Green Puffle", desc: "(Passive: Circus) Every 2 minutes, either your CPS or coins per click will be buffed for 20 seconds.", emoji: 'green_puffle', cost: 300000,
         key: 3, flavorText: "Silly and playful. Always up to shenanigans."
     },
     {
@@ -242,7 +242,7 @@ const puffleData = [
         key: 4, flavorText: "This puffle seems to want to do things its own way."
     },
     {
-        name: "Purple Puffle", desc: "(Passive: Celebrity) Doubles a random minigame's CPS for 3 minutes. Once the 3 minutes are over, it picks a new one.", emoji: 'purple_puffle', cost: 6000000,
+        name: "Purple Puffle", desc: "(Passive: Celebrity) Doubles a random minigame's CPS for 1 minute. Once the minute is over, it picks a new one.", emoji: 'purple_puffle', cost: 6000000,
         key: 5, flavorText: "What a diva."
     },
     {
@@ -251,19 +251,34 @@ const puffleData = [
     }
 ];
 let puffleStat = {
-    blueMult: 1.0,
-    pinkMult: 0.2,
+    blue: {
+        divisor: 10000,
+        mult: 1.0,
+        multMax: 1.0
+    },
+    pink: {
+        mult: 0.25
+    },
     green: {
-        countdown: 1800, // 3 minutes
+        countdown: 1200, // 2 minutes
+        countdownMax: 1200,
         currentAbility: 'None',
-        timeLeftOnAbility: 0
+        timeLeftOnAbility: 0,
+        timeLeftMax: 200, // 20 seconds
+        mult: 3.0
     },
     purple: {
-        countdown: 1800, // 3 minutes
+        countdownMax: 600, // 1 minute
+        countdown: 600,
         currentMinigame: 'None',
-        timeLeftOnMinigame: 0
+        timeLeftOnMinigame: 0,
+        timeLeftMax: 600, // 1 minute
+        mult: 2.0
     },
-    redMult: 1.0
+    red: {
+        mult: 1.0,
+        percent: 0.03
+    }
 };
 
 

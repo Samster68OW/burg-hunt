@@ -122,7 +122,7 @@ body {
     }
 }
 #current-ach-name {
-    color: rgb(133, 233, 133);
+    color: yellow;
 }
 
 
@@ -331,6 +331,26 @@ body {
 #owned-upgrade-list {
     opacity: 0.6;
 }
+
 #puffle-page {
     padding: 5px;
+}
+.puffle-cell {
+    background-color: blue;
+    cursor: url('images/cursor/pointer.png'), auto;
+    height: 40px;
+    padding: 3px;
+    width: 100%;
+}
+.puffle-cell:hover {
+    color: yellow;
+    text-decoration: underline;
+}
+.puffle-equip {
+    padding-right: 10px;
+    padding-top: 5px;
+}
+.puffle-equip img {
+    height: 30px;
+    width: 30px;
 }

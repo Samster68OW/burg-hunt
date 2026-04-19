@@ -65,7 +65,7 @@ function hoverTextAchievement(num) {
 function hoverTextPuffle(num) {
 
     // Display
-        let display = `${emojiInsert(puffleData[num].emoji)} <b>${puffleData[num].name} [${puffleData[num].key}] [Puffle]</b><br>
+        let display = `${emojiInsert(puffleData[num].emoji)} <b>${puffleData[num].name}</b><br>
             <br>
             ${puffleData[num].desc}<br>
             <br>

@@ -35,7 +35,7 @@ function updateDisplay() {
                 $('#puffle-info-spot').html(``);
                 break;
             case 0:
-                let disBoost = Math.floor((puffleStat.blueMult - 1) * 10000) / 100;
+                let disBoost = Math.floor((puffleStat.blue.mult - 1) * puffleStat.blue.divisor) / 100;
                 $('#puffle-info-spot').html(`<b>Blue Puffle</b><br>Click Boost: +${disBoost}%`);
                 break;
             case 1:
@@ -57,7 +57,7 @@ function updateDisplay() {
                 $('#puffle-info-spot').html(`<b>Purple Puffle</b><br>Time until boost: ${timeUntilActivate2}<br>Boosting: ${minigameName}`);
                 break;
             case 5:
-                let cpsBoostDis = Math.floor((puffleStat.redMult - 1) * 100);
+                let cpsBoostDis = Math.floor((puffleStat.red.mult - 1) * 100);
                 $('#puffle-info-spot').html(`<b>Red Puffle</b><br>CPS Boost: +${cpsBoostDis}%`);
                 break;
         }
@@ -138,16 +138,16 @@ function updateDisplay() {
             // Not purchased
                 if (player.puffle[a] === false) {
                     if (player.coins >= puffleData[a].cost) {
-                        $(`#puffle-${a}`).css("opacity", "1.0");
+                        $(`#puffle-${a}-spot`).css("opacity", "1.0");
                     }
                     else {
-                        $(`#puffle-${a}`).css("opacity", "0.6");
+                        $(`#puffle-${a}-spot`).css("opacity", "0.6");
                     }
                 }
             // Is Purchased
                 else if (player.puffle[a] === true) {
-                    $(`#puffle-${a}`).css("opacity", "1.0");
-                    $(`#puffle-${a}`).html(`${emojiInsert(puffleData[a].emoji)} <b>${puffleData[a].name}</b> - Key: ${puffleData[a].key}`);
+                    $(`#puffle-${a}-spot`).css("opacity", "1.0");
+                    $(`#puffle-${a}`).html(`<b>${puffleData[a].name}</b><br>Press ${puffleData[a].key} to select.`);
                 }
         }
 
@@ -208,7 +208,7 @@ function achievementDisplay() {
     for (var a=0; a<achievementData.length; a++) {
         if (a === 13) {achDisplay += `</td><td>`;}
         if (player.achievement[a] === true) {
-            achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:rgb(133, 233, 133)'>${achievementData[a].name}</span><br>`;
+            achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:yellow;'>${achievementData[a].name}</span><br>`;
         }
         else {
             achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:gray;'>????????</span><br>`;
