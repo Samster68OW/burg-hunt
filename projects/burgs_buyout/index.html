@@ -29,7 +29,7 @@
         </div>
         <table id="main-table">
           <tr><td colspan="3" id="top-cell">
-            Burg's Buyout v0.2.4 - Alpha Test | <span class='settings-button' onclick="toggleSettings();">Settings</span> | <span id="save-popup" hidden>Game Saved!</span>
+            Burg's Buyout v0.2.5 - Alpha Test | <span class='settings-button' onclick="toggleSettings();">Settings</span> | <span id="save-popup" hidden>Game Saved!</span>
           </td></tr>
           <tr>
             <td id="left-cell" class="main-cell">
@@ -81,8 +81,9 @@
         <div id="settings-div" hidden>
           <div style="padding: 15px;">
             <h1>Settings</h1>
-            <div class="settings-button" onclick="resetGame();">[ Reset Game ]</div>
-            <br><br>
+            <span class="settings-button" onclick="toggleMusic();" id="toggle-music-button">[ Music: On ]</span><br>
+            <span class="settings-button" onclick="resetGame();">[ Reset Game ]</span>
+            <br><br><br>
             <h1>Credits</h1>
             Developer: Samster68<br>
             Burg images and postcard: samuel<br>
@@ -96,7 +97,8 @@
             Silverpetals<br>
             eleanor<br>
             Jalapeño Poppers<br>
-            Wikipedia
+            Wikipedia<br>
+            SyntheticFox
             <br><br><br><br>
             <span class='settings-button' onclick="toggleSettings();">[ Back ]</span>
             <img id="title-img" src="images/site/title.png" style="height:90px; width:230px;">
@@ -157,6 +159,7 @@ function loadMiddlePage(input) {
 
 
 let settingsOpen = false;
+let playMusic = true;
 function toggleSettings() {
   if (settingsOpen === false) {
     settingsOpen = true;
@@ -167,6 +170,18 @@ function toggleSettings() {
     settingsOpen = false;
     $('#main-table').fadeIn(0);
     $('#settings-div').fadeOut(0);
+  }
+};
+function toggleMusic() {
+  if (playMusic === true) {
+    playMusic = false;
+    $('#toggle-music-button').html('[ Music: Off ]');
+    pauseSound('BG Music');
+  }
+  else if (playMusic === false) {
+    playMusic = true;
+    $('#toggle-music-button').html('[ Music: On ]');
+    playSound('BG Music');
   }
 };
 

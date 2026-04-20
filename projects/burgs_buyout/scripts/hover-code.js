@@ -5,7 +5,11 @@
 function hoverTextMinigame(num) {
 
     // Calculate Percentage
-        let CpsPercentage = Math.floor(player.building[num].coinsPer / player.cpts * 100);
+        let unmodifiedCPS = 0;
+        for (var a=0; a<player.building.length; a++) {
+            unmodifiedCPS += player.building[a].coinsPer;
+        }
+        let CpsPercentage = Math.floor(player.building[num].coinsPer / unmodifiedCPS * 100);
         if (player.building[num].coinsPer === 0) {CpsPercentage = 0;}
 
     // Display

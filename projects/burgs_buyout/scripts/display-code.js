@@ -74,14 +74,6 @@ function updateDisplay() {
             Time Played: ${timeDisplay}<br>
             Coin Clicks: ${disNum(player.coinClicks)} ${emojiInsert('tap')}<br>
         `;
-        if (player.building[3].owned > 0) {
-            if (player.equippedPuffle === -1) {
-                display += `Equipped Puffle: None`;
-            }
-            if (player.equippedPuffle >= 0) {
-                display += `Equipped Puffle: ${puffleData[player.equippedPuffle].name} ${emojiInsert(puffleData[player.equippedPuffle].emoji)}`;
-            }
-        }
         $('#statistics-page').html(display);
     
     // Update Gold Pile
