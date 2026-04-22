@@ -33,49 +33,12 @@ function generateDropdowns() {
             }
         $('#hunt-dropdown-spot').html(display);
 
-    // Generate button on Home Page
-        if (activeHunt === false) {
-            $(`#home-btn-spot`).html(`<button type="button" class="btn btn-danger" onclick="">There are no active adventures.</button>`);
-        }
-        else {
-            if (activeHuntStatus === false) {
-                $(`#home-btn-spot`).html(`<button type="button" class="btn btn-warning" onclick="loadPage('${huntList[activeHunt].imgSource}');">There is an adventure coming soon!</button>`);
-            }
-            else if (activeHuntStatus === true) {
-                $(`#home-btn-spot`).html(`<button type="button" class="btn btn-success" onclick="loadPage('${huntList[activeHunt].imgSource}');">View the ongoing adventure!</button>`);
-            }
-        }
-    
-    // Generate Comic Dropdown
-        display = ``;
-        for (var a=comicList.length-1; a>-1; a--) {
-            if (a === comicList.length-1) {
-                display += `<li><a href="#" onclick="loadPage('comic'); loadComic(${a});">${comicList[a].title} <span class="label label-success">New!</span></a></li>`;
-            }
-            else {
-                display += `<li><a href="#" onclick="loadPage('comic'); loadComic(${a});">${comicList[a].title}</a></li>`;
-            }
-        }
-        $('#comic-dropdown-spot').html(display)
-
-};
-
-
-
-function loadFanArtPage() {
-    // Generate display
-        let display = ``;
-        for (var a=fanartList.length-1; a>-1; a--) {
-            display += `<p class="lead">"${fanartList[a].title}" by ${fanartList[a].fanartCredit}</p>`;
-            display += `<img src="images/fan-art/${fanartList[a].imgSource}" class="img-responsive img-postcard" style="width:600px;" alt="Postcard"><br><br><br>`;
-        }
-    // Show postcards
-        $('#fanart-display-spot').html(display);
 };
 
 
 
 function loadComic(num) {
+    loadPage('comic');
     let comicData = comicList[num];
     $('#comic-title-spot').html(comicData.title);
     let display = '';
@@ -86,8 +49,8 @@ function loadComic(num) {
     $('#car-indi-spot').html(display);
     display = '';
     for (var a=0; a<comicData.pages; a++) {
-        if (a === 0) {display += `<div class="item active"><img src="images/comic/${comicData.imgSource}/page_0.png" alt="Comic Page 0"></div>`;}
-        else {display += `<div class="item"><img src="images/comic/${comicData.imgSource}/page_${a}.png" alt="Comic Page ${a}"></div>`;}
+        if (a === 0) {display += `<div class="item active"><img src="images/fun-stuff/comic/${comicData.imgSource}/page_0.png" alt="Comic Page 0"></div>`;}
+        else {display += `<div class="item"><img src="images/fun-stuff/comic/${comicData.imgSource}/page_${a}.png" alt="Comic Page ${a}"></div>`;}
     }
     $('#car-inn-spot').html(display);
     $('#comic-publish-spot').html(`Published on ${comicData.publishDate}.`);

@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Burg's Adventures</title>
+    <title>Burg's Camp</title>
 
-    <!-- Bootstrap -->
+    <!-- External -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="images/site/favicon.ico">
     <!-- Internal Javascript -->
@@ -38,7 +38,8 @@
 
 
 
-    <nav class="navbar navbar-default">
+    <!-- Navbar -->
+    <nav class="navbar navbar-default" id="main-navbar">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -47,29 +48,30 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Burg's Adventures</a>
+          <a class="navbar-brand" href="#" onclick="loadPage('home');">Burg's Camp</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#" onclick="loadPage('home');">Home</a></li>
-            <li><a href="#" onclick="loadPage('burgs-story');">Backstory</a></li>
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adventures <span class="caret"></span></a>
-              <ul class="dropdown-menu" id="hunt-dropdown-spot"></ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Comics <span class="caret"></span></a>
-              <ul class="dropdown-menu" id="comic-dropdown-spot"></ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artwork <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About Us</span></a>
               <ul class="dropdown-menu">
-                <li><a href="#" onclick="loadPage('fun-stuff');">Fun Stuff</a></li>
-                <li><a href="#" onclick="loadPage('postcards');">Your Postcards</a></li>
-                <li><a href="#" onclick="loadPage('fan-art');">Fan Art</a></li>
+                <li><a href="#" onclick="loadPage('about');">About</a></li>
+                <li><a href="#" onclick="loadPage('zero-nation');">Zero Nation</a></li>
+                <li><a href="#" onclick="loadPage('burgs-story');">Burg's Backstory</a></li>
               </ul>
             </li>
-            <li><a href="#" onclick="loadPage('enter-code');">Enter Code</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Adventures</span></a>
+              <ul class="dropdown-menu" id="hunt-dropdown-spot"></ul>
+            </li>
+            <li><a href="#" onclick="loadPage('fun-stuff');">Fun Stuff</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#" onclick="loadPage('postcards');">My Postcards</a></li>
+                <li><a href="#" onclick="loadPage('enter-code');">Enter Secret Code</a></li>
+              </ul>
+            </li>
           </ul>
         </div>
       </div>
@@ -77,91 +79,170 @@
 
 
 
-    <!-- Standard Pages -->
+    <!-- General Pages -->
+    <!-- Home Page -->
     <div class="container">
-      <div class="page-main" id="page-home" hidden>
+      <div class="page-main" id="page-home">
         <div class="title-area">
-          <h1>Burg's Adventures</h1><br>
+          <h1 style="color: yellow;">Burg's Camp</h1><br>
           <div class="container">
             <div class="row">
               <div class="col-md-6">
                 <h2>Welcome!</h2>
-                <p class="lead p-savior">Welcome to Burg's Adventures! This is a simple program to play while waddling around <a href="https://play.cpzero.net/" target="_black">Club Penguin Zero</a>. Each adventure features a minigame or puzzle that you complete by playing the game. You cannot lose an adventure, so relax, take your time, and have fun! Please keep in mind that this project is not affiliated with Club Penguin Zero and is made by fans.</p>
-                Adventure Status<br>
-                <div id="home-btn-spot"></div>
-                <br><br><br>
+
+                <p class="lead p-savior">Welcome to Burg's Camp! Here you can find fun additional activities and games related to <a href="#" onclick="loadPage('zero-nation');">Zero Nation</a>. Check the section below to see what current events and activities are going on right now. Please keep in mind that this project is not affiliated with Club Penguin Zero and is made by fans.</p>
+
               </div>
               <div class="col-md-6">
-                <img src="images/site/burg_portrait.png" class="img-savior" style="width:350px;" alt="Burg Portrait"><br><br>
+                <img src="images/site/burg_portrait.png" class="img-savior" style="width:300px;" alt="Burg Portrait"><br><br>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
-                <h1>About</h1><br>
-                <p class="lead p-savior">Burg's Adventures (originally called "Burg's Scavenger Hunts") was conceptualized in January of 2026 on the <a href="https://discord.gg/JdQA5J7SsZ" target="_black">Zero Nation Discord server</a>. When adventures are available, players may start one on this website while exploring Club Penguin Island. You can find the latest adventure using the navigation bar at the top of the screen. This site was created using GitHub Pages, <a href="https://getbootstrap.com/docs/3.4/" target="_black">Bootstrap 3.4.1</a>, and <a href="https://www.glyphicons.com" target="_black">Glyphicons</a>. It does not collect any user data.</p>
+                <h1>Current Events</h1><br>
+                
+                <h2>Burg's Buyout (April 23rd)</h2>
+                <p class="lead p-savior">Experience a brand-new activity from Zero Nation called Burg's Buyout! Help Burg raise enough coins to repair the Migrator. Available very soon!</p>
+                
+                <br><img src="images/site/samster68.png" style="width:100px; height:auto;" alt="Samster68">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- About Us tab -->
+      <div class="page-main" id="page-about" hidden>
+        <div class="title-area">
+          <h1>About</h1><br>
+          <div class="lore-box">
+
+            <h2>What is Burg's Camp?</h2>
+            <p class="lead p-savior">Burg's Camp (originally called "Burg's Scavenger Hunts") was conceptualized in January of 2026 on the <a href="https://discord.gg/GjkAZujd8f" target="_black">Zero Nation Discord server</a>. It is designed to be a secondary location for hosting limited time events called "Adventures", fan art, and other fun stuff! This site was created using GitHub Pages, <a href="https://getbootstrap.com/docs/3.4/" target="_black">Bootstrap 3.4.1</a>, and <a href="https://www.glyphicons.com" target="_black">Glyphicons</a>. It does not collect any user data.</p>
                 <p class="lead">The latest CPZero version this site recognizes is <span id="cpz-v-spot"></span>.</p><br>
                 <img src="images/site/about_screen_img.png" class="img-responsive img-savior" style="width:800px;" alt="Burg at the Beacon">
                 <br><br>
+            <h2>Contributors</h2>
+            <p class="lead p-savior">This site was developed by Samster68. No artificial intelligence was used in the development of this site.</p>
+            <p class="lead p-savior">Events are frequently hosted on the Zero Nation Discord server by Litdia, samuel, and Samster68.</p>
+            <p class="lead p-savior">This site also features postcard art created by samuel, Silverpetals, and starryskyez.</p>
 
-                <h2>Credits</h2><br>
-                <p class="lead p-savior">Lead Developer: Samster68</p>
-                <p class="lead p-savior">Zero Nation Event Hosts: Litdia, samuel, Samster68</p>
-                <p class="lead p-savior">Postcard Artists: samuel, Silverpetals, starryskyez</p>
-                
-                <img src="images/site/samster68.png" style="width:100px; height:auto;" alt="Samster68">
-              </div>
-            </div>
+          </div>
+        </div>
+      </div>
+      <div class="page-main" id="page-zero-nation" hidden>
+        <div class="title-area">
+          <h1>Zero Nation</h1><br>
+          <div class="lore-box">
+
+            <h2>What is Zero Nation?</h2>
+            <p class="lead p-savior">Zero Nation is a sub-community within the Club Penguin Zero fanbase with around 1000 members. On the Discrod server they host fun events and competitions to keep the community active. You can find a link to the server below.</p>
+            <h2>Links</h2>
+            <p class="lead p-savior">Join the Zero Nation Discord server: (<a href="https://discord.gg/GjkAZujd8f" target="_blank">Discord Invite</a>)</p>
+            <p class="lead p-savior">Play Club Penguin Zero: (<a href="https://play.cpzero.net/" target="_blank">Play Now!</a>)</p>
+
           </div>
         </div>
       </div>
       <div class="page-main" id="page-burgs-story" hidden>
         <div class="title-area">
           <h1>Backstory</h1><br>
-            <div class="lore-box">
+          <div class="lore-box">
 
-              <h2>Merry Walrus (2025)</h2>
-              <p class="lead p-savior">Mid-December - The Migrator arrived on Club Penguin Island for Merry Walrus.</p>
-              <h2>Burg's First Scavenger Hunt (2026)</h2>
-              <p class="lead p-savior">January 25th - Rockhopper asks Burg to help him collect his supplies before they leave the island. Burg heads out to find it, but the Migrator leaves! (<a href="https://www.youtube.com/watch?v=OMqhPY9PAUk" target="_blank">Watch Video</a>)</p>
-              <p class="lead p-savior">February 1st - Burg goes to Gary in the Sports Shop to help him transport all of Rockhopper's supplies. Gary lets him use his new Cargo Transporter 2999. Unfortunately, it exploded and scattered the cargo all across Club Penguin Zero! Burg got flung into the sea and started to slowly drift back to shore... (<a href="https://www.youtube.com/watch?v=OMqhPY9PAUk" target="_blank">Watch Video</a>)</p>
-              <p class="lead p-savior">February 13th - Burg wakes up on the Beach and realizes that both the cargo and the Migrator are gone. He finds a place to live in the forest. Then he decided to recruit friendly penguins to help him locate Rockhopper's cargo. (<a href="#" onclick="loadPage('comic'); loadComic(0);">View Comic</a>)</p>
-              <p class="lead p-savior">February 14th-15th - Burg had help from dozens of penguins across the island to locate Rockhopper's cargo. He waddles around and made lots of new friends! (<a href="#" onclick="loadPage('feb2026');">View Adventure</a>)</p>
-              <h2>Pi Day and Rockhopper's Return (2026)</h2>
-              <p class="lead p-savior">February 21st - The Migrator turned around to return to the island because Rockhopper forgot his car keys. (<a href="https://www.youtube.com/watch?v=A_2wxQbjZ1o" target="_blank">YouTube video</a>)</p>
-              <p class="lead p-savior">March 13th - Herbert's iceberg struck the Migrator! Rockhopper escaped in a small boat and Herbert used the iceberg to get away.</p>
-              <p class="lead p-savior">March 14th-16th - Burg met a new penguin named Beeker, who used his own formula to derive the value of pi. (<a href="#" onclick="loadPage('mar2026');">View Adventure</a>)</p>
-              <h2>April Fool's Party (2026)</h2>
-              <p class="lead p-savior">March 22nd - Rockhopper's small boat landed on the Beach.</p>
-              <p class="lead p-savior">March 31st - Burg got lost in the Box Dimension in the Zero's Got Talent intro. (<a href="https://www.youtube.com/watch?v=CvNdrbV0PvI" target="_blank">YouTube video</a>)</p>
-              <!--<p class="lead p-savior">April 14th - Burg made an appearance at the Zero Nation Stargazing Party.</p>-->
+            <h2>Merry Walrus (2025)</h2>
+            <p class="lead p-savior">Mid-December - The Migrator arrived on Club Penguin Island for Merry Walrus.</p>
+            <h2>Burg's First Scavenger Hunt (2026)</h2>
+            <p class="lead p-savior">January 25th - Rockhopper asks Burg to help him collect his supplies before they leave the island. Burg heads out to find it, but the Migrator leaves! (<a href="https://www.youtube.com/watch?v=OMqhPY9PAUk" target="_blank">Watch Video</a>)</p>
+            <p class="lead p-savior">February 1st - Burg goes to Gary in the Sports Shop to help him transport all of Rockhopper's supplies. Gary lets him use his new Cargo Transporter 2999. Unfortunately, it exploded and scattered the cargo all across Club Penguin Zero! Burg got flung into the sea and started to slowly drift back to shore... (<a href="https://www.youtube.com/watch?v=OMqhPY9PAUk" target="_blank">Watch Video</a>)</p>
+            <p class="lead p-savior">February 13th - Burg wakes up on the Beach and realizes that both the cargo and the Migrator are gone. He finds a place to live in the forest. Then he decided to recruit friendly penguins to help him locate Rockhopper's cargo. (<a href="#" onclick="loadPage('comic'); loadComic(0);">View Comic</a>)</p>
+            <img src="images/backstory/ZN_Post_Feb13.png" class="img-responsive img-savior" style="width:600px;" title="Zero Nation Post (Feb 13th, 2026) by samuel"><br><br>
+            <p class="lead p-savior">February 14th-15th - Burg had help from dozens of penguins across the island to locate Rockhopper's cargo. He waddles around and made lots of new friends! (<a href="#" onclick="loadPage('feb2026');">View Adventure</a>)</p>
+            <img src="images/backstory/my_friends.png" class="img-responsive img-savior" style="width:600px;" title="My Friends by Burg"><br><br>
+            <h2>Pi Day and Rockhopper's Return (2026)</h2>
+            <p class="lead p-savior">February 21st - The Migrator turned around to return to the island because Rockhopper forgot his car keys. (<a href="https://www.youtube.com/watch?v=A_2wxQbjZ1o" target="_blank">YouTube video</a>)</p>
+            <p class="lead p-savior">March 13th - Herbert's iceberg struck the Migrator! Rockhopper escaped in a small boat and Herbert used the iceberg to get away.</p>
+            <p class="lead p-savior">March 14th-16th - Burg met a new penguin named Beeker, who used his own formula to derive the value of pi. (<a href="#" onclick="loadPage('mar2026');">View Adventure</a>)</p>
+            <img src="images/backstory/ZN_Post_Mar13.png" class="img-responsive img-savior" style="width:600px;" title="Zero Nation Post (Mar 13th, 2026) by samuel"><br><br>
+            <h2>April Fool's Party and Burg's Buyout (2026)</h2>
+            <p class="lead p-savior">March 22nd - Rockhopper's small boat landed on the Beach.</p>
+            <p class="lead p-savior">March 31st - Burg got lost in the Box Dimension in the Zero's Got Talent intro. (<a href="https://www.youtube.com/watch?v=CvNdrbV0PvI" target="_blank">YouTube video</a>)</p>
+            <p class="lead p-savior">April 14th - A Stargazing Party was planned for this date, but Burg got sick and had to cancel.</p>
+            <img src="images/backstory/burg_sick_1.png" class="img-responsive img-savior" style="width:600px;" title="Burg Sick by samuel"><br><br>
+            <img src="images/backstory/burg_sick_2.png" class="img-responsive img-savior" style="width:600px;" title="Sick as Heck by samuel"><br><br>
+            <p class="lead p-savior">April 19th - A new activity is announced for later in the week called, Burg's Buyout!</p>
+            <img src="images/backstory/burgs_buyout_1.png" class="img-responsive img-savior" style="width:600px;" title="Burg's Buyout Scroll by silver"><br><br>
+            <img src="images/backstory/burgs_buyout_2.png" class="img-responsive img-savior" style="width:600px;" title="Burg's Buyout Workbench by silver"><br><br>
 
-            </div>
+          </div>
         </div>
       </div>
+      <!-- Fun Stuff -->
       <div class="page-main" id="page-fun-stuff" hidden>
         <div class="title-area">
           <h1>Fun Stuff</h1><br>
-          <p class="lead">Downloadable files with fun activities!</p>
-          <br><br>
 
-          <p class="lead">Comedian's Coloring Set! (PDF)</p>
-          <img src="images/fun-stuff/coloring-set-img.png" style="width:300px;"><br><br>
-          <a href="images/fun-stuff/coloring-pages-set.pdf" download="Coloring_Set.pdf" target="_blank" color="black">[ Download ]</a>
+          <div class="row">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="images/backstory/burgs_buyout_2.png" alt="Burg's Buyout Thumbnail">
+                <div class="caption">
+                  <h3>Burg's Buyout</h3>
+                  <p>Created by Samster68. Help Burg raise enough coins to repair Rockhopper's ship, the Migrator!</p>
+                  <p><a href="#" class="btn btn-danger" role="button">Coming Soon!</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="images/fun-stuff/coloring-set-img.png" alt="Coloring Set Thumbnail">
+                <div class="caption">
+                  <h3>April Fools Coloring Set</h3>
+                  <p>Created by Comedian. Color pages themed around the 2026 April Fools Party!</p>
+                  <p><a href="images/fun-stuff/coloring-pages-set.pdf" download="Coloring_Set.pdf" target="_blank" class="btn btn-primary" role="button">Download</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="images/fun-stuff/comic/BT-Issue-01/page_0.png" alt="Burg's Buyout Thumbnail">
+                <div class="caption">
+                  <h3>Burg's Tales: Issue #1</h3>
+                  <p>Created by Samster68. Learn about Burg's first exploits on Club Penguin Zero.</p>
+                  <p><a href="#" class="btn btn-primary" role="button" onclick="loadComic(0);">Read Comic</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>
-      <div class="page-main" id="page-fan-art" hidden>
-        <div class="title-area">
-          <h1>Fan Art</h1><br>
-          <p class="lead">To be featured here, submit artwork or screenshots from your adventures on the <a href="https://discord.gg/JdQA5J7SsZ" target="_black">Zero Nation Discord server</a>!</p>
-          <div id="fanart-display-spot"></div>
-        </div>
-      </div>
+      <!-- My Profile -->
       <div class="page-main" id="page-postcards" hidden>
         <div class="title-area">
-          <h1>Your Postcards</h1><br>
-          <p class="lead">Complete adventures to unlock more postcards!</p>
+          <h1>Postcards</h1><br>
           <div id="postcard-display-spot"></div>
+        </div>
+      </div>
+      <div class="page-main" id="page-enter-code" hidden>
+        <div class="title-area">
+          <h1>Enter Secret Code</h1><br>
+          <p class="lead"></p>
+          <div class="hunt-container">
+            <span class="lead hunt-header">Enter a secret code to recieve a prize!</span><br><br>
+            <input type="text" class="text-input-large" id="secret-code-input" maxlength=15><br><br>
+            <input type="submit" class="btn btn-success" onclick="submitSecretCode();" id="submit-button-code">
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- Page Templates -->
+      <div class="page-main" id="page-winScreen" hidden>
+        <div class="title-area">
+          <h1>Congratulations!</h1><br>
+          <p class="lead" id="win-msg-spot">???</p><br>
+          <div id="postcard-spot"></div><br><br><br>
+          <button type="button" class="btn btn-success" onclick="loadPage('fun-stuff');">Thank you!</button>
         </div>
       </div>
       <div class="page-main" id="page-comic" hidden>
@@ -183,25 +264,6 @@
             </a>
           </div>
           <br><span id="comic-publish-spot">???</span>
-        </div>
-      </div>
-      <div class="page-main" id="page-winScreen" hidden>
-        <div class="title-area">
-          <h1>Congratulations!</h1><br>
-          <p class="lead" id="win-msg-spot">???</p><br>
-          <div id="postcard-spot"></div><br><br><br>
-          <button type="button" class="btn btn-success" onclick="loadPage('home');">Thank you!</button>
-        </div>
-      </div>
-      <div class="page-main" id="page-enter-code" hidden>
-        <div class="title-area">
-          <h1>Enter Secret Code</h1><br>
-          <p class="lead"></p>
-          <div class="hunt-container">
-            <p class="lead hunt-header">Enter a secret code to recieve a prize!</p>
-            <input type="text" class="text-input-large" id="secret-code-input" maxlength=15><br><br>
-            <input type="submit" class="btn btn-success" onclick="submitSecretCode();" id="submit-button-code">
-          </div>
         </div>
       </div>
 
@@ -293,7 +355,6 @@ $(document).ready(function(){
   generateDropdowns();
   loadPage('home');
   loadPlayerData();
-  loadFanArtPage();
 });
 
 function loadPage(name) {

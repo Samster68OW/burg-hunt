@@ -214,7 +214,7 @@ body {
     cursor: url('images/cursor/pointer.png'), auto;
     padding: 5px;
     text-align: center;
-    width: 50%;
+    width: 33%;
 }
 #middle-top-tab-table td:hover {
     color: yellow;
@@ -224,6 +224,9 @@ body {
     font-size: 18px;
     text-align: center;
     width: 100%;
+}
+#how-to-play-page {
+    padding: 5px;
 }
 #statistics-page {
     padding: 5px;

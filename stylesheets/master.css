@@ -10,6 +10,9 @@ body {
 
 
 /* Universal */
+#main-navbar {
+    z-index: 2;
+}
 .burg-navbar {
     color: white;
 }
@@ -23,6 +26,7 @@ body {
     margin: auto;
 }
 #footer {
+    background: radial-gradient(circle,rgba(22, 22, 173, 1) 0%, rgb(11, 11, 83) 100%);
     color: white;
     font-size: 9px;
     padding: 30px;
@@ -50,12 +54,37 @@ body {
     text-transform: uppercase;
     width: 200px;
 }
-
-#page-fun-stuff img {
-    background-color: black;
-    border-radius: 20px;
-    box-shadow: 10px 10px 20px black;
+.thumbnail {
+    background-color: rgb(228, 228, 228);
+    text-align: left;
+    text-shadow: none;
+}
+.thumbnail img {
+    box-shadow: none;
+}
+.thumbnail .btn {
+    color: white;
+}
+.thumbnail .btn:hover {
+    color: white;
+}
+.locked-postcards {
+    background-color: rgb(80, 80, 80);
+    border: 3px solid white;
+    font-size: 20px;
+    height: 400px;
     margin: auto;
+    width: 600px;
+}
+.locked-postcards div {
+    height: 100%;
+    padding: 20px;
+}
+.postcard-desc-spot {
+    margin: auto;
+    text-align: left;
+    word-wrap: normal;
+    width: 600px;
 }
 
 
@@ -75,6 +104,12 @@ body {
     text-align: center;
 }
 h1 {
+    background: radial-gradient(circle,rgba(22, 22, 173, 1) 0%, rgb(11, 11, 83) 100%);
+    border-radius: 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 45px;
+    line-height: 70px;
+    padding: 10x;
     font-weight: bold;
     text-shadow: 3px 3px 5px black;
 }

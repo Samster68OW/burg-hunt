@@ -29,7 +29,7 @@
         </div>
         <table id="main-table">
           <tr><td colspan="3" id="top-cell">
-            Burg's Buyout v0.2.5 - Alpha Test | <span class='settings-button' onclick="toggleSettings();">Settings</span> | <span id="save-popup" hidden>Game Saved!</span>
+            Burg's Buyout v1.0.0 | <span class='settings-button' onclick="toggleSettings();">Settings</span> | <span id="save-popup" hidden>Game Saved!</span>
           </td></tr>
           <tr>
             <td id="left-cell" class="main-cell">
@@ -40,7 +40,7 @@
               <div id="cps-display">???</div>
               <br><br><br><br><br><br>
               <div style="height:150px;">
-                <div id="clickable-coin" onclick="clickCoin('player');"></div>
+                <div id="clickable-coin" onclick="clickCoin('player'); playSound('BG Music');"></div>
                 <img src="images/site/starburst.png" id="starburst-behind-coin">
               </div>
               <br><br>
@@ -52,9 +52,18 @@
             </td>
             <td id="middle-cell" class="main-cell">
               <table id="middle-top-tab-table"><tr>
+                <td onclick="loadMiddlePage('how-to-play');" id="how-to-play-tab">How to Play</td>
                 <td onclick="loadMiddlePage('statistics');" id="statistics-tab">Statistics</td>
-                <td onclick="loadMiddlePage('achievements');" id="achievements-tab">Achievements</td>
+                <td onclick="loadMiddlePage('achievements');" id="achievements-tab" hidden>Achievements</td>
               </tr></table>
+              <div id="how-to-play-page" class="middle-page">
+                <div class='middle-header'>How to Play</div><br>
+                Burg needs our help! We need to raise coins to repair the Migrator after it hit an iceberg. Click the large coin on the left to collect coins. Then reinvest those coins into hiring penguins to play minigames for you. Good luck!
+                <br><br>
+                <div class='middle-header'>Controls</div><br>
+                Press M to toggle the music.<br>
+                Press Q and W to toggle tabs.
+              </div>
               <div id="statistics-page" class="middle-page"></div>
               <div id="achievements-page" class="middle-page"></div>
               <div id="hover-spot"></div>
@@ -98,6 +107,7 @@
             eleanor<br>
             Jalapeño Poppers<br>
             Wikipedia<br>
+            willamos<br>
             SyntheticFox
             <br><br><br><br>
             <span class='settings-button' onclick="toggleSettings();">[ Back ]</span>
@@ -123,7 +133,7 @@
 $(document).ready(function(){
   startGame();
   loadRightPage('minigame');
-  loadMiddlePage('statistics');
+  loadMiddlePage('how-to-play');
   hoverTextClear();
   achievementDisplay();
   displayPuffle();
@@ -143,7 +153,23 @@ function loadRightPage(input) {
   // Top Menu
     $('#right-top-tab-table td').css('opacity', '0.4');
     $(`#${input}-tab`).css('opacity', '1.0');
+    currentRightPage = input;
 
+};
+let currentRightPage;
+function toggleRightPage() {
+  switch (currentRightPage) {
+    case 'minigame':
+      if (player.building[1].owned > 0) {loadRightPage('upgrade');}
+      break;
+    case 'upgrade':
+      if (player.building[3].owned > 0) {loadRightPage('puffle');}
+      else {loadRightPage('minigame');}
+      break;
+    case 'puffle':
+      loadRightPage('minigame');
+      break;
+  }
 };
 function loadMiddlePage(input) {
 
@@ -153,13 +179,30 @@ function loadMiddlePage(input) {
   // Top Menu
     $('#middle-top-tab-table td').css('opacity', '0.4');
     $(`#${input}-tab`).css('opacity', '1.0');
+    currentMiddlePage = input;
 
+};
+let currentMiddlePage;
+function toggleMiddlePage() {
+  switch (currentMiddlePage) {
+    case 'how-to-play':
+      loadMiddlePage('statistics');
+      break;
+    case 'statistics':
+      if (player.achievement[0] === true) {loadMiddlePage('achievements');}
+      else {loadMiddlePage('how-to-play');}
+      break;
+    case 'achievements':
+      loadMiddlePage('how-to-play');
+      break;
+  }
 };
 
 
 
 let settingsOpen = false;
-let playMusic = true;
+let playMusic = false;
+let coinClicked = false;
 function toggleSettings() {
   if (settingsOpen === false) {
     settingsOpen = true;

@@ -70,6 +70,6 @@ function resetGame() {
     toggleSettings();
     startGame();
     loadRightPage('minigame');
-    loadMiddlePage('statistics');
+    loadMiddlePage('how-to-play');
     displayPuffle();
 };

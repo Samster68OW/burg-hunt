@@ -46,10 +46,19 @@ function displayPostcards() {
     // Generate display
         let display = ``;
         for (var a=postcardList.length-1; a>-1; a--) {
-            if (player.postcardData[a] === 'T' | postcardList[a].alwaysSeen === true) {
-                display += `<p class="lead">${postcardList[a].title}</p>`;
-                display += `<img src="images/postcard/${postcardList[a].imgSource}" class="img-responsive img-postcard" style="width:600px;" alt="Postcard"><br>`;
-                display += `(Postcard courtesy of ${postcardList[a].postcardCredit}.)<br><br><br>`;
+            if (player.postcardData[a] === 'T') {
+                display += `<p class="lead">${postcardList[a].title}</p>
+                    <img src="images/postcard/${postcardList[a].imgSource}" class="img-responsive img-postcard" style="width:600px;" alt="Postcard">
+                    <br>
+                    <div class='postcard-desc-spot img-responsive'>${postcardList[a].postcardDesc}<br>(Postcard courtesy of ${postcardList[a].postcardCredit}.)</div>
+                    <br><br><br><br>`;
+            }
+            else if (postcardList[a].showLocked === true) {
+                display += `<p class="lead">??????????</p>
+                    <div class='img-responsive locked-postcards'><div>${postcardList[a].unlockDesc}</div></div>
+                    <br>
+                    <div class='postcard-desc-spot img-responsive'>(Postcard courtesy of ${postcardList[a].postcardCredit}.)</div>
+                    <br><br><br><br>`;
             }
         }
     // Show postcards

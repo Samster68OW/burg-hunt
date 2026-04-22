@@ -5,21 +5,31 @@
 // Postcard Data
 // NEVER REMOVE ELEMENTS FROM THIS ARRAY
 const postcardList = [
-    {title: "Legacy Scavenger Hunt", imgSource: "placeholder.png", postcardCredit: "Samster68", alwaysSeen: false},
-    {title: "Burg's First Scavenger Hunt", imgSource: "feb2026.png", postcardCredit: "samuel", alwaysSeen: true},
-    {title: "Beeker's Pi Day Puzzle",  imgSource: "mar2026.png", postcardCredit: "Silverpetals", alwaysSeen: true},
-    {title: "The Iceberg Stargazing Party",  imgSource: "apr2026.png", postcardCredit: "starryskyez", alwaysSeen: false},
-    {title: "Burg's Buyout",  imgSource: "buyout2026.png", postcardCredit: "samuel", alwaysSeen: false}
-];
-
-
-
-// Fan Art Data
-const fanartList = [
-    {title: "Burg's Player Card", imgSource: "burg_portrait.png", fanartCredit: "Burg"},
-    {title: "Zero Nation Post (Feb 13th, 2026)", imgSource: "ZN_Post_Feb13.png", fanartCredit: "samuel"},
-    {title: "My Friends", imgSource: "my_friends.png", fanartCredit: "Burg"},
-    {title: "Zero Nation Post (Mar 13th, 2026)", imgSource: "ZN_Post_Mar13.png", fanartCredit: "samuel"}
+    {
+        title: "Legacy Scavenger Hunt", imgSource: "placeholder.png", postcardCredit: "Samster68", showLocked: false,
+        postcardDesc: "This postcard is simply a placeholder used while developing the site. If you have this, then Samster68 must see you as a close friend.",
+        unlockDesc: ""
+    },
+    {
+        title: "Burg's First Scavenger Hunt", imgSource: "feb2026.png", postcardCredit: "samuel", showLocked: false,
+        postcardDesc: "You collected this postcard during the first official scavenger hunt by identifying the locations of Rockhopper's cargo.",
+        unlockDesc: ""
+    },
+    {
+        title: "Beeker's Pi Day Puzzle",  imgSource: "mar2026.png", postcardCredit: "Silverpetals", showLocked: false,
+        postcardDesc: "You used Beeker's wacky equation to find an estimate of Pi.",
+        unlockDesc: ""
+    },
+    {
+        title: "The Iceberg Stargazing Party",  imgSource: "apr2026.png", postcardCredit: "starryskyez", showLocked: false,
+        postcardDesc: "You met Burg at the Iceberg Stargazing Party and he gave you this postcard as thanks.",
+        unlockDesc: ""
+    },
+    {
+        title: "Burg's Buyout",  imgSource: "buyout2026.png", postcardCredit: "samuel", showLocked: true,
+        postcardDesc: "You and Burg collected 1 billion coins to help repair the Migrator.",
+        unlockDesc: "Unlock this postcard by completing Burg's Buyout and redeeming the code."
+    }
 ];
 
 

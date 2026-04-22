@@ -1,5 +1,5 @@
 # Burg's Adventures
-This simple GitHub Pages site is designed for the Zero Nation Discord Server. Join in on the adventures and help Burg locate his missing cargo! Please reach out if you have any ideas or suggestions.
+This simple GitHub Pages site is designed for the Zero Nation Discord server. Join in on the adventures to help Burg with his shenanigans! Please reach out if you have any ideas or suggestions.
 
 - Created by Samster68
 

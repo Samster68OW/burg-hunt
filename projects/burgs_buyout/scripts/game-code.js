@@ -112,12 +112,10 @@ let musicStarted = false;
 function clickCoin(user) {
 
     // Sounds
+        if (coinClicked === false) {playMusic = true;}
+        coinClicked = true;
         if (user === 'player') {
             playSound('Click Coin');
-            if (musicStarted === false) {
-                musicStarted = true;
-                playSound('BG Music');
-            }
         }
 
     // Click
@@ -344,6 +342,19 @@ function keyboardInput(key) {
         case '5':
         case '6':
             swapPuffle(Number(key - 1));
+            break;
+        case 'q':
+            toggleMiddlePage();
+            break;
+        case 'w':
+            toggleRightPage();
+            break;
+        case 'm':
+            if (soundsLoaded === true && coinClicked === true) {
+                toggleMusic();
+            }
+            break;
+        case 'Tab':
             break;
     };
 };

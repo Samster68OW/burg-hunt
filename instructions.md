@@ -4,8 +4,6 @@ This document contains step-by-step instructions on how to add more content to t
 
 - [Using the Control Center](#using-the-control-center)
 - [Adding Adventures](#adding-adventures)
-- [Adding Fan Art](#adding-fan-art)
-- [Adding Comics](#adding-comics)
 - [Adding Secret Codes](#adding-secret-codes)
 
 ## Using the Control Center
@@ -59,30 +57,6 @@ The script `control-center.js` controls which adventures are currently active an
 4. Customize the page however you see fit. Remember to add a button with `onclick="startHunt(n);"` so that users can access the adventure.
 5. The adventure will be added to the dropdown automatically once added to `huntList` in `control-center.js`.
 5. Remember to save!
-
-##  Adding Fan Art
-
-1. Place the new image inside `images/fan-art`.
-2. Navigate to `data/misc-data.js`.
-3. Copy an element or line from the array `fanartList` and add it to the end of the array.
-4. Update the fields inside the new element including `title` for the name of the art piece, `imgSource` for the name of the file itself, and `fanartCredit` to display the name of its creator.
-5. Remember to save!
-
-## Adding Comics
-
-### Adding Comic Page Images and Data
-
-1. Navigate to `images/comic`. Add a folder with a unique name.
-2. Place your images into this folder using the naming format seen in other folders. (It's zero-indexed)
-3. Navigate to `data/misc-data.js`.
-3. Copy an element or line from the array `comicList` and add it to the end of the array.
-4. Fill in the fields of the object.
-    - `title`: The name of the comic strip.
-    - `imgSource`: The new folder created prior.
-    - `pages`: The number of images in the folder.
-    - `publishDate`: The date it was created. (Purely for the webpage display)
-5. The comic will automatically be added to the dropdown.
-6. Remember to save!
 
 ## Adding Secret Codes
 

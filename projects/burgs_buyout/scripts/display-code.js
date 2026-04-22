@@ -66,9 +66,6 @@ function updateDisplay() {
         // Calculate Time Played
             let timeDisplay = disTime(player.timePlayed);
         let display =  `
-            <div class='middle-header'>How to Play</div><br>
-            Burg needs our help! We need to raise coins to repair the Migrator after it hit an iceberg. Click the large coin on the left to collect coins. Then reinvest those coins into hiring penguins to play minigames for you. Good luck!
-            <br><br>
             <div class='middle-header'>Statistics</div><br>
             Lifetime Coins Earned: ${disNum(player.lifetimeCoins)} ${emojiInsert('coin')}<br>
             Time Played: ${timeDisplay}<br>
@@ -83,8 +80,12 @@ function updateDisplay() {
         let currPercent = logPercentage(player.lifetimeCoins, 1000000000);
         let newValue = currPercent * goldDiff;
         newValue = minGoldHeight - newValue;
-        $("#gold-pile").css("background-position-y", `${newValue}px`)
+        $("#gold-pile").css("background-position-y", `${newValue}px`);
     
+    // Update Middle Tabs
+        // Unlock Achievements after unlocking the first one.
+            if (player.achievement[0] === true) {$('#achievements-tab').fadeIn(0);}
+            else {$('#achievements-tab').fadeOut(0);}
     // Update Right Side Tabs
         // Unlock Upgrades by buying Bean Counters
             if (player.building[1].owned > 0) {$('#upgrade-tab').fadeIn(0);}
