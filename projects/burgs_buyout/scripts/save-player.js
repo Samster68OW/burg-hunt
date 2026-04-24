@@ -38,6 +38,7 @@ function loadGame() {
             player.achievement = playerData.achievement;
             player.coinClicks = playerData.coinClicks;
             player.fullCompleteTime = playerData.fullCompleteTime;
+            if (player.fullCompleteTime == null) {player.fullCompleteTime = false;}
 
     }
 };
@@ -70,7 +71,7 @@ function resetGame() {
         debug: false,
         fullCompleteTime: false
     };
-    toggleSettings();
+    loadPage('main-table');
     startGame();
     loadRightPage('minigame');
     loadMiddlePage('how-to-play');

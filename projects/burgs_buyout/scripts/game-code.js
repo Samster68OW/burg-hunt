@@ -108,13 +108,14 @@ function startGameLoop() {
 
 
 
-let musicStarted = false;
 function clickCoin(user) {
 
     // Sounds
-        if (coinClicked === false) {playMusic = true;}
-        coinClicked = true;
         if (user === 'player') {
+            if (gameStarted === false) {
+                gameStarted = true;
+                playSound('BG Music');
+            }
             playSound('Click Coin');
         }
 
@@ -338,31 +339,6 @@ function earnAchievement(num) {
 
 
 
-function keyboardInput(key) {
-    switch (key) {
-        case '1':
-        case '2':
-        case '3':
-        case '4':
-        case '5':
-        case '6':
-            swapPuffle(Number(key - 1));
-            break;
-        case 'q':
-            toggleMiddlePage();
-            break;
-        case 'w':
-            toggleRightPage();
-            break;
-        case 'm':
-            if (soundsLoaded === true && coinClicked === true) {
-                toggleMusic();
-            }
-            break;
-        case 'Tab':
-            break;
-    };
-};
 function swapPuffle(num) {
 
     // Swap Puffle

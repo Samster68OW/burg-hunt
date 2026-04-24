@@ -85,6 +85,24 @@ body {
     position: absolute;
     z-index: 2;
 }
+#changelog-div {
+    background: radial-gradient(circle,rgba(22, 22, 173, 1) 0%, rgb(11, 11, 83) 100%);
+    height: 100%;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+#changelog-content-div {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 350px;
+    margin: auto;
+    overflow-y: scroll;
+    padding: 15px;
+    position: relative;
+    text-align: left;
+    width: 500px;
+    z-index: 3;
+}
 
 
 
@@ -255,7 +273,7 @@ body {
     padding: 10px;
     position: absolute;
     width: 275px;
-    z-index: 4;
+    z-index: 5;
 }
 .flavorText {
     color: #b0b0b0;
@@ -269,7 +287,7 @@ body {
     left: 10px;
     position: absolute;
     width: 150px;
-    z-index: 2;
+    z-index: 3;
 }
 #gold-pile {
     background-image: url("images/site/gold_pile.png");
@@ -281,7 +299,19 @@ body {
     height: 180px;
     position: absolute;
     width: 294px;
-    z-index: 3;
+    z-index: 4;
+}
+#gold-pile-2 {
+    background-image: url("images/site/tall_gold_pile.png");
+    background-position-x: 0px;
+    background-position-y: 0px;
+    background-repeat: no-repeat;
+    background-size: 100% 130%;
+    bottom: 1px;
+    height: 300px;
+    position: absolute;
+    width: 294px;
+    z-index: 2;
 }
 
 

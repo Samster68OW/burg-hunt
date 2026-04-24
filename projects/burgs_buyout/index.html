@@ -14,6 +14,7 @@
         <script type="text/javascript" src="scripts/game-code.js"></script>
         <script type="text/javascript" src="scripts/game-data.js"></script>
         <script type="text/javascript" src="scripts/hover-code.js"></script>
+        <script type="text/javascript" src="scripts/input-handler.js"></script>
         <script type="text/javascript" src="scripts/sound-engine.js"></script>
     <!-- Internal CSS -->
         <link rel="stylesheet" href="stylesheet.css">
@@ -27,20 +28,19 @@
           <b>Achievement Unlocked!</b><br>
           <span id="current-ach-name"></span>
         </div>
-        <table id="main-table">
+        <table id="main-table" class="main-page">
           <tr><td colspan="3" id="top-cell">
-            Burg's Buyout v1.0.1 | <span class='settings-button' onclick="toggleSettings();">Settings</span> | <span id="save-popup" hidden>Game Saved!</span>
+            Burg's Buyout v1.0.2 | <span class='settings-button' onclick="loadPage('settings-div');">Settings</span> | <span class='settings-button' onclick="loadPage('changelog-div');">Changelog</span> | <span id="save-popup" hidden>Game Saved!</span>
           </td></tr>
           <tr>
             <td id="left-cell" class="main-cell">
               
-              <!--<br><h1 style="rotate:-3deg; text-decoration:underline;">Burg's Buyout!</h1><br>-->
               <img src="images/site/title.png" style="height:90px; width:230px;"><br>
               <span id="coin-display">???</span>
               <div id="cps-display">???</div>
               <br><br><br><br><br><br>
               <div style="height:150px;">
-                <div id="clickable-coin" onclick="clickCoin('player'); playSound('BG Music');"></div>
+                <div id="clickable-coin" onclick="clickCoin('player');"></div>
                 <img src="images/site/starburst.png" id="starburst-behind-coin">
               </div>
               <br><br>
@@ -61,6 +61,7 @@
                 Burg needs our help! We need to raise coins to repair the Migrator after it hit an iceberg. Click the large coin on the left to collect coins. Then reinvest those coins into hiring penguins to play minigames for you. Good luck!
                 <br><br>
                 <div class='middle-header'>Controls</div><br>
+                Press the Spacebar to earn coins.<br>
                 Press M to toggle the music.<br>
                 Press Q and W to toggle tabs.
               </div>
@@ -69,6 +70,7 @@
               <div id="hover-spot"></div>
               <div id="burg-img"></div>
               <div id="gold-pile"></div>
+              <div id="gold-pile-2"></div>
             </td>
             <td id="right-cell" class="main-cell">
               <table id="right-top-tab-table"><tr>
@@ -87,12 +89,12 @@
             </td>
           </tr>
         </table>
-        <div id="settings-div" hidden>
+        <div id="settings-div" class="main-page" hidden>
           <div style="padding: 15px;">
             <h1>Settings</h1>
             <span class="settings-button" onclick="toggleMusic();" id="toggle-music-button">[ Music: On ]</span><br>
             <span class="settings-button" onclick="resetGame();">[ Reset Game ]</span>
-            <br><br><br>
+            <br><br>
             <h1>Credits</h1>
             Developer: Samster68<br>
             Burg images and postcard: samuel<br>
@@ -110,7 +112,39 @@
             willyamos<br>
             SyntheticFox
             <br><br><br><br>
-            <span class='settings-button' onclick="toggleSettings();">[ Back ]</span>
+            <span class='settings-button' onclick="loadPage('main-table');">[ Back ]</span>
+            <img id="title-img" src="images/site/title.png" style="height:90px; width:230px;">
+            <img id="samster-img" src="images/site/samster.png">
+          </div>
+        </div>
+        <div id="changelog-div" class="main-page" hidden>
+          <div style="padding: 15px;">
+            <h1>Changelog</h1><br>
+            <div id="changelog-content-div">
+
+              Patch 1.0.2 - April 24th, 2026
+              <ul>
+                <li>Added this changelog screen so players can learn about new content and patches.</li>
+                <li>The music will no longer unmute itself.</li>
+                <li>Players can now alternatively use the Spacebar to click the coin.</li>
+                <li>Added a second coin pile behind Burg, which keeps growing until the player reaches 1 trillion lifetime coins.</li>
+              </ul>
+              Patch 1.0.1 - April 23rd, 2026
+              <ul>
+                <li>Added the 100% completion stat to show how long it takes the player to collect every achievement.</li>
+              </ul>
+              Version 1.0.0 - April 23rd, 2026
+              <ul>
+                <li>Full release onto Zero Nation!</li>
+              </ul>
+              <hr>
+              Zero Nation Staff playtest. (Alpha Build) - April 17th, 2026<br>
+              First playtest. (Beta Build) - April 16th, 2026<br>
+              Development began. - April 2nd, 2026
+
+            </div>
+            <br><br><br>
+            <span class='settings-button' onclick="loadPage('main-table');">[ Back ]</span>
             <img id="title-img" src="images/site/title.png" style="height:90px; width:230px;">
             <img id="samster-img" src="images/site/samster.png">
           </div>
@@ -200,22 +234,17 @@ function toggleMiddlePage() {
 
 
 
-let settingsOpen = false;
-let playMusic = false;
-let coinClicked = false;
-function toggleSettings() {
-  if (settingsOpen === false) {
-    settingsOpen = true;
-    $('#main-table').fadeOut(0);
-    $('#settings-div').fadeIn(0);
-  }
-  else if (settingsOpen === true) {
-    settingsOpen = false;
-    $('#main-table').fadeIn(0);
-    $('#settings-div').fadeOut(0);
-  }
+function loadPage(pageName) {
+  $('.main-page').fadeOut(0);
+  $(`#${pageName}`).fadeIn(0);
 };
+
+
+
+let playMusic = true;
+let gameStarted = false;
 function toggleMusic() {
+  if (gameStarted === false) {return;}
   if (playMusic === true) {
     playMusic = false;
     $('#toggle-music-button').html('[ Music: Off ]');
@@ -230,8 +259,12 @@ function toggleMusic() {
 
 
 
+// Input Handler
 document.addEventListener('keydown', (event) => {
     keyboardInput(event.key.toString());
+});
+document.addEventListener('keyup', (event) => {
+    keyboardOutput(event.key.toString());
 });
 
 

@@ -70,7 +70,8 @@ function updateDisplay() {
             <div class='middle-header'>Statistics</div><br>
             Lifetime Coins Earned: ${disNum(player.lifetimeCoins)} ${emojiInsert('coin')}<br>
             Time Played: ${timeDisplay}<br>
-            Coin Clicks: ${disNum(player.coinClicks)} ${emojiInsert('tap')}<br><br>
+            Coin Clicks: ${disNum(player.coinClicks)} ${emojiInsert('tap')}<br>
+            <br>
         `;
         if (player.fullCompleteTime !== false) {
             display += `<span style='color:yellow;'>100% Time: ${disTime(player.fullCompleteTime)}</span>`;
@@ -85,6 +86,15 @@ function updateDisplay() {
         let newValue = currPercent * goldDiff;
         newValue = minGoldHeight - newValue;
         $("#gold-pile").css("background-position-y", `${newValue}px`);
+    
+    // Update 2nd Gold Pile
+        const minGoldHeightTwo = 300;
+        const maxGoldHeightTwo = 0;
+        const goldDiffTwo = minGoldHeightTwo - maxGoldHeightTwo;
+        currPercent = logPercentage(player.lifetimeCoins, 1000000000000);
+        newValue = currPercent * goldDiffTwo;
+        newValue = minGoldHeightTwo - newValue;
+        $("#gold-pile-2").css("background-position-y", `${newValue}px`);
     
     // Update Middle Tabs
         // Unlock Achievements after unlocking the first one.
