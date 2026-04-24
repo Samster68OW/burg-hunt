@@ -2,6 +2,7 @@
 
 
 
+let shipBoughtTime = false;
 function updateDisplay() {
 
     // Burg Image
@@ -69,8 +70,11 @@ function updateDisplay() {
             <div class='middle-header'>Statistics</div><br>
             Lifetime Coins Earned: ${disNum(player.lifetimeCoins)} ${emojiInsert('coin')}<br>
             Time Played: ${timeDisplay}<br>
-            Coin Clicks: ${disNum(player.coinClicks)} ${emojiInsert('tap')}<br>
+            Coin Clicks: ${disNum(player.coinClicks)} ${emojiInsert('tap')}<br><br>
         `;
+        if (player.fullCompleteTime !== false) {
+            display += `<span style='color:yellow;'>100% Time: ${disTime(player.fullCompleteTime)}</span>`;
+        }
         $('#statistics-page').html(display);
     
     // Update Gold Pile

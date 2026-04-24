@@ -329,6 +329,11 @@ function earnAchievement(num) {
         }
         puffleStat.red.mult = 1 + (achCount * puffleStat.red.percent);
 
+    // Final Time
+        if (achCount === 25 && player.fullCompleteTime === false) {
+            player.fullCompleteTime = player.timePlayed;
+        }
+
 };
 
 

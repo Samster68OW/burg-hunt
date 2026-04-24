@@ -15,7 +15,8 @@ let player = {
     equippedPuffle: -1,
     achievement: [],
     coinClicks: 0,
-    debug: false
+    debug: false,
+    fullCompleteTime: false
 };
 
 
@@ -36,6 +37,7 @@ function loadGame() {
             player.equippedPuffle = playerData.equippedPuffle;
             player.achievement = playerData.achievement;
             player.coinClicks = playerData.coinClicks;
+            player.fullCompleteTime = playerData.fullCompleteTime;
 
     }
 };
@@ -65,7 +67,8 @@ function resetGame() {
         equippedPuffle: -1,
         achievement: [],
         coinClicks: 0,
-        debug: false
+        debug: false,
+        fullCompleteTime: false
     };
     toggleSettings();
     startGame();
