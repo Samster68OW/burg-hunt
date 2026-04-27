@@ -86,11 +86,11 @@ let gameLoop;
 function startGameLoop() {
     gameLoop = setInterval(function(){
 
+        // Debugging
+            if (player.debug === true) {clickCoin();}
+
         // Gain coins from buildings
-            player.coins += (player.cpts * player.cptsMult);
-            player.coins = Math.floor(player.coins * 100) / 100;
-            player.lifetimeCoins += (player.cpts * player.cptsMult);
-            player.lifetimeCoins = Math.floor(player.lifetimeCoins * 100) / 100;
+            earnCoins(player.cpts * player.cptsMult);
 
         // Progress Time
             player.timePlayed++;
@@ -104,6 +104,14 @@ function startGameLoop() {
             updateDisplay();
 
     },100);
+};
+function earnCoins(amount) {
+    player.ascensionCoins += amount;
+    player.lifetimeCoins += amount;
+    player.coins += amount;
+    player.coins = Math.floor(player.coins * 100) / 100;
+    player.ascensionCoins = Math.floor(player.ascensionCoins * 100) / 100;
+    player.lifetimeCoins = Math.floor(player.lifetimeCoins * 100) / 100;
 };
 
 
@@ -121,8 +129,7 @@ function clickCoin(user) {
 
     // Click
         player.coinClicks++;
-        player.lifetimeCoins += player.coinsPerClick;
-        player.coins += player.coinsPerClick;
+        earnCoins(player.coinsPerClick);
     
     // Update Blue & Red Puffle
         // This doesn't matter for calculations, but for the boost display.
@@ -161,7 +168,6 @@ function purchaseUpgrade(num) {
         if (player.coins >= upgradeData[num].cost) {
             if (num === 26) {playSound('Ship Bought');}
             else {playSound('Purchase');}
-            
             player.coins -= upgradeData[num].cost;
             // Pink Puffle
                 if (player.equippedPuffle === 1) {player.coins += upgradeData[num].cost * puffleStat.pink.mult;}
@@ -318,7 +324,7 @@ function earnAchievement(num) {
 
     // Display
         $('#achievement-dropdown').removeClass('dropdownClass');
-        $('#current-ach-name').html(`${achievementData[num].name}`);
+        $('#achievement-dropdown').html(`<b>Achievement Unlocked!</b><br><span id="current-ach-name">${achievementData[num].name}</span>`);
         setTimeout(function(){
             $('#achievement-dropdown').addClass('dropdownClass');
         },10);

@@ -141,7 +141,7 @@ const upgradeData = [
             name: "My First Friend", desc: "Your clicks are equal to the CPS of Puffle Roundup.", emoji: 'tap', cost: 500000,
             requirement: {type: "Building", building: 3, own: 25},
             effect: {type: "Click-Building", building: 3},
-            flavorText: "I tried naming a puffle 'drop table' once. Fortunately, the CPZ team validates the puffle name data."
+            flavorText: "I tried naming a puffle 'drop table' once. Fortunately, the the CPZ team validates the puffle name data."
         },
     // Cart Surfer
         {
@@ -219,6 +219,12 @@ const upgradeData = [
             requirement: {type: "Building", building: 7, own: 1},
             effect: {type: "CPS-Multiplier", mult: 2},
             flavorText: "We almost have enough coins to repair Rockhopper's ship, the Migrator!"
+        },
+        {
+            name: "A Cardboard Box", desc: "Just a regular cardboard box.", emoji: 'box', cost: 1000000000000,
+            requirement: {type: "Upgrade", upgrade: 26},
+            effect: {type: "Dummy"},
+            flavorText: "???"
         }
 ];
 

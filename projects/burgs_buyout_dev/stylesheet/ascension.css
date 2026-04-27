@@ -1,0 +1,52 @@
+/* Styling the new Ascension content */
+
+
+
+/* Opening the Box Animation */
+#box-open-animation {
+    cursor: url('../images/cursor/default.png'), auto;
+}
+#void-box {
+    background-image: url('../images/ascension/the_box.png');
+    background-size: 100% 100%;
+    height: 300px;
+    left: 300px;
+    position: relative;
+    top: 100px;
+    width: 280px;
+    z-index: 2;
+}
+.boxShrinkClass {
+    animation: voidBoxShrink 3s ease-in normal;
+}
+@keyframes voidBoxShrink {
+  from {
+    transform: rotate(0deg);
+    scale: 1.0;
+  }
+  to {
+    transform: rotate(360deg);
+    scale: 0.0;
+  }
+}
+
+
+
+/* The Outer Box Dimension */
+#box-dim-table {
+    background: rgb(38, 38, 38);
+    border-spacing: 3px;
+    height: 100%;
+    width: 100%;
+}
+#left-box-dim-cell {
+    background: radial-gradient(circle,rgba(22, 22, 173, 1) 0%, rgb(11, 11, 83) 100%);
+    border-radius: 10px;
+    padding: 15px;
+    vertical-align: top;
+    width: 200px;
+}
+#right-box-dim-cell {
+    vertical-align: top;
+    
+}
