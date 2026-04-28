@@ -19,7 +19,10 @@ let player = {
     debug: false,
     fullCompleteTime: false,
     // Ascensions
-    ascensions: 0
+    ascensions: 0,
+    boxLevel: 0,
+    doubloons: 0,
+    ascUpgrade: []
 };
 
 
@@ -60,7 +63,24 @@ function loadGame() {
                 if (player.fullCompleteTime == null) {player.fullCompleteTime = false;}
 
             // Ascension Data
-                player.ascensions = playerData.ascensions;
+                if (playerData.ascensions == null) {player.ascensions = 0;}
+                else {player.ascensions = playerData.ascensions;}
+                if (playerData.boxLevel == null) {player.boxLevel = 0;}
+                else {player.boxLevel = playerData.boxLevel;}
+                if (playerData.doubloons == null) {player.doubloons = 0;}
+                else {player.doubloons = playerData.doubloons;}
+                player.ascUpgrade = playerData.ascUpgrade;
+                if (player.ascUpgrade == null) {
+                    player.ascUpgrade = [];
+                    for (var a=0; a<ascUpgradeData.length; a++) {
+                        player.ascUpgrade.push(false);
+                    }
+                }
+                if (player.ascUpgrade == null | player.ascUpgrade.length < ascUpgradeData.length) {
+                    for (var a=player.ascUpgrade.length; a<ascUpgradeData.length; a++) {
+                        player.ascUpgrade.push(false);
+                    }
+                }
 
     }
 };
@@ -80,6 +100,7 @@ function resetGame() {
     player = {
         coins: 0,
         lifetimeCoins: 0,
+        ascensionCoins: 0,
         timePlayed: 0,
         coinsPerClick: 1,
         cpts: 0,
@@ -92,7 +113,10 @@ function resetGame() {
         coinClicks: 0,
         debug: false,
         fullCompleteTime: false,
-        ascensions: 0
+        ascensions: 0,
+        boxLevel: 0,
+        doubloons: 0,
+        ascUpgrade: []
     };
     loadPage('main-table');
     startGame();

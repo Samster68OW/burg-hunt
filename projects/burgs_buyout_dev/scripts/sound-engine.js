@@ -15,7 +15,7 @@
 
 // Control Panel:
 var sourceFolder = 'sounds/'; // Location of your audio files. (Leave blank if in same directory.)
-var masterVolume = 0.5; // Can be anywhere from 0 to 1.
+var masterVolume = 0.8; // Can be anywhere from 0 to 1.
 
 
 
@@ -32,6 +32,8 @@ var soundData = [
         {name:'Puffle Boost', src:'puffle_boost.wav', vol:0.1, mode:'play'},
         {name:'Purchase', src:'purchase.wav', vol:0.3, mode:'play'},
         {name:'Ship Bought', src:'ship_bought.wav', vol:0.3, mode:'play'},
+        {name:'Box Opened', src:'box_opened.wav', vol:0.3, mode:'play'},
+        {name:'Box Shrink', src:'box_shrink.wav', vol:0.1, mode:'play'},
 ];
 
 

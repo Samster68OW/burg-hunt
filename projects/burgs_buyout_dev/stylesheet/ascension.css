@@ -34,19 +34,56 @@
 
 /* The Outer Box Dimension */
 #box-dim-table {
-    background: rgb(38, 38, 38);
-    border-spacing: 3px;
     height: 100%;
+    padding: 0px;
     width: 100%;
 }
 #left-box-dim-cell {
-    background: radial-gradient(circle,rgba(22, 22, 173, 1) 0%, rgb(11, 11, 83) 100%);
-    border-radius: 10px;
+    background: radial-gradient(circle,rgb(106, 0, 163) 0%, rgb(74, 0, 101) 100%);
     padding: 15px;
     vertical-align: top;
-    width: 200px;
+    width: 268px;
 }
 #right-box-dim-cell {
+    background: radial-gradient(circle,rgb(73, 0, 113) 0%, rgb(28, 0, 38) 100%);
+    height: 598px;
+    position: absolute;
     vertical-align: top;
-    
+    width: 600px;
+}
+#return-to-burg-button {
+    background: red;
+    border-radius: 3px;
+    bottom: 20px;
+    cursor: url('../images/cursor/pointer.png'), auto;
+    opacity: 0.75;
+    padding: 10px;
+    position: absolute;
+    text-align: center;
+}
+#return-to-burg-button:hover {
+    opacity: 1.0;
+}
+.asc-upgrade-node {
+    background-color: black;
+    background-size: 100% 100%;
+    border: 5px solid white;
+    border-radius: 25px;
+    cursor: url('../images/cursor/pointer.png'), auto;
+    height: 40px;
+    position: absolute;
+    width: 40px;
+}
+.asc-upgrade-node:hover {
+    scale: 0.9;
+}
+#asc-hover-spot {
+    background-color: rgb(97, 0, 149);
+    bottom: 3px;
+    height: 150px;
+    padding: 10px;
+    left: 4px;
+    position: absolute;
+    width: 273px;
+    z-index: 5;
 }

@@ -217,6 +217,16 @@ body {
     position: absolute;
     width: 85px;
 }
+#sell-sit-spot {
+    background-image: url("../images/site/sell_sit.png");
+    background-size: 100% 100%;
+    bottom: 200px;
+    height: 60px;
+    left: 10px;
+    position: absolute;
+    width: 60px;
+    z-index: 2;
+}
 
 
 

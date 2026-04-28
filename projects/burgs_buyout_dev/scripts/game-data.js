@@ -221,10 +221,10 @@ const upgradeData = [
             flavorText: "We almost have enough coins to repair Rockhopper's ship, the Migrator!"
         },
         {
-            name: "A Cardboard Box", desc: "Just a regular cardboard box.", emoji: 'box', cost: 1000000000000,
+            name: "A Cardboard Box", desc: "Just a regular cardboard box.", emoji: 'box', cost: 100000000000,
             requirement: {type: "Upgrade", upgrade: 26},
             effect: {type: "Dummy"},
-            flavorText: "???"
+            flavorText: "This product follows RSC Carton Box standards to maximize efficiency, durability, and versatility."
         }
 ];
 

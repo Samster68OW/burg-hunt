@@ -62,6 +62,14 @@ function updateDisplay() {
                 $('#puffle-info-spot').html(`<b>Red Puffle</b><br>CPS Boost: +${cpsBoostDis}%`);
                 break;
         }
+    
+    // Sell (the player)
+        if (player.ascUpgrade[17] === true) {
+            $('#sell-sit-spot').fadeIn(0);
+        }
+        else if (player.ascUpgrade[17] === false) {
+            $('#sell-sit-spot').fadeOut(0);
+        }
 
     // Update Statistics Page
         // Calculate Time Played
@@ -76,10 +84,12 @@ function updateDisplay() {
             display += `<span style='color:yellow;'>100% Time: ${disTime(player.fullCompleteTime)}</span><br>`;
         }
         if (player.ascensions > 0) {
-            display += `<br>`;
+            display += `<br><span style='color:#f5cefc'>`;
             display += `Ascensions: ${player.ascensions}<br>`;
-            display += `Doubloons: ??? ${emojiInsert('doubloon')}<br>`;
+            display += `Box Level: ${disNum(player.boxLevel)} ${emojiInsert('box')}<br>`;
+            display += `Doubloons: ${disNum(player.doubloons)} ${emojiInsert('doubloon')}<br>`;
             display += `Coins this Ascension: ${disNum(player.ascensionCoins)} ${emojiInsert('coin')}<br>`;
+            display += `</span>`;
         }
         $('#statistics-page').html(display);
     
@@ -238,7 +248,7 @@ function achievementDisplay() {
 
 
 
-const numNames = [``,` thousand`, ` million`, ` billion`, ` trillion`, ` quadrillion`];
+const numNames = [``,`thousand`, `million`, `billion`, `trillion`, `quadrillion`, `quintillion`, `sextillion`, `septillion`, `octillion`, `nonillion`, `decillion`];
 function disNum(input) {
 
     if (input < 10 && input > 0) {
@@ -261,7 +271,7 @@ function disNum(input) {
         }
         input = Math.round(input * 100) / 100;
     
-    return `${input}${numNames[loop]}`;
+    return `${input} ${numNames[loop]}`;
 
 };
 function disTime(input) {

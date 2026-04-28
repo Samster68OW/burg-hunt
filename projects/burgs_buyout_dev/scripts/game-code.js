@@ -12,11 +12,14 @@ function startGame() {
                 owned: 0, currentCost: buildingData[a].baseCost, coinsPer: 0
             });
         }
-        for (a=0; a<upgradeData.length; a++) {
+        for (var a=0; a<upgradeData.length; a++) {
             player.upgrade.push(false);
         }
         for (var a=0; a<achievementData.length; a++) {
             player.achievement.push(false);
+        }
+        for (var a=0; a<ascUpgradeData.length; a++) {
+            player.ascUpgrade.push(false);
         }
 
     // Generate building display
@@ -225,6 +228,26 @@ function updateMath() {
                         break;
                     case "CPS-Multiplier":
                         player.cptsMult *= upgradeData[a].effect.mult;
+                        break;
+                }
+            }
+        }
+
+    // Check the ascended upgrades
+        for (a=0; a<player.ascUpgrade.length; a++) {
+            if (player.ascUpgrade[a] === true) {
+                switch (ascUpgradeData[a].effect.type) {
+                    case "Click-Set":
+                        player.coinsPerClick = ascUpgradeData[a].effect.clickAmount;
+                        break;
+                    case "Building-Mult":
+                        player.building[ascUpgradeData[a].effect.building].coinsPer *= ascUpgradeData[a].effect.mult;
+                        break;
+                    case "Click-Building":
+                        player.coinsPerClick = player.building[ascUpgradeData[a].effect.building].coinsPer * 10;
+                        break;
+                    case "CPS-Multiplier":
+                        player.cptsMult *= ascUpgradeData[a].effect.mult;
                         break;
                 }
             }

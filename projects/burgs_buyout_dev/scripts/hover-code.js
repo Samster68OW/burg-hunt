@@ -86,9 +86,9 @@ function hoverTextBox() {
     // Display
         let display = `${emojiInsert('box')} The Cardboard Box<br>
             <br>
-            Note: Opening the box will sacrifice your minigames, upgrades, and puffles. In return, you will gain Doubloons based on how many lifetime coins you have earned.<br>
-            <br>
-            <span class='flavorText'>This product follows RSC Carton Box standards to maximize efficiency, durability, and versatility.</span>`;
+            Note: Opening the box might have <u>unforeseen consequences</u>.
+            <br><br>
+            <span class='flavorText'>This box is for looking, not opening.</span>`;
         $('#hover-spot').html(display);
         $('#hover-spot').css('opacity', '1.0');
 
@@ -99,4 +99,25 @@ function hoverTextBox() {
 function hoverTextClear() {
     $('#hover-spot').html('');
     $('#hover-spot').css('opacity', '0.0');
+};
+
+
+
+// Ascension Update
+function hoverAscUpgrade(num) {
+
+    // Display
+        let display = `<b>${ascUpgradeData[num].name} [Asc Upgrade]</b><br>
+            Cost: ${ascUpgradeData[num].cost} ${emojiInsert('doubloon')}<br>
+            <br>
+            ${ascUpgradeData[num].desc}<br>
+            <br>
+            <span class='flavorText'>${ascUpgradeData[num].flavorText}</span>`;
+        $('#asc-hover-spot').html(display);
+        $('#asc-hover-spot').fadeIn(0);
+
+};
+function ascHoverTextClear() {
+    $('#asc-hover-spot').html('');
+    $('#asc-hover-spot').fadeOut(0);
 };

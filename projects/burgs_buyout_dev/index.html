@@ -9,7 +9,8 @@
 
     <!-- Internal Javascript -->
       <!-- Scripts -->
-        <script type="text/javascript" src="scripts/ascension-code.js"></script>
+        <script type="text/javascript" src="scripts/ascensions/ascension-code.js"></script>
+        <script type="text/javascript" src="scripts/ascensions/ascension-data.js"></script>
         <script type="text/javascript" src="scripts/save-player.js"></script>
         <script type="text/javascript" src="scripts/display-code.js"></script>
         <script type="text/javascript" src="scripts/game-code.js"></script>
@@ -29,7 +30,7 @@
       <div id="achievement-dropdown"></div>
       <table id="main-table" class="main-page">
         <tr><td colspan="3" id="top-cell">
-          Burg's Buyout v1.0.3 | 
+          Burg's Buyout v1.1.0 (The Box Update) | 
           <span class='settings-button' onclick="loadPage('settings-div');">Settings</span> | 
           <span class='settings-button' onclick="loadPage('changelog-div');">Changelog</span> | 
           <span id="save-popup" hidden>Game Saved!</span>
@@ -51,6 +52,7 @@
               <td id="puffle-display-spot"></td>
               <td id="puffle-info-spot"></td>
             </tr></table>
+            <div id="sell-sit-spot" hidden></div>
           </td>
           <td id="middle-cell" class="main-cell">
             <table id="middle-top-tab-table"><tr>
@@ -133,6 +135,12 @@
           <h1>Changelog</h1><br>
           <div id="changelog-content-div">
 
+            Version 1.1.0 (The Box Update) - ???
+            <ul>
+              <li>Added a cardboard box.</li>
+              <li>Turned up the game's volume.</li>
+            </ul>
+            <hr>
             Patch 1.0.3 - April 27th, 2026
             <ul>
               <li>Fixed a bug that caused the Migrator's CPS Multiplier to fail.</li>
@@ -150,7 +158,7 @@
             <ul>
               <li>Added the 100% completion stat to show how long it takes the player to collect every achievement.</li>
             </ul>
-            Version 1.0.0 - April 23rd, 2026
+            Version 1.0.0 (Full Release) - April 23rd, 2026
             <ul>
               <li>Full release onto Zero Nation!</li>
             </ul>
@@ -175,16 +183,20 @@
           Welcome to the<br>
           <u>Outer Box Dimension</u>!
           <br><br>
-          Your lifetime coins that enter this place turn into Doubloons, which can be spent on <u>Ascended Upgrades</u>. These upgrades are more powerful and persist across ascensions. Purchasing an ascended upgrade summons more upgrades.
+          All of your minigames, upgrades, and puffles have been lost to the void.
           <br><br>
-          Your lifetime coins also increase your <u>Box Level</u>, which also persists across ascensions. Each Box Level grants a +1% CPS boost.
+          Your coins that entered this place have turned into Doubloons, which can be spent on <u>Ascended Upgrades</u>. These upgrades are more powerful and persist across ascensions. Purchasing an ascended upgrade unlocks more upgrades.
+          <br><br>
+          Your coins also increase your <u>Box Level</u>, which also persists across ascensions. Each Box Level grants a +1% CPS boost.
           <br><br>
           <span id="doubloon-box-spot"></span>
           <br><br>
-          <button href="#" onclick="returnToGame();">Return</button>
+          <span id="box-level-box-spot"></span>
+          <div id="return-to-burg-button" onclick="returnToGame();">Return to Burg</div>
+          <div id="asc-hover-spot" hidden></div>
 
         </td>
-        <td id="right-box-dim-cell">Right box</td>
+        <td id="right-box-dim-cell"></td>
       </tr></table>
     </div>
 
