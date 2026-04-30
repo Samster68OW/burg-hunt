@@ -215,17 +215,74 @@ const upgradeData = [
         },
     // Endgame
         {
-            name: "Repair the Migrator", desc: "Repairs the Migrator and grants a x2 CPS boost!", emoji: 'coin', cost: 1000000000,
+            name: "Repair the Migrator", desc: "Repairs the Migrator and grants a +100% CPS boost!", emoji: 'coin', cost: 1000000000,
             requirement: {type: "Building", building: 7, own: 1},
-            effect: {type: "CPS-Multiplier", mult: 2},
-            flavorText: "We almost have enough coins to repair Rockhopper's ship, the Migrator!"
+            effect: {type: "CPS-Multiplier", mult: 1.00},
+            flavorText: "Purchasing this upgrade repairs the Migrator and wins the game. Congrats on making it this far!"
         },
         {
             name: "A Cardboard Box", desc: "Just a regular cardboard box.", emoji: 'box', cost: 100000000000,
             requirement: {type: "Upgrade", upgrade: 26},
             effect: {type: "Dummy"},
             flavorText: "This product follows RSC Carton Box standards to maximize efficiency, durability, and versatility."
-        }
+        },
+
+
+
+    // Unshackled Upgrades
+    // Hydro Hopper
+        {
+            name: "TODO", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 10000000, // 10 Million
+            requirement: {type: "Asc-Upgrade", upgrade: 3},
+            effect: {type: "Building-Mult", building: 0, mult: 1000},
+            flavorText: "TODO"
+        },
+        {
+            name: "TODO", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 100000000, // 100 Million
+            requirement: {type: "Asc-Upgrade", upgrade: 3},
+            effect: {type: "Building-Mult", building: 0, mult: 100},
+            flavorText: "TODO"
+        },
+    // Bean Counters
+        {
+            name: "TODO", desc: "Earn x100 more CPS for Bean Counters.", emoji: 'upgrade', cost: 10000000000, // 10 Billion
+            requirement: {type: "Asc-Upgrade", upgrade: 4},
+            effect: {type: "Building-Mult", building: 1, mult: 100},
+            flavorText: "TODO"
+        },
+        {
+            name: "TODO", desc: "Earn x100 more CPS for Bean Counters.", emoji: 'upgrade', cost: 100000000000, // 100 Billion
+            requirement: {type: "Asc-Upgrade", upgrade: 4},
+            effect: {type: "Building-Mult", building: 1, mult: 100},
+            flavorText: "TODO"
+        },
+    // Ice Fishing
+        {
+            name: "TODO", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 10000000000000, // 10 Trillion
+            requirement: {type: "Asc-Upgrade", upgrade: 5},
+            effect: {type: "Building-Mult", building: 2, mult: 100},
+            flavorText: "TODO"
+        },
+        {
+            name: "TODO", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 100000000000000, // 100 Trillion
+            requirement: {type: "Asc-Upgrade", upgrade: 5},
+            effect: {type: "Building-Mult", building: 2, mult: 100},
+            flavorText: "TODO"
+        },
+    // Puffle Roundup
+        {
+            name: "TODO", desc: "Earn x100 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 10000000000000000, // 10 Quadrillion
+            requirement: {type: "Asc-Upgrade", upgrade: 6},
+            effect: {type: "Building-Mult", building: 3, mult: 100},
+            flavorText: "TODO"
+        },
+        {
+            name: "TODO", desc: "Earn x100 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 100000000000000000, // 100 Quadrillion
+            requirement: {type: "Asc-Upgrade", upgrade: 6},
+            effect: {type: "Building-Mult", building: 3, mult: 100},
+            flavorText: "TODO"
+        },
+
 ];
 
 
@@ -282,7 +339,7 @@ let puffleStat = {
         mult: 2.0
     },
     red: {
-        mult: 1.0,
+        mult: 0,
         percent: 0.03
     }
 };

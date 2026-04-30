@@ -21,6 +21,9 @@ function startGame() {
         for (var a=0; a<ascUpgradeData.length; a++) {
             player.ascUpgrade.push(false);
         }
+        for (var a=0; a<ascAchievementData.length; a++) {
+            player.ascAchievement.push(false);
+        }
 
     // Generate building display
         let display = `<div class='middle-header'>Minigames</div><br><table>`;
@@ -54,6 +57,12 @@ function startGame() {
             display += `<div id='purchased-upgrade-${b}-spot' class='upgrade-cell' onmouseenter='hoverTextUpgrade(${b})' onmouseleave='hoverTextClear();' hidden>${emojiInsert(upgradeData[b].emoji)} <b>${upgradeData[b].name}</b></div>`;
         }
         $('#owned-upgrade-list').html(display);
+    // Generate Purchased Ascended Upgrades
+        display = ``;
+        for (var b=0; b<player.ascUpgrade.length; b++) {
+            display += `<div id='purchased-ascUpgrade-${b}-spot' class='ascUpgrade-cell' onmouseenter='hoverAscUpgradeMain(${b})' onmouseleave='hoverTextClear();' hidden>${emojiInsert('box')} <b>${ascUpgradeData[b].name}</b></div>`;
+        }
+        $('#asc-upgrade-list').html(display);
 
     // Puffle Display
         display = `<div class='middle-header'>Puffles</div><br><table>`;
@@ -79,6 +88,7 @@ function startGame() {
         achievementDisplay();
 
     loadGame();
+    potentialBoxLevel = player.boxLevel;
     startGameLoop();
 
 };
@@ -98,8 +108,17 @@ function startGameLoop() {
         // Progress Time
             player.timePlayed++;
             if (player.timePlayed % 300 === 0) {saveGame();}
+        
+        // Mascots
+            if (currentMascot.ticksRemaining > 0) {
+                currentMascot.ticksRemaining--;
+                if (currentMascot.ticksRemaining === 0) {updateMath();}
+            }
+            else {checkMascot();}
+            
 
         // Update display
+            updateCoinGoal();
             checkAchievements();
             greenPuffle();
             blackPuffle();
@@ -157,6 +176,8 @@ function purchaseBuilding(num) {
             player.coins -= player.building[num].currentCost;
             // Pink Puffle
                 if (player.equippedPuffle === 1) {player.coins += player.building[num].currentCost * puffleStat.pink.mult;}
+            // Gary
+                if (currentMascot.mascotID === 1 && currentMascot.ticksRemaining > 0) {player.coins += player.building[num].currentCost * mascotData[1].mult;}
             player.building[num].owned++;
             player.building[num].currentCost = Math.floor(player.building[num].currentCost * 1.1);
             updateMath();
@@ -174,6 +195,8 @@ function purchaseUpgrade(num) {
             player.coins -= upgradeData[num].cost;
             // Pink Puffle
                 if (player.equippedPuffle === 1) {player.coins += upgradeData[num].cost * puffleStat.pink.mult;}
+            // Gary
+                if (currentMascot.mascotID === 1 && currentMascot.ticksRemaining > 0) {player.coins += player.upgrade[num].currentCost * mascotData[1].mult;}
             player.upgrade[num] = true;
             updateMath();
             hoverTextClear();
@@ -227,7 +250,7 @@ function updateMath() {
                         player.coinsPerClick = player.building[upgradeData[a].effect.building].coinsPer * 10;
                         break;
                     case "CPS-Multiplier":
-                        player.cptsMult *= upgradeData[a].effect.mult;
+                        player.cptsMult += upgradeData[a].effect.mult;
                         break;
                 }
             }
@@ -247,7 +270,7 @@ function updateMath() {
                         player.coinsPerClick = player.building[ascUpgradeData[a].effect.building].coinsPer * 10;
                         break;
                     case "CPS-Multiplier":
-                        player.cptsMult *= ascUpgradeData[a].effect.mult;
+                        player.cptsMult += ascUpgradeData[a].effect.mult;
                         break;
                 }
             }
@@ -269,8 +292,11 @@ function updateMath() {
             for (var b=0; b<player.achievement.length; b++) {
                 if (player.achievement[b] === true) {achCount++;}
             }
-            puffleStat.red.mult = 1 + (achCount * puffleStat.red.percent);
-            player.cpts *= puffleStat.red.mult;
+            for (var b=0; b<player.ascAchievement.length; b++) {
+                if (player.ascAchievement[b] === true) {achCount++;}
+            }
+            puffleStat.red.mult = achCount * puffleStat.red.percent;
+            player.cptsMult += puffleStat.red.mult;
         }
     
     // Green Puffle
@@ -291,6 +317,18 @@ function updateMath() {
             player.coinsPerClick *= puffleStat.blue.mult;
         }
         
+    // Box Level
+        player.cptsMult += player.boxLevel * 0.01;
+    
+    // Mascots
+        if (currentMascot.ticksRemaining > 0) {
+            if (currentMascot.mascotID === 0) {
+                player.cptsMult += 67;
+            }
+            if (currentMascot.mascotID === 2) {
+                player.coinsPerClick *= mascotData[currentMascot.mascotID].mult;
+            }
+        }
 
     // Clean up CPTS
         player.cpts *= player.cptsMult;
@@ -304,6 +342,7 @@ function updateMath() {
 
 function checkAchievements() {
 
+    // Regular Achievements
     for (var a=0; a<player.achievement.length; a++) {
         if (player.achievement[a] === false) {
             currAchCri = achievementData[a].criteria;
@@ -336,6 +375,27 @@ function checkAchievements() {
         }
     }
 
+    // Ascended Achievements
+    if (player.ascUpgrade[1] === true) {
+        for (var a=0; a<player.ascAchievement.length; a++) {
+            if (player.ascAchievement[a] === false) {
+                currAchCri = ascAchievementData[a].criteria;
+                switch (ascAchievementData[a].criteria.type) {
+                    case 'Ascensions':
+                        if (player.ascensions >= currAchCri.amount) {
+                            earnAscAchievement(a);
+                        }
+                        break;
+                    case 'Coins-Lifetime':
+                        if (player.lifetimeCoins >= currAchCri.amount) {
+                            earnAscAchievement(a);
+                        }
+                        break;
+                }
+            }
+        }
+    }
+
 };
 function earnAchievement(num) {
 
@@ -352,130 +412,35 @@ function earnAchievement(num) {
             $('#achievement-dropdown').addClass('dropdownClass');
         },10);
         achievementDisplay();
-    
-    // Red Puffle
+
+    // Final Time
+        updateMath();
         let achCount = 0;
         for (var b=0; b<player.achievement.length; b++) {
             if (player.achievement[b] === true) {achCount++;}
         }
-        puffleStat.red.mult = 1 + (achCount * puffleStat.red.percent);
-
-    // Final Time
         if (achCount === 25 && player.fullCompleteTime === false) {
             player.fullCompleteTime = player.timePlayed;
         }
 
 };
+function earnAscAchievement(num) {
 
+    // Sounds
+        playSound('Achievement');
 
+    // Earn Acheivement
+        player.ascAchievement[num] = true;
 
-function swapPuffle(num) {
+    // Display
+        $('#achievement-dropdown').removeClass('dropdownClass');
+        $('#achievement-dropdown').html(`<b>Achievement Unlocked!</b><br><span id="current-ach-name">${ascAchievementData[num].name}</span>`);
+        setTimeout(function(){
+            $('#achievement-dropdown').addClass('dropdownClass');
+        },10);
+        achievementDisplay();
 
-    // Swap Puffle
-        if (num === player.equippedPuffle) {
-            player.equippedPuffle = -1;
-        }
-        else {
-            if (player.puffle[num] === true) {
-                player.equippedPuffle = num;
-            }
-        }
+    // Final Time
         updateMath();
-        displayPuffle();
-        for (var c=0; c<player.building.length; c++) {
-            updateBuilding(c);
-        }
-    
-};
-function displayPuffle() {
-    if (player.equippedPuffle === -1) {
-        $('#puffle-display-spot').html(``);
-        $('.puffle-equip').html('');
-    }
-    else {
-        $('#puffle-display-spot').html(`<img src='images/puffle/${puffleData[player.equippedPuffle].emoji}.png' onmouseenter='hoverTextPuffle(${player.equippedPuffle})' onmouseleave='hoverTextClear();'>`);
-        $('.puffle-equip').html('');
-        $(`#puffle-${player.equippedPuffle}-equip`).html('<img src="images/site/checkmark.png">');
-    }
-};
-function greenPuffle() {
-
-    // Reduce current ability's countdown
-        if (puffleStat.green.timeLeftOnAbility > 0) {
-            puffleStat.green.timeLeftOnAbility--;
-            if (puffleStat.green.timeLeftOnAbility === 0) {
-                puffleStat.green.currentAbility = 'None';
-                updateMath();
-            }
-        }
-        if (puffleStat.green.timeLeftOnAbility === 0) {
-            puffleStat.green.currentAbility = 'None';
-        }
-
-    // Check for Green Puffle's countdown
-        if (puffleStat.green.countdown > 0 && player.equippedPuffle === 2) {
-            puffleStat.green.countdown--;
-            if (puffleStat.green.countdown <= 0) {
-                puffleStat.green.countdown = puffleStat.green.countdownMax;
-                puffleStat.green.timeLeftOnAbility = puffleStat.green.timeLeftMax;
-
-                // Select ability
-                    switch (Math.floor(Math.random()*2)) {
-                        case 0:
-                            puffleStat.green.currentAbility = 'CPS';
-                            break;
-                        case 1:
-                            puffleStat.green.currentAbility = 'Clicks';
-                            break;
-                    }
-                    playSound('Puffle Boost');
-                    updateMath();
-
-            }
-        }
-
-};
-function purplePuffle() {
-
-    // Reduce current ability's countdown
-        if (puffleStat.purple.timeLeftOnMinigame > 0) {
-            puffleStat.purple.timeLeftOnMinigame--;
-            if (puffleStat.purple.timeLeftOnMinigame === 0) {
-                puffleStat.purple.currentMinigame = 'None';
-                updateMath();
-            }
-        }
-        if (puffleStat.purple.timeLeftOnMinigame === 0) {
-            puffleStat.purple.currentMinigame = 'None';
-        }
-
-    // Check for Purple Puffle's countdown
-        if (puffleStat.purple.countdown > 0 && player.equippedPuffle === 4) {
-            puffleStat.purple.countdown--;
-            if (puffleStat.purple.countdown <= 0) {
-                puffleStat.purple.countdown = puffleStat.purple.countdownMax;
-                puffleStat.purple.timeLeftOnMinigame = puffleStat.purple.timeLeftMax;
-
-                // Select ability
-                    let buildList = [];
-                    for (var a=0; a<player.building.length; a++) {
-                        if (player.building[a].owned > 0) {
-                            buildList.push(a);
-                        }
-                    }
-                    puffleStat.purple.currentMinigame = buildList[Math.floor(Math.random()*buildList.length)];
-                    playSound('Puffle Boost');
-                    updateMath();
-                    updateBuilding(puffleStat.purple.currentMinigame);
-
-            }
-        }
-
-};
-function blackPuffle() {
-
-    if (player.equippedPuffle === 3) {
-        if (player.timePlayed % 5 === 0) {clickCoin('puffle');}
-    }
 
 };

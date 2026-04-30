@@ -78,12 +78,40 @@
     scale: 0.9;
 }
 #asc-hover-spot {
-    background-color: rgb(97, 0, 149);
-    bottom: 3px;
+    background-color: rgb(44, 0, 68);
+    bottom: 4px;
     height: 150px;
     padding: 10px;
     left: 4px;
     position: absolute;
     width: 273px;
     z-index: 5;
+}
+
+
+
+/* Main Screen */
+.ascUpgrade-cell {
+    background-color: rgb(97, 0, 149);
+    cursor: url('../images/cursor/pointer.png'), auto;
+    padding: 5px;
+}
+.ascUpgrade-cell:hover {
+    color: yellow;
+    text-decoration: underline;
+}
+#asc-upgrade-list {
+    opacity: 0.6;
+}
+#loading-bar-outer {
+    background-color: rgb(205, 205, 205);
+    border: 3px solid black;
+    height: 12px;
+    margin: auto;
+    width: 200px;
+}
+#loading-bar-inner {
+    background-color: rgb(125, 36, 173);
+    height: 100%;
+    width: 0px;
 }

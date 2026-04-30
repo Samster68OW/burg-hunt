@@ -11,12 +11,14 @@
       <!-- Scripts -->
         <script type="text/javascript" src="scripts/ascensions/ascension-code.js"></script>
         <script type="text/javascript" src="scripts/ascensions/ascension-data.js"></script>
+        <script type="text/javascript" src="scripts/ascensions/mascot-code.js"></script>
         <script type="text/javascript" src="scripts/save-player.js"></script>
         <script type="text/javascript" src="scripts/display-code.js"></script>
         <script type="text/javascript" src="scripts/game-code.js"></script>
         <script type="text/javascript" src="scripts/game-data.js"></script>
         <script type="text/javascript" src="scripts/hover-code.js"></script>
         <script type="text/javascript" src="scripts/input-handler.js"></script>
+        <script type="text/javascript" src="scripts/puffle-code.js"></script>
         <script type="text/javascript" src="scripts/sound-engine.js"></script>
     <!-- Internal CSS -->
         <link rel="stylesheet" href="stylesheet/ascension.css">
@@ -33,6 +35,7 @@
           Burg's Buyout v1.1.0 (The Box Update) | 
           <span class='settings-button' onclick="loadPage('settings-div');">Settings</span> | 
           <span class='settings-button' onclick="loadPage('changelog-div');">Changelog</span> | 
+          <span hidden><span class='settings-button' onclick="loadPage('iceberg-page');">The Iceberg</span> | </span>
           <span id="save-popup" hidden>Game Saved!</span>
         </td></tr>
         <tr>
@@ -52,6 +55,8 @@
               <td id="puffle-display-spot"></td>
               <td id="puffle-info-spot"></td>
             </tr></table>
+            <div id="migrator-sit-spot" hidden></div>
+            <div id="mascot-sit-spot" hidden>Boost!</div>
             <div id="sell-sit-spot" hidden></div>
           </td>
           <td id="middle-cell" class="main-cell">
@@ -66,7 +71,6 @@
               <br><br>
               <div class='middle-header'>Controls</div><br>
               Press the Spacebar to earn coins.<br>
-              Press M to toggle the music.<br>
               Press Q and W to toggle tabs.
             </div>
             <div id="statistics-page" class="middle-page"></div>
@@ -90,6 +94,7 @@
                   <div id="big-box" onclick="clickBox();" onmouseenter="hoverTextBox();" onmouseleave="hoverTextClear();"><br><br><br><br><br><br>Open the Box</div>
                   <img src="images/site/starburst.png" id="starburst-behind-box">
                 </div><br>
+                <div id="potential-levels-spot" style="text-align:center;" hidden></div>
                 <hr>
               </div>
               <div class='middle-header'>Upgrades</div><br>
@@ -97,6 +102,11 @@
               <hr>
               <div class='middle-header'>Purchased Upgrades</div><br>
               <div id="owned-upgrade-list"></div>
+              <div id="asc-upgrade-section" hidden>
+                <hr>
+                <div class='middle-header'>Ascended Upgrades</div><br>
+                <div id="asc-upgrade-list"></div>
+              </div>
             </div>
             <div id="puffle-page" class="right-page" hidden></div>
           </td>
@@ -105,7 +115,6 @@
       <div id="settings-div" class="main-page" hidden>
         <div style="padding: 15px;">
           <h1>Settings</h1>
-          <span class="settings-button" onclick="toggleMusic();" id="toggle-music-button">[ Music: On ]</span><br>
           <span class="settings-button" onclick="resetGame();">[ Reset Game ]</span>
           <br><br>
           <h1>Credits</h1>
@@ -138,7 +147,8 @@
             Version 1.1.0 (The Box Update) - ???
             <ul>
               <li>Added a cardboard box.</li>
-              <li>Turned up the game's volume.</li>
+              <li>Added a "CPS Multiplier" stat.</li>
+              <li>Turned up the game's volume. Removed the ability to mute the music.</li>
             </ul>
             <hr>
             Patch 1.0.3 - April 27th, 2026
@@ -190,6 +200,8 @@
           Your coins also increase your <u>Box Level</u>, which also persists across ascensions. Each Box Level grants a +1% CPS boost.
           <br><br>
           <span id="doubloon-box-spot"></span>
+          <br><br>
+          <span id="box-level-spot"></span>
           <br><br>
           <span id="box-level-box-spot"></span>
           <div id="return-to-burg-button" onclick="returnToGame();">Return to Burg</div>
@@ -291,21 +303,7 @@ function loadPage(pageName) {
 
 
 
-let playMusic = true;
 let gameStarted = false;
-function toggleMusic() {
-  if (gameStarted === false) {return;}
-  if (playMusic === true) {
-    playMusic = false;
-    $('#toggle-music-button').html('[ Music: Off ]');
-    pauseSound('BG Music');
-  }
-  else if (playMusic === false) {
-    playMusic = true;
-    $('#toggle-music-button').html('[ Music: On ]');
-    playSound('BG Music');
-  }
-};
 
 
 

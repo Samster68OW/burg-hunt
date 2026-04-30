@@ -8,15 +8,14 @@ function clickBox() {
     // Stop everything and load the animation
         clearInterval(gameLoop);
         loadPage('box-open-animation');
-        if (playMusic === true) {toggleMusic();}
         resetSound('BG Music');
         playSound('Box Opened');
         gameStarted = false;
     
     // Load the Box Dimension
         grantDoubloons();
-        player.doubloons = 100;
         $('#doubloon-box-spot').html(`Doubloons: ${player.doubloons} ${emojiInsert('doubloon')}`);
+        $('#box-level-spot').html(`Box Level: ${disNum(player.boxLevel)} ${emojiInsert('box')} (+ ${disNum(player.boxLevel)}% ${emojiInsert('coin')})`);
         placeAscUpgrades();
     
     // Play shrinking animation
@@ -34,8 +33,20 @@ function clickBox() {
         },7000);
 
 };
+
+
+
+let potentialBoxLevel = 0;
+let nextCoinGoal;
+function updateCoinGoal() {
+    nextCoinGoal = Math.pow(2, potentialBoxLevel) * 1000000000;
+    if (player.lifetimeCoins >= nextCoinGoal) {
+        potentialBoxLevel++;
+    }
+};
 function grantDoubloons() {
-    // TODO
+    player.doubloons += potentialBoxLevel - player.boxLevel;
+    player.boxLevel = potentialBoxLevel;
 };
 
 
@@ -97,11 +108,41 @@ function returnToGame() {
         for (var a=0; a<puffleData.length; a++) {
             player.puffle.push(false);
         }
+
+    // Starting Upgrades
+        for (a=0; a<player.ascUpgrade.length; a++) {
+            if (player.ascUpgrade[a] === true) {
+                switch (ascUpgradeData[a].effect.type) {
+                    case "Quickstart":
+                        switch (ascUpgradeData[a].effect.tier) {
+                            case 1:
+                                player.building[0].owned = 10;
+                                break;
+                            case 2:
+                                player.building[0].owned = 15;
+                                player.building[1].owned = 5;
+                                break;
+                            case 3:
+                                player.building[0].owned = 15;
+                                player.building[1].owned = 10;
+                                player.building[2].owned = 5;
+                                break;
+                        }
+                        updateBuilding(0);
+                        updateBuilding(1);
+                        updateBuilding(2);
+                        break;
+                }
+            }
+        }
+
+    // Clean up
         updateMath();
         loadRightPage('minigame');
         loadMiddlePage('how-to-play');
         displayPuffle();
         playSound('Click Coin');
+        currentMascot.cooldown = 3000; // 5 Minutes
 
 
     // Get us back

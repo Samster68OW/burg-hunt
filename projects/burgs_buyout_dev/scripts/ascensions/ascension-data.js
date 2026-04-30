@@ -5,148 +5,205 @@
 const ascUpgradeData = [
     // Initial Node
         {
-            name: "Ascension Upgrades", desc: "Unlocks ascension upgrades.", icon: 'incomplete', cost: 1,
+            name: "Ascended Upgrades", desc: "Unlocks ascension upgrades and grants a +100% CPS boost.", icon: 'box', cost: 1,
             requirement: {upgrade: "None"},
-            effect: {type: "Click-Set", clickAmount: 2},
+            effect: {type: "CPS-Multiplier", mult: 1.00},
             flavorText: "The Box has opened up to you. Its revelations are enticing, yet dreary. Giving, yet greedy. Do you press on?",
             location: {x:0, y:0}
         },
-    // Locations
+    // Achievements (North Path)
         {
-            name: "The Farm", desc: "Unlocks the Farm, a place where you can grow crops to further boost production.", icon: 'incomplete', cost: 5,
+            name: "Achievements+", desc: "Unlocks additional achievements.", icon: 'achievements_plus', cost: 1,
             requirement: {upgrade: 0},
-            effect: {type: "Dummy", value: "Farm"},
-            flavorText: "TODO",
-            location: {x:0, y:120}
+            effect: {type: "TODO"},
+            flavorText: "What? You thought we were done? Not even close! (I spit out a tooth. You wonder how a tooth ended up in a penguin's mouth.)",
+            location: {x:0, y:100}
         },
         {
-            name: "The Iceberg", desc: "Unlocks the Iceberg, a place where penguins gather to hear tales of your immense wealth.", icon: 'incomplete', cost: 5,
+            name: "The Iceberg", desc: "Unlocks the Iceberg, a place where penguins gather to hear tales of your immense wealth.", icon: 'iceberg', cost: 100,
             requirement: {upgrade: 1},
             effect: {type: "Dummy", value: "Iceberg"},
             flavorText: "TODO",
-            location: {x:0, y:240}
+            location: {x:0, y:200}
         },
-    // Quickstart & Unshackled Minigames
+    // Unshackled Minigames (East Path)
         {
-            name: "Quickstart I", desc: "Start next run with 10 Hydro Hoppers", icon: 'incomplete', cost: 5,
+            name: "Unshackled Hydro Hopper", desc: "Unlocks high-level upgrades for Hydro Hopper.", icon: 'minigame0-asc', cost: 2,
             requirement: {upgrade: 0},
-            effect: {type: "TODO"},
+            effect: {type: "Dummy"},
             flavorText: "TODO",
-            location: {x:70, y:50}
+            location: {x:80, y:50}
         },
         {
-            name: "Quickstart II", desc: "Start next run with 15 Hydro Hoppers and 5 Bean Counters", icon: 'incomplete', cost: 5,
+            name: "Unshackled Bean Counters", desc: "Unlocks high-level upgrades for Bean Counters.", icon: 'minigame1-asc', cost: 10,
             requirement: {upgrade: 3},
-            effect: {type: "TODO"},
+            effect: {type: "Dummy"},
             flavorText: "TODO",
-            location: {x:120, y:130}
+            location: {x:120, y:100}
         },
         {
-            name: "Quickstart III", desc: "Start next run with 25 Hydro Hoppers, 10 Bean Counters, and 5 Ice Fishing.", icon: 'incomplete', cost: 5,
+            name: "Unshackled Ice Fishing", desc: "Unlocks high-level upgrades for Ice Fishing.", icon: 'minigame2-asc', cost: 10,
             requirement: {upgrade: 4},
-            effect: {type: "TODO"},
+            effect: {type: "Dummy"},
             flavorText: "TODO",
-            location: {x:170, y:210}
+            location: {x:160, y:150}
         },
         {
-            name: "Unshackled Hydro Hopper", desc: "Unlocks high-level upgrades for Hydro Hopper.", icon: 'incomplete', cost: 5,
+            name: "Unshackled Puffle Roundup", desc: "Unlocks high-level upgrades for TODO.", icon: 'minigame3-asc', cost: 10,
             requirement: {upgrade: 5},
-            effect: {type: "TODO"},
+            effect: {type: "Dummy"},
             flavorText: "TODO",
-            location: {x:250, y:263}
+            location: {x:200, y:200}
         },
         {
-            name: "Unshackled Bean Counters", desc: "Unlocks high-level upgrades for Bean Counters.", icon: 'incomplete', cost: 5,
-            requirement: {upgrade: 6},
-            effect: {type: "TODO"},
+            name: "Unshackled Cart Surfer", desc: "Unlocks high-level upgrades for TODO.", icon: 'minigame4-asc', cost: 666,
+            requirement: {upgrade: "Unavailable"},
+            effect: {type: "Dummy"},
             flavorText: "TODO",
-            location: {x:250, y:188}
+            location: {x:250, y:150}
         },
         {
-            name: "Unshackled Ice Fishing", desc: "Unlocks high-level upgrades for Ice Fishing.", icon: 'incomplete', cost: 5,
-            requirement: {upgrade: 7},
-            effect: {type: "TODO"},
+            name: "Unshackled Pizzatron 3000", desc: "Unlocks high-level upgrades for TODO.", icon: 'minigame5-asc', cost: 666,
+            requirement: {upgrade: "Unavailable"},
+            effect: {type: "Dummy"},
             flavorText: "TODO",
-            location: {x:250, y:113}
+            location: {x:210, y:100}
         },
         {
-            name: "Unshackled TODO", desc: "Unlocks high-level upgrades for TODO.", icon: 'incomplete', cost: 5,
-            requirement: {upgrade: 8},
-            effect: {type: "TODO"},
+            name: "Unshackled Dance Contest", desc: "Unlocks high-level upgrades for TODO.", icon: 'minigame6-asc', cost: 666,
+            requirement: {upgrade: "Unavailable"},
+            effect: {type: "Dummy"},
             flavorText: "TODO",
-            location: {x:250, y:38}
+            location: {x:170, y:50}
         },
         {
-            name: "Unshackled TODO", desc: "Unlocks high-level upgrades for TODO.", icon: 'incomplete', cost: 5,
-            requirement: {upgrade: 9},
-            effect: {type: "TODO"},
+            name: "Unshackled Snow Trekker", desc: "Unlocks high-level upgrades for TODO.", icon: 'minigame7-asc', cost: 666,
+            requirement: {upgrade: "Unavailable"},
+            effect: {type: "Dummy"},
             flavorText: "TODO",
-            location: {x:250, y:-37}
+            location: {x:130, y:0}
+        },
+    // Characters Branch (South Path)
+        {
+            name: "Mascot Tracker", desc: "Every 5 minutes, a mascot will appear and grant a massive boost for 15 seconds.", icon: 'mascot_tracker', cost: 2,
+            requirement: {upgrade: 0},
+            effect: {type: "TODO"},
+            flavorText: "The mascot trackers on Zero Nation are so good that they even work in this game!",
+            location: {x:-60, y:-80}
         },
         {
-            name: "Unshackled TODO", desc: "Unlocks high-level upgrades for TODO.", icon: 'incomplete', cost: 5,
-            requirement: {upgrade: 10},
-            effect: {type: "TODO"},
-            flavorText: "TODO",
-            location: {x:250, y:-112}
-        },
-        {
-            name: "Unshackled TODO", desc: "Unlocks high-level upgrades for TODO.", icon: 'incomplete', cost: 5,
+            name: "Beeker", desc: "Grants a +300% CPS boost.", icon: 'beeker', cost: 30,
             requirement: {upgrade: 11},
-            effect: {type: "TODO"},
-            flavorText: "TODO",
-            location: {x:250, y:-187}
-        },
-        {
-            name: "Unshackled TODO", desc: "Unlocks high-level upgrades for TODO.", icon: 'incomplete', cost: 5,
-            requirement: {upgrade: 12},
-            effect: {type: "TODO"},
-            flavorText: "TODO",
-            location: {x:250, y:-262}
-        },
-    // Misc
-        {
-            name: "Achievements+", desc: "Unlocks additional achievements.", icon: 'incomplete', cost: 5,
-            requirement: {upgrade: 0},
-            effect: {type: "TODO"},
-            flavorText: "TODO",
-            location: {x:-100, y:50}
-        },
-    // Characters Branch
-        {
-            name: "Mascot Tracker", desc: "Mascots will occasionally visit Burg, bringing short boosts to your coin production.", icon: 'incomplete', cost: 5,
-            requirement: {upgrade: 0},
-            effect: {type: "TODO"},
-            flavorText: "TODO",
-            location: {x:-60, y:-100}
-        },
-        {
-            name: "Beeker", desc: "Grants a +3% CPS boost.", icon: 'beeker', cost: 5,
-            requirement: {upgrade: 15},
-            effect: {type: "CPS-Multiplier", mult: 1.03},
+            effect: {type: "CPS-Multiplier", mult: 3.00},
             flavorText: "I mean, 3 is close to Pi, right?",
-            location: {x:-120, y:-180}
+            location: {x:-120, y:-160}
         },
         {
-            name: "Sell", desc: "Sell will AFK near your coin, granting a +10% CPS boost.", icon: 'sell', cost: 5,
-            requirement: {upgrade: 16},
-            effect: {type: "CPS-Multiplier", mult: 1.10},
+            name: "Sell", desc: "Sell will AFK near your coin, earning you +50% more coins per click.", icon: 'sell', cost: 5,
+            requirement: {upgrade: 12},
+            effect: {type: "Click-Multiplier", mult: 0.50},
             flavorText: "The most inactive active CPZ player of all time. Give this man a statue.",
             location: {x:-200, y:-220}
         },
         {
-            name: "Puffle Pats", desc: "Allows you to pet your Puffle.", icon: 'incomplete', cost: 5,
-            requirement: {upgrade: 15},
+            name: "Puffle Pats", desc: "Allows you to pet your Puffle.", icon: 'pet_puffle', cost: 5,
+            requirement: {upgrade: 11},
             effect: {type: "TODO"},
-            flavorText: "TODO",
-            location: {x:30, y:-160}
+            flavorText: "I heard that Puffles make squeaking sounds when you pet them.",
+            location: {x:0, y:-160}
         },
         {
-            name: "The Meat Puffle", desc: "Mimics the ability of another Puffle, allowing you to have two active at a time.", icon: 'incomplete', cost: 5,
-            requirement: {upgrade: 18},
+            name: "The Meat Puffle", desc: "Mimics the ability of another Puffle, allowing you to have two active at a time.", icon: 'meat_puffle', cost: 50,
+            requirement: {upgrade: 14},
             effect: {type: "TODO"},
-            flavorText: "This is really disgusting, actually.",
-            location: {x:120, y:-200}
+            flavorText: "This is disgusting, actually. How dare the fanbase vomit this into existence.",
+            location: {x:80, y:-225}
+        },
+    // Quickstart (West Path)
+        {
+            name: "Quickstart I", desc: "Start the next run with 10 Hydro Hoppers.", icon: 'quickstart1', cost: 1,
+            requirement: {upgrade: 0},
+            effect: {type: "Quickstart", tier: 1},
+            flavorText: "True story: In middle school I made a Five Nights at Freddy's fangame. I made it by taking photos of my plush toys-",
+            location: {x:-100, y:25}
+        },
+        {
+            name: "Quickstart II", desc: "Start the next run with 15 Hydro Hoppers and 5 Bean Counters.", icon: 'quickstart2', cost: 3,
+            requirement: {upgrade: 16},
+            effect: {type: "Quickstart", tier: 2},
+            flavorText: "-around my parents' house. I then programmed the camera and movement mechanics for all 5 enemies. The irony is-",
+            location: {x:-160, y:100}
+        },
+        {
+            name: "Quickstart III", desc: "Start the next run with 25 Hydro Hoppers, 10 Bean Counters, and 5 Ice Fishing.", icon: 'quickstart3', cost: 10,
+            requirement: {upgrade: 17},
+            effect: {type: "Quickstart", tier: 3},
+            flavorText: "-that it was arguably my most polished game to date. I still haven't beat it nearly 10 years later.",
+            location: {x:-210, y:180}
         }
         
+];
+
+
+
+const ascAchievementData = [
+
+    // Ascensions
+        {
+            name: "There and Back Again", desc: "Complete your first Ascension.",
+            criteria: {type: "Ascensions", amount: 1},
+            flavorText: "Opening the box revealed a portal to the outer reaches of the Box Dimension. Who knows what else lies out in the void?"
+        },
+        {
+            name: "IMAGINATION", desc: "Ascend 5 times.",
+            criteria: {type: "Ascensions", amount: 5},
+            flavorText: "This particular gateway to the box dimension appears to be powered by imagination. How cute."
+        },
+
+    // Lifetime Coins
+        {
+            name: "TODO", desc: "Earn 1 Trillion lifetime coins.",
+            criteria: {type: "Coins-Lifetime", amount: 1000000000000},
+            flavorText: "Who would need more than 56 cookies per second?"
+        },
+        {
+            name: "TODO", desc: "Earn 1 Quadrillion lifetime coins.",
+            criteria: {type: "Coins-Lifetime", amount: 1000000000000000},
+            flavorText: "TODO"
+        },
+        {
+            name: "TODO", desc: "Earn 1 Quintillion lifetime coins.",
+            criteria: {type: "Coins-Lifetime", amount: 1000000000000000000},
+            flavorText: "TODO"
+        },
+
+    // Misc
+        {
+            name: "Your Biggest Fan", desc: "Meet your first mascot.",
+            criteria: {type: "TODO", amount: 1},
+            flavorText: "Burg's Buyout has three different mascots with different effects."
+        },
+        {
+            name: "TODO", desc: "Pet your Puffle 50 times.",
+            criteria: {type: "TODO", amount: 1},
+            flavorText: "TODO"
+        },
+        {
+            name: "Employment Crisis", desc: "Hire 1000 penguins to play minigames.",
+            criteria: {type: "Minigame-Count", amount: 1000},
+            flavorText: "TODO"
+        },
+        {
+            name: "The Outer Rim", desc: "Purchase every ascended upgrade.",
+            criteria: {type: "TODO", amount: 1},
+            flavorText: "TODO"
+        },
+
+    // Endgame
+        {
+            name: "TODO", desc: "Flip the Iceberg.",
+            criteria: {type: "TODO", amount: 1},
+            flavorText: "Burg will return in Avengers: Doomsday."
+        },
+
 ];

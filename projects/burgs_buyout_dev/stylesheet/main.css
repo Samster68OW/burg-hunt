@@ -217,6 +217,45 @@ body {
     position: absolute;
     width: 85px;
 }
+#migrator-sit-spot {
+    animation: migratorSway 4s linear alternate infinite;
+    background-image: url("../images/site/migrator.png");
+    background-size: 100% 100%;
+    bottom: 180px;
+    height: 100px;
+    left: 190px;
+    position: absolute;
+    width: 100px;
+    z-index: 2;
+}
+@keyframes migratorSway {
+  from {
+    transform: rotate(10deg);
+  }
+  to {
+    transform: rotate(-10deg);
+  }
+}
+
+#mascot-sit-spot {
+    animation: mascotPulse 1s linear alternate infinite;
+    background-size: 100% 100%;
+    bottom: 320px;
+    font-size: 15px;
+    height: 100px;
+    left: 10px;
+    position: absolute;
+    width: 100px;
+    z-index: 2;
+}
+@keyframes mascotPulse {
+  from {
+    scale: 1.0;
+  }
+  to {
+    scale: 0.8;
+  }
+}
 #sell-sit-spot {
     background-image: url("../images/site/sell_sit.png");
     background-size: 100% 100%;
@@ -263,7 +302,9 @@ body {
     padding: 5px;
 }
 #ach-table {
+    position: relative;
     width: 100%;
+    z-index: 6;
 }
 #ach-table td {
     vertical-align: top;

@@ -22,9 +22,6 @@ function keyboardInput(key) {
         case 'w':
             toggleRightPage();
             break;
-        case 'm':
-            toggleMusic();
-            break;
         case ' ':
             if (spacebarPressed === false) {
                 spacebarPressed = true;

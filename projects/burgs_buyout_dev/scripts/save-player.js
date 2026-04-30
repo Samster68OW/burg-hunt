@@ -22,7 +22,8 @@ let player = {
     ascensions: 0,
     boxLevel: 0,
     doubloons: 0,
-    ascUpgrade: []
+    ascUpgrade: [],
+    ascAchievement: []
 };
 
 
@@ -81,6 +82,7 @@ function loadGame() {
                         player.ascUpgrade.push(false);
                     }
                 }
+            player.ascAchievement = playerData.ascAchievement;
 
     }
 };
@@ -116,11 +118,39 @@ function resetGame() {
         ascensions: 0,
         boxLevel: 0,
         doubloons: 0,
-        ascUpgrade: []
+        ascUpgrade: [],
+        ascAchievement: []
     };
     loadPage('main-table');
     startGame();
     loadRightPage('minigame');
     loadMiddlePage('how-to-play');
     displayPuffle();
+};
+
+
+
+function debugSave() {
+    player = {
+        coins: 0,
+        lifetimeCoins: 100000000000,
+        ascensionCoins: 0,
+        timePlayed: 0,
+        coinsPerClick: 1,
+        cpts: 0,
+        cptsMult: 1,
+        building: [],
+        upgrade: [],
+        puffle: [],
+        equippedPuffle: -1,
+        achievement: [],
+        coinClicks: 10000,
+        debug: false,
+        fullCompleteTime: false,
+        ascensions: 1,
+        boxLevel: 7,
+        doubloons: 0,
+        ascUpgrade: [],
+        ascAchievement: []
+    };
 };

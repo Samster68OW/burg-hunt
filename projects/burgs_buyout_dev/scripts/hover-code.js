@@ -16,7 +16,7 @@ function hoverTextMinigame(num) {
         let display = `<b>${buildingData[num].name} [Minigame]</b><br>
             <br>
             Your ${player.building[num].owned} penguin(s) are generating ${disNum(player.building[num].coinsPer * 10)} CPS.<br>
-            (${CpsPercentage}% of total CPS)<br>
+            (${CpsPercentage}% of minigame CPS)<br>
             <br>
             <span class='flavorText'>${buildingData[num].flavorText}</span>`;
         $('#hover-spot').html(display);
@@ -34,6 +34,18 @@ function hoverTextUpgrade(num) {
             ${upgradeData[num].desc}<br>
             <br>
             <span class='flavorText'>${upgradeData[num].flavorText}</span>`;
+        $('#hover-spot').html(display);
+        $('#hover-spot').css('opacity', '1.0');
+
+};
+function hoverAscUpgradeMain(num) {
+
+    // Display
+        let display = `${emojiInsert('box')} <b>${ascUpgradeData[num].name} [Asc Upgrade]</b><br>
+            <br>
+            ${ascUpgradeData[num].desc}<br>
+            <br>
+            <span class='flavorText'>${ascUpgradeData[num].flavorText}</span>`;
         $('#hover-spot').html(display);
         $('#hover-spot').css('opacity', '1.0');
 
@@ -56,6 +68,28 @@ function hoverTextAchievement(num) {
             display = `<b>????????</b><br>
             <br>
             ${achievementData[num].desc}<br>
+            <br>
+            <span class='flavorText'>????????</span>`;
+        }
+        $('#hover-spot').html(display);
+        $('#hover-spot').css('opacity', '1.0');
+
+};
+function hoverTextAscAchievement(num) {
+
+    // Display
+        let display = ``;
+        if (player.ascAchievement[num] === true) {
+            display = `<b>${ascAchievementData[num].name}</b><br>
+            <br>
+            ${ascAchievementData[num].desc}<br>
+            <br>
+            <span class='flavorText'>${ascAchievementData[num].flavorText}</span>`;
+        }
+        else {
+            display = `<b>????????</b><br>
+            <br>
+            ${ascAchievementData[num].desc}<br>
             <br>
             <span class='flavorText'>????????</span>`;
         }
@@ -107,9 +141,10 @@ function hoverTextClear() {
 function hoverAscUpgrade(num) {
 
     // Display
-        let display = `<b>${ascUpgradeData[num].name} [Asc Upgrade]</b><br>
-            Cost: ${ascUpgradeData[num].cost} ${emojiInsert('doubloon')}<br>
-            <br>
+        let display = `<b>${ascUpgradeData[num].name} [Asc Upgrade]</b><br>`;
+        if (player.ascUpgrade[num] === false) {display += `Cost: ${ascUpgradeData[num].cost} ${emojiInsert('doubloon')}`;}
+        else if (player.ascUpgrade[num] === true) {display += `<span style="color:yellow;">Purchased!</span>`;}
+        display+= `<br><br>
             ${ascUpgradeData[num].desc}<br>
             <br>
             <span class='flavorText'>${ascUpgradeData[num].flavorText}</span>`;

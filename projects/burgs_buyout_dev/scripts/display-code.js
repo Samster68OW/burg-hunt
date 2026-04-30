@@ -58,11 +58,25 @@ function updateDisplay() {
                 $('#puffle-info-spot').html(`<b>Purple Puffle</b><br>Time until boost: ${timeUntilActivate2}<br>Boosting: ${minigameName}`);
                 break;
             case 5:
-                let cpsBoostDis = Math.floor((puffleStat.red.mult - 1) * 100);
+                let cpsBoostDis = Math.floor((puffleStat.red.mult) * 100);
                 $('#puffle-info-spot').html(`<b>Red Puffle</b><br>CPS Boost: +${cpsBoostDis}%`);
                 break;
         }
     
+    // The Migrator
+        if (player.upgrade[26] === true) {
+            $('#migrator-sit-spot').fadeIn(0);
+        }
+        else if (player.upgrade[26] === false) {
+            $('#migrator-sit-spot').fadeOut(0);
+        }
+    // Mascots
+        if (currentMascot.ticksRemaining > 0) {
+            $('#mascot-sit-spot').fadeIn(0);
+        }
+        else {
+            $('#mascot-sit-spot').fadeOut(0);
+        }
     // Sell (the player)
         if (player.ascUpgrade[17] === true) {
             $('#sell-sit-spot').fadeIn(0);
@@ -79,6 +93,7 @@ function updateDisplay() {
             Lifetime Coins Earned: ${disNum(player.lifetimeCoins)} ${emojiInsert('coin')}<br>
             Time Played: ${timeDisplay}<br>
             Coin Clicks: ${disNum(player.coinClicks)} ${emojiInsert('tap')}<br>
+            CPS Multiplier: + ${disNum((player.cptsMult - 1) * 100)}% ${emojiInsert('coin')}<br>
         `;
         if (player.fullCompleteTime !== false) {
             display += `<span style='color:yellow;'>100% Time: ${disTime(player.fullCompleteTime)}</span><br>`;
@@ -86,7 +101,7 @@ function updateDisplay() {
         if (player.ascensions > 0) {
             display += `<br><span style='color:#f5cefc'>`;
             display += `Ascensions: ${player.ascensions}<br>`;
-            display += `Box Level: ${disNum(player.boxLevel)} ${emojiInsert('box')}<br>`;
+            display += `Box Level: ${disNum(player.boxLevel)} ${emojiInsert('box')} (+ ${disNum(player.boxLevel)}% ${emojiInsert('coin')})<br>`;
             display += `Doubloons: ${disNum(player.doubloons)} ${emojiInsert('doubloon')}<br>`;
             display += `Coins this Ascension: ${disNum(player.ascensionCoins)} ${emojiInsert('coin')}<br>`;
             display += `</span>`;
@@ -153,9 +168,38 @@ function updateDisplay() {
             if (player.upgrade[a] === true) {
                 $(`#purchased-upgrade-${a}-spot`).fadeIn(0);
             }
+            else if (player.upgrade[a] === false) {
+                $(`#purchased-upgrade-${a}-spot`).fadeOut(0);
+            }
         }
         if (player.upgrade[27] === false) {$('#box-list').fadeOut(0);}
         else if (player.upgrade[27] === true) {$('#box-list').fadeIn(0);}
+        if (player.ascensions === 0) {$('#potential-levels-spot').fadeOut(0);}
+        else if (player.ascensions >= 1) {
+            
+            // Calculate Progress
+                let priorGoal = Math.pow(2, potentialBoxLevel-1) * 1000000000;
+                let percentageDone = (player.lifetimeCoins - priorGoal) / nextCoinGoal;
+
+            let display = `
+                Open the box now to earn:<br>
+                ${disNum(potentialBoxLevel - player.boxLevel)} ${emojiInsert('doubloon')}<br><br>
+                <div id='loading-bar-outer'>
+                    <div id='loading-bar-inner' style='width:${percentageDone * 100}%'></div>
+                </div><br>
+            `;
+            $('#potential-levels-spot').html(display);
+            $('#potential-levels-spot').fadeIn(0);
+        }
+    
+    // Ascended Upgrades
+        if (player.ascensions > 0) {$('#asc-upgrade-section').fadeIn(0);}
+        else if (player.ascensions === 0) {$('#asc-upgrade-section').fadeOut(0);}
+        for (a=0; a<player.ascUpgrade.length; a++) {
+            if (player.ascUpgrade[a] === true) {
+                $(`#purchased-ascUpgrade-${a}-spot`).fadeIn(0);
+            }
+        }
 
     // Update Puffle List
         for (a=0; a<player.puffle.length; a++) {
@@ -188,6 +232,10 @@ function checkUpReq(upID) {
             else {return false;}
         case 'Upgrade':
             if (player.upgrade[upgradeReq.upgrade] === true) {return true;}
+            else {return false;}
+            break;
+        case 'Asc-Upgrade':
+            if (player.ascUpgrade[upgradeReq.upgrade] === true) {return true;}
             else {return false;}
             break;
     }
@@ -226,22 +274,45 @@ function updateBuilding(a) {
 
 function achievementDisplay() {
 
-    // Count achievements
+    // Standard achievements
         let achCount = 0;
+        let totalAchCount = player.achievement.length;
         for (var b=0; b<player.achievement.length; b++) {
             if (player.achievement[b] === true) {achCount++;}
         }
-    let achDisplay = `<div class='middle-header'>Achievements: ${achCount} of ${player.achievement.length}</div><br><table id='ach-table'><tr><td>`;
-    for (var a=0; a<achievementData.length; a++) {
-        if (a === 13) {achDisplay += `</td><td>`;}
-        if (player.achievement[a] === true) {
-            achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:yellow;'>${achievementData[a].name}</span><br>`;
+        if (player.ascUpgrade[1] === true) {
+            totalAchCount += player.ascAchievement.length;
+            for (var b=0; b<player.ascAchievement.length; b++) {
+                if (player.ascAchievement[b] === true) {achCount++;}
+            }
         }
-        else {
-            achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:gray;'>????????</span><br>`;
+        let achDisplay = `<div class='middle-header'>Achievements: ${achCount} of ${totalAchCount}</div><br><table id='ach-table'><tr><td>`;
+        for (var a=0; a<achievementData.length; a++) {
+            if (a === 13) {achDisplay += `</td><td>`;}
+            if (player.achievement[a] === true) {
+                achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:yellow;'>${achievementData[a].name}</span><br>`;
+            }
+            else {
+                achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:gray;'>????????</span><br>`;
+            }
         }
-    }
-    achDisplay += `</td></tr></table>`;
+        achDisplay += `</td></tr></table>`;
+
+    // Ascended Achievements+
+        if (player.ascUpgrade[1] === true) {
+            achDisplay += `<table id='ach-table' style='background-color: rgba(66, 18, 98, 0.8)'><tr><td>`;
+            for (var a=0; a<ascAchievementData.length; a++) {
+                if (a === 5) {achDisplay += `</td><td>`;}
+                if (player.ascAchievement[a] === true) {
+                    achDisplay += `<span onmouseenter='hoverTextAscAchievement(${a});' onmouseleave='hoverTextClear();' style='color:yellow;'>${ascAchievementData[a].name}</span><br>`;
+                }
+                else {
+                    achDisplay += `<span onmouseenter='hoverTextAscAchievement(${a});' onmouseleave='hoverTextClear();' style='color:gray;'>????????</span><br>`;
+                }
+            }
+            achDisplay += `</td></tr></table>`;
+        }
+        
     $('#achievements-page').html(achDisplay);
 
 };
@@ -271,7 +342,8 @@ function disNum(input) {
         }
         input = Math.round(input * 100) / 100;
     
-    return `${input} ${numNames[loop]}`;
+    if (loop >= numNames.length) {return `Too many`}
+    else {return `${input} ${numNames[loop]}`;}
 
 };
 function disTime(input) {
