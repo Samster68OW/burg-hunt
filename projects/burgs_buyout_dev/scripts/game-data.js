@@ -232,55 +232,55 @@ const upgradeData = [
     // Unshackled Upgrades
     // Hydro Hopper
         {
-            name: "Hydro Hopper II", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 10000000, // 10 Million
-            requirement: {type: "Asc-Upgrade", upgrade: 3},
-            effect: {type: "Building-Mult", building: 0, mult: 1000},
-            flavorText: "TODO"
-        },
-        {
-            name: "Hydro Hopper III", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 100000000, // 100 Million
+            name: "Fleet Commander", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 10000000, // 10 Million
             requirement: {type: "Asc-Upgrade", upgrade: 3},
             effect: {type: "Building-Mult", building: 0, mult: 100},
-            flavorText: "TODO"
+            flavorText: "That's a lot of Boat maintenance!"
+        },
+        {
+            name: "Hydro Hopper+", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 100000000, // 100 Million
+            requirement: {type: "Asc-Upgrade", upgrade: 3},
+            effect: {type: "Building-Mult", building: 0, mult: 100},
+            flavorText: "Hydro Hopper at maximum efficiency."
         },
     // Bean Counters
         {
-            name: "Bean Counters II", desc: "Earn x100 more CPS for Bean Counters.", emoji: 'upgrade', cost: 10000000000, // 10 Billion
+            name: "Espresso Machine 3000", desc: "Earn x100 more CPS for Bean Counters.", emoji: 'upgrade', cost: 10000000000, // 10 Billion
             requirement: {type: "Asc-Upgrade", upgrade: 4},
             effect: {type: "Building-Mult", building: 1, mult: 100},
-            flavorText: "TODO"
+            flavorText: "The coffee is so concentrated it allows your penguin to finish an entire shift before they’ve even walked through the door."
         },
         {
-            name: "Bean Counters III", desc: "Earn x100 more CPS for Bean Counters.", emoji: 'upgrade', cost: 100000000000, // 100 Billion
+            name: "Bean Counters+", desc: "Earn x100 more CPS for Bean Counters.", emoji: 'upgrade', cost: 100000000000, // 100 Billion
             requirement: {type: "Asc-Upgrade", upgrade: 4},
             effect: {type: "Building-Mult", building: 1, mult: 100},
-            flavorText: "TODO"
+            flavorText: "Bean Counters at maximum efficiency."
         },
     // Ice Fishing
         {
-            name: "Ice Fishing II", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 10000000000000, // 10 Trillion
+            name: "Golden Fishing Rod", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 10000000000000, // 10 Trillion
             requirement: {type: "Asc-Upgrade", upgrade: 5},
             effect: {type: "Building-Mult", building: 2, mult: 100},
-            flavorText: "TODO"
+            flavorText: "Rumor has it that fish volunteer to be caught with this rod."
         },
         {
-            name: "Ice Fishing III", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 100000000000000, // 100 Trillion
+            name: "Ice Fishing+", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 100000000000000, // 100 Trillion
             requirement: {type: "Asc-Upgrade", upgrade: 5},
             effect: {type: "Building-Mult", building: 2, mult: 100},
-            flavorText: "TODO"
+            flavorText: "Ice Fishing at maximum efficiency."
         },
     // Puffle Roundup
         {
-            name: "Puffle Roundup II", desc: "Earn x100 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 10000000000000000, // 10 Quadrillion
+            name: "Cowboy Certification.", desc: "Earn x100 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 10000000000000000, // 10 Quadrillion
             requirement: {type: "Asc-Upgrade", upgrade: 6},
             effect: {type: "Building-Mult", building: 3, mult: 100},
-            flavorText: "TODO"
+            flavorText: "Requires all penguins to complete a cowboy certification class prior to participation."
         },
         {
-            name: "Puffle Roundup III", desc: "Earn x100 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 100000000000000000, // 100 Quadrillion
+            name: "Puffle Roundup+", desc: "Earn x100 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 100000000000000000, // 100 Quadrillion
             requirement: {type: "Asc-Upgrade", upgrade: 6},
             effect: {type: "Building-Mult", building: 3, mult: 100},
-            flavorText: "TODO"
+            flavorText: "Puffle Roundup at maximum efficiency."
         },
 
 ];

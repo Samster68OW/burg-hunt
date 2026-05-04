@@ -3,7 +3,6 @@
 
 
 function clickBox() {
-    if (confirm("Are you sure you would like to open the box?") === false) {return;}
 
     // Stop everything and load the animation
         clearInterval(gameLoop);
@@ -167,7 +166,7 @@ let pufflePets = 0;
 function petPuffle() {
     if (player.ascUpgrade[14] === false) {return;}
     pufflePets++;
-    console.log('Pet!');
+    playSound('Puffle Squeak');
 
     $('#puffle-display-spot img').removeClass('petPuffleClass');
     updateDisplay();
