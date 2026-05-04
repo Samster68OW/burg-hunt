@@ -232,52 +232,52 @@ const upgradeData = [
     // Unshackled Upgrades
     // Hydro Hopper
         {
-            name: "TODO", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 10000000, // 10 Million
+            name: "Hydro Hopper II", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 10000000, // 10 Million
             requirement: {type: "Asc-Upgrade", upgrade: 3},
             effect: {type: "Building-Mult", building: 0, mult: 1000},
             flavorText: "TODO"
         },
         {
-            name: "TODO", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 100000000, // 100 Million
+            name: "Hydro Hopper III", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 100000000, // 100 Million
             requirement: {type: "Asc-Upgrade", upgrade: 3},
             effect: {type: "Building-Mult", building: 0, mult: 100},
             flavorText: "TODO"
         },
     // Bean Counters
         {
-            name: "TODO", desc: "Earn x100 more CPS for Bean Counters.", emoji: 'upgrade', cost: 10000000000, // 10 Billion
+            name: "Bean Counters II", desc: "Earn x100 more CPS for Bean Counters.", emoji: 'upgrade', cost: 10000000000, // 10 Billion
             requirement: {type: "Asc-Upgrade", upgrade: 4},
             effect: {type: "Building-Mult", building: 1, mult: 100},
             flavorText: "TODO"
         },
         {
-            name: "TODO", desc: "Earn x100 more CPS for Bean Counters.", emoji: 'upgrade', cost: 100000000000, // 100 Billion
+            name: "Bean Counters III", desc: "Earn x100 more CPS for Bean Counters.", emoji: 'upgrade', cost: 100000000000, // 100 Billion
             requirement: {type: "Asc-Upgrade", upgrade: 4},
             effect: {type: "Building-Mult", building: 1, mult: 100},
             flavorText: "TODO"
         },
     // Ice Fishing
         {
-            name: "TODO", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 10000000000000, // 10 Trillion
+            name: "Ice Fishing II", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 10000000000000, // 10 Trillion
             requirement: {type: "Asc-Upgrade", upgrade: 5},
             effect: {type: "Building-Mult", building: 2, mult: 100},
             flavorText: "TODO"
         },
         {
-            name: "TODO", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 100000000000000, // 100 Trillion
+            name: "Ice Fishing III", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 100000000000000, // 100 Trillion
             requirement: {type: "Asc-Upgrade", upgrade: 5},
             effect: {type: "Building-Mult", building: 2, mult: 100},
             flavorText: "TODO"
         },
     // Puffle Roundup
         {
-            name: "TODO", desc: "Earn x100 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 10000000000000000, // 10 Quadrillion
+            name: "Puffle Roundup II", desc: "Earn x100 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 10000000000000000, // 10 Quadrillion
             requirement: {type: "Asc-Upgrade", upgrade: 6},
             effect: {type: "Building-Mult", building: 3, mult: 100},
             flavorText: "TODO"
         },
         {
-            name: "TODO", desc: "Earn x100 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 100000000000000000, // 100 Quadrillion
+            name: "Puffle Roundup III", desc: "Earn x100 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 100000000000000000, // 100 Quadrillion
             requirement: {type: "Asc-Upgrade", upgrade: 6},
             effect: {type: "Building-Mult", building: 3, mult: 100},
             flavorText: "TODO"

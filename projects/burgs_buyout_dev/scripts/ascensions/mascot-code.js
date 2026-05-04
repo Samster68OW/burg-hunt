@@ -27,6 +27,7 @@ function checkMascot() {
 
 function startMascotEvent() {
     playSound('Puffle Boost');
+    earnAscAchievement(5);
     currentMascot = {
         mascotID: Math.floor(Math.random()*mascotData.length),
         ticksRemaining: 150 // 15 Seconds

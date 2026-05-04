@@ -78,11 +78,25 @@ function updateDisplay() {
             $('#mascot-sit-spot').fadeOut(0);
         }
     // Sell (the player)
-        if (player.ascUpgrade[17] === true) {
+        if (player.ascUpgrade[13] === true) {
             $('#sell-sit-spot').fadeIn(0);
         }
-        else if (player.ascUpgrade[17] === false) {
+        else if (player.ascUpgrade[13] === false) {
             $('#sell-sit-spot').fadeOut(0);
+        }
+    // The Iceberg Tab
+        if (player.ascUpgrade[2] === true) {
+            $('#iceberg-tab-button').fadeIn(0);
+        }
+        else if (player.ascUpgrade[2] === false) {
+            $('#iceberg-tab-button').fadeOut(0);
+        }
+    // Petting a Puffles TODO: Does not work!
+        if (player.ascUpgrade[14] === true) {
+            $('#puffle-display-spot').css('cursor', `url('images/cursor/tap.png')`);
+        }
+        else if (player.ascUpgrade[14] === false) {
+            $('#puffle-display-spot').css('cursor', `url('images/cursor/default.png')`);
         }
 
     // Update Statistics Page
@@ -165,6 +179,7 @@ function updateDisplay() {
                     $(`#upgrade-${a}-spot`).css("opacity", "0.6");
                 }
             }
+            else if (checkUpReq(a) === false) {$(`#upgrade-${a}-spot`).fadeOut(0);}
             if (player.upgrade[a] === true) {
                 $(`#purchased-upgrade-${a}-spot`).fadeIn(0);
             }
@@ -185,7 +200,7 @@ function updateDisplay() {
                 Open the box now to earn:<br>
                 ${disNum(potentialBoxLevel - player.boxLevel)} ${emojiInsert('doubloon')}<br><br>
                 <div id='loading-bar-outer'>
-                    <div id='loading-bar-inner' style='width:${percentageDone * 100}%'></div>
+                    <div id='loading-bar-inner' style='width:${percentageDone * 200}%'></div>
                 </div><br>
             `;
             $('#potential-levels-spot').html(display);

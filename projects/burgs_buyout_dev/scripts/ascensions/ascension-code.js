@@ -21,15 +21,16 @@ function clickBox() {
     // Play shrinking animation
         setTimeout(function() {
             playSound('Box Shrink');
-            $('#void-box').removeClass('boxShrinkClass');
+            $('#iceberg-content-box').removeClass('boxShrinkClass');
             updateDisplay();
-            $('#void-box').addClass('boxShrinkClass');
+            $('#iceberg-content-box').addClass('boxShrinkClass');
         },2000);
         setTimeout(function() {
             $('#box-open-animation').fadeOut(0);
         },5000);
         setTimeout(function() {
             $('#box-dim-table').fadeIn(2000);
+            playSound('BG Music - Box');
         },7000);
 
 };
@@ -60,7 +61,7 @@ function placeAscUpgrades() {
         // Opacity
             let upOpacity = 0.0;
             if (player.ascUpgrade[a] === true) {upOpacity = 1.0;}
-            else if (ascUpgradeData[a].requirement.upgrade === "None") {upOpacity = 0.3;}
+            else if (ascUpgradeData[a].requirement.upgrade === "None") {upOpacity = 0.5;}
             else if (player.ascUpgrade[ascUpgradeData[a].requirement.upgrade] === true) {upOpacity = 0.5;}
 
         // Set location
@@ -68,7 +69,10 @@ function placeAscUpgrades() {
                 x: 300 + ascUpgradeData[a].location.x - upRadius,
                 y: 300 + ascUpgradeData[a].location.y - upRadius
             };
-            display += `<div class='asc-upgrade-node' style='left:${upPos.x}px; bottom:${upPos.y}px; opacity:${upOpacity}; background-image: url("images/ascension/icon/${ascUpgradeData[a].icon}.png")' onclick='purchaseAscUpgrade(${a});' onmouseenter='hoverAscUpgrade(${a});' onmouseleave='ascHoverTextClear();'></div>`;
+            // Make it disappear if needed
+                let hiddenText = ``;
+                if (upOpacity === 0.0) {hiddenText = ` hidden`;}
+            display += `<div class='asc-upgrade-node' style='left:${upPos.x}px; bottom:${upPos.y}px; opacity:${upOpacity}; background-image: url("images/ascension/icon/${ascUpgradeData[a].icon}.png")' onclick='purchaseAscUpgrade(${a});' onmouseenter='hoverAscUpgrade(${a});' onmouseleave='ascHoverTextClear();'${hiddenText}></div>`;
 
     }
     $('#right-box-dim-cell').html(display);
@@ -141,6 +145,7 @@ function returnToGame() {
         loadRightPage('minigame');
         loadMiddlePage('how-to-play');
         displayPuffle();
+        resetSound('BG Music - Box');
         playSound('Click Coin');
         currentMascot.cooldown = 3000; // 5 Minutes
 
@@ -151,6 +156,21 @@ function returnToGame() {
         setTimeout(function(){
             startGameLoop();
             $('#main-table').fadeIn(3000);
+            playSound('BG Music');
         },2000);
+
+};
+
+
+
+let pufflePets = 0;
+function petPuffle() {
+    if (player.ascUpgrade[14] === false) {return;}
+    pufflePets++;
+    console.log('Pet!');
+
+    $('#puffle-display-spot img').removeClass('petPuffleClass');
+    updateDisplay();
+    $('#puffle-display-spot img').addClass('petPuffleClass');
 
 };

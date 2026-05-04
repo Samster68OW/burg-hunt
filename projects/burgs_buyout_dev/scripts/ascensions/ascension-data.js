@@ -15,7 +15,7 @@ const ascUpgradeData = [
         {
             name: "Achievements+", desc: "Unlocks additional achievements.", icon: 'achievements_plus', cost: 1,
             requirement: {upgrade: 0},
-            effect: {type: "TODO"},
+            effect: {type: "Dummy"},
             flavorText: "What? You thought we were done? Not even close! (I spit out a tooth. You wonder how a tooth ended up in a penguin's mouth.)",
             location: {x:0, y:100}
         },
@@ -23,7 +23,7 @@ const ascUpgradeData = [
             name: "The Iceberg", desc: "Unlocks the Iceberg, a place where penguins gather to hear tales of your immense wealth.", icon: 'iceberg', cost: 100,
             requirement: {upgrade: 1},
             effect: {type: "Dummy", value: "Iceberg"},
-            flavorText: "TODO",
+            flavorText: "Access the Iceberg at the top of the screen. Collect Achievements to attract more penguins!",
             location: {x:0, y:200}
         },
     // Unshackled Minigames (East Path)
@@ -49,35 +49,35 @@ const ascUpgradeData = [
             location: {x:160, y:150}
         },
         {
-            name: "Unshackled Puffle Roundup", desc: "Unlocks high-level upgrades for TODO.", icon: 'minigame3-asc', cost: 10,
+            name: "Unshackled Puffle Roundup", desc: "Unlocks high-level upgrades for Puffle Roundup.", icon: 'minigame3-asc', cost: 10,
             requirement: {upgrade: 5},
             effect: {type: "Dummy"},
             flavorText: "TODO",
             location: {x:200, y:200}
         },
         {
-            name: "Unshackled Cart Surfer", desc: "Unlocks high-level upgrades for TODO.", icon: 'minigame4-asc', cost: 666,
+            name: "Unshackled Cart Surfer", desc: "Unlocks high-level upgrades for Cart Surfer.", icon: 'minigame4-asc', cost: 666,
             requirement: {upgrade: "Unavailable"},
             effect: {type: "Dummy"},
             flavorText: "TODO",
             location: {x:250, y:150}
         },
         {
-            name: "Unshackled Pizzatron 3000", desc: "Unlocks high-level upgrades for TODO.", icon: 'minigame5-asc', cost: 666,
+            name: "Unshackled Pizzatron 3000", desc: "Unlocks high-level upgrades for Pizzatron 3000.", icon: 'minigame5-asc', cost: 666,
             requirement: {upgrade: "Unavailable"},
             effect: {type: "Dummy"},
             flavorText: "TODO",
             location: {x:210, y:100}
         },
         {
-            name: "Unshackled Dance Contest", desc: "Unlocks high-level upgrades for TODO.", icon: 'minigame6-asc', cost: 666,
+            name: "Unshackled Dance Contest", desc: "Unlocks high-level upgrades for Dance Contest.", icon: 'minigame6-asc', cost: 666,
             requirement: {upgrade: "Unavailable"},
             effect: {type: "Dummy"},
             flavorText: "TODO",
             location: {x:170, y:50}
         },
         {
-            name: "Unshackled Snow Trekker", desc: "Unlocks high-level upgrades for TODO.", icon: 'minigame7-asc', cost: 666,
+            name: "Unshackled Snow Trekker", desc: "Unlocks high-level upgrades for Snow Trekker.", icon: 'minigame7-asc', cost: 666,
             requirement: {upgrade: "Unavailable"},
             effect: {type: "Dummy"},
             flavorText: "TODO",
@@ -87,7 +87,7 @@ const ascUpgradeData = [
         {
             name: "Mascot Tracker", desc: "Every 5 minutes, a mascot will appear and grant a massive boost for 15 seconds.", icon: 'mascot_tracker', cost: 2,
             requirement: {upgrade: 0},
-            effect: {type: "TODO"},
+            effect: {type: "Dummy"},
             flavorText: "The mascot trackers on Zero Nation are so good that they even work in this game!",
             location: {x:-60, y:-80}
         },
@@ -108,14 +108,14 @@ const ascUpgradeData = [
         {
             name: "Puffle Pats", desc: "Allows you to pet your Puffle.", icon: 'pet_puffle', cost: 5,
             requirement: {upgrade: 11},
-            effect: {type: "TODO"},
+            effect: {type: "Dummy"},
             flavorText: "I heard that Puffles make squeaking sounds when you pet them.",
             location: {x:0, y:-160}
         },
         {
             name: "The Meat Puffle", desc: "Mimics the ability of another Puffle, allowing you to have two active at a time.", icon: 'meat_puffle', cost: 50,
             requirement: {upgrade: 14},
-            effect: {type: "TODO"},
+            effect: {type: "Dummy"},
             flavorText: "This is disgusting, actually. How dare the fanbase vomit this into existence.",
             location: {x:80, y:-225}
         },
@@ -162,47 +162,47 @@ const ascAchievementData = [
 
     // Lifetime Coins
         {
-            name: "TODO", desc: "Earn 1 Trillion lifetime coins.",
+            name: "Richest Ever", desc: "Earn 1 Trillion lifetime coins.",
             criteria: {type: "Coins-Lifetime", amount: 1000000000000},
-            flavorText: "Who would need more than 56 cookies per second?"
+            flavorText: "The richest person of all time had a net worth of $800 billion. You just passed that in Club Penguin coins."
         },
         {
-            name: "TODO", desc: "Earn 1 Quadrillion lifetime coins.",
+            name: "Clicker Legend", desc: "Earn 1 Quadrillion lifetime coins.",
             criteria: {type: "Coins-Lifetime", amount: 1000000000000000},
-            flavorText: "TODO"
+            flavorText: "Who would need more than 56 cookies a second?"
         },
         {
-            name: "TODO", desc: "Earn 1 Quintillion lifetime coins.",
+            name: "Mass Inflation", desc: "Earn 1 Quintillion lifetime coins.",
             criteria: {type: "Coins-Lifetime", amount: 1000000000000000000},
-            flavorText: "TODO"
+            flavorText: "To maintain a family-friendly atmosphere, this is the last coin achievement."
         },
 
     // Misc
         {
             name: "Your Biggest Fan", desc: "Meet your first mascot.",
-            criteria: {type: "TODO", amount: 1},
-            flavorText: "Burg's Buyout has three different mascots with different effects."
+            criteria: {type: "Dummy"},
+            flavorText: "Burg's Buyout has three different mascots with different effects. I'm sure one of them will be the most hated. Only time will tell which."
         },
         {
-            name: "TODO", desc: "Pet your Puffle 50 times.",
-            criteria: {type: "TODO", amount: 1},
-            flavorText: "TODO"
+            name: "Do not the cat", desc: "Pet your Puffle 50 times.",
+            criteria: {type: "Puffle-Pets", amount: 50},
+            flavorText: "budder puffle. puffle with da budder. budder puffle. puffle with da budder on him."
         },
         {
             name: "Employment Crisis", desc: "Hire 1000 penguins to play minigames.",
             criteria: {type: "Minigame-Count", amount: 1000},
-            flavorText: "TODO"
+            flavorText: "The primary criteria for determining the wealth of a nation is by its ability to produce."
         },
         {
             name: "The Outer Rim", desc: "Purchase every ascended upgrade.",
-            criteria: {type: "TODO", amount: 1},
-            flavorText: "TODO"
+            criteria: {type: "All-Ascended"},
+            flavorText: "There's some weird stuff in the outer box dimension. Watch yourself."
         },
 
     // Endgame
         {
-            name: "TODO", desc: "Flip the Iceberg.",
-            criteria: {type: "TODO", amount: 1},
+            name: "Thanks for Playing!", desc: "Flip the Iceberg.",
+            criteria: {type: "Dummy"},
             flavorText: "Burg will return in Avengers: Doomsday."
         },
 

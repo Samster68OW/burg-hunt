@@ -168,21 +168,45 @@ function clickCoin(user) {
 
 
 
-function purchaseBuilding(num) {
+function purchaseBuilding(num) { // TODO
 
-    // Check price
-        if (player.coins >= player.building[num].currentCost) {
-            playSound('Purchase');
-            player.coins -= player.building[num].currentCost;
-            // Pink Puffle
-                if (player.equippedPuffle === 1) {player.coins += player.building[num].currentCost * puffleStat.pink.mult;}
-            // Gary
-                if (currentMascot.mascotID === 1 && currentMascot.ticksRemaining > 0) {player.coins += player.building[num].currentCost * mascotData[1].mult;}
-            player.building[num].owned++;
-            player.building[num].currentCost = Math.floor(player.building[num].currentCost * 1.1);
-            updateMath();
-            hoverTextMinigame(num);
-            updateBuilding(num);
+    // Holding down shift or not
+        if (shiftPressed === true) {
+            let canAfford = true;
+            while (canAfford) {
+                canAfford = false;
+                if (player.coins >= player.building[num].currentCost) {
+                    canAfford = true;
+                    // Buy Building
+                        player.coins -= player.building[num].currentCost;
+                        // Pink Puffle
+                            if (player.equippedPuffle === 1) {player.coins += player.building[num].currentCost * puffleStat.pink.mult;}
+                        // Gary
+                            if (currentMascot.mascotID === 1 && currentMascot.ticksRemaining > 0) {player.coins += player.building[num].currentCost * mascotData[1].mult;}
+                        player.building[num].owned++;
+                        player.building[num].currentCost = Math.floor(player.building[num].currentCost * 1.1);
+                }
+                playSound('Purchase');
+                updateMath();
+                hoverTextMinigame(num);
+                updateBuilding(num);
+            }
+        }
+        else {
+            if (player.coins >= player.building[num].currentCost) {
+                // Buy Building
+                    player.coins -= player.building[num].currentCost;
+                    // Pink Puffle
+                        if (player.equippedPuffle === 1) {player.coins += player.building[num].currentCost * puffleStat.pink.mult;}
+                    // Gary
+                        if (currentMascot.mascotID === 1 && currentMascot.ticksRemaining > 0) {player.coins += player.building[num].currentCost * mascotData[1].mult;}
+                    player.building[num].owned++;
+                    player.building[num].currentCost = Math.floor(player.building[num].currentCost * 1.1);
+                playSound('Purchase');
+                updateMath();
+                hoverTextMinigame(num);
+                updateBuilding(num);
+            }
         }
 
 };
@@ -391,6 +415,11 @@ function checkAchievements() {
                             earnAscAchievement(a);
                         }
                         break;
+                    case 'Puffle-Pets':
+                        if (pufflePets >= currAchCri.amount) {
+                            earnAscAchievement(a);
+                        }
+                        break;
                 }
             }
         }
@@ -425,6 +454,7 @@ function earnAchievement(num) {
 
 };
 function earnAscAchievement(num) {
+        if (player.ascAchievement[num] === true) {return;}
 
     // Sounds
         playSound('Achievement');

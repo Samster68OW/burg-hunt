@@ -11,6 +11,7 @@
       <!-- Scripts -->
         <script type="text/javascript" src="scripts/ascensions/ascension-code.js"></script>
         <script type="text/javascript" src="scripts/ascensions/ascension-data.js"></script>
+        <script type="text/javascript" src="scripts/ascensions/iceberg-code.js"></script>
         <script type="text/javascript" src="scripts/ascensions/mascot-code.js"></script>
         <script type="text/javascript" src="scripts/save-player.js"></script>
         <script type="text/javascript" src="scripts/display-code.js"></script>
@@ -32,10 +33,10 @@
       <div id="achievement-dropdown"></div>
       <table id="main-table" class="main-page">
         <tr><td colspan="3" id="top-cell">
-          Burg's Buyout v1.1.0 (The Box Update) | 
+          Burg's Buyout v1.1.0 - The Box Update | 
           <span class='settings-button' onclick="loadPage('settings-div');">Settings</span> | 
           <span class='settings-button' onclick="loadPage('changelog-div');">Changelog</span> | 
-          <span hidden><span class='settings-button' onclick="loadPage('iceberg-page');">The Iceberg</span> | </span>
+          <span id='iceberg-tab-button' hidden><span class='settings-button' onclick="generateIcebergPage(); loadPage('iceberg-page');">The Iceberg</span> | </span>
           <span id="save-popup" hidden>Game Saved!</span>
         </td></tr>
         <tr>
@@ -52,7 +53,7 @@
             <br><br>
             <div id="coins-click-display">???</div>
             <table id="puffle-big-spot"><tr>
-              <td id="puffle-display-spot"></td>
+              <td id="puffle-display-spot" onclick="petPuffle();"></td>
               <td id="puffle-info-spot"></td>
             </tr></table>
             <div id="migrator-sit-spot" hidden></div>
@@ -71,7 +72,9 @@
               <br><br>
               <div class='middle-header'>Controls</div><br>
               Press the Spacebar to earn coins.<br>
-              Press Q and W to toggle tabs.
+              Press Q to toggle the middle column.<br>
+              Press W to toggle the right column.<br>
+              Hold Shift to purchase as many minigames as you can in one click.
             </div>
             <div id="statistics-page" class="middle-page"></div>
             <div id="achievements-page" class="middle-page"></div>
@@ -113,31 +116,44 @@
         </tr>
       </table>
       <div id="settings-div" class="main-page" hidden>
-        <div style="padding: 15px;">
-          <h1>Settings</h1>
-          <span class="settings-button" onclick="resetGame();">[ Reset Game ]</span>
-          <br><br>
-          <h1>Credits</h1>
-          Developer: Samster68<br>
-          Burg images and postcard: samuel<br>
-          Game title graphic: Silverpetals<br>
-          Music: "Paris St. Germain" from Club Penguin
-          <br><br>
-          <h1>Playtesters</h1>
-          samuel<br>
-          Litdia<br>
-          Comedian<br>
-          Silverpetals<br>
-          eleanor<br>
-          Jalapeño Poppers<br>
-          Wikipedia<br>
-          willyamos<br>
-          SyntheticFox
-          <br><br><br><br>
-          <span class='settings-button' onclick="loadPage('main-table');">[ Back ]</span>
-          <img id="title-img" src="images/site/title.png" style="height:90px; width:230px;">
-          <img id="samster-img" src="images/site/samster.png">
-        </div>
+        <table><tr>
+          <td style="padding:15px; vertical-align:top;">
+            <h1>Settings</h1>
+            <span class="settings-button" onclick="resetGame();">[ Reset Game ]</span>
+            <br><br>
+            <h1>Credits</h1>
+            Developer: Samster68<br>
+            Burg images and postcard: samuel<br>
+            Game title graphic: Silverpetals<br>
+            Additional art: starryskyez
+            <br><br>
+            <h1>Music</h1>
+            1. "Paris St. Germain"<br>
+            2. ???<br>
+            3. "Interpretations of a Dream"
+            <br><br><br><br>
+            <span class='settings-button' onclick="loadPage('main-table');">[ Back ]</span>
+          </td>
+          <td style="padding:15px; vertical-align:top;">
+            <h1>Playtesters</h1>
+            samuel<br>
+            Litdia<br>
+            Comedian<br>
+            Silverpetals<br>
+            eleanor<br>
+            Jalapeño Poppers<br>
+            Wikipedia<br>
+            willyamos<br>
+            SyntheticFox
+            <br><br>
+            <h1>Special Thanks</h1>
+            samuel<br>
+            Jaup<br>
+            Our God, through whom all things are possible
+          </td>
+        </tr></table>
+        <img id="title-img" src="images/site/title.png" style="height:90px; width:230px;">
+        <img id="samster-img" src="images/site/samster.png">
       </div>
       <div id="changelog-div" class="main-page" hidden>
         <div style="padding: 15px;">
@@ -147,6 +163,7 @@
             Version 1.1.0 (The Box Update) - ???
             <ul>
               <li>Added a cardboard box.</li>
+              <li>Shift + Click will now purchase as many minigames as possible.</li>
               <li>Added a "CPS Multiplier" stat.</li>
               <li>Turned up the game's volume. Removed the ability to mute the music.</li>
             </ul>
@@ -210,6 +227,28 @@
         </td>
         <td id="right-box-dim-cell"></td>
       </tr></table>
+      <div id="iceberg-page" class="main-page" hidden>
+        <div id="iceberg-content-box">
+          <span id="iceberg-current-progress" style="font-size: 25px;"></span>
+          <br><br>
+          <div id="tip-iceberg-button" onclick="attemptToTipIceberg()">Tip the Iceberg!</div>
+          <br>
+          <span class='settings-button' onclick="loadPage('main-table');">[ Back ]</span>
+        </div>
+      </div>
+      <div id="iceberg-flipped-page" class="main-page" hidden>
+        <br><br><br>
+        <div id="ending-content-box">
+          <div id="lore-line1" hidden>"I stand amidst a great revelation,</div>
+          <div id="lore-line2" hidden>And I am humbled by its wisdom:</div>
+          <div id="lore-line3" hidden>For it be not the coins that fixed the Migrator,</div>
+          <div id="lore-line4" hidden>but the community that collected them."</div><br>
+          <div id="lore-line5" hidden>- Burg</div><br><br><br>
+          <div id="lore-line6" hidden>
+            <span class='settings-button' onclick="loadTippedIceberg();">[ Next ]</span>
+          </div>
+        </div>
+      </div>
     </div>
 
 

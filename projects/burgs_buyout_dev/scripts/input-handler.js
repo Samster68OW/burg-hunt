@@ -3,6 +3,7 @@
 
 
 let spacebarPressed = false;
+let shiftPressed = false;
 
 
 
@@ -28,6 +29,9 @@ function keyboardInput(key) {
                 clickCoin('player');
             }
             break;
+        case 'Shift':
+            shiftPressed = true;
+            break;
     };
 };
 
@@ -37,6 +41,9 @@ function keyboardOutput(key) {
     switch (key) {
         case ' ':
             spacebarPressed = false;
+            break;
+        case 'Shift':
+            shiftPressed = false;
             break;
     };
 };
