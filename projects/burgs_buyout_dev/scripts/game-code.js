@@ -342,7 +342,7 @@ function updateMath() {
         }
         
     // Box Level
-        player.cptsMult += player.boxLevel * 0.01;
+        player.cptsMult += player.boxLevel * 0.10;
     
     // Mascots
         if (currentMascot.ticksRemaining > 0) {
@@ -417,6 +417,15 @@ function checkAchievements() {
                         break;
                     case 'Puffle-Pets':
                         if (pufflePets >= currAchCri.amount) {
+                            earnAscAchievement(a);
+                        }
+                        break;
+                    case 'Minigame-Count':
+                        let minigameCount = 0;
+                        for (var b=0; b<player.building.length; b++) {
+                            minigameCount += player.building[b].owned;
+                        }
+                        if (minigameCount >= ascAchievementData[a].criteria.amount) {
                             earnAscAchievement(a);
                         }
                         break;

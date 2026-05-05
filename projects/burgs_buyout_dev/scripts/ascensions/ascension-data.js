@@ -35,7 +35,7 @@ const ascUpgradeData = [
             location: {x:80, y:50}
         },
         {
-            name: "Unshackled Bean Counters", desc: "Unlocks high-level upgrades for Bean Counters.", icon: 'minigame1-asc', cost: 10,
+            name: "Unshackled Bean Counters", desc: "Unlocks high-level upgrades for Bean Counters.", icon: 'minigame1-asc', cost: 4,
             requirement: {upgrade: 3},
             effect: {type: "Dummy"},
             flavorText: "TODO",
@@ -85,14 +85,14 @@ const ascUpgradeData = [
         },
     // Characters Branch (South Path)
         {
-            name: "Mascot Tracker", desc: "Every 5 minutes, a mascot will appear and grant a massive boost for 15 seconds.", icon: 'mascot_tracker', cost: 2,
+            name: "Mascot Tracker", desc: "Every 3 minutes, a mascot will appear and grant a massive boost for 15 seconds.", icon: 'mascot_tracker', cost: 2,
             requirement: {upgrade: 0},
             effect: {type: "Dummy"},
             flavorText: "The mascot trackers on Zero Nation are so good that they even work in this game!",
             location: {x:-60, y:-80}
         },
         {
-            name: "Beeker", desc: "Grants a +300% CPS boost.", icon: 'beeker', cost: 30,
+            name: "Beeker", desc: "Grants a +300% CPS boost.", icon: 'beeker', cost: 4,
             requirement: {upgrade: 11},
             effect: {type: "CPS-Multiplier", mult: 3.00},
             flavorText: "I mean, 3 is close to Pi, right?",
@@ -113,7 +113,7 @@ const ascUpgradeData = [
             location: {x:0, y:-160}
         },
         {
-            name: "The Meat Puffle", desc: "Mimics the ability of another Puffle, allowing you to have two active at a time.", icon: 'meat_puffle', cost: 50,
+            name: "The Meat Puffle", desc: "Mimics the ability of another Puffle, allowing you to have two active at a time.", icon: 'meat_puffle', cost: 2,
             requirement: {upgrade: 14},
             effect: {type: "Dummy"},
             flavorText: "This is disgusting, actually. How dare the fanbase vomit this into existence.",
@@ -128,14 +128,14 @@ const ascUpgradeData = [
             location: {x:-100, y:25}
         },
         {
-            name: "Quickstart II", desc: "Start the next run with 15 Hydro Hoppers and 5 Bean Counters.", icon: 'quickstart2', cost: 3,
+            name: "Quickstart II", desc: "Start the next run with 15 Hydro Hoppers and 5 Bean Counters.", icon: 'quickstart2', cost: 5,
             requirement: {upgrade: 16},
             effect: {type: "Quickstart", tier: 2},
             flavorText: "-around my parents' house. I then programmed the camera and movement mechanics for all 5 enemies. The irony is-",
             location: {x:-160, y:100}
         },
         {
-            name: "Quickstart III", desc: "Start the next run with 25 Hydro Hoppers, 10 Bean Counters, and 5 Ice Fishing.", icon: 'quickstart3', cost: 10,
+            name: "Quickstart III", desc: "Start the next run with 25 Hydro Hoppers, 10 Bean Counters, and 5 Ice Fishing.", icon: 'quickstart3', cost: 5,
             requirement: {upgrade: 17},
             effect: {type: "Quickstart", tier: 3},
             flavorText: "-that it was arguably my most polished game to date. I still haven't beat it nearly 10 years later.",
@@ -201,9 +201,9 @@ const ascAchievementData = [
 
     // Endgame
         {
-            name: "Thanks for Playing!", desc: "Flip the Iceberg.",
+            name: "Thanks for Playing!", desc: "Tip the Iceberg.",
             criteria: {type: "Dummy"},
-            flavorText: "Burg will return in Avengers: Doomsday."
+            flavorText: "Burg will return in Avengers: Doomsday. (Use the code 'ICEBERGTIPPED' on Burg's Camp to unlock a new postcard!)"
         },
 
 ];

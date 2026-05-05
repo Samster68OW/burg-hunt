@@ -60,6 +60,7 @@ function successfullyTipIceberg() {
 
 };
 function endingSequence() {
+    $('#clickable-paper').fadeOut(0);
     $('#iceberg-flipped-page').fadeIn(2000);
     playSound('BG Music - Ending Sequence');
     setTimeout(function(){
@@ -93,11 +94,48 @@ function loadTippedIceberg() {
         $('#lore-line3').fadeOut(0);
         $('#lore-line4').fadeOut(0);
         $('#lore-line5').fadeOut(0);
-        $('#iceberg-flipped-page').css('background-image', `url('images/iceberg/background.png')`);
+        $('#iceberg-flipped-page').css('background-image', `url('images/iceberg/beach_night.png')`);
         $('#iceberg-flipped-page').css('background-size', `100% 100%`);
-        playSound('BG Music - Ending Sequence');
+        playSound('BG Music - Sea Waves');
+        $('#clickable-paper').fadeIn(0);
     },4000);
     setTimeout(function() {
         $('#iceberg-flipped-page').fadeIn(0);
     },6000);
-}
+};
+
+
+
+function clickOnPaper() {
+    playSound("Paper Ruffle");
+    $('#big-paper').fadeIn(1000);
+    setTimeout(function() {
+        $('#ending-line').fadeIn(1000);
+    },3000);
+    setTimeout(function() {
+        $('#return-from-ending-button').fadeIn(1000);
+    },6000);
+};
+function clickReturnButton() {
+    // Stop everything
+        resetSound('BG Music - Sea Waves');
+        playSound('Click Coin');
+        $('#iceberg-flipped-page').fadeOut(0);
+
+    // Clean up
+        updateMath();
+        loadRightPage('minigame');
+        loadMiddlePage('how-to-play');
+        displayPuffle();
+        currentMascot.cooldown = 1800; // 3 Minutes
+
+    // Get us back
+        setTimeout(function(){
+            earnAscAchievement(9);
+            startGameLoop();
+            $('#main-table').fadeIn(3000);
+            gameStarted = true;
+            playSound('BG Music');
+            saveGame();
+        },2000);
+};

@@ -91,12 +91,12 @@ function updateDisplay() {
         else if (player.ascUpgrade[2] === false) {
             $('#iceberg-tab-button').fadeOut(0);
         }
-    // Petting a Puffles TODO: Does not work!
-        if (player.ascUpgrade[14] === true) {
-            $('#puffle-display-spot').css('cursor', `url('images/cursor/tap.png')`);
+    // The Iceberg Icon Under Coin
+        if (player.ascAchievement[9] === true) {
+            $('#iceberg-sit-spot').fadeIn(0);
         }
-        else if (player.ascUpgrade[14] === false) {
-            $('#puffle-display-spot').css('cursor', `url('images/cursor/default.png')`);
+        else if (player.ascAchievement[9] === false) {
+            $('#iceberg-sit-spot').fadeOut(0);
         }
 
     // Update Statistics Page
@@ -115,7 +115,7 @@ function updateDisplay() {
         if (player.ascensions > 0) {
             display += `<br><span style='color:#f5cefc'>`;
             display += `Ascensions: ${player.ascensions}<br>`;
-            display += `Box Level: ${disNum(player.boxLevel)} ${emojiInsert('box')} (+ ${disNum(player.boxLevel)}% ${emojiInsert('coin')})<br>`;
+            display += `Box Level: ${disNum(player.boxLevel)} ${emojiInsert('box')} (+ ${disNum(player.boxLevel * 10)}% ${emojiInsert('coin')})<br>`;
             display += `Doubloons: ${disNum(player.doubloons)} ${emojiInsert('doubloon')}<br>`;
             display += `Coins this Ascension: ${disNum(player.ascensionCoins)} ${emojiInsert('coin')}<br>`;
             display += `</span>`;

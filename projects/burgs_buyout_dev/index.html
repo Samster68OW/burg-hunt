@@ -59,6 +59,7 @@
             <div id="migrator-sit-spot" hidden></div>
             <div id="mascot-sit-spot" hidden>Boost!</div>
             <div id="sell-sit-spot" hidden></div>
+            <div id="iceberg-sit-spot" hidden></div>
           </td>
           <td id="middle-cell" class="main-cell">
             <table id="middle-top-tab-table"><tr>
@@ -125,12 +126,12 @@
             Developer: Samster68<br>
             Burg images and postcard: samuel<br>
             Game title graphic: Silverpetals<br>
-            Additional flavor text: samuel
+            Additional flavor text: samuel<br>
             Additional art: starryskyez
             <br><br>
             <h1>Music</h1>
-            "Paris St. Germain"
-            ???
+            "Paris St. Germain"<br>
+            "Ambiecophone" (Xylo)<br>
             "Interpretations of a Dream"
             <br><br><br><br>
             <span class='settings-button' onclick="loadPage('main-table');">[ Back ]</span>
@@ -216,7 +217,7 @@
           <br><br>
           Your coins that entered this place have turned into Doubloons, which can be spent on <u>Ascended Upgrades</u>. These upgrades are more powerful and persist across ascensions. Purchasing an ascended upgrade unlocks more upgrades.
           <br><br>
-          Your coins also increase your <u>Box Level</u>, which also persists across ascensions. Each Box Level grants a +1% CPS boost.
+          Your coins also increase your <u>Box Level</u>, which also persists across ascensions. Each Box Level grants a +10% CPS boost.
           <br><br>
           <span id="doubloon-box-spot"></span>
           <br><br>
@@ -249,6 +250,14 @@
           <div id="lore-line6" hidden>
             <span class='settings-button' onclick="loadTippedIceberg();">[ Next ]</span>
           </div>
+        </div>
+        <div id="clickable-paper" onclick="clickOnPaper();" hidden>
+          <img src="images/iceberg/ending.png">
+        </div>
+        <div id="big-paper" hidden>
+          <img src="images/iceberg/ending.png">
+          <div id="ending-line" hidden>Thank you for playing Burg's Buyout.</div>
+          <div id="return-from-ending-button" class="settings-button" onclick="clickReturnButton();" hidden>[ Return ]</div>
         </div>
       </div>
     </div>

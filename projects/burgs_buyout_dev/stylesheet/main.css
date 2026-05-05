@@ -206,6 +206,7 @@ body {
     z-index: 3;
 }
 #puffle-display-spot {
+    cursor: url('../images/cursor/tap.png'), auto;
     height: 80px;
     width: 80px;
 }
@@ -258,12 +259,23 @@ body {
 #sell-sit-spot {
     background-image: url("../images/site/sell_sit.png");
     background-size: 100% 100%;
-    bottom: 200px;
+    bottom: 180px;
     height: 60px;
     left: 10px;
     position: absolute;
     width: 60px;
     z-index: 2;
+}
+#iceberg-sit-spot {
+    background-image: url("../images/iceberg/iceberg_icon.png");
+    background-size: 100% 100%;
+    bottom: 210px;
+    height: 80px;
+    left: 58px;
+    position: absolute;
+    rotate: -15deg;
+    width: 180px;
+    z-index: 1;
 }
 
 

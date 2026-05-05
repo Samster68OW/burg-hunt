@@ -3,6 +3,8 @@
 
 
 function clickBox() {
+    $('#void-box').removeClass('boxShrinkClass');
+    if (confirm("Are you sure you want to open the box?") === false) {return;}
 
     // Stop everything and load the animation
         clearInterval(gameLoop);
@@ -14,15 +16,13 @@ function clickBox() {
     // Load the Box Dimension
         grantDoubloons();
         $('#doubloon-box-spot').html(`Doubloons: ${player.doubloons} ${emojiInsert('doubloon')}`);
-        $('#box-level-spot').html(`Box Level: ${disNum(player.boxLevel)} ${emojiInsert('box')} (+ ${disNum(player.boxLevel)}% ${emojiInsert('coin')})`);
+        $('#box-level-spot').html(`Box Level: ${disNum(player.boxLevel)} ${emojiInsert('box')} (+ ${disNum(player.boxLevel * 10)}% ${emojiInsert('coin')})`);
         placeAscUpgrades();
     
     // Play shrinking animation
         setTimeout(function() {
             playSound('Box Shrink');
-            $('#iceberg-content-box').removeClass('boxShrinkClass');
-            updateDisplay();
-            $('#iceberg-content-box').addClass('boxShrinkClass');
+            $('#void-box').addClass('boxShrinkClass');
         },2000);
         setTimeout(function() {
             $('#box-open-animation').fadeOut(0);
@@ -53,13 +53,17 @@ function grantDoubloons() {
 
 const upDiameter = 50;
 function placeAscUpgrades() {
+    let unlockedCount = 0;
     upRadius = upDiameter / 2;
     let display = ``;
     for (var a=0; a<ascUpgradeData.length; a++) {
 
         // Opacity
             let upOpacity = 0.0;
-            if (player.ascUpgrade[a] === true) {upOpacity = 1.0;}
+            if (player.ascUpgrade[a] === true) {
+                upOpacity = 1.0;
+                unlockedCount++;
+            }
             else if (ascUpgradeData[a].requirement.upgrade === "None") {upOpacity = 0.5;}
             else if (player.ascUpgrade[ascUpgradeData[a].requirement.upgrade] === true) {upOpacity = 0.5;}
 
@@ -75,6 +79,7 @@ function placeAscUpgrades() {
 
     }
     $('#right-box-dim-cell').html(display);
+    if (unlockedCount === ascUpgradeData.length) {earnAscAchievement[8];}
 };
 function purchaseAscUpgrade(num) {
     if (player.ascUpgrade[num] === true) {return;}
@@ -146,15 +151,16 @@ function returnToGame() {
         displayPuffle();
         resetSound('BG Music - Box');
         playSound('Click Coin');
-        currentMascot.cooldown = 3000; // 5 Minutes
+        currentMascot.cooldown = 1800; // 3 Minutes
 
 
     // Get us back
-        //saveGame();
+        saveGame();
         $('#box-dim-table').fadeOut(0);
         setTimeout(function(){
             startGameLoop();
             $('#main-table').fadeIn(3000);
+            gameStarted = true;
             playSound('BG Music');
         },2000);
 
@@ -166,7 +172,7 @@ let pufflePets = 0;
 function petPuffle() {
     if (player.ascUpgrade[14] === false) {return;}
     pufflePets++;
-    playSound('Puffle Squeak');
+    console.log('Pet!');
 
     $('#puffle-display-spot img').removeClass('petPuffleClass');
     updateDisplay();

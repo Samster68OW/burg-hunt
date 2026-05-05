@@ -235,7 +235,7 @@ const upgradeData = [
             name: "Fleet Commander", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 10000000, // 10 Million
             requirement: {type: "Asc-Upgrade", upgrade: 3},
             effect: {type: "Building-Mult", building: 0, mult: 100},
-            flavorText: "That's a lot of Boat maintenance!"
+            flavorText: "That's a lot of boat maintenance!"
         },
         {
             name: "Hydro Hopper+", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 100000000, // 100 Million
@@ -258,13 +258,13 @@ const upgradeData = [
         },
     // Ice Fishing
         {
-            name: "Golden Fishing Rod", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 10000000000000, // 10 Trillion
+            name: "Golden Fishing Rod", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 1000000000000, // 1 Trillion
             requirement: {type: "Asc-Upgrade", upgrade: 5},
             effect: {type: "Building-Mult", building: 2, mult: 100},
             flavorText: "Rumor has it that fish volunteer to be caught with this rod."
         },
         {
-            name: "Ice Fishing+", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 100000000000000, // 100 Trillion
+            name: "Ice Fishing+", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 10000000000000, // 10 Trillion
             requirement: {type: "Asc-Upgrade", upgrade: 5},
             effect: {type: "Building-Mult", building: 2, mult: 100},
             flavorText: "Ice Fishing at maximum efficiency."

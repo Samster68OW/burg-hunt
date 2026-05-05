@@ -29,6 +29,11 @@ const postcardList = [
         title: "Burg's Buyout",  imgSource: "buyout2026.png", postcardCredit: "samuel", showLocked: true,
         postcardDesc: "You and Burg collected 1 billion coins to help repair the Migrator.",
         unlockDesc: "Unlock this postcard by completing Burg's Buyout and redeeming the code."
+    },
+    {
+        title: "Burg's Buyout Ending",  imgSource: "buyout_ending.png", postcardCredit: "starryskyez", showLocked: true,
+        postcardDesc: "You and Burg collected quintillions of coins and tipped the Iceberg.",
+        unlockDesc: "Unlock this postcard by completing The Box Update in Burg's Buyout and redeeming the code."
     }
 ];
 
@@ -53,5 +58,6 @@ const codeList = [
     {code: "SAMSTERSFRIEND", reward: {type: "postcard", postcardID: 0}, message: "How did you get this code? This is just a placeholder!"},
     {code: "STARGAZERS", reward: {type: "postcard", postcardID: 3}, message: "Thank you for attending the Iceberg Stargazing Party!"},
     {code: "ALPHATESTER", reward: {type: "link", linkURL: "projects/burgs_buyout/index.html"}, message: "Thank you for agreeing to playtest my new little game! Let me know what you think. :)"},
-    {code: "COINSRAISED", reward: {type: "postcard", postcardID: 4}, message: "Good job reaching 1 billion coins!"}
+    {code: "COINSRAISED", reward: {type: "postcard", postcardID: 4}, message: "Good job reaching 1 billion coins!"},
+    {code: "ICEBERGTIPPED", reward: {type: "postcard", postcardID: 5}, message: "Congratulations on completing Burg's Buyout!"}
 ];

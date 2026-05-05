@@ -11,7 +11,7 @@ const mascotData = [
 
 
 let currentMascot = {
-    cooldown: 3000, // 5 Minutes
+    cooldown: 1800, // 3 Minutes
     mascotID: -1,
     ticksRemaining: 0
 };
@@ -19,7 +19,7 @@ function checkMascot() {
     if (player.ascUpgrade[11] === true) {currentMascot.cooldown--;}
     if (currentMascot.cooldown <= 0) {
         startMascotEvent();
-        currentMascot.cooldown = 3000; // 5 Minutes
+        currentMascot.cooldown = 1800; // 3 Minutes
     }
 };
 
