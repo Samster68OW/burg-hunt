@@ -67,22 +67,17 @@ function startGame() {
     // Puffle Display
         display = `<div class='middle-header'>Puffles</div><br><table>`;
         for (var c=0; c<puffleData.length; c++) {
-            display += `<tr><td id='puffle-${c}-spot' onclick='purchasePuffle(${c});' onmouseenter='hoverTextPuffle(${c})' onmouseleave='hoverTextClear();' class='puffle-cell'>
-                <table>
-                    <tr>
-                        <td style='width:55px;'><img src='images/puffle/${puffleData[c].emoji}.png' height=40px width=45px></td>
-                        <td style='text-align:left; vertical-align:top; width:130px;' id='puffle-${c}'>
-                            <b>${puffleData[c].name}</b><br>
-                            Cost: ${disNum(puffleData[c].cost)} ${emojiInsert('coin')}
-                        </td>
-                        <td style='font-size:30px; text-align:right; width:80px;' id='puffle-${c}-equip' class='puffle-equip'></td>
-                    </tr>
-                </table>
-            </td></tr>`;
+            if (c === 6) {
+                display += `<tr id='meat-puffle-tr' hidden><td id='puffle-${c}-spot' onclick='purchasePuffle(${c});' onmouseenter='hoverTextPuffle(${c})' onmouseleave='hoverTextClear();' class='puffle-cell'></td></tr>`;
+            }
+            else {
+                display += `<tr><td id='puffle-${c}-spot' onclick='purchasePuffle(${c});' onmouseenter='hoverTextPuffle(${c})' onmouseleave='hoverTextClear();' class='puffle-cell'></td></tr>`;
+            }
             player.puffle.push(false);
         }
-        display += `</table><br><br>Puffles grant passive effects. When you purchase a Puffle, it is automatically equipped. You may only have one Puffle equipped at a time. You may freely switch between Puffles using the number keys on your keyboard.`;
+        display += `</table><br>Puffles grant passive effects. When you purchase a Puffle, it is automatically equipped. You may only have one Puffle equipped at a time. You may freely switch between Puffles using the number keys on your keyboard.`;
         $('#puffle-page').html(display);
+        setupPuffleBoxes();
 
     // Generate Achievement Display
         achievementDisplay();
@@ -90,6 +85,7 @@ function startGame() {
     loadGame();
     potentialBoxLevel = player.boxLevel;
     startGameLoop();
+    setupPuffleBoxes();
 
 };
 
@@ -180,7 +176,7 @@ function purchaseBuilding(num) { // TODO
                     // Buy Building
                         player.coins -= player.building[num].currentCost;
                         // Pink Puffle
-                            if (player.equippedPuffle === 1) {player.coins += player.building[num].currentCost * puffleStat.pink.mult;}
+                            if (player.equippedPuffle === 1 | player.meatPuffle === 1) {player.coins += player.building[num].currentCost * puffleStat.pink.mult;}
                         // Gary
                             if (currentMascot.mascotID === 1 && currentMascot.ticksRemaining > 0) {player.coins += player.building[num].currentCost * mascotData[1].mult;}
                         player.building[num].owned++;
@@ -197,7 +193,7 @@ function purchaseBuilding(num) { // TODO
                 // Buy Building
                     player.coins -= player.building[num].currentCost;
                     // Pink Puffle
-                        if (player.equippedPuffle === 1) {player.coins += player.building[num].currentCost * puffleStat.pink.mult;}
+                        if (player.equippedPuffle === 1 | player.meatPuffle === 1) {player.coins += player.building[num].currentCost * puffleStat.pink.mult;}
                     // Gary
                         if (currentMascot.mascotID === 1 && currentMascot.ticksRemaining > 0) {player.coins += player.building[num].currentCost * mascotData[1].mult;}
                     player.building[num].owned++;
@@ -218,7 +214,7 @@ function purchaseUpgrade(num) {
             else {playSound('Purchase');}
             player.coins -= upgradeData[num].cost;
             // Pink Puffle
-                if (player.equippedPuffle === 1) {player.coins += upgradeData[num].cost * puffleStat.pink.mult;}
+                if (player.equippedPuffle === 1 | player.meatPuffle === 1) {player.coins += upgradeData[num].cost * puffleStat.pink.mult;}
             // Gary
                 if (currentMascot.mascotID === 1 && currentMascot.ticksRemaining > 0) {player.coins += player.upgrade[num].currentCost * mascotData[1].mult;}
             player.upgrade[num] = true;
@@ -311,7 +307,7 @@ function updateMath() {
         }
     
     // Red Puffle
-        if (player.equippedPuffle === 5) {
+        if (player.equippedPuffle === 5 | player.meatPuffle === 5) {
             let achCount = 0;
             for (var b=0; b<player.achievement.length; b++) {
                 if (player.achievement[b] === true) {achCount++;}
@@ -334,7 +330,7 @@ function updateMath() {
         }
     
     // Blue Puffle
-        if (player.equippedPuffle === 0) {
+        if (player.equippedPuffle === 0 | player.meatPuffle === 0) {
             puffleStat.blue.mult = player.coinClicks / puffleStat.blue.divisor;
             if (puffleStat.blue.mult > puffleStat.blue.multMax) {puffleStat.blue.mult = puffleStat.blue.multMax;}
             puffleStat.blue.mult += 1;
@@ -352,6 +348,15 @@ function updateMath() {
             if (currentMascot.mascotID === 2) {
                 player.coinsPerClick *= mascotData[currentMascot.mascotID].mult;
             }
+        }
+
+    // Update Coins per click
+        if (player.boxLevel > 0) {
+            player.coinsPerClick *= player.boxLevel * 0.10;
+        }
+    // Sell
+        if (player.ascUpgrade[13] === true) {
+            player.coinsPerClick *= 2;
         }
 
     // Clean up CPTS
@@ -388,7 +393,7 @@ function checkAchievements() {
                     break;
                 case 'Puffles-Purchased':
                     let purchasedAll = true;
-                    for (var b=0; b<puffleData.length; b++) {
+                    for (var b=0; b<5; b++) {
                         if (player.puffle[b] === false) {purchasedAll = false;}
                     }
                     if (purchasedAll === true) {

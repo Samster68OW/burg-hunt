@@ -11,7 +11,7 @@ const mascotData = [
 
 
 let currentMascot = {
-    cooldown: 1800, // 3 Minutes
+    cooldown: 1200, // 2 Minutes
     mascotID: -1,
     ticksRemaining: 0
 };
@@ -19,17 +19,18 @@ function checkMascot() {
     if (player.ascUpgrade[11] === true) {currentMascot.cooldown--;}
     if (currentMascot.cooldown <= 0) {
         startMascotEvent();
-        currentMascot.cooldown = 1800; // 3 Minutes
+        currentMascot.cooldown = 1800; // 2 Minutes
     }
 };
 
 
 
-function startMascotEvent() {
+function startMascotEvent(num) {
     playSound('Puffle Boost');
     earnAscAchievement(5);
+    if (num === undefined) {num = Math.floor(Math.random()*mascotData.length);}
     currentMascot = {
-        mascotID: Math.floor(Math.random()*mascotData.length),
+        mascotID: num,
         ticksRemaining: 150 // 15 Seconds
     };
     $('#mascot-sit-spot').html(mascotData[currentMascot.mascotID].desc);

@@ -23,7 +23,8 @@ let player = {
     boxLevel: 0,
     doubloons: 0,
     ascUpgrade: [],
-    ascAchievement: []
+    ascAchievement: [],
+    meatPuffle: -2
 };
 
 
@@ -43,8 +44,19 @@ function loadGame() {
                 if (playerData.ascensionCoins == null) {player.ascensionCoins = player.lifetimeCoins;}
                 else {player.ascensionCoins = playerData.ascensionCoins;}
 
-            player.timePlayed = playerData.timePlayed;
-            player.building = playerData.building;
+            if (playerData.timePlayed == null) {player.timePlayed = 0;}
+            else {player.timePlayed = playerData.timePlayed;}
+
+            // Buildings
+                player.building = playerData.building;
+                if (player.building == null) {
+                    player.building = [];
+                    for (var a=0; a<buildingData.length; a++) {
+                        player.building.push({
+                            owned: 0, currentCost: buildingData[a].baseCost, coinsPer: 0
+                        });
+                    }
+                }
 
             // Upgrades
                 player.upgrade = playerData.upgrade;
@@ -55,9 +67,21 @@ function loadGame() {
                 }
 
             player.puffle = playerData.puffle;
-            player.equippedPuffle = playerData.equippedPuffle;
-            player.achievement = playerData.achievement;
-            player.coinClicks = playerData.coinClicks;
+            //if (playerData. == null) {player. = 0;}
+            //else {player. = playerData.;}
+            if (playerData.equippedPuffle == null) {player.equippedPuffle = -1;}
+            else {player.equippedPuffle = playerData.equippedPuffle;}
+
+            // Achievements
+                player.achievement = playerData.achievement;
+                if (player.achievement == null | player.achievement.length < achievementData.length) {
+                    for (var a=player.achievement.length; a<achievementData.length; a++) {
+                        player.achievement.push(false);
+                    }
+                }
+
+            if (playerData.coinClicks == null) {player.coinClicks = 0;}
+            else {player.coinClicks = playerData.coinClicks;}
 
             // Completion Time
                 player.fullCompleteTime = playerData.fullCompleteTime;
@@ -82,7 +106,18 @@ function loadGame() {
                         player.ascUpgrade.push(false);
                     }
                 }
-            player.ascAchievement = playerData.ascAchievement;
+            
+            // Ascended Achievments
+                player.ascAchievement = playerData.ascAchievement;
+                if (player.ascAchievement == null) {
+                    player.ascAchievement = [];
+                    for (var a=0; a<ascAchievementData.length; a++) {
+                        player.ascAchievement.push(false);
+                    }
+                }
+
+            if (playerData.meatPuffle == null) {player.meatPuffle = -2;}
+            else {player.meatPuffle = playerData.meatPuffle;}
 
     }
 };
@@ -119,38 +154,12 @@ function resetGame() {
         boxLevel: 0,
         doubloons: 0,
         ascUpgrade: [],
-        ascAchievement: []
+        ascAchievement: [],
+        meatPuffle: -2
     };
     loadPage('main-table');
     startGame();
     loadRightPage('minigame');
     loadMiddlePage('how-to-play');
     displayPuffle();
-};
-
-
-
-function debugSave() {
-    player = {
-        coins: 0,
-        lifetimeCoins: 100000000000,
-        ascensionCoins: 0,
-        timePlayed: 0,
-        coinsPerClick: 1,
-        cpts: 0,
-        cptsMult: 1,
-        building: [],
-        upgrade: [],
-        puffle: [],
-        equippedPuffle: -1,
-        achievement: [],
-        coinClicks: 10000,
-        debug: false,
-        fullCompleteTime: false,
-        ascensions: 1,
-        boxLevel: 7,
-        doubloons: 0,
-        ascUpgrade: [],
-        ascAchievement: []
-    };
 };

@@ -10,7 +10,28 @@ function swapPuffle(num) {
         }
         else {
             if (player.puffle[num] === true) {
-                player.equippedPuffle = num;
+                if (mimicSelectMode === false) {
+                    if (num === 6) {
+                        selectMeatPuffle();
+                        return;
+                    }
+                    if (num === player.meatPuffle) {
+                        playSound('Click Coin');
+                        return;
+                    }
+                    player.equippedPuffle = num;
+                }
+                else if (mimicSelectMode === true) {
+                    if (player.equippedPuffle === num) {return;}
+                    if (num === 6) {
+                        selectMeatPuffle();
+                        return;
+                    }
+                    player.meatPuffle = num;
+                    mimicSelectMode = false;
+                    playSound('Puffle Boost');
+                    setupPuffleBoxes();
+                }
             }
         }
         updateMath();
@@ -29,6 +50,9 @@ function displayPuffle() {
         $('#puffle-display-spot').html(`<img src='images/puffle/${puffleData[player.equippedPuffle].emoji}.png' onmouseenter='hoverTextPuffle(${player.equippedPuffle})' onmouseleave='hoverTextClear();'>`);
         $('.puffle-equip').html('');
         $(`#puffle-${player.equippedPuffle}-equip`).html('<img src="images/site/checkmark.png">');
+    }
+    if (player.meatPuffle >= 0 ) {
+        $(`#puffle-6-equip`).html(`<img src="images/puffle/${puffleData[player.meatPuffle].emoji}.png" height=30px width=30px>`);
     }
 };
 
@@ -114,4 +138,18 @@ function blackPuffle() {
         if (player.timePlayed % 5 === 0) {clickCoin('puffle');}
     }
 
+};
+
+
+
+let mimicSelectMode = false;
+function selectMeatPuffle() {
+    if (mimicSelectMode === false) {
+        mimicSelectMode = true;
+        playSound('Click Coin');
+    }
+    else if (mimicSelectMode === true) {
+        mimicSelectMode = false;
+        playSound('Click Coin');
+    }
 };

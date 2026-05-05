@@ -15,6 +15,7 @@ function keyboardInput(key) {
         case '4':
         case '5':
         case '6':
+        case '7':
             swapPuffle(Number(key - 1));
             break;
         case 'q':

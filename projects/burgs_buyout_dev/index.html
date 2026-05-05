@@ -33,7 +33,7 @@
       <div id="achievement-dropdown"></div>
       <table id="main-table" class="main-page">
         <tr><td colspan="3" id="top-cell">
-          Burg's Buyout v1.1.0 - The Box Update | 
+          Burg's Buyout v1.1.0b - The Box Update | 
           <span class='settings-button' onclick="loadPage('settings-div');">Settings/Credits</span> | 
           <span class='settings-button' onclick="loadPage('changelog-div');">Changelog</span> | 
           <span id='iceberg-tab-button' hidden><span class='settings-button' onclick="generateIcebergPage(); loadPage('iceberg-page');">The Iceberg</span> | </span>
@@ -126,6 +126,7 @@
             Developer: Samster68<br>
             Burg images and postcard: samuel<br>
             Game title graphic: Silverpetals<br>
+            Assitional sounds: Jeff The Rock<br>
             Additional flavor text: samuel<br>
             Additional art: starryskyez
             <br><br>
@@ -152,7 +153,8 @@
             samuel<br>
             Jaup<br>
             The Zero Nation Staff<br>
-            The Club Penguin Zero Team
+            The Club Penguin Zero Team<br>
+            Our God, through whom all things are possible
           </td>
         </tr></table>
         <img id="title-img" src="images/site/title.png" style="height:90px; width:230px;">
@@ -169,6 +171,7 @@
               <li>Shift + Click will now purchase as many minigames as possible.</li>
               <li>Added a "CPS Multiplier" stat.</li>
               <li>Turned up the game's volume. Removed the ability to mute the music.</li>
+              <li>Added additional failsafes for save data.</li>
             </ul>
             <hr>
             Patch 1.0.3 - April 27th, 2026
@@ -210,15 +213,15 @@
       <table id="box-dim-table" class="main-page" hidden><tr>
         <td id="left-box-dim-cell">
 
-          Welcome to the<br>
-          <u>Outer Box Dimension</u>!
+          Welcome to the...<br>
+          <u style="font-size: 24px;">Outer Box Dimension!</u>
           <br><br>
           All of your minigames, upgrades, and puffles have been lost to the void.
           <br><br>
           Your coins that entered this place have turned into Doubloons, which can be spent on <u>Ascended Upgrades</u>. These upgrades are more powerful and persist across ascensions. Purchasing an ascended upgrade unlocks more upgrades.
           <br><br>
-          Your coins also increase your <u>Box Level</u>, which also persists across ascensions. Each Box Level grants a +10% CPS boost.
-          <br><br>
+          Your coins also increase your <u>Box Level</u>, which also persists across ascensions. Each Box Level grants a +10% boost to your CPS and to your coins earned per click.
+          <br><br><br><br>
           <span id="doubloon-box-spot"></span>
           <br><br>
           <span id="box-level-spot"></span>
@@ -231,6 +234,7 @@
         <td id="right-box-dim-cell"></td>
       </tr></table>
       <div id="iceberg-page" class="main-page" hidden>
+        <div id="iceberg-penguin-space"></div>
         <div id="iceberg-content-box">
           <span id="iceberg-current-progress" style="font-size: 25px;"></span>
           <br><br>
@@ -349,6 +353,10 @@ function toggleMiddlePage() {
 function loadPage(pageName) {
   $('.main-page').fadeOut(0);
   $(`#${pageName}`).fadeIn(0);
+  if (pageName === 'main-table') {
+    $('#clickable-coin').removeClass('coinPulseClass');
+    $('#puffle-display-spot img').removeClass('petPuffleClass');
+  }
 };
 
 

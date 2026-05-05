@@ -35,10 +35,12 @@ var soundData = [
         {name:'Box Opened', src:'box_opened.wav', vol:0.3, mode:'play'},
         {name:'Box Shrink', src:'box_shrink.wav', vol:0.2, mode:'play'},
         {name:'BG Music - Box', src:'ambiencophone.mp3', vol:0.5, mode:'loop'},
+        {name:'Ice Cracking', src:'box_shrink.wav', vol:0.2, mode:'play'},
+        {name:'Pet Puffle', src:'click_coin.wav', vol:0.2, mode:'play'},
         {name:'BG Music - Ending Sequence', src:'lost_stairway.mp3', vol:0.2, mode:'loop'},
         {name:'BG Music - Sea Waves', src:'sea_waves.mp3', vol:0.8, mode:'loop'},
         {name:'Puffle Squeak', src:'click_coin.wav', vol:0.3, mode:'play'},
-        {name:'Paper Ruffle', src:'paper_ruffle.wav', vol:0.3, mode:'play'},
+        {name:'Paper Ruffle', src:'paper_ruffle.wav', vol:0.6, mode:'play'},
 ];
 
 

@@ -39,7 +39,7 @@ function clickBox() {
 let potentialBoxLevel = 0;
 let nextCoinGoal;
 function updateCoinGoal() {
-    nextCoinGoal = Math.pow(2, potentialBoxLevel) * 1000000000;
+    nextCoinGoal = Math.pow(boxExponent, potentialBoxLevel) * 1000000000;
     if (player.lifetimeCoins >= nextCoinGoal) {
         potentialBoxLevel++;
     }
@@ -78,8 +78,12 @@ function placeAscUpgrades() {
             display += `<div class='asc-upgrade-node' style='left:${upPos.x}px; bottom:${upPos.y}px; opacity:${upOpacity}; background-image: url("images/ascension/icon/${ascUpgradeData[a].icon}.png")' onclick='purchaseAscUpgrade(${a});' onmouseenter='hoverAscUpgrade(${a});' onmouseleave='ascHoverTextClear();'${hiddenText}></div>`;
 
     }
+    // Add decorative boxes
+        display += `<img src='images/ascension/the_box.png' class='decorative-box' style='left:70px; bottom:200px; rotate:20deg;'>
+            <img src='images/ascension/the_box.png' class='decorative-box' style='left:430px; bottom:130px; rotate:-40deg; scale:1.6;'>
+            <img src='images/ascension/the_box.png' class='decorative-box' style='left:150px; bottom:480px; rotate:10deg; scale:0.8;'>`;
     $('#right-box-dim-cell').html(display);
-    if (unlockedCount === ascUpgradeData.length) {earnAscAchievement[8];}
+    if (unlockedCount === ascUpgradeData.length) {earnAscAchievement(8);}
 };
 function purchaseAscUpgrade(num) {
     if (player.ascUpgrade[num] === true) {return;}
@@ -113,6 +117,7 @@ function returnToGame() {
         }
         player.puffle = [];
         player.equippedPuffle = -1;
+        player.meatPuffle = -2;
         for (var a=0; a<puffleData.length; a++) {
             player.puffle.push(false);
         }
@@ -148,11 +153,11 @@ function returnToGame() {
         updateMath();
         loadRightPage('minigame');
         loadMiddlePage('how-to-play');
+        setupPuffleBoxes();
         displayPuffle();
         resetSound('BG Music - Box');
         playSound('Click Coin');
-        currentMascot.cooldown = 1800; // 3 Minutes
-
+        currentMascot.cooldown = 1200; // 2 Minutes
 
     // Get us back
         saveGame();
@@ -172,7 +177,7 @@ let pufflePets = 0;
 function petPuffle() {
     if (player.ascUpgrade[14] === false) {return;}
     pufflePets++;
-    console.log('Pet!');
+    playSound('Pet Puffle');
 
     $('#puffle-display-spot img').removeClass('petPuffleClass');
     updateDisplay();

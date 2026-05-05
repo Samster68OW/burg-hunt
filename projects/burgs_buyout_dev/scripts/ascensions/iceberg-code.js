@@ -16,6 +16,16 @@ function generateIcebergPage() {
     // Display
         if (achCount >= 34) {$('#iceberg-current-progress').html(`<span style='color:yellow;'>Penguins: ${achCount}</span>`);}
         else {$('#iceberg-current-progress').html(`Penguins: ${achCount}`);}
+    // Place Penguins
+        let display = ``;
+        for (var a=0; a<achCount; a++) {
+            let leftSpace = Math.random()*350;
+            let bottomSpace = Math.random()*200;
+            let tilt = Math.floor(Math.random()*40) - 20;
+            console.log(tilt);
+            display += `<img src='images/iceberg/penguin.png' class='iceberg-penguin' style='left:${leftSpace}px; bottom:${bottomSpace}px; rotate: ${tilt}deg;'>`;
+        }
+        $('#iceberg-penguin-space').html(display);
         
 };
 function attemptToTipIceberg() {
@@ -29,7 +39,7 @@ function attemptToTipIceberg() {
         }
         achCount = 34;
     // What next?
-        if (achCount >= 34) {successfullyTipIceberg();}
+        if (achCount >= 34 | player.debug === true) {successfullyTipIceberg();}
         else {
             playSound('Click Coin');
             $('#iceberg-content-box').removeClass('shakyIcebergClass');
@@ -43,11 +53,13 @@ function attemptToTipIceberg() {
 
 function successfullyTipIceberg() {
     $('#iceberg-content-box').fadeOut(0);
+    $('#iceberg-flipped-page').css('background-image', `none`);
     clearInterval(gameLoop);
     resetSound('BG Music');
     playSound('Ship Bought');
     gameStarted = false;
     setTimeout(function(){
+        playSound('Ice Cracking');
         $('#iceberg-page').addClass('shakyIcebergInfClass');
     },1000);
     setTimeout(function(){
@@ -120,14 +132,17 @@ function clickReturnButton() {
     // Stop everything
         resetSound('BG Music - Sea Waves');
         playSound('Click Coin');
+        $('#big-paper').fadeOut(0);
         $('#iceberg-flipped-page').fadeOut(0);
+        $('#ending-line').fadeOut(0);
+        $('#return-from-ending-button').fadeOut(0);
 
     // Clean up
         updateMath();
         loadRightPage('minigame');
         loadMiddlePage('how-to-play');
         displayPuffle();
-        currentMascot.cooldown = 1800; // 3 Minutes
+        currentMascot.cooldown = 1200; // 2 Minutes
 
     // Get us back
         setTimeout(function(){

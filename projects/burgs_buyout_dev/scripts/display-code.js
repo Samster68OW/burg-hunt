@@ -18,12 +18,12 @@ function updateDisplay() {
         // Boosts
             let CPSBoost = false;
             let clickBoost = false;
-            if (player.equippedPuffle === 0) {clickBoost = true;}
+            if (player.equippedPuffle === 0 | player.meatPuffle === 0) {clickBoost = true;}
             if (puffleStat.green.timeLeftOnAbility > 0) {
                 if (puffleStat.green.currentAbility === 'CPS') {CPSBoost = true;}
                 else if (puffleStat.green.currentAbility === 'Clicks') {clickBoost = true;}
             }
-            if (player.equippedPuffle === 5) {CPSBoost = true;}
+            if (player.equippedPuffle === 5 | player.meatPuffle === 5) {CPSBoost = true;}
             // Results
             if (CPSBoost === true) {$('#cps-display').css('color','#19b025');}
             else {$('#cps-display').css('color','white');}
@@ -193,14 +193,15 @@ function updateDisplay() {
         else if (player.ascensions >= 1) {
             
             // Calculate Progress
-                let priorGoal = Math.pow(2, potentialBoxLevel-1) * 1000000000;
+                let priorGoal = Math.pow(boxExponent, potentialBoxLevel-1) * 1000000000;
                 let percentageDone = (player.lifetimeCoins - priorGoal) / nextCoinGoal;
+                percentageDone *= 200;
 
             let display = `
                 Open the box now to earn:<br>
                 ${disNum(potentialBoxLevel - player.boxLevel)} ${emojiInsert('doubloon')}<br><br>
                 <div id='loading-bar-outer'>
-                    <div id='loading-bar-inner' style='width:${percentageDone * 200}%'></div>
+                    <div id='loading-bar-inner' style='width:${percentageDone}%'></div>
                 </div><br>
             `;
             $('#potential-levels-spot').html(display);
@@ -260,7 +261,7 @@ function updateBuilding(a) {
 
     // Pink Puffle
         let costColor = 'white';
-        if (player.equippedPuffle === 1) {
+        if (player.equippedPuffle === 1 | player.meatPuffle === 1) {
             costColor = '#19b025';
         }
     
@@ -283,7 +284,44 @@ function updateBuilding(a) {
         </table>
     `;
     $(`#building-${a}-spot`).html(display);
-}
+};
+function setupPuffleBoxes() {
+    for (var a=0; a<puffleData.length; a++) {
+        if (a === 6) {
+            if (player.ascUpgrade[15] === true) {
+                if (player.meatPuffle <= -2) {player.meatPuffle = -1;}
+                $('#meat-puffle-tr').fadeIn(0);
+                let display = `<table>
+                    <tr>
+                        <td style='width:55px;'><img src='images/puffle/${puffleData[a].emoji}.png' height=40px width=45px></td>
+                        <td style='text-align:left; vertical-align:top; width:130px;' id='puffle-${a}'>
+                            <b>${puffleData[a].name}</b><br>
+                            Cost: ${disNum(puffleData[a].cost)} ${emojiInsert('coin')}
+                        </td>
+                        <td style='font-size:30px; text-align:right; width:80px;' id='puffle-${a}-equip' class='puffle-equip'></td>
+                    </tr>
+                </table>`;
+                $(`#puffle-${a}-spot`).html(display);
+            }
+        }
+        else {
+            let textStyling = '';
+            if (player.meatPuffle === a) {textStyling = 'text-decoration: line-through;';}
+            let display = `<table>
+                <tr>
+                    <td style='width:55px;'><img src='images/puffle/${puffleData[a].emoji}.png' height=40px width=45px></td>
+                    <td style='text-align:left; vertical-align:top; width:130px; ${textStyling}' id='puffle-${a}'>
+                        <b>${puffleData[a].name}</b><br>
+                        Cost: ${disNum(puffleData[a].cost)} ${emojiInsert('coin')}
+                    </td>
+                    <td style='font-size:30px; text-align:right; width:80px;' id='puffle-${a}-equip' class='puffle-equip'></td>
+                </tr>
+            </table>`;
+            $(`#puffle-${a}-spot`).html(display);
+        }
+        
+    }
+};
 
 
 
@@ -334,7 +372,7 @@ function achievementDisplay() {
 
 
 
-const numNames = [``,`thousand`, `million`, `billion`, `trillion`, `quadrillion`, `quintillion`, `sextillion`, `septillion`, `octillion`, `nonillion`, `decillion`];
+const numNames = [``,`thousand`, `million`, `billion`, `trillion`, `quadrillion`, `quintillion`, `sextillion`, `septillion`];
 function disNum(input) {
 
     if (input < 10 && input > 0) {
