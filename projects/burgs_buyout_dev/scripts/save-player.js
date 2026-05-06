@@ -24,7 +24,8 @@ let player = {
     doubloons: 0,
     ascUpgrade: [],
     ascAchievement: [],
-    meatPuffle: -2
+    meatPuffle: -2,
+    icebergCompleteTime: false
 };
 
 
@@ -86,6 +87,8 @@ function loadGame() {
             // Completion Time
                 player.fullCompleteTime = playerData.fullCompleteTime;
                 if (player.fullCompleteTime == null) {player.fullCompleteTime = false;}
+                player.icebergCompleteTime = playerData.icebergCompleteTime;
+                if (player.icebergCompleteTime == null) {player.icebergCompleteTime = false;}
 
             // Ascension Data
                 if (playerData.ascensions == null) {player.ascensions = 0;}
@@ -155,7 +158,8 @@ function resetGame() {
         doubloons: 0,
         ascUpgrade: [],
         ascAchievement: [],
-        meatPuffle: -2
+        meatPuffle: -2,
+        icebergCompleteTime: false
     };
     loadPage('main-table');
     startGame();

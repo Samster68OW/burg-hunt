@@ -393,7 +393,7 @@ function checkAchievements() {
                     break;
                 case 'Puffles-Purchased':
                     let purchasedAll = true;
-                    for (var b=0; b<5; b++) {
+                    for (var b=0; b<6; b++) {
                         if (player.puffle[b] === false) {purchasedAll = false;}
                     }
                     if (purchasedAll === true) {

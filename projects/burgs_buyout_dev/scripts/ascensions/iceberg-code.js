@@ -50,6 +50,10 @@ function attemptToTipIceberg() {
 
 
 function successfullyTipIceberg() {
+    // Time Played
+        if (player.icebergCompleteTime === false) {
+            player.icebergCompleteTime = player.timePlayed;
+        }
     $('#iceberg-content-box').fadeOut(0);
     $('#iceberg-flipped-page').css('background-image', `none`);
     clearInterval(gameLoop);

@@ -100,6 +100,11 @@ function updateDisplay() {
         }
 
     // Update Statistics Page
+        // Calculate Penguins Hired
+            let penguinsHired = 0;
+            for (var a=0; a<player.building.length; a++) {
+                penguinsHired += player.building[a].owned;
+            }
         // Calculate Time Played
             let timeDisplay = disTime(player.timePlayed);
         let display =  `
@@ -107,6 +112,7 @@ function updateDisplay() {
             Lifetime Coins Earned: ${disNum(player.lifetimeCoins)} ${emojiInsert('coin')}<br>
             Time Played: ${timeDisplay}<br>
             Coin Clicks: ${disNum(player.coinClicks)} ${emojiInsert('tap')}<br>
+            Penguins Hired: ${penguinsHired}<br>
             CPS Multiplier: + ${disNum((player.cptsMult - 1) * 100)}% ${emojiInsert('coin')}<br>
         `;
         if (player.fullCompleteTime !== false) {
@@ -118,6 +124,9 @@ function updateDisplay() {
             display += `Box Level: ${disNum(player.boxLevel)} ${emojiInsert('box')} (+ ${disNum(player.boxLevel * 10)}% ${emojiInsert('coin')})<br>`;
             display += `Doubloons: ${disNum(player.doubloons)} ${emojiInsert('doubloon')}<br>`;
             display += `Coins this Ascension: ${disNum(player.ascensionCoins)} ${emojiInsert('coin')}<br>`;
+            if (player.icebergCompleteTime !== false) {
+                display += `<span style='color:yellow;'>200% Time: ${disTime(player.icebergCompleteTime)}</span><br>`;
+            }
             display += `</span>`;
         }
         $('#statistics-page').html(display);
