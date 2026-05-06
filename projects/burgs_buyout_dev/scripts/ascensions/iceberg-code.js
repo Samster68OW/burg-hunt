@@ -22,7 +22,6 @@ function generateIcebergPage() {
             let leftSpace = Math.random()*350;
             let bottomSpace = Math.random()*200;
             let tilt = Math.floor(Math.random()*40) - 20;
-            console.log(tilt);
             display += `<img src='images/iceberg/penguin.png' class='iceberg-penguin' style='left:${leftSpace}px; bottom:${bottomSpace}px; rotate: ${tilt}deg;'>`;
         }
         $('#iceberg-penguin-space').html(display);
@@ -37,7 +36,6 @@ function attemptToTipIceberg() {
         for (var b=0; b<player.ascAchievement.length; b++) {
             if (player.ascAchievement[b] === true) {achCount++;}
         }
-        achCount = 34;
     // What next?
         if (achCount >= 34 | player.debug === true) {successfullyTipIceberg();}
         else {

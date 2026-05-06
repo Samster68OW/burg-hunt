@@ -216,7 +216,7 @@ function purchaseUpgrade(num) {
             // Pink Puffle
                 if (player.equippedPuffle === 1 | player.meatPuffle === 1) {player.coins += upgradeData[num].cost * puffleStat.pink.mult;}
             // Gary
-                if (currentMascot.mascotID === 1 && currentMascot.ticksRemaining > 0) {player.coins += player.upgrade[num].currentCost * mascotData[1].mult;}
+                if (currentMascot.mascotID === 1 && currentMascot.ticksRemaining > 0) {player.coins += upgradeData[num].cost * mascotData[1].mult;}
             player.upgrade[num] = true;
             updateMath();
             hoverTextClear();

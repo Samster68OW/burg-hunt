@@ -120,6 +120,7 @@ function purplePuffle() {
                     let buildList = [];
                     for (var a=0; a<player.building.length; a++) {
                         if (player.building[a].owned > 0) {
+                            updateBuilding(a);
                             buildList.push(a);
                         }
                     }
