@@ -205,6 +205,7 @@ function updateDisplay() {
                 let priorGoal = Math.pow(boxExponent, potentialBoxLevel-1) * 1000000000;
                 let percentageDone = (player.lifetimeCoins - priorGoal) / (nextCoinGoal - priorGoal);
                 percentageDone *= 100;
+                if (percentageDone > 100) {percentageDone = 100;}
 
             let display = `
                 Open the box now to earn:<br>
