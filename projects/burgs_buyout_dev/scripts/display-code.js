@@ -203,8 +203,8 @@ function updateDisplay() {
             
             // Calculate Progress
                 let priorGoal = Math.pow(boxExponent, potentialBoxLevel-1) * 1000000000;
-                let percentageDone = (player.lifetimeCoins - priorGoal) / nextCoinGoal;
-                percentageDone *= 200;
+                let percentageDone = (player.lifetimeCoins - priorGoal) / (nextCoinGoal - priorGoal);
+                percentageDone *= 100;
 
             let display = `
                 Open the box now to earn:<br>
