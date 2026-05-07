@@ -36,9 +36,6 @@ function swapPuffle(num) {
         }
         updateMath();
         displayPuffle();
-        for (var c=0; c<player.building.length; c++) {
-            updateBuilding(c);
-        }
     
 };
 function displayPuffle() {
