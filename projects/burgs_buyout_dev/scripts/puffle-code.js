@@ -103,10 +103,20 @@ function purplePuffle() {
             if (puffleStat.purple.timeLeftOnMinigame === 0) {
                 puffleStat.purple.currentMinigame = 'None';
                 updateMath();
+                for (var a=0; a<player.building.length; a++) {
+                    if (player.building[a].owned > 0) {
+                        updateBuilding(a);
+                    }
+                }
             }
         }
         if (puffleStat.purple.timeLeftOnMinigame === 0) {
             puffleStat.purple.currentMinigame = 'None';
+            for (var a=0; a<player.building.length; a++) {
+                if (player.building[a].owned > 0) {
+                    updateBuilding(a);
+                }
+            }
         }
 
     // Check for Purple Puffle's countdown
