@@ -102,6 +102,22 @@
     transform: translateY(5px);
   }
 }
+#herobrine-text {
+    color: rgb(67, 67, 67);
+    box-shadow: none;
+    top: 10px;
+    left: 515px;
+    position: absolute;
+    z-index: 6;
+}
+#herobrine-cameo {
+    bottom: 50px;
+    left: 530px;
+    height: 40px;
+    position: absolute;
+    width: 40px;
+    z-index: 6;
+}
 
 
 

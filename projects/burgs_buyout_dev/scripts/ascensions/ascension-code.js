@@ -18,6 +18,16 @@ function clickBox() {
         $('#doubloon-box-spot').html(`Doubloons: ${player.doubloons} ${emojiInsert('doubloon')}`);
         $('#box-level-spot').html(`Box Level: ${disNum(player.boxLevel)} ${emojiInsert('box')} (+ ${disNum(player.boxLevel * 10)}% ${emojiInsert('coin')})`);
         placeAscUpgrades();
+        let herobrineAppear = Math.floor(Math.random()*5);
+        if (herobrineAppear === 0) {
+            $('#herobrine-cameo').fadeIn(0);
+            $('#herobrine-text').fadeIn(0);
+        }
+        else {
+            $('#herobrine-cameo').fadeOut(0);
+            $('#herobrine-text').fadeOut(0);
+        }
+
     
     // Play shrinking animation
         setTimeout(function() {
