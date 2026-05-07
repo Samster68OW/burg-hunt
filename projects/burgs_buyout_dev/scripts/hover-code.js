@@ -116,15 +116,25 @@ function hoverTextPuffle(num) {
 
 
 function hoverTextBox() {
+    let display = ``;
 
-    // Display
-        let display = `${emojiInsert('box')} The Cardboard Box<br>
-            <br>
-            Note: Opening the box might have <u>unforeseen consequences</u>.
-            <br><br>
-            <span class='flavorText'>This box is for looking, not opening.</span>`;
-        $('#hover-spot').html(display);
-        $('#hover-spot').css('opacity', '1.0');
+    if (player.ascensions === 0) {
+        display = `${emojiInsert('box')} The Cardboard Box<br>
+        <br>
+        Note: Opening the box might have <u>unforeseen consequences</u>.
+        <br><br>
+        <span class='flavorText'>This box is for looking, not opening.</span>`;
+    }
+    else {
+        display = `${emojiInsert('box')} The Cardboard Box<br>
+        <br>
+        Earning coins fills your doubloon meter. Every time you fill the meter, one doubloon is added under the box. Open the box to obtain the awaiting doubloons.
+        <br><br>
+        <span class='flavorText'>Each doubloon takes more coins to earn than the previous one!</span>`;
+    }
+
+    $('#hover-spot').html(display);
+    $('#hover-spot').css('opacity', '1.0');
 
 };
 
@@ -144,10 +154,23 @@ function hoverAscUpgrade(num) {
         let display = `<b>${ascUpgradeData[num].name} [Asc Upgrade]</b><br>`;
         if (player.ascUpgrade[num] === false) {display += `Cost: ${ascUpgradeData[num].cost} ${emojiInsert('doubloon')}`;}
         else if (player.ascUpgrade[num] === true) {display += `<span style="color:yellow;">Purchased!</span>`;}
-        display+= `<br><br>
+        display += `<br><br>
             ${ascUpgradeData[num].desc}<br>
             <br>
             <span class='flavorText'>${ascUpgradeData[num].flavorText}</span>`;
+        $('#asc-hover-spot').html(display);
+        $('#asc-hover-spot').fadeIn(0);
+
+};
+function hoverRespec(num) {
+
+    // Display
+        let display = `<b>Gary's Respec Ability</b><br>
+        <span style="color:yellow;">Free!</span>`;
+        display += `<br><br>
+            Bought the wrong upgrades? Can't get anymore doubloons? Gary can help! This button resets your ascended upgrades and returns your doubloons at no cost.<br>
+            <br>
+            <span class='flavorText'>It took Gary a lot of effort to manipulate the Outer Box Dimension. Props to him!</span>`;
         $('#asc-hover-spot').html(display);
         $('#asc-hover-spot').fadeIn(0);
 

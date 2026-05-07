@@ -118,6 +118,22 @@
     width: 40px;
     z-index: 6;
 }
+#gary-respec-button {
+    background-size: 100% 100%;
+    border-radius: 25px;
+    cursor: url('../images/cursor/pointer.png'), auto;
+    height: 50px;
+    position: absolute;
+    width: 50px;
+    right: 20px;
+    bottom: 20px;
+    opacity: 0.8;
+    background-image: url("../images/ascension/gary_icon.png")
+}
+#gary-respec-button:hover {
+    opacity: 1.0;
+    scale: 0.9;
+}
 
 
 

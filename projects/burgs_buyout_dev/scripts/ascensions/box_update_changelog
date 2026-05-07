@@ -1,0 +1,34 @@
+// Box Update Changelog
+
+
+
+Version 1.1.0e - May 7th, 2026
+- Gary can now help you respec your Ascended Upgrades in the Outer Box Dimension!
+- Added a new Box description that explains how the doubloon meter works.
+- Boosted Mascot ability length (15s -> 20s)
+- Updated the Mascot Tracker upgrade icon (Thanks, silver!)
+- Added new Outer Box Dim logo (Thanks, silver!)
+
+Version 1.1.0d - May 6th, 2026
+- Added missing sound effects.
+- Possibly fixed the Purple Puffle's visual glitches.
+
+Version 1.1.0c - May 6th, 2026
+- Added a stat to track how many penguins you have hired. (Thanks, silver!)
+- Added a stat to track how long it took the player to complete the new content.
+- Finally fixed the box bar.
+- Fixed Puffle achievement triggering at the wrong time. (Thanks, silver!)
+- Improved some descriptions to clarify mechanics.
+- Fixed credits typo.
+
+Version 1.1.0b - May 6th, 2026
+- Fixed the NaN coins bug.
+- Fixed ending early.
+- Fixed some visual bugs.
+
+Version 1.1.0a (The Box Update Playtest) - May 5th, 2026
+- Added a cardboard box.
+- Shift + Click will now purchase as many minigames as possible.
+- Added a "CPS Multiplier" stat.
+- Turned up the game's volume. Removed the ability to mute the music.
+- Added additional failsafes for save data.

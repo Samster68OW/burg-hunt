@@ -92,6 +92,10 @@ function placeAscUpgrades() {
         display += `<img src='images/ascension/the_box.png' class='decorative-box' style='left:70px; bottom:200px; rotate:20deg;'>
             <img src='images/ascension/the_box.png' class='decorative-box' style='left:430px; bottom:130px; rotate:-40deg; scale:1.6;'>
             <img src='images/ascension/the_box.png' class='decorative-box' style='left:150px; bottom:480px; rotate:10deg; scale:0.8;'>`;
+    // Add Gary
+        if (unlockedCount >= 5) {
+            display += `<div id='gary-respec-button' onclick='respecAscUpgrades();' onmouseenter='hoverRespec();' onmouseleave='ascHoverTextClear();'></div>`;
+        }
     $('#right-box-dim-cell').html(display);
     if (unlockedCount === ascUpgradeData.length) {earnAscAchievement(8);}
 };
@@ -167,6 +171,7 @@ function returnToGame() {
         displayPuffle();
         resetSound('BG Music - Box');
         playSound('Click Coin');
+        achievementDisplay();
         currentMascot.cooldown = 1200; // 2 Minutes
 
     // Get us back
@@ -192,5 +197,24 @@ function petPuffle() {
     $('#puffle-display-spot img').removeClass('petPuffleClass');
     updateDisplay();
     $('#puffle-display-spot img').addClass('petPuffleClass');
+
+};
+
+
+
+function respecAscUpgrades() {
+    if (confirm("Are you sure you want to reset your ascended upgrades?") === false) {return;}
+
+    // Reset upgrades
+        for (var a=0; a<player.ascUpgrade.length; a++) {
+            if (player.ascUpgrade[a] === true) {
+                player.doubloons += ascUpgradeData[a].cost;
+                player.ascUpgrade[a] = false;
+            }
+        }
+        $('#doubloon-box-spot').html(`Doubloons: ${player.doubloons} ${emojiInsert('doubloon')}`);
+        playSound('Puffle Boost');
+        placeAscUpgrades();
+        ascHoverTextClear();
 
 };

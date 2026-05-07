@@ -225,6 +225,9 @@ function updateDisplay() {
             if (player.ascUpgrade[a] === true) {
                 $(`#purchased-ascUpgrade-${a}-spot`).fadeIn(0);
             }
+            else if (player.ascUpgrade[a] === false) {
+                $(`#purchased-ascUpgrade-${a}-spot`).fadeOut(0);
+            }
         }
 
     // Update Puffle List
@@ -374,6 +377,9 @@ function achievementDisplay() {
                 }
             }
             achDisplay += `</td></tr></table>`;
+        }
+        else if (player.ascUpgrade[1] === false) {
+            achDisplay += ``;
         }
         
     $('#achievements-page').html(achDisplay);

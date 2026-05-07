@@ -31,7 +31,7 @@ function startMascotEvent(num) {
     if (num === undefined) {num = Math.floor(Math.random()*mascotData.length);}
     currentMascot = {
         mascotID: num,
-        ticksRemaining: 150 // 15 Seconds
+        ticksRemaining: 200 // 20 Seconds
     };
     $('#mascot-sit-spot').html(mascotData[currentMascot.mascotID].desc);
     $('#mascot-sit-spot').css('background-image', `url('images/mascot/${mascotData[currentMascot.mascotID].img}.png')`);

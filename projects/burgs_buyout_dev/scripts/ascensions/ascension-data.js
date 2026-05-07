@@ -85,7 +85,7 @@ const ascUpgradeData = [
         },
     // Characters Branch (South Path)
         {
-            name: "Mascot Tracker", desc: "Every 2 minutes, a mascot will appear and grant a massive boost for 15 seconds.", icon: 'mascot_tracker', cost: 3,
+            name: "Mascot Tracker", desc: "Every 2 minutes, a mascot will appear and grant a massive boost for 20 seconds.", icon: 'rockhopper_icon', cost: 3,
             requirement: {upgrade: 0},
             effect: {type: "Dummy"},
             flavorText: "The mascot trackers on Zero Nation are so good that they even work in this game!",
