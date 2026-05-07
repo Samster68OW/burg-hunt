@@ -9,98 +9,135 @@
 
     <!-- Internal Javascript -->
       <!-- Scripts -->
+        <script type="text/javascript" src="scripts/ascensions/ascension-code.js"></script>
+        <script type="text/javascript" src="scripts/ascensions/ascension-data.js"></script>
+        <script type="text/javascript" src="scripts/ascensions/iceberg-code.js"></script>
+        <script type="text/javascript" src="scripts/ascensions/mascot-code.js"></script>
         <script type="text/javascript" src="scripts/save-player.js"></script>
         <script type="text/javascript" src="scripts/display-code.js"></script>
         <script type="text/javascript" src="scripts/game-code.js"></script>
         <script type="text/javascript" src="scripts/game-data.js"></script>
         <script type="text/javascript" src="scripts/hover-code.js"></script>
         <script type="text/javascript" src="scripts/input-handler.js"></script>
+        <script type="text/javascript" src="scripts/puffle-code.js"></script>
         <script type="text/javascript" src="scripts/sound-engine.js"></script>
     <!-- Internal CSS -->
-        <link rel="stylesheet" href="stylesheet.css">
+        <link rel="stylesheet" href="stylesheet/ascension.css">
+        <link rel="stylesheet" href="stylesheet/main.css">
 
   </head>
   <body>
 
 
     <div id="game-frame">
-        <div id="achievement-dropdown">
-          <b>Achievement Unlocked!</b><br>
-          <span id="current-ach-name"></span>
-        </div>
-        <table id="main-table" class="main-page">
-          <tr><td colspan="3" id="top-cell">
-            Burg's Buyout v1.0.3 | <span class='settings-button' onclick="loadPage('settings-div');">Settings</span> | <span class='settings-button' onclick="loadPage('changelog-div');">Changelog</span> | <span id="save-popup" hidden>Game Saved!</span>
-          </td></tr>
-          <tr>
-            <td id="left-cell" class="main-cell">
-              
-              <img src="images/site/title.png" style="height:90px; width:230px;"><br>
-              <span id="coin-display">???</span>
-              <div id="cps-display">???</div>
-              <br><br><br><br><br><br>
-              <div style="height:150px;">
-                <div id="clickable-coin" onclick="clickCoin('player');"></div>
-                <img src="images/site/starburst.png" id="starburst-behind-coin">
-              </div>
+      <div id="achievement-dropdown"></div>
+      <table id="main-table" class="main-page">
+        <tr><td colspan="3" id="top-cell">
+          Burg's Buyout v1.1.0 - The Box Update | 
+          <span class='settings-button' onclick="loadPage('settings-div');">Settings/Credits</span> | 
+          <span class='settings-button' onclick="loadPage('changelog-div');">Changelog</span> | 
+          <span id='iceberg-tab-button' hidden><span class='settings-button' onclick="generateIcebergPage(); loadPage('iceberg-page');">The Iceberg</span> | </span>
+          <span id="save-popup" hidden>Game Saved!</span>
+        </td></tr>
+        <tr>
+          <td id="left-cell" class="main-cell">
+            
+            <img src="images/site/title.png" style="height:90px; width:230px;"><br>
+            <span id="coin-display">???</span>
+            <div id="cps-display">???</div>
+            <br><br><br><br><br><br>
+            <div style="height:150px;">
+              <div id="clickable-coin" onclick="clickCoin('player');"></div>
+              <img src="images/site/starburst.png" id="starburst-behind-coin">
+            </div>
+            <br><br>
+            <div id="coins-click-display">???</div>
+            <table id="puffle-big-spot"><tr>
+              <td id="puffle-display-spot" onclick="petPuffle();"></td>
+              <td id="puffle-info-spot"></td>
+            </tr></table>
+            <div id="migrator-sit-spot" hidden></div>
+            <div id="mascot-sit-spot" hidden>Boost!</div>
+            <div id="sell-sit-spot" hidden></div>
+            <div id="iceberg-sit-spot" hidden></div>
+          </td>
+          <td id="middle-cell" class="main-cell">
+            <table id="middle-top-tab-table"><tr>
+              <td onclick="loadMiddlePage('how-to-play');" id="how-to-play-tab">How to Play</td>
+              <td onclick="loadMiddlePage('statistics');" id="statistics-tab">Statistics</td>
+              <td onclick="loadMiddlePage('achievements');" id="achievements-tab" hidden>Achievements</td>
+            </tr></table>
+            <div id="how-to-play-page" class="middle-page">
+              <div class='middle-header'>How to Play</div><br>
+              Burg needs our help! We need to raise coins to repair the Migrator after it hit an iceberg. Click the large coin on the left to collect coins. Then reinvest those coins into hiring penguins to play minigames for you. Good luck!
               <br><br>
-              <div id="coins-click-display">???</div>
-              <table id="puffle-big-spot"><tr>
-                <td id="puffle-display-spot"></td>
-                <td id="puffle-info-spot"></td>
-              </tr></table>
-            </td>
-            <td id="middle-cell" class="main-cell">
-              <table id="middle-top-tab-table"><tr>
-                <td onclick="loadMiddlePage('how-to-play');" id="how-to-play-tab">How to Play</td>
-                <td onclick="loadMiddlePage('statistics');" id="statistics-tab">Statistics</td>
-                <td onclick="loadMiddlePage('achievements');" id="achievements-tab" hidden>Achievements</td>
-              </tr></table>
-              <div id="how-to-play-page" class="middle-page">
-                <div class='middle-header'>How to Play</div><br>
-                Burg needs our help! We need to raise coins to repair the Migrator after it hit an iceberg. Click the large coin on the left to collect coins. Then reinvest those coins into hiring penguins to play minigames for you. Good luck!
-                <br><br>
-                <div class='middle-header'>Controls</div><br>
-                Press the Spacebar to earn coins.<br>
-                Press M to toggle the music.<br>
-                Press Q and W to toggle tabs.
+              <div class='middle-header'>Controls</div><br>
+              Press the Spacebar to earn coins.<br>
+              Press Q to toggle the middle column.<br>
+              Press W to toggle the right column.<br>
+              Hold Shift to purchase as many minigames as you can in one click.
+            </div>
+            <div id="statistics-page" class="middle-page"></div>
+            <div id="achievements-page" class="middle-page"></div>
+            <div id="hover-spot"></div>
+            <div id="burg-img"></div>
+            <div id="gold-pile"></div>
+            <div id="gold-pile-2"></div>
+          </td>
+          <td id="right-cell" class="main-cell">
+            <table id="right-top-tab-table"><tr>
+              <td onclick="loadRightPage('minigame');" id="minigame-tab">Minigames</td>
+              <td onclick="loadRightPage('upgrade');" id="upgrade-tab" hidden>Upgrades</td>
+              <td onclick="loadRightPage('puffle');" id="puffle-tab" hidden>Puffles</td>
+            </tr></table>
+            <div id="minigame-page" class="right-page" hidden></div>
+            <div id="upgrade-page" class="right-page" hidden>
+              <div id="box-list" hidden>
+                <div class='middle-header'>The Box</div>
+                <div style="height: 180px;">
+                  <div id="big-box" onclick="clickBox();" onmouseenter="hoverTextBox();" onmouseleave="hoverTextClear();"><br><br><br><br><br><br>Open the Box</div>
+                  <img src="images/site/starburst.png" id="starburst-behind-box">
+                </div><br>
+                <div id="potential-levels-spot" style="text-align:center;" hidden></div>
+                <hr>
               </div>
-              <div id="statistics-page" class="middle-page"></div>
-              <div id="achievements-page" class="middle-page"></div>
-              <div id="hover-spot"></div>
-              <div id="burg-img"></div>
-              <div id="gold-pile"></div>
-              <div id="gold-pile-2"></div>
-            </td>
-            <td id="right-cell" class="main-cell">
-              <table id="right-top-tab-table"><tr>
-                <td onclick="loadRightPage('minigame');" id="minigame-tab">Minigames</td>
-                <td onclick="loadRightPage('upgrade');" id="upgrade-tab" hidden>Upgrades</td>
-                <td onclick="loadRightPage('puffle');" id="puffle-tab" hidden>Puffles</td>
-              </tr></table>
-              <div id="minigame-page" class="right-page" hidden></div>
-              <div id="upgrade-page" class="right-page" hidden>
-                <div class='middle-header'>Upgrades</div><br>
-                <div id="new-upgrade-list"></div><br>
-                <div class='middle-header'>Purchased Upgrades</div><br>
-                <div id="owned-upgrade-list"></div>
+              <div class='middle-header'>Upgrades</div><br>
+              <div id="new-upgrade-list"></div><br>
+              <hr>
+              <div class='middle-header'>Purchased Upgrades</div><br>
+              <div id="owned-upgrade-list"></div>
+              <div id="asc-upgrade-section" hidden>
+                <hr>
+                <div class='middle-header'>Ascended Upgrades</div><br>
+                <div id="asc-upgrade-list"></div>
               </div>
-              <div id="puffle-page" class="right-page" hidden></div>
-            </td>
-          </tr>
-        </table>
-        <div id="settings-div" class="main-page" hidden>
-          <div style="padding: 15px;">
+            </div>
+            <div id="puffle-page" class="right-page" hidden></div>
+          </td>
+        </tr>
+      </table>
+      <div id="settings-div" class="main-page" hidden>
+        <table><tr>
+          <td style="padding:15px; vertical-align:top;">
             <h1>Settings</h1>
-            <span class="settings-button" onclick="toggleMusic();" id="toggle-music-button">[ Music: On ]</span><br>
             <span class="settings-button" onclick="resetGame();">[ Reset Game ]</span>
             <br><br>
             <h1>Credits</h1>
             Developer: Samster68<br>
             Burg images and postcard: samuel<br>
             Game title graphic: Silverpetals<br>
-            Music: "Paris St. Germain" from Club Penguin
+            Additional sounds: Jeff The Rock<br>
+            Additional flavor text: samuel<br>
+            Additional art: starryskyez
             <br><br>
+            <h1>Music</h1>
+            "Paris St. Germain"<br>
+            "Ambiecophone" (Xylo)<br>
+            "Interpretations of a Dream"
+            <br><br><br><br>
+            <span class='settings-button' onclick="loadPage('main-table');">[ Back ]</span>
+          </td>
+          <td style="padding:15px; vertical-align:top;">
             <h1>Playtesters</h1>
             samuel<br>
             Litdia<br>
@@ -111,57 +148,133 @@
             Wikipedia<br>
             willyamos<br>
             SyntheticFox
-            <br><br><br><br>
-            <span class='settings-button' onclick="loadPage('main-table');">[ Back ]</span>
-            <img id="title-img" src="images/site/title.png" style="height:90px; width:230px;">
-            <img id="samster-img" src="images/site/samster.png">
+            <br><br>
+            <h1>Special Thanks</h1>
+            samuel<br>
+            Jaup<br>
+            The Zero Nation Staff<br>
+            The Club Penguin Zero Team<br>
+            Our God, through whom all things are possible
+          </td>
+        </tr></table>
+        <img id="title-img" src="images/site/title.png" style="height:90px; width:230px;">
+        <img id="samster-img" src="images/site/samster.png">
+      </div>
+      <div id="changelog-div" class="main-page" hidden>
+        <div style="padding: 15px;">
+          <h1>Changelog</h1><br>
+          <div id="changelog-content-div">
+
+            Version 1.1.0 (The Box Update) - May 7th, 2026
+            <ul>
+              <li>Added a cardboard box.</li>
+              <li>Shift + Click will now purchase as many minigames as possible.</li>
+              <li>Added a "CPS Multiplier" stat.</li>
+              <li>Added a "Penguins Hired" stat. (Thanks, silver!)</li>
+              <li>Turned up the game's volume. Removed the ability to mute the music.</li>
+              <li>Added additional failsafes for save data.</li>
+            </ul>
+            <hr>
+            Patch 1.0.3 - April 27th, 2026
+            <ul>
+              <li>Fixed a bug that caused the Migrator's CPS Multiplier to fail.</li>
+              <li>Added new achievement sound effect. (Thanks, Jeff!)</li>
+              <li>Fixed grammatical errors.</li>
+            </ul>
+            Patch 1.0.2 - April 24th, 2026
+            <ul>
+              <li>Added this changelog screen so players can learn about new content and patches.</li>
+              <li>The music will no longer unmute itself.</li>
+              <li>Players can now alternatively use the Spacebar to click the coin.</li>
+              <li>Added a second coin pile behind Burg, which keeps growing until the player reaches 1 trillion lifetime coins.</li>
+            </ul>
+            Patch 1.0.1 - April 23rd, 2026
+            <ul>
+              <li>Added the 100% completion stat to show how long it takes the player to collect every achievement.</li>
+            </ul>
+            Version 1.0.0 (Full Release) - April 23rd, 2026
+            <ul>
+              <li>Full release onto Zero Nation!</li>
+            </ul>
+            <hr>
+            Zero Nation Staff playtest. (Beta Build) - April 17th, 2026<br>
+            First playtest. (Alpha Build) - April 16th, 2026<br>
+            Development began. - April 2nd, 2026
+
+          </div>
+          <br><br><br>
+          <span class='settings-button' onclick="loadPage('main-table');">[ Back ]</span>
+          <img id="title-img" src="images/site/title.png" style="height:90px; width:230px;">
+          <img id="samster-img" src="images/site/samster.png">
+        </div>
+      </div>
+      <div id="box-open-animation" class="main-page" hidden>
+        <div id="void-box"></div>
+      </div>
+      <table id="box-dim-table" class="main-page" hidden><tr>
+        <td id="left-box-dim-cell">
+
+          Welcome to the...<br>
+          <img src="images/ascension/outer_box_logo.png" style="width:250px">
+          <br><br>
+          All of your minigames, upgrades, and puffles have been lost to the void.
+          <br><br>
+          Your coins that entered this place have turned into Doubloons, which can be spent in the box dimension on <u>Ascended Upgrades</u>. These upgrades are more powerful and persist across ascensions. Click a node on the right to purchase the ascended upgrade.
+          <br><br>
+          Your coins also increase your <u>Box Level</u>, which also persists across ascensions. Each Box Level grants a +10% boost to your CPS and to your coins earned per click.
+          <br><br><br><br>
+          <span id="doubloon-box-spot"></span>
+          <br><br>
+          <span id="box-level-spot"></span>
+          <br><br>
+          <span id="box-level-box-spot"></span>
+          <div id="return-to-burg-button" onclick="returnToGame();">Return to Burg</div>
+          <div id="asc-hover-spot" hidden></div>
+          <div id="herobrine-text">Herobrine</div>
+          <img id="herobrine-cameo" src="images/ascension/herobrine.png" hidden>
+
+        </td>
+        <td id="right-box-dim-cell"></td>
+      </tr></table>
+      <div id="iceberg-page" class="main-page" hidden>
+        <div id="iceberg-penguin-space"></div>
+        <div id="iceberg-content-box">
+          <span id="iceberg-current-progress" style="font-size: 25px;"></span>
+          <br><br>
+          <div id="tip-iceberg-button" onclick="attemptToTipIceberg()">Tip the Iceberg!</div>
+          <br>
+          <span class='settings-button' onclick="loadPage('main-table');">[ Back ]</span>
+        </div>
+      </div>
+      <div id="iceberg-flipped-page" class="main-page" hidden>
+        <br><br><br>
+        <div id="ending-content-box">
+          <div id="lore-line1" hidden>"I stand amidst a great revelation,</div>
+          <div id="lore-line2" hidden>And I am humbled by its wisdom:</div>
+          <div id="lore-line3" hidden>For it be not the coins that fixed the Migrator,</div>
+          <div id="lore-line4" hidden>but the community that collected them."</div><br>
+          <div id="lore-line5" hidden>- Burg, probably</div><br><br><br>
+          <div id="lore-line6" hidden>
+            <span class='settings-button' onclick="loadTippedIceberg();">[ Next ]</span>
           </div>
         </div>
-        <div id="changelog-div" class="main-page" hidden>
-          <div style="padding: 15px;">
-            <h1>Changelog</h1><br>
-            <div id="changelog-content-div">
-
-              Patch 1.0.3 - April 27th, 2026
-              <ul>
-                <li>Fixed a bug that caused the Migrator's CPS Multiplier to fail.</li>
-                <li>Added new achievement sound effect. (Thanks, Jeff!)</li>
-                <li>Fixed grammatical errors.</li>
-              </ul>
-              Patch 1.0.2 - April 24th, 2026
-              <ul>
-                <li>Added this changelog screen so players can learn about new content and patches.</li>
-                <li>The music will no longer unmute itself.</li>
-                <li>Players can now alternatively use the Spacebar to click the coin.</li>
-                <li>Added a second coin pile behind Burg, which keeps growing until the player reaches 1 trillion lifetime coins.</li>
-              </ul>
-              Patch 1.0.1 - April 23rd, 2026
-              <ul>
-                <li>Added the 100% completion stat to show how long it takes the player to collect every achievement.</li>
-              </ul>
-              Version 1.0.0 - April 23rd, 2026
-              <ul>
-                <li>Full release onto Zero Nation!</li>
-              </ul>
-              <hr>
-              Zero Nation Staff playtest. (Beta Build) - April 17th, 2026<br>
-              First playtest. (Alpha Build) - April 16th, 2026<br>
-              Development began. - April 2nd, 2026
-
-            </div>
-            <br><br><br>
-            <span class='settings-button' onclick="loadPage('main-table');">[ Back ]</span>
-            <img id="title-img" src="images/site/title.png" style="height:90px; width:230px;">
-            <img id="samster-img" src="images/site/samster.png">
-          </div>
+        <div id="clickable-paper" onclick="clickOnPaper();" hidden>
+          <img src="images/iceberg/ending.png">
         </div>
+        <div id="big-paper" hidden>
+          <img src="images/iceberg/ending.png">
+          <div id="ending-line" hidden>Thank you for playing Burg's Buyout.</div>
+          <div id="return-from-ending-button" class="settings-button" onclick="clickReturnButton();" hidden>[ Return ]</div>
+        </div>
+      </div>
     </div>
+
+
+
     <div id="footer">
       This game is not affiliated with Club Penguin Zero. It is made by fans. No artificial intelligence was used in the creation of this game. <br>
       Game too small? Try zooming in with your browser's settings! Music and sounds annoying? Try muting the tab!
     </div>
-    
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -243,25 +356,15 @@ function toggleMiddlePage() {
 function loadPage(pageName) {
   $('.main-page').fadeOut(0);
   $(`#${pageName}`).fadeIn(0);
+  if (pageName === 'main-table') {
+    $('#clickable-coin').removeClass('coinPulseClass');
+    $('#puffle-display-spot img').removeClass('petPuffleClass');
+  }
 };
 
 
 
-let playMusic = true;
 let gameStarted = false;
-function toggleMusic() {
-  if (gameStarted === false) {return;}
-  if (playMusic === true) {
-    playMusic = false;
-    $('#toggle-music-button').html('[ Music: Off ]');
-    pauseSound('BG Music');
-  }
-  else if (playMusic === false) {
-    playMusic = true;
-    $('#toggle-music-button').html('[ Music: On ]');
-    playSound('BG Music');
-  }
-};
 
 
 

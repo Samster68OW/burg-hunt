@@ -141,7 +141,7 @@ const upgradeData = [
             name: "My First Friend", desc: "Your clicks are equal to the CPS of Puffle Roundup.", emoji: 'tap', cost: 500000,
             requirement: {type: "Building", building: 3, own: 25},
             effect: {type: "Click-Building", building: 3},
-            flavorText: "I tried naming a puffle 'drop table' once. Fortunately, the CPZ team validates the puffle name data."
+            flavorText: "I tried naming a puffle 'drop table' once. Fortunately, the the CPZ team validates the puffle name data."
         },
     // Cart Surfer
         {
@@ -215,11 +215,126 @@ const upgradeData = [
         },
     // Endgame
         {
-            name: "Repair the Migrator", desc: "Repairs the Migrator and grants a x2 CPS boost!", emoji: 'coin', cost: 1000000000,
+            name: "Repair the Migrator", desc: "Repairs the Migrator and grants a +100% CPS boost!", emoji: 'coin', cost: 1000000000,
             requirement: {type: "Building", building: 7, own: 1},
-            effect: {type: "CPS-Multiplier", mult: 2},
-            flavorText: "We almost have enough coins to repair Rockhopper's ship, the Migrator!"
+            effect: {type: "CPS-Multiplier", mult: 1.00},
+            flavorText: "Purchasing this upgrade repairs the Migrator and wins the game. Congrats on making it this far!"
+        },
+        {
+            name: "A Cardboard Box", desc: "Just a regular cardboard box.", emoji: 'box', cost: 100000000000,
+            requirement: {type: "Upgrade", upgrade: 26},
+            effect: {type: "Dummy"},
+            flavorText: "This product follows RSC Carton Box standards to maximize efficiency, durability, and versatility."
+        },
+
+
+
+    // Unshackled Upgrades
+    // Hydro Hopper
+        {
+            name: "Fleet Commander", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 10000000, // 10 Million
+            requirement: {type: "Asc-Upgrade", upgrade: 3},
+            effect: {type: "Building-Mult", building: 0, mult: 100},
+            flavorText: "That's a lot of boat maintenance!"
+        },
+        {
+            name: "Hydro Hopper+", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 100000000, // 100 Million
+            requirement: {type: "Asc-Upgrade", upgrade: 3},
+            effect: {type: "Building-Mult", building: 0, mult: 100},
+            flavorText: "Hydro Hopper at maximum efficiency."
+        },
+    // Bean Counters
+        {
+            name: "Espresso Machine 3000", desc: "Earn x100 more CPS for Bean Counters.", emoji: 'upgrade', cost: 10000000000, // 10 Billion
+            requirement: {type: "Asc-Upgrade", upgrade: 4},
+            effect: {type: "Building-Mult", building: 1, mult: 100},
+            flavorText: "The coffee is so concentrated it allows your penguin to finish an entire shift before they’ve even walked through the door."
+        },
+        {
+            name: "Bean Counters+", desc: "Earn x100 more CPS for Bean Counters.", emoji: 'upgrade', cost: 100000000000, // 100 Billion
+            requirement: {type: "Asc-Upgrade", upgrade: 4},
+            effect: {type: "Building-Mult", building: 1, mult: 100},
+            flavorText: "Bean Counters at maximum efficiency."
+        },
+    // Ice Fishing
+        {
+            name: "Golden Fishing Rod", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 1000000000000, // 1 Trillion
+            requirement: {type: "Asc-Upgrade", upgrade: 5},
+            effect: {type: "Building-Mult", building: 2, mult: 100},
+            flavorText: "Rumor has it that fish volunteer to be caught with this rod."
+        },
+        {
+            name: "Ice Fishing+", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 3000000000000, // 3 Trillion
+            requirement: {type: "Asc-Upgrade", upgrade: 5},
+            effect: {type: "Building-Mult", building: 2, mult: 100},
+            flavorText: "Ice Fishing at maximum efficiency."
+        },
+    // Puffle Roundup
+        {
+            name: "Cowboy Certification.", desc: "Earn x100 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 10000000000000, // 10 Trillion
+            requirement: {type: "Asc-Upgrade", upgrade: 6},
+            effect: {type: "Building-Mult", building: 3, mult: 100},
+            flavorText: "Requires all penguins to complete a cowboy certification class prior to participation."
+        },
+        {
+            name: "Puffle Roundup+", desc: "Earn x100 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 25000000000000, // 25 Trillion
+            requirement: {type: "Asc-Upgrade", upgrade: 6},
+            effect: {type: "Building-Mult", building: 3, mult: 100},
+            flavorText: "Puffle Roundup at maximum efficiency."
+        },
+    // Cart Surfer
+        {
+            name: "X-TREME JETPACK SLED CARTZ", desc: "Earn x1000 more CPS for Cart Surfer.", emoji: 'upgrade', cost: 50000000000000, // 50 Trillion
+            requirement: {type: "Asc-Upgrade", upgrade: 7},
+            effect: {type: "Building-Mult", building: 4, mult: 1000},
+            flavorText: "What's the matter? Too EXTREME for you?"
+        },
+        {
+            name: "Cart Surfer+", desc: "Earn x100 more CPS for Cart Surfer.", emoji: 'upgrade', cost: 100000000000000, // 100 Trillion
+            requirement: {type: "Asc-Upgrade", upgrade: 7},
+            effect: {type: "Building-Mult", building: 4, mult: 100},
+            flavorText: "Cart Surfer at maximum efficiency."
+        },
+    // Pizzatron 3000
+        {
+            name: "Extra Spicy Hot Sauce", desc: "Earn x1000 more CPS for Pizzatron 3000.", emoji: 'upgrade', cost: 1000000000000000, // 1 Quadrillion
+            requirement: {type: "Asc-Upgrade", upgrade: 8},
+            effect: {type: "Building-Mult", building: 5, mult: 1000},
+            flavorText: "Sure, it burned down the Pizza Parlor once, but these penguins just can't get enough!"
+        },
+        {
+            name: "Pizzatron 3000+", desc: "Earn x100 more CPS for Pizzatron 3000.", emoji: 'upgrade', cost: 2000000000000000, // 2 Quadrillion
+            requirement: {type: "Asc-Upgrade", upgrade: 8},
+            effect: {type: "Building-Mult", building: 5, mult: 100},
+            flavorText: "Pizzatron 3000 at maximum efficiency."
+        },
+    // Dance Contest
+        {
+            name: "Dance Studio", desc: "Earn x100 more CPS for Dance Contest.", emoji: 'upgrade', cost: 10000000000000000, // 10 Quadrillion
+            requirement: {type: "Asc-Upgrade", upgrade: 9},
+            effect: {type: "Building-Mult", building: 6, mult: 100},
+            flavorText: "Significantly improves balance and coordination."
+        },
+        {
+            name: "Dance Contest+", desc: "Earn x1000 more CPS for Dance Contest.", emoji: 'upgrade', cost: 50000000000000000, // 50 Quadrillion
+            requirement: {type: "Asc-Upgrade", upgrade: 9},
+            effect: {type: "Building-Mult", building: 6, mult: 1000},
+            flavorText: "Dance Contest at maximum efficiency."
+        },
+    // Snow Trekker
+        {
+            name: "A Second Plow", desc: "Earn x100 more CPS for Snow Trekker.", emoji: 'upgrade', cost: 100000000000000000, // 100 Quadrillion
+            requirement: {type: "Asc-Upgrade", upgrade: 10},
+            effect: {type: "Building-Mult", building: 7, mult: 100},
+            flavorText: "Why didn't we think of this before?"
+        },
+        {
+            name: "Snow Trekker+", desc: "Earn x1000 more CPS for Snow Trekker.", emoji: 'upgrade', cost: 250000000000000000, // 250 Quadrillion
+            requirement: {type: "Asc-Upgrade", upgrade: 10},
+            effect: {type: "Building-Mult", building: 7, mult: 1000},
+            flavorText: "Snow Trekker at maximum efficiency. The final and most expensive upgrade in the game."
         }
+
 ];
 
 
@@ -234,7 +349,7 @@ const puffleData = [
         key: 2, flavorText: "Athletic and cheerful. I heard they are good with lassos, too."
     },
     {
-        name: "Green Puffle", desc: "(Passive: Circus) Every 2 minutes, either your CPS or coins per click will be buffed for 20 seconds.", emoji: 'green_puffle', cost: 300000,
+        name: "Green Puffle", desc: "(Passive: Circus) Every minute, either your CPS or coins per click will be buffed for 15 seconds.", emoji: 'green_puffle', cost: 300000,
         key: 3, flavorText: "Silly and playful. Always up to shenanigans."
     },
     {
@@ -248,6 +363,10 @@ const puffleData = [
     {
         name: "Red Puffle", desc: "(Passive: Completionist) Applies a CPS multiplier based on how many achievements you have collected. (1 = +3% CPS)", emoji: 'red_puffle', cost: 30000000,
         key: 6, flavorText: "Never backs down from a challenge. He's here to see this mission to its end."
+    },
+    {
+        name: "Meat Puffle", desc: "(Passive: Conform) Mimics the ability of another Puffle. Select the Meat Puffle, and then select a different Puffle to mimic it. The currently active Puffle cannot be mimicked.", emoji: 'meat_puffle', cost: 100000000000,
+        key: 7, flavorText: "This is what happens when a weak species has no natural predators."
     }
 ];
 let puffleStat = {
@@ -260,11 +379,11 @@ let puffleStat = {
         mult: 0.25
     },
     green: {
-        countdown: 1200, // 2 minutes
-        countdownMax: 1200,
+        countdown: 600, // 1 minute
+        countdownMax: 600,
         currentAbility: 'None',
         timeLeftOnAbility: 0,
-        timeLeftMax: 200, // 20 seconds
+        timeLeftMax: 150, // 15 seconds
         mult: 3.0
     },
     purple: {
@@ -276,7 +395,7 @@ let puffleStat = {
         mult: 2.0
     },
     red: {
-        mult: 1.0,
+        mult: 0,
         percent: 0.03
     }
 };
@@ -403,7 +522,7 @@ const achievementData = [
         },
     // Endgame
         {
-            name: "Puffle Rangler", desc: "Unlock every Puffle species.",
+            name: "Puffle Rangler", desc: "Unlock all six Puffle species.",
             criteria: {type: "Puffles-Purchased"},
             flavorText: "Finally the Puffle Shop can open!"
         },

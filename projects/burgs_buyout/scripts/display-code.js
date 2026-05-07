@@ -18,12 +18,12 @@ function updateDisplay() {
         // Boosts
             let CPSBoost = false;
             let clickBoost = false;
-            if (player.equippedPuffle === 0) {clickBoost = true;}
+            if (player.equippedPuffle === 0 | player.meatPuffle === 0) {clickBoost = true;}
             if (puffleStat.green.timeLeftOnAbility > 0) {
                 if (puffleStat.green.currentAbility === 'CPS') {CPSBoost = true;}
                 else if (puffleStat.green.currentAbility === 'Clicks') {clickBoost = true;}
             }
-            if (player.equippedPuffle === 5) {CPSBoost = true;}
+            if (player.equippedPuffle === 5 | player.meatPuffle === 5) {CPSBoost = true;}
             // Results
             if (CPSBoost === true) {$('#cps-display').css('color','#19b025');}
             else {$('#cps-display').css('color','white');}
@@ -58,12 +58,53 @@ function updateDisplay() {
                 $('#puffle-info-spot').html(`<b>Purple Puffle</b><br>Time until boost: ${timeUntilActivate2}<br>Boosting: ${minigameName}`);
                 break;
             case 5:
-                let cpsBoostDis = Math.floor((puffleStat.red.mult - 1) * 100);
+                let cpsBoostDis = Math.floor((puffleStat.red.mult) * 100);
                 $('#puffle-info-spot').html(`<b>Red Puffle</b><br>CPS Boost: +${cpsBoostDis}%`);
                 break;
         }
+    
+    // The Migrator
+        if (player.upgrade[26] === true) {
+            $('#migrator-sit-spot').fadeIn(0);
+        }
+        else if (player.upgrade[26] === false) {
+            $('#migrator-sit-spot').fadeOut(0);
+        }
+    // Mascots
+        if (currentMascot.ticksRemaining > 0) {
+            $('#mascot-sit-spot').fadeIn(0);
+        }
+        else {
+            $('#mascot-sit-spot').fadeOut(0);
+        }
+    // Sell (the player)
+        if (player.ascUpgrade[13] === true) {
+            $('#sell-sit-spot').fadeIn(0);
+        }
+        else if (player.ascUpgrade[13] === false) {
+            $('#sell-sit-spot').fadeOut(0);
+        }
+    // The Iceberg Tab
+        if (player.ascUpgrade[2] === true) {
+            $('#iceberg-tab-button').fadeIn(0);
+        }
+        else if (player.ascUpgrade[2] === false) {
+            $('#iceberg-tab-button').fadeOut(0);
+        }
+    // The Iceberg Icon Under Coin
+        if (player.ascAchievement[9] === true) {
+            $('#iceberg-sit-spot').fadeIn(0);
+        }
+        else if (player.ascAchievement[9] === false) {
+            $('#iceberg-sit-spot').fadeOut(0);
+        }
 
     // Update Statistics Page
+        // Calculate Penguins Hired
+            let penguinsHired = 0;
+            for (var a=0; a<player.building.length; a++) {
+                penguinsHired += player.building[a].owned;
+            }
         // Calculate Time Played
             let timeDisplay = disTime(player.timePlayed);
         let display =  `
@@ -71,10 +112,22 @@ function updateDisplay() {
             Lifetime Coins Earned: ${disNum(player.lifetimeCoins)} ${emojiInsert('coin')}<br>
             Time Played: ${timeDisplay}<br>
             Coin Clicks: ${disNum(player.coinClicks)} ${emojiInsert('tap')}<br>
-            <br>
+            Penguins Hired: ${penguinsHired}<br>
+            CPS Multiplier: + ${disNum((player.cptsMult - 1) * 100)}% ${emojiInsert('coin')}<br>
         `;
         if (player.fullCompleteTime !== false) {
-            display += `<span style='color:yellow;'>100% Time: ${disTime(player.fullCompleteTime)}</span>`;
+            display += `<span style='color:yellow;'>100% Time: ${disTime(player.fullCompleteTime)}</span><br>`;
+        }
+        if (player.ascensions > 0) {
+            display += `<br><span style='color:#f5cefc'>`;
+            display += `Ascensions: ${player.ascensions}<br>`;
+            display += `Box Level: ${disNum(player.boxLevel)} ${emojiInsert('box')} (+ ${disNum(player.boxLevel * 10)}% ${emojiInsert('coin')})<br>`;
+            display += `Doubloons: ${disNum(player.doubloons)} ${emojiInsert('doubloon')}<br>`;
+            display += `Coins this Ascension: ${disNum(player.ascensionCoins)} ${emojiInsert('coin')}<br>`;
+            if (player.icebergCompleteTime !== false) {
+                display += `<span style='color:yellow;'>200% Time: ${disTime(player.icebergCompleteTime)}</span><br>`;
+            }
+            display += `</span>`;
         }
         $('#statistics-page').html(display);
     
@@ -82,7 +135,7 @@ function updateDisplay() {
         const minGoldHeight = 155;
         const maxGoldHeight = -10;
         const goldDiff = minGoldHeight - maxGoldHeight;
-        let currPercent = logPercentage(player.lifetimeCoins, 1000000000);
+        let currPercent = logPercentage(player.ascensionCoins, 1000000000);
         let newValue = currPercent * goldDiff;
         newValue = minGoldHeight - newValue;
         $("#gold-pile").css("background-position-y", `${newValue}px`);
@@ -91,7 +144,7 @@ function updateDisplay() {
         const minGoldHeightTwo = 300;
         const maxGoldHeightTwo = 0;
         const goldDiffTwo = minGoldHeightTwo - maxGoldHeightTwo;
-        currPercent = logPercentage(player.lifetimeCoins, 1000000000000);
+        currPercent = logPercentage(player.ascensionCoins, 1000000000000);
         newValue = currPercent * goldDiffTwo;
         newValue = minGoldHeightTwo - newValue;
         $("#gold-pile-2").css("background-position-y", `${newValue}px`);
@@ -135,8 +188,45 @@ function updateDisplay() {
                     $(`#upgrade-${a}-spot`).css("opacity", "0.6");
                 }
             }
+            else if (checkUpReq(a) === false) {$(`#upgrade-${a}-spot`).fadeOut(0);}
             if (player.upgrade[a] === true) {
                 $(`#purchased-upgrade-${a}-spot`).fadeIn(0);
+            }
+            else if (player.upgrade[a] === false) {
+                $(`#purchased-upgrade-${a}-spot`).fadeOut(0);
+            }
+        }
+        if (player.upgrade[27] === false) {$('#box-list').fadeOut(0);}
+        else if (player.upgrade[27] === true) {$('#box-list').fadeIn(0);}
+        if (player.ascensions === 0) {$('#potential-levels-spot').fadeOut(0);}
+        else if (player.ascensions >= 1) {
+            
+            // Calculate Progress
+                let priorGoal = Math.pow(boxExponent, potentialBoxLevel-1) * 1000000000;
+                let percentageDone = (player.lifetimeCoins - priorGoal) / (nextCoinGoal - priorGoal);
+                percentageDone *= 100;
+                if (percentageDone > 100) {percentageDone = 100;}
+
+            let display = `
+                Open the box now to earn:<br>
+                ${disNum(potentialBoxLevel - player.boxLevel)} ${emojiInsert('doubloon')}<br><br>
+                <div id='loading-bar-outer'>
+                    <div id='loading-bar-inner' style='width:${percentageDone}%'></div>
+                </div><br>
+            `;
+            $('#potential-levels-spot').html(display);
+            $('#potential-levels-spot').fadeIn(0);
+        }
+    
+    // Ascended Upgrades
+        if (player.ascensions > 0) {$('#asc-upgrade-section').fadeIn(0);}
+        else if (player.ascensions === 0) {$('#asc-upgrade-section').fadeOut(0);}
+        for (a=0; a<player.ascUpgrade.length; a++) {
+            if (player.ascUpgrade[a] === true) {
+                $(`#purchased-ascUpgrade-${a}-spot`).fadeIn(0);
+            }
+            else if (player.ascUpgrade[a] === false) {
+                $(`#purchased-ascUpgrade-${a}-spot`).fadeOut(0);
             }
         }
 
@@ -169,6 +259,13 @@ function checkUpReq(upID) {
         case 'Coin-Clicks':
             if (player.coinClicks >= upgradeReq.amount) {return true;}
             else {return false;}
+        case 'Upgrade':
+            if (player.upgrade[upgradeReq.upgrade] === true) {return true;}
+            else {return false;}
+            break;
+        case 'Asc-Upgrade':
+            if (player.ascUpgrade[upgradeReq.upgrade] === true) {return true;}
+            else {return false;}
             break;
     }
     return false;
@@ -177,7 +274,7 @@ function updateBuilding(a) {
 
     // Pink Puffle
         let costColor = 'white';
-        if (player.equippedPuffle === 1) {
+        if (player.equippedPuffle === 1 | player.meatPuffle === 1) {
             costColor = '#19b025';
         }
     
@@ -200,35 +297,98 @@ function updateBuilding(a) {
         </table>
     `;
     $(`#building-${a}-spot`).html(display);
-}
+};
+function setupPuffleBoxes() {
+    for (var a=0; a<puffleData.length; a++) {
+        if (a === 6) {
+            if (player.ascUpgrade[15] === true) {
+                if (player.meatPuffle <= -2) {player.meatPuffle = -1;}
+                $('#meat-puffle-tr').fadeIn(0);
+                let display = `<table>
+                    <tr>
+                        <td style='width:55px;'><img src='images/puffle/${puffleData[a].emoji}.png' height=40px width=45px></td>
+                        <td style='text-align:left; vertical-align:top; width:130px;' id='puffle-${a}'>
+                            <b>${puffleData[a].name}</b><br>
+                            Cost: ${disNum(puffleData[a].cost)} ${emojiInsert('coin')}
+                        </td>
+                        <td style='font-size:30px; text-align:right; width:80px;' id='puffle-${a}-equip' class='puffle-equip'></td>
+                    </tr>
+                </table>`;
+                $(`#puffle-${a}-spot`).html(display);
+            }
+        }
+        else {
+            let textStyling = '';
+            if (player.meatPuffle === a) {textStyling = 'text-decoration: line-through;';}
+            let display = `<table>
+                <tr>
+                    <td style='width:55px;'><img src='images/puffle/${puffleData[a].emoji}.png' height=40px width=45px></td>
+                    <td style='text-align:left; vertical-align:top; width:130px; ${textStyling}' id='puffle-${a}'>
+                        <b>${puffleData[a].name}</b><br>
+                        Cost: ${disNum(puffleData[a].cost)} ${emojiInsert('coin')}
+                    </td>
+                    <td style='font-size:30px; text-align:right; width:80px;' id='puffle-${a}-equip' class='puffle-equip'></td>
+                </tr>
+            </table>`;
+            $(`#puffle-${a}-spot`).html(display);
+        }
+        
+    }
+};
 
 
 
 function achievementDisplay() {
 
-    // Count achievements
+    // Standard achievements
         let achCount = 0;
+        let totalAchCount = player.achievement.length;
         for (var b=0; b<player.achievement.length; b++) {
             if (player.achievement[b] === true) {achCount++;}
         }
-    let achDisplay = `<div class='middle-header'>Achievements: ${achCount} of ${player.achievement.length}</div><br><table id='ach-table'><tr><td>`;
-    for (var a=0; a<achievementData.length; a++) {
-        if (a === 13) {achDisplay += `</td><td>`;}
-        if (player.achievement[a] === true) {
-            achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:yellow;'>${achievementData[a].name}</span><br>`;
+        if (player.ascUpgrade[1] === true) {
+            totalAchCount += player.ascAchievement.length;
+            for (var b=0; b<player.ascAchievement.length; b++) {
+                if (player.ascAchievement[b] === true) {achCount++;}
+            }
         }
-        else {
-            achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:gray;'>????????</span><br>`;
+        let achDisplay = `<div class='middle-header'>Achievements: ${achCount} of ${totalAchCount}</div><br><table id='ach-table'><tr><td>`;
+        for (var a=0; a<achievementData.length; a++) {
+            if (a === 13) {achDisplay += `</td><td>`;}
+            if (player.achievement[a] === true) {
+                achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:yellow;'>${achievementData[a].name}</span><br>`;
+            }
+            else {
+                achDisplay += `<span onmouseenter='hoverTextAchievement(${a});' onmouseleave='hoverTextClear();' style='color:gray;'>????????</span><br>`;
+            }
         }
-    }
-    achDisplay += `</td></tr></table>`;
+        achDisplay += `</td></tr></table>`;
+
+    // Ascended Achievements+
+        if (player.ascUpgrade[1] === true) {
+            achDisplay += `<table id='ach-table' style='background-color: rgba(66, 18, 98, 0.8)'><tr><td>`;
+            for (var a=0; a<ascAchievementData.length; a++) {
+                if (a === 5) {achDisplay += `</td><td>`;}
+                if (player.ascAchievement[a] === true) {
+                    achDisplay += `<span onmouseenter='hoverTextAscAchievement(${a});' onmouseleave='hoverTextClear();' style='color:yellow;'>${ascAchievementData[a].name}</span><br>`;
+                }
+                else {
+                    achDisplay += `<span onmouseenter='hoverTextAscAchievement(${a});' onmouseleave='hoverTextClear();' style='color:gray;'>????????</span><br>`;
+                }
+            }
+            achDisplay += `</td></tr></table>`;
+        }
+        else if (player.ascUpgrade[1] === false) {
+            achDisplay += ``;
+        }
+        
     $('#achievements-page').html(achDisplay);
 
 };
 
 
 
-const numNames = [``,` thousand`, ` million`, ` billion`, ` trillion`, ` quadrillion`];
+const numNames = [``,`thousand`, `million`, `billion`, `trillion`, `quadrillion`, `quintillion`, `sextillion`, `septillion`];
 function disNum(input) {
 
     if (input < 10 && input > 0) {
@@ -251,7 +411,8 @@ function disNum(input) {
         }
         input = Math.round(input * 100) / 100;
     
-    return `${input}${numNames[loop]}`;
+    if (loop >= numNames.length) {return `Too many`}
+    else {return `${input} ${numNames[loop]}`;}
 
 };
 function disTime(input) {

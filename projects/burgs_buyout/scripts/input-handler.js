@@ -3,6 +3,7 @@
 
 
 let spacebarPressed = false;
+let shiftPressed = false;
 
 
 
@@ -14,6 +15,7 @@ function keyboardInput(key) {
         case '4':
         case '5':
         case '6':
+        case '7':
             swapPuffle(Number(key - 1));
             break;
         case 'q':
@@ -22,21 +24,27 @@ function keyboardInput(key) {
         case 'w':
             toggleRightPage();
             break;
-        case 'm':
-            toggleMusic();
-            break;
         case ' ':
             if (spacebarPressed === false) {
                 spacebarPressed = true;
                 clickCoin('player');
             }
             break;
+        case 'Shift':
+            shiftPressed = true;
+            break;
     };
 };
+
+
+
 function keyboardOutput(key) {
     switch (key) {
         case ' ':
             spacebarPressed = false;
+            break;
+        case 'Shift':
+            shiftPressed = false;
             break;
     };
 };

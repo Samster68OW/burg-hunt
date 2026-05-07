@@ -152,10 +152,11 @@
 }
 #loading-bar-outer {
     background-color: rgb(205, 205, 205);
-    border: 3px solid black;
+    border: 2px solid black;
+    border-radius: 3px;
     height: 12px;
     margin: auto;
-    width: 200px;
+    width: 180px;
 }
 #loading-bar-inner {
     background-color: rgb(125, 36, 173);
