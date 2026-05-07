@@ -36,6 +36,9 @@ function swapPuffle(num) {
         }
         updateMath();
         displayPuffle();
+        for (var c=0; c<player.building.length; c++) {
+            updateBuilding(c);
+        }
     
 };
 function displayPuffle() {
@@ -109,11 +112,6 @@ function purplePuffle() {
         }
         if (puffleStat.purple.timeLeftOnMinigame === 0) {
             puffleStat.purple.currentMinigame = 'None';
-            for (var a=0; a<player.building.length; a++) {
-                if (player.building[a].owned > 0) {
-                    updateBuilding(a);
-                }
-            }
         }
 
     // Check for Purple Puffle's countdown
