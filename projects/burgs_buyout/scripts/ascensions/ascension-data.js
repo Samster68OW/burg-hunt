@@ -203,7 +203,7 @@ const ascAchievementData = [
         {
             name: "The Outer Rim", desc: "Purchase every ascended upgrade.",
             criteria: {type: "All-Ascended"},
-            flavorText: "There's some weird stuff in the outer box dimension. Watch yourself."
+            flavorText: "There's some weird stuff in fringes of the outer box dimension. Watch yourself. Also go play Outer Wilds again."
         },
 
     // Endgame

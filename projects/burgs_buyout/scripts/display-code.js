@@ -388,7 +388,7 @@ function achievementDisplay() {
 
 
 
-const numNames = [``,`thousand`, `million`, `billion`, `trillion`, `quadrillion`, `quintillion`, `sextillion`, `septillion`];
+const numNames = [``,`thousand`, `million`, `billion`, `trillion`, `quadrillion`, `quintillion`, `sextillion`];
 function disNum(input) {
 
     if (input < 10 && input > 0) {

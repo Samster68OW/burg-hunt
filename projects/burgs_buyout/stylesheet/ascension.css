@@ -191,7 +191,7 @@
 }
 #iceberg-content-box {
     background: radial-gradient(circle,rgba(22, 22, 173, 0.8) 0%, rgb(11, 11, 83, 0.8) 100%);
-    height: 120px;
+    height: 160px;
     padding: 15px;
     position: absolute;
     right: 20px;

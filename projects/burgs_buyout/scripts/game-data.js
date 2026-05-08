@@ -141,7 +141,7 @@ const upgradeData = [
             name: "My First Friend", desc: "Your clicks are equal to the CPS of Puffle Roundup.", emoji: 'tap', cost: 500000,
             requirement: {type: "Building", building: 3, own: 25},
             effect: {type: "Click-Building", building: 3},
-            flavorText: "I tried naming a puffle 'drop table' once. Fortunately, the the CPZ team validates the puffle name data."
+            flavorText: "I tried naming a puffle 'drop table' once. Fortunately, the CPZ team validates the puffle name data."
         },
     // Cart Surfer
         {
@@ -232,104 +232,104 @@ const upgradeData = [
     // Unshackled Upgrades
     // Hydro Hopper
         {
-            name: "Fleet Commander", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 10000000, // 10 Million
+            name: "Fleet Commander", desc: "Earn x1000 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 10000000, // 10 Million
             requirement: {type: "Asc-Upgrade", upgrade: 3},
             effect: {type: "Building-Mult", building: 0, mult: 100},
             flavorText: "That's a lot of boat maintenance!"
         },
         {
-            name: "Hydro Hopper+", desc: "Earn x100 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 100000000, // 100 Million
+            name: "Hydro Hopper+", desc: "Earn x1000 more CPS for Hydro Hopper.", emoji: 'upgrade', cost: 100000000, // 100 Million
             requirement: {type: "Asc-Upgrade", upgrade: 3},
             effect: {type: "Building-Mult", building: 0, mult: 100},
             flavorText: "Hydro Hopper at maximum efficiency."
         },
     // Bean Counters
         {
-            name: "Espresso Machine 3000", desc: "Earn x100 more CPS for Bean Counters.", emoji: 'upgrade', cost: 10000000000, // 10 Billion
+            name: "Espresso Machine 3000", desc: "Earn x1000 more CPS for Bean Counters.", emoji: 'upgrade', cost: 10000000000, // 10 Billion
             requirement: {type: "Asc-Upgrade", upgrade: 4},
             effect: {type: "Building-Mult", building: 1, mult: 100},
             flavorText: "The coffee is so concentrated it allows your penguin to finish an entire shift before they’ve even walked through the door."
         },
         {
-            name: "Bean Counters+", desc: "Earn x100 more CPS for Bean Counters.", emoji: 'upgrade', cost: 100000000000, // 100 Billion
+            name: "Bean Counters+", desc: "Earn x1000 more CPS for Bean Counters.", emoji: 'upgrade', cost: 100000000000, // 100 Billion
             requirement: {type: "Asc-Upgrade", upgrade: 4},
             effect: {type: "Building-Mult", building: 1, mult: 100},
             flavorText: "Bean Counters at maximum efficiency."
         },
     // Ice Fishing
         {
-            name: "Golden Fishing Rod", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 1000000000000, // 1 Trillion
+            name: "Sea Fishing Rod", desc: "Earn x1000 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 1000000000000, // 1 Trillion
             requirement: {type: "Asc-Upgrade", upgrade: 5},
             effect: {type: "Building-Mult", building: 2, mult: 100},
-            flavorText: "Rumor has it that fish volunteer to be caught with this rod."
+            flavorText: "Mars told me to rename this upgrade... I still have no idea what it means."
         },
         {
-            name: "Ice Fishing+", desc: "Earn x100 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 3000000000000, // 3 Trillion
+            name: "Ice Fishing+", desc: "Earn x1000 more CPS for Ice Fishing.", emoji: 'upgrade', cost: 3000000000000, // 3 Trillion
             requirement: {type: "Asc-Upgrade", upgrade: 5},
             effect: {type: "Building-Mult", building: 2, mult: 100},
             flavorText: "Ice Fishing at maximum efficiency."
         },
     // Puffle Roundup
         {
-            name: "Cowboy Certification.", desc: "Earn x100 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 10000000000000, // 10 Trillion
+            name: "Cowboy Certification.", desc: "Earn x1000 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 10000000000000, // 10 Trillion
             requirement: {type: "Asc-Upgrade", upgrade: 6},
             effect: {type: "Building-Mult", building: 3, mult: 100},
             flavorText: "Requires all penguins to complete a cowboy certification class prior to participation."
         },
         {
-            name: "Puffle Roundup+", desc: "Earn x100 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 25000000000000, // 25 Trillion
+            name: "Puffle Roundup+", desc: "Earn x1000 more CPS for Puffle Roundup.", emoji: 'upgrade', cost: 25000000000000, // 25 Trillion
             requirement: {type: "Asc-Upgrade", upgrade: 6},
             effect: {type: "Building-Mult", building: 3, mult: 100},
             flavorText: "Puffle Roundup at maximum efficiency."
         },
     // Cart Surfer
         {
-            name: "X-TREME JETPACK SLED CARTZ", desc: "Earn x1000 more CPS for Cart Surfer.", emoji: 'upgrade', cost: 50000000000000, // 50 Trillion
+            name: "X-TREME JETPACK SLED CARTZ", desc: "Earn x10,000 more CPS for Cart Surfer.", emoji: 'upgrade', cost: 50000000000000, // 50 Trillion
             requirement: {type: "Asc-Upgrade", upgrade: 7},
             effect: {type: "Building-Mult", building: 4, mult: 1000},
             flavorText: "What's the matter? Too EXTREME for you?"
         },
         {
-            name: "Cart Surfer+", desc: "Earn x100 more CPS for Cart Surfer.", emoji: 'upgrade', cost: 100000000000000, // 100 Trillion
+            name: "Cart Surfer+", desc: "Earn x1000 more CPS for Cart Surfer.", emoji: 'upgrade', cost: 100000000000000, // 100 Trillion
             requirement: {type: "Asc-Upgrade", upgrade: 7},
             effect: {type: "Building-Mult", building: 4, mult: 100},
             flavorText: "Cart Surfer at maximum efficiency."
         },
     // Pizzatron 3000
         {
-            name: "Extra Spicy Hot Sauce", desc: "Earn x1000 more CPS for Pizzatron 3000.", emoji: 'upgrade', cost: 1000000000000000, // 1 Quadrillion
+            name: "Extra Spicy Hot Sauce", desc: "Earn x10,000 more CPS for Pizzatron 3000.", emoji: 'upgrade', cost: 1000000000000000, // 1 Quadrillion
             requirement: {type: "Asc-Upgrade", upgrade: 8},
             effect: {type: "Building-Mult", building: 5, mult: 1000},
             flavorText: "Sure, it burned down the Pizza Parlor once, but these penguins just can't get enough!"
         },
         {
-            name: "Pizzatron 3000+", desc: "Earn x100 more CPS for Pizzatron 3000.", emoji: 'upgrade', cost: 2000000000000000, // 2 Quadrillion
+            name: "Pizzatron 3000+", desc: "Earn x1000 more CPS for Pizzatron 3000.", emoji: 'upgrade', cost: 2000000000000000, // 2 Quadrillion
             requirement: {type: "Asc-Upgrade", upgrade: 8},
             effect: {type: "Building-Mult", building: 5, mult: 100},
             flavorText: "Pizzatron 3000 at maximum efficiency."
         },
     // Dance Contest
         {
-            name: "Dance Studio", desc: "Earn x100 more CPS for Dance Contest.", emoji: 'upgrade', cost: 10000000000000000, // 10 Quadrillion
+            name: "Dance Studio", desc: "Earn x1000 more CPS for Dance Contest.", emoji: 'upgrade', cost: 10000000000000000, // 10 Quadrillion
             requirement: {type: "Asc-Upgrade", upgrade: 9},
             effect: {type: "Building-Mult", building: 6, mult: 100},
             flavorText: "Significantly improves balance and coordination."
         },
         {
-            name: "Dance Contest+", desc: "Earn x1000 more CPS for Dance Contest.", emoji: 'upgrade', cost: 50000000000000000, // 50 Quadrillion
+            name: "Dance Contest+", desc: "Earn x10,000 more CPS for Dance Contest.", emoji: 'upgrade', cost: 50000000000000000, // 50 Quadrillion
             requirement: {type: "Asc-Upgrade", upgrade: 9},
             effect: {type: "Building-Mult", building: 6, mult: 1000},
             flavorText: "Dance Contest at maximum efficiency."
         },
     // Snow Trekker
         {
-            name: "A Second Plow", desc: "Earn x100 more CPS for Snow Trekker.", emoji: 'upgrade', cost: 100000000000000000, // 100 Quadrillion
+            name: "A Second Plow", desc: "Earn x1000 more CPS for Snow Trekker.", emoji: 'upgrade', cost: 100000000000000000, // 100 Quadrillion
             requirement: {type: "Asc-Upgrade", upgrade: 10},
             effect: {type: "Building-Mult", building: 7, mult: 100},
             flavorText: "Why didn't we think of this before?"
         },
         {
-            name: "Snow Trekker+", desc: "Earn x1000 more CPS for Snow Trekker.", emoji: 'upgrade', cost: 250000000000000000, // 250 Quadrillion
+            name: "Snow Trekker+", desc: "Earn x10,000 more CPS for Snow Trekker.", emoji: 'upgrade', cost: 250000000000000000, // 250 Quadrillion
             requirement: {type: "Asc-Upgrade", upgrade: 10},
             effect: {type: "Building-Mult", building: 7, mult: 1000},
             flavorText: "Snow Trekker at maximum efficiency. The final and most expensive upgrade in the game."
