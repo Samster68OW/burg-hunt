@@ -1,0 +1,34 @@
+body {
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25;
+    text-shadow: 1px 1px 5px black;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+#game-frame {
+    background-color: rgb(137, 247, 255);
+    height: 600px;
+    margin: auto;
+    position: relative;
+    width: 900px;
+    z-index: 1;
+}
+
+
+
+/* Game Objects */
+#player-object {
+    background-color: red;
+    height: 60px;
+    position: absolute;
+    width: 30px;
+    z-index: 5;
+}
+.platform-object {
+    position: absolute;
+}

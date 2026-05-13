@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sledding</title>
+    <link rel="icon" type="image/x-icon" href="images/site/favicon.ico">
+
+    <!-- Internal Javascript -->
+      <!-- Scripts -->
+        <script type="text/javascript" src="scripts/game-code.js"></script>
+        <script type="text/javascript" src="scripts/level-data.js"></script>
+        <script type="text/javascript" src="scripts/start-level.js"></script>
+    <!-- Internal CSS -->
+        <link rel="stylesheet" href="stylesheet/main.css">
+
+  </head>
+  <body>
+
+
+    <div id="game-frame">
+      
+    </div>
+    <div id="info-spot"></div>
+    <div id="info-spot-2"></div>
+
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+
+
+$(document).ready(function(){
+  loadRoom(0);
+});
+
+
+
+// Input Handler
+document.addEventListener('keydown', (event) => {
+    keyboardInput(event.key.toString());
+});
+document.addEventListener('keyup', (event) => {
+    keyboardOutput(event.key.toString());
+});
+
+
+
+    </script>
+  </body>
+</html>

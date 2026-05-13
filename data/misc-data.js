@@ -21,7 +21,7 @@ const postcardList = [
         unlockDesc: ""
     },
     {
-        title: "The Iceberg Stargazing Party",  imgSource: "apr2026.png", postcardCredit: "starryskyez", showLocked: false,
+        title: "The Iceberg Stargazing Party",  imgSource: "may2026.png", postcardCredit: "starryskyez", showLocked: false,
         postcardDesc: "You met Burg at the Iceberg Stargazing Party and he gave you this postcard as thanks.",
         unlockDesc: ""
     },
