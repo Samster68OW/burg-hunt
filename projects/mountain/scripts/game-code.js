@@ -12,6 +12,7 @@ const gameWorld = {
 
 let playerObject = {
     pos: {x: 100, y: 10},
+    respawnPos: {x: 0, y: 0},
     size: {width: 30, height: 60},
     vel: {x: 0, y: 0},
     maxVel: {x: 4, y: 200},
@@ -123,6 +124,7 @@ function checkPlayerCollision() {
     // Check the platforms
         let standing = false;
         for (var a=0; a<currentRoom.platform.length; a++) {
+            let collidingHere = false;
             
             // Check each corner
             for (var b=0; b<playerCorner.length; b++) {
@@ -130,6 +132,7 @@ function checkPlayerCollision() {
                 if (playerCorner[b].x >= currentRoom.platform[a].bottomLeft.x && playerCorner[b].y >= currentRoom.platform[a].bottomLeft.y) {
                     if (playerCorner[b].x <= currentRoom.platform[a].topRight.x && playerCorner[b].y <= currentRoom.platform[a].topRight.y) {
                         playerCorner[b].colliding = true;
+                        collidingHere = true;
                     }
                 }
             }
@@ -226,6 +229,14 @@ function checkPlayerCollision() {
                         playerObject.pos.x = currentRoom.platform[a].bottomLeft.x - playerObject.size.width;
                         playerObject.vel.x = 0;
                         playerObject.acc.x = 0;
+                    }
+                }
+
+            // Platform Properties
+                if (collidingHere === true) {
+                    if (currentRoom.platform[a].prop.killPlayer === true) {
+                        console.log(a);
+                        playerObject.pos = playerObject.respawnPos;
                     }
                 }
 

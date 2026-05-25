@@ -80,27 +80,27 @@ const platformData = [
         size: {width: 900, height: 20},
         color: "white",
         zIndex: 5,
-        prop: {collide: true}
+        prop: {collide: true, killPlayer: false}
     },
     {
         name: "Left Wall",
         size: {width: 20, height: 600},
         color: "white",
         zIndex: 5,
-        prop: {collide: true}
+        prop: {collide: true, killPlayer: false}
     },
     {
         name: "Basic Platform",
         size: {width: 200, height: 80},
         color: "blue",
         zIndex: 4,
-        prop: {collide: true}
+        prop: {collide: true, killPlayer: false}
     },
     {
         name: "Ice Spikes",
         size: {width: 100, height: 40},
         color: "red",
         zIndex: 4,
-        prop: {collide: true}
+        prop: {collide: true, killPlayer: true}
     }
 ];

@@ -10,13 +10,14 @@ function loadRoom(num) {
 
     // Stop loop
         clearInterval(gameLoop);
+        playerObject.respawnPos = JSON.parse(JSON.stringify(playerObject.pos));
 
     // Get room data
         let room = roomData[num];
         currentRoom = {
             roomID: num,
             name: room.name,
-            platform: []
+            platform: [],
         };
 
     // Generate the objects
@@ -31,7 +32,8 @@ function loadRoom(num) {
                     topRight: {
                         x: room.platform[a].pos.x + currPlatform.size.width,
                         y: room.platform[a].pos.y + currPlatform.size.height,
-                    }
+                    },
+                    prop: currPlatform.prop
                 });
         }
         $('#game-frame').html(display);

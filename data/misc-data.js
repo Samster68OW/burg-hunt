@@ -8,22 +8,22 @@ const postcardList = [
     {
         title: "Legacy Scavenger Hunt", imgSource: "placeholder.png", postcardCredit: "Samster68", showLocked: false,
         postcardDesc: "This postcard is simply a placeholder used while developing the site. If you have this, then Samster68 must see you as a close friend.",
-        unlockDesc: ""
+        unlockDesc: "Unobtainable"
     },
     {
-        title: "Burg's First Scavenger Hunt", imgSource: "feb2026.png", postcardCredit: "samuel", showLocked: false,
+        title: "Burg's First Scavenger Hunt", imgSource: "feb2026.png", postcardCredit: "samuel", showLocked: true,
         postcardDesc: "You collected this postcard during the first official scavenger hunt by identifying the locations of Rockhopper's cargo.",
-        unlockDesc: ""
+        unlockDesc: "Participated in the 'Burg's First Scavenger Hunt' event."
     },
     {
-        title: "Beeker's Pi Day Puzzle",  imgSource: "mar2026.png", postcardCredit: "Silverpetals", showLocked: false,
-        postcardDesc: "You used Beeker's wacky equation to find an estimate of Pi.",
-        unlockDesc: ""
+        title: "Beeker's Pi Day Puzzle",  imgSource: "mar2026.png", postcardCredit: "Silverpetals", showLocked: true,
+        postcardDesc: "You used Beeker's wacky equation to find an estimation of Pi.",
+        unlockDesc: "Participated in the 'Beeker's Pi Day Puzzle' event."
     },
     {
-        title: "The Iceberg Stargazing Party",  imgSource: "may2026.png", postcardCredit: "starryskyez", showLocked: false,
+        title: "The Iceberg Stargazing Party",  imgSource: "may2026.png", postcardCredit: "starryskyez", showLocked: true,
         postcardDesc: "You met Burg at the Iceberg Stargazing Party and he gave you this postcard as thanks.",
-        unlockDesc: ""
+        unlockDesc: "Participated in the 'Iceberg Stargazing Party' event."
     },
     {
         title: "Burg's Buyout",  imgSource: "buyout2026.png", postcardCredit: "samuel", showLocked: true,
