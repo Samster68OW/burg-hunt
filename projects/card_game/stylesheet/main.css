@@ -1,0 +1,97 @@
+body {
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.25;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+#game-frame {
+    background: radial-gradient(circle,rgba(22, 22, 173, 1) 0%, rgb(11, 11, 83) 100%);
+    border: 5px solid grey;
+    border-radius: 5px;
+    height: 600px;
+    margin: auto;
+    position: relative;
+    width: 900px;
+    z-index: 1;
+}
+
+
+
+/* Main Menu */
+#main-menu-table {
+    background-color: rgb(9, 9, 9);
+    width: 100%;
+}
+#main-menu-table td {
+    display: inline-block;
+    min-width: 50px;
+    padding: 10px;
+    text-align: center;
+}
+#main-menu-table td:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+
+
+/* Card Styling */
+.card-main {
+    background-color: rgb(46, 46, 204);
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px grey;
+    color: black;
+    cursor: grab;
+    height: 280px;
+    position: absolute;
+    width: 200px;
+    z-index: 3;
+}
+.card-art {
+    background-color: white;
+    border-radius: 10px;
+    height: 260px;
+    left: 10px;
+    position: absolute;
+    bottom: 10px;
+    width: 180px;
+    z-index: 4;
+}
+.card-type {
+    background-color: rgb(45, 45, 207);
+    border-radius: 5px;
+    height: 50px;
+    left: -5px;
+    position: absolute;
+    text-align: center;
+    top: -5px;
+    width: 50px;
+    z-index: 5;
+}
+.card-number {
+    left: 5px;
+    position: absolute;
+    bottom: 2px;
+    z-index: 5;
+}
+.card-tooltip {
+    visibility: hidden;
+    width: 130px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 6;
+}
+.card-main:hover .card-tooltip {
+    visibility: visible;
+}
