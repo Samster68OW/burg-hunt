@@ -11,14 +11,20 @@ function loadMainMenuPage(pageName) {
 
 
 function displayCardCollection() {
-    let display = ``;
+    let display = `<table id='collection-table'>`;
     for (var a=1; a<player.cardCollection.length; a++) {
-        if (player.cardCollection[a] === 0) {
-            display += `??????<br>`;
-        }
-        if (player.cardCollection[a] > 0) {
-            display += `${cardData[a].displayName} (x${player.cardCollection[a]})<br>`;
-        }
+        if (a % 6 === 1) {display += `<tr>`;}
+
+        // Add Card
+            if (player.cardCollection[a] === 0) {
+                display += `<td style='text-align:center;'>#${a}</td>`;
+            }
+            if (player.cardCollection[a] > 0) {
+                display += `<td><div style='zoom:0.5;'>${generateCard(a)}</div></td>`;
+            }
+
+        if (a % 6 === 0) {display += `</tr>`;}
     }
+    display += `</table>`;
     $('#card-collection-spot').html(display);
 };
