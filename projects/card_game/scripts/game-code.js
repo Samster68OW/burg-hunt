@@ -19,7 +19,6 @@ function generateCard(cardNum) {
                     <div class="card-type" style="background-color:${cardColor};">${cardData[cardNum].type}</div>
                     <div class="card-number">${findCardSet(cardNum)}</div>
                 </div>
-                <span class="card-tooltip">${cardData[cardNum].tooltip}</span>
             </div>
         `;
         return display;

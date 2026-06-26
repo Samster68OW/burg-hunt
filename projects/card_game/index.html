@@ -15,6 +15,7 @@
       <!-- Data -->
         <script type="text/javascript" src="data/card-data.js"></script>
         <script type="text/javascript" src="data/set-data.js"></script>
+        <script type="text/javascript" src="data/store-data.js"></script>
     <!-- Internal CSS -->
         <link rel="stylesheet" href="stylesheet/main.css">
 
@@ -38,11 +39,26 @@
         <div id="home-page" class="main-menu-page" hidden>
           <br><br><br><br><br><br>
           <h1 style="font-size:50px; text-align:center;">Card Game</h1>
+          <!--TODO: Show stats and ongoing events, perhaps a cool title animation-->
         </div>
-
+        <div id="play-page" class="main-menu-page" hidden>
+          <!--TODO: Tutorial, Singleplayer, Multiplayer-->
+        </div>
+        <div id="deck-page" class="main-menu-page" hidden>
+          <!--TODO: Customize Deck-->
+        </div>
         <div id="collection-page" class="main-menu-page" hidden>
           <h1 style="text-align:center;">Card Collection</h1>
-          <div id="card-collection-spot"></div>
+          <table><tr>
+            <td id="card-collection-spot"></td>
+            <td id="big-card-spot"></td>
+          </tr></table>
+        </div>
+        <div id="store-page" class="main-menu-page" hidden>
+          <!--TODO: Purchase booster packs and redeem codes and gifts-->
+        </div>
+        <div id="settings-page" class="main-menu-page" hidden>
+          <!--TODO: Settings and help screen-->
         </div>
 
       </div>

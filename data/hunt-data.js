@@ -132,10 +132,9 @@ const mar2026Event = {
 
 
 
-// Unused
-const bingoTestEvent = {
-    title: "Bingo Test",
-    imgSource: "mar2026",
+const jun2026Event = {
+    title: "Summer Splash Bingo",
+    imgSource: "jun2026",
     availability: "Testing!",
     postcardEarnedID: 0,
     style: 'bingo',

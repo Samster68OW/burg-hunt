@@ -11,6 +11,7 @@ let player = {
 
 
 function loadCardCollection() {
+    player.cardCollection = [];
     for (var a=0; a<cardData.length; a++) {
         player.cardCollection.push(0);
     }

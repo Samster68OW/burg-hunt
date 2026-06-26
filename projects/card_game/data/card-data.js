@@ -5,7 +5,7 @@
 const cardColorData = [
     "#ff3232", // Fire
     "#3265ff", // Water
-    "#32fcff", // Snow
+    "#fff132", // Snow
 ];
 
 
@@ -44,6 +44,16 @@ const cardData = [
     {
         id: 6, displayName: "Snowflake", type: "Snow",
         rarity: "Common", artist: "None",
+        tooltip: "Snowflake - Snow"
+    },
+    {
+        id: 7, displayName: "Uncommon card", type: "Snow",
+        rarity: "Uncommon", artist: "None",
+        tooltip: "Snowflake - Snow"
+    },
+    {
+        id: 8, displayName: "Rare card", type: "Snow",
+        rarity: "Rare", artist: "None",
         tooltip: "Snowflake - Snow"
     }
 ];

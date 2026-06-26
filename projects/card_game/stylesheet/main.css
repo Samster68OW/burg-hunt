@@ -39,13 +39,16 @@ body {
     cursor: pointer;
 }
 /* Collection Screen */
+#card-collection-spot {
+    width: 600px;
+}
 #collection-table {
-    border-spacing: 10px;
+    border-spacing: 5px;
 }
 #collection-table td {
-    height: 142px;
+    height: 120px;
     position: relative;
-    width: 102px;
+    width: 85px;
 }
 
 
@@ -57,19 +60,19 @@ body {
     border-radius: 10px;
     box-shadow: 5px 5px 5px black;
     color: black;
-    cursor: grab;
+    cursor: pointer;
     height: 280px;
     padding: 0px;
     width: 200px;
     z-index: 3;
 }
 .card-art {
-    background-color: white;
+    background-color: rgb(75, 75, 75);
     border-radius: 10px;
     height: 260px;
     left: 6%;
     position: absolute;
-    bottom: 5%;
+    bottom: 6%;
     width: 180px;
     z-index: 4;
 }
@@ -90,17 +93,9 @@ body {
     bottom: 2px;
     z-index: 5;
 }
-.card-tooltip {
-    visibility: hidden;
-    width: 130px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 6;
-}
-.card-main:hover .card-tooltip {
-    visibility: visible;
+.missing-card {
+    color: white;
+    font-size: 75px;
+    opacity: 0.5;
+    zoom: 0.4;
 }

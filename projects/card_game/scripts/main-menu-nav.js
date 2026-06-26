@@ -17,14 +17,57 @@ function displayCardCollection() {
 
         // Add Card
             if (player.cardCollection[a] === 0) {
-                display += `<td style='text-align:center;'>#${a}</td>`;
+                display += `<td style='text-align:center;'><div class='card-main missing-card'><br>${a}</div></td>`;
             }
             if (player.cardCollection[a] > 0) {
-                display += `<td><div style='zoom:0.5;'>${generateCard(a)}</div></td>`;
+                display += `<td><div style='zoom:0.4;'>${generateCard(a)}</div></td>`;
             }
 
         if (a % 6 === 0) {display += `</tr>`;}
     }
     display += `</table>`;
     $('#card-collection-spot').html(display);
+};
+
+
+
+function openStoreItem(itemNum) {
+
+    // Setup card output
+        let output = [];
+
+    let item = storeItemData[itemNum];
+
+    // Get total weight
+        let totalWeight = 0;
+        for (var a=0; a<item.categories.length; a++) {
+            totalWeight += item.categories[a].weight;
+        }
+    
+    // Grab all the cards!
+        for (var b=0; b<item.rolls; b++) {
+
+            // Pick category
+            let random = Math.random() * totalWeight;
+            for (var c=0; c<item.categories.length; c++) {
+                random -= item.categories[c].weight;
+                if (random <= 0) {
+
+                    // Pick card in category
+                    let chosenCard = Math.floor(Math.random()*item.categories[c].cardList.length);
+                    let newCard = item.categories[c].cardList[chosenCard];
+                    player.obtainedCards.push(newCard);
+                    output.push(cardData[newCard].displayName);
+                    break;
+
+                }
+            }
+
+        }
+
+    // Recalculate player's cards
+        loadCardCollection();
+
+    return output
+
 };
