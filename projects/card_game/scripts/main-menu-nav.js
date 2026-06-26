@@ -11,21 +11,29 @@ function loadMainMenuPage(pageName) {
 
 
 function displayCardCollection() {
-    let display = `<table id='collection-table'>`;
-    for (var a=1; a<player.cardCollection.length; a++) {
-        if (a % 6 === 1) {display += `<tr>`;}
 
-        // Add Card
-            if (player.cardCollection[a] === 0) {
-                display += `<td style='text-align:center;'><div class='card-main missing-card'><br>${a}</div></td>`;
-            }
-            if (player.cardCollection[a] > 0) {
-                display += `<td><div style='zoom:0.4;'>${generateCard(a)}</div></td>`;
-            }
+    let display = ``;
 
-        if (a % 6 === 0) {display += `</tr>`;}
+    for (var b=0; b<setData.length; b++) {
+
+        display += `${setData[b].name}<br><table id='collection-table'>`;
+        for (var a=0; a<setData[b].cardList.length; a++) {
+            if (a % 6 === 0) {display += `<tr>`;}
+
+            // Add Card
+                if (player.cardCollection[setData[b].cardList[a]] === 0) {
+                    display += `<td style='text-align:center;'><div class='card-main missing-card'><br>${a+1}</div></td>`;
+                }
+                if (player.cardCollection[setData[b].cardList[a]] > 0) {
+                    display += `<td><div style='zoom:0.4;'>${generateCard(setData[b].cardList[a])}</div></td>`;
+                }
+
+            if (a % 6 === 5) {display += `</tr>`;}
+        }
+        display += `</table><br>`;
+
     }
-    display += `</table>`;
+    
     $('#card-collection-spot').html(display);
 };
 

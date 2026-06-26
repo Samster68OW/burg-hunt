@@ -55,5 +55,15 @@ const cardData = [
         id: 8, displayName: "Rare card", type: "Snow",
         rarity: "Rare", artist: "None",
         tooltip: "Snowflake - Snow"
+    },
+    {
+        id: 9, displayName: "Ninth Card", type: "Snow",
+        rarity: "Uncommon", artist: "None",
+        tooltip: "Snowflake - Snow"
+    },
+    {
+        id: 10, displayName: "Tenth Card", type: "Snow",
+        rarity: "Rare", artist: "None",
+        tooltip: "Snowflake - Snow"
     }
 ];
