@@ -45,7 +45,17 @@ function startRound() {
             battle.opponent.deck.splice(0, 1);
         }
 
-        console.log(battle);
+    // Display stats
+        $('#opponent-points-spot').html(`Opponent: ${battle.opponent.points}`);
+        $('#player-points-spot').html(`Player: ${battle.player.points}`);
+
+    // Display Player's cards
+        let display = `<table id='player-card-table'><tr>`;
+        for (var a=0; a<battle.player.hand.length; a++) {
+           display += `<td><div style='zoom:0.4;'>${generateCard(battle.player.hand[a])}</div></td>`;
+        }
+        display += `</tr></table>`;
+        $('#player-cards-spot').html(display);
 
 };
 

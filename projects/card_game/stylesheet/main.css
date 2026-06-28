@@ -53,6 +53,21 @@ body {
 
 
 
+/* Battle Page */
+#main-battle-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+#main-battle-table td {
+    border: 2px solid white;
+    padding: 10px;
+}
+#player-card-table td {
+    border: none;
+}
+
+
+
 /* Card Styling */
 .card-main {
     background-color: rgb(46, 46, 204);
