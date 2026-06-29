@@ -14,8 +14,10 @@
         <script type="text/javascript" src="scripts/player-loader.js"></script>
         <script type="text/javascript" src="scripts/start-battle.js"></script>
       <!-- Data -->
+        <script type="text/javascript" src="data/campaign-data.js"></script>
         <script type="text/javascript" src="data/card-data.js"></script>
         <script type="text/javascript" src="data/set-data.js"></script>
+        <script type="text/javascript" src="data/store-control.js"></script>
         <script type="text/javascript" src="data/store-data.js"></script>
     <!-- Internal CSS -->
         <link rel="stylesheet" href="stylesheet/main.css">
@@ -30,24 +32,22 @@
 
         <table id="main-menu-table"><tr>
           <td id="home-page-butt" onclick="loadMainMenuPage('home-page');">Home</td>
-          <td id="play-page-butt" onclick="loadMainMenuPage('play-page');">Play</td>
-          <td id="deck-page-butt" onclick="loadMainMenuPage('deck-page');">Deck</td>
+          <td id="deck-page-butt" onclick="loadMainMenuPage('deck-page');">Decks</td>
           <td id="collection-page-butt" onclick="loadMainMenuPage('collection-page');">Collection</td>
           <td id="store-page-butt" onclick="loadMainMenuPage('store-page');">Store</td>
           <td id="options-page-butt" onclick="loadMainMenuPage('options-page');">Options</td>
+          <td id="profile-page-butt" onclick="loadMainMenuPage('profile-page');">Profile</td>
         </tr></table>
 
         <div id="home-page" class="main-menu-page" hidden>
-          <br><br><br><br><br><br>
+          <br><br>
           <h1 style="font-size:50px; text-align:center;">Card Game</h1>
-          <!--TODO: Show stats and ongoing events, perhaps a cool title animation-->
-        </div>
-        <div id="play-page" class="main-menu-page" hidden>
-          <!--TODO: Tutorial, Singleplayer, Multiplayer-->
-          <button onclick="startBattle();">Play Test Battle</button>
+          <!--TODO: Show stats and ongoing events, perhaps a cool title animation, annoucement, player card-->
+          <button onclick="startCampaignLevel(0);">Play Test Battle</button>
+          <!--Tutorial and random battle-->
         </div>
         <div id="deck-page" class="main-menu-page" hidden>
-          <!--TODO: Customize Deck-->
+          <!--TODO: Customize Deck, three presets-->
         </div>
         <div id="collection-page" class="main-menu-page" hidden>
           <h1 style="text-align:center;">Card Collection</h1>
@@ -57,10 +57,13 @@
           </tr></table>
         </div>
         <div id="store-page" class="main-menu-page" hidden>
-          <!--TODO: Purchase booster packs and redeem codes and gifts-->
+          <!--TODO: Purchase booster packs and redeem gifts-->
         </div>
         <div id="settings-page" class="main-menu-page" hidden>
-          <!--TODO: Settings and help screen-->
+          <!--TODO: Changelog-->
+        </div>
+        <div id="profile-page" class="main-menu-page" hidden>
+          <!--TODO: Profile card, achievements, and playercard (and customization)-->
         </div>
 
       </div>
@@ -70,16 +73,16 @@
       <div id="battle-page" class="main-page" hidden>
         <table id="main-battle-table">
           <tr>
-            <td id="opponent-points-spot"></td>
-            <td id="player-points-spot"></td>
+            <td id="player-health-spot"></td>
+            <td id="opponent-health-spot"></td>
           </tr>
           <tr>
-            <td id="opponent-sprite-spot"></td>
             <td id="player-sprite-spot"></td>
+            <td id="opponent-sprite-spot"></td>
           </tr>
           <tr>
-            <td id="opponent-cards-spot"></td>
             <td id="player-cards-spot"></td>
+            <td id="card-statistics-spot"></td>
           </tr>
         </table>
       </div>
@@ -94,6 +97,7 @@
 
 $(document).ready(function(){
   loadCardCollection();
+  setupStore();
   loadPage('main-menu');
   loadMainMenuPage('home-page');
 });
