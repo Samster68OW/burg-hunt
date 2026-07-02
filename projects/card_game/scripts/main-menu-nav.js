@@ -51,13 +51,31 @@ function emptyCollCard() {
 function setupStore() {
 
     // Loop through store and add stuff
-        let display = `<h1>Store</h1>`
+        let display = `<center>`
         for (var a=0; a<currentStoreOfferings.length; a++) {
-            display += `<div style='cursor:pointer;' onclick='openStoreItem(${currentStoreOfferings[a].storeItemID});'>${storeItemData[currentStoreOfferings[a].storeItemID].name} (${currentStoreOfferings[a].coins} Coins)</div>`;
+            display += `<div>
+                <img src='images/store_item/${storeItemData[currentStoreOfferings[a].storeItemID].imgSource}' onclick='buyStoreItem(${a});' class='store-class'><br>
+                ${currentStoreOfferings[a].coins} ${emojiInsert('coin')}
+                </div>`;
         }
-        $('#store-page').html(display);
+        display += `</center>`
+        $('#store-section').html(display);
 
 };
+function buyStoreItem(itemNum) {
+
+    // Check to make sure the player wants to open it.
+        if (confirm(`Are you sure you want to purchase a ${storeItemData[currentStoreOfferings[itemNum].storeItemID].name}?`) === false) {return}
+        if (player.coins < currentStoreOfferings[itemNum].coins) {
+            alert("You do not have enough coins to purchase this.");
+            return
+        }
+        player.coins -= currentStoreOfferings[itemNum].coins;
+
+    // Open the item!
+        openStoreItem(currentStoreOfferings[itemNum].storeItemID);
+
+}
 function openStoreItem(itemNum) {
 
     // Setup card output
@@ -97,4 +115,10 @@ function openStoreItem(itemNum) {
 
     return output
 
+};
+
+
+
+function emojiInsert(input) {
+    return `<img height=10 src='images/emoji/${input}.png'>`;
 };

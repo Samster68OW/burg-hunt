@@ -132,31 +132,31 @@ const mar2026Event = {
 
 
 
-const jun2026Event = {
+const jul2026Event = {
     title: "Summer Splash Bingo",
-    imgSource: "jun2026",
-    availability: "Testing!",
-    postcardEarnedID: 0,
+    imgSource: "jul2026",
+    availability: "Available!",
+    postcardEarnedID: 6,
     style: 'bingo',
     randomize: true,
     winMsg: "You scored a bingo! You were given a postcard as thanks.",
     itemList: [
         {obj: "Score 400 points in one round of Snow Trekker"},
-        {obj: "Take a screenshot selfie with Sell"},
+        {obj: "Find a worm in Aqua Grabber and then let him go"},
         {obj: "Earn coins in the Coffee Shop"},
         {obj: "Earn 3000 points in one round of Hydro Hopper"},
         {obj: "Be in the same room as a dev or mod"},
         {obj: "Win a match of Find Four"},
-        {obj: "Catch the Mullet"},
+        {obj: "Catch the Treasure Chest with a Squid"},
         {obj: "Like an igloo with less than 100 Likes"},
-        {obj: "Win a match of Mancala"},
-        {obj: "Form a band of four penguins in the Lighthouse"},
-        {obj: "Earn 50 or more coins in the Coffee Shop"},
-        {obj: "Throw pizza at a penguin playing the piano"},
+        {obj: "Complete a round of a minigame with a Puffle"},
+        {obj: "Shoot the tube while surfing for 10 seconds"},
+        {obj: "Serve 10 smoothies in Smoothie Smash"},
+        {obj: "Throw pizza at a penguin playing an instrument"},
         {obj: "Use the Night Vision goggles somewhere dark"},
         {obj: "Score 4000 points in a round of Cart Surfer"},
         {obj: "Complete 5 levels of Thin Ice as inefficiently as possible"},
-        {obj: "Beat 5 levels of Astro Barrier without missing a shot"},
+        {obj: "Fall out of the sky into the Forest"},
         {obj: "Cover a puffle's face in snow"},
         {obj: "Dress up like a mascot, CPZ dev, or ZN staff member"},
         {obj: "Unload 5 trucks in Bean Counters"},
@@ -164,7 +164,7 @@ const jun2026Event = {
         {obj: "Spot a crab in the Cave (Pool Room)"},
         {obj: "Win a Sled Race"},
         {obj: "Don't lose a puffle in a round of Puffle Roundup"},
-        {obj: "Meditate for 1 minute in the Dojo"},
+        {obj: "Meditate for 60 seconds in the Dojo"},
         {obj: "Complete a game of Pizzatron"},
     ]
 };

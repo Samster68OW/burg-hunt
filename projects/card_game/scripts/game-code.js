@@ -31,13 +31,7 @@ function findCardSet(cardNum) {
     for (var a=0; a<setData.length; a++) {
         for (var b=0; b<setData[a].cardList.length; b++) {
             if (setData[a].cardList[b] === cardNum) {
-                setInfo = `${setData[a].id} ${b + 1}/${setData[a].cardList.length}`;
-                break;
-            }
-        }
-        for (var b=0; b<setData[a].extraCardList.length; b++) {
-            if (setData[a].extraCardList[b] === cardNum) {
-                setInfo = `${setData[a].id} $`;
+                setInfo = `${setData[a].id}-${b + 1}/${setData[a].cardList.length} ${rarityData[cardData[cardNum].rarity]}`;
                 break;
             }
         }

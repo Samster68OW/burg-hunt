@@ -5,6 +5,7 @@
 const storeItemData = [
     {
         storeItemID: 0,
+        imgSource: "bgs_booster_pack.png",
         name: "Beginnings Booster Pack", type: "booster",
         rolls: 5,
         outcomes: [

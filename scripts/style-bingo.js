@@ -23,7 +23,7 @@ function loadBingoCard() {
 function toggleCell(cell) {
     if (currentHunt.itemList[cell].completed === false) {
         currentHunt.itemList[cell].completed = true;
-        $(`#bingo-cell${cell}`).css('background-image','url("images/site/samster68.png")');
+        $(`#bingo-cell${cell}`).css('background-image','url("images/site/coconut.png")');
     }
     else if (currentHunt.itemList[cell].completed === true) {
         currentHunt.itemList[cell].completed = false;

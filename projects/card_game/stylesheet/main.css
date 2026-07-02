@@ -58,6 +58,21 @@ h1 {
     vertical-align: top;
     width: 200px;
 }
+/* Store Page */
+.store-class {
+    border: 5px solid black;
+    border-radius: 5px;
+    cursor:pointer;
+    width: 100px;
+}
+@keyframes hoverPulse {
+    0% {
+        scale: 80%;
+    }
+    100% {
+        scale: 100%;
+    }
+}
 
 
 
@@ -70,8 +85,43 @@ h1 {
     border: 2px solid white;
     padding: 10px;
 }
+/* Top Row */
+#player-health-spot {
+    width: 350px;
+}
+#opponent-health-spot {
+    width: 350px;
+}
+/* Middle Row */
+#main-sprite-spot {
+    height: 380px;
+}
+#player-played-card {
+    left: 300px;
+    height: 130px;
+    position: absolute;
+    top: 150px;
+    width: 100px;
+}
+#opponent-played-card {
+    height: 130px;
+    position: absolute;
+    right: 300px;
+    top: 150px;
+    width: 100px;
+}
+/* Bottom Row */
+#player-cards-spot {
+    height: 130px;
+}
+#player-card-table {
+    height: 100%;
+    width: 100%;
+}
 #player-card-table td {
     border: none;
+    position: relative;
+    vertical-align: top;
 }
 
 

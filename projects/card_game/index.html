@@ -43,7 +43,7 @@
           <br><br>
           <h1 style="font-size:50px; text-align:center;">Card Game</h1>
           <!--TODO: Show stats and ongoing events, perhaps a cool title animation, annoucement, player card-->
-          <button onclick="startCampaignLevel(0);">Play Test Battle</button>
+          <button onclick="startCampaignLevel(2);">Play Test Battle</button>
           <!--Tutorial and random battle-->
         </div>
         <div id="deck-page" class="main-menu-page" hidden>
@@ -58,12 +58,18 @@
         </div>
         <div id="store-page" class="main-menu-page" hidden>
           <!--TODO: Purchase booster packs and redeem gifts-->
+          <h1>Store</h1>
+          <div id="store-section"></div>
         </div>
         <div id="settings-page" class="main-menu-page" hidden>
           <!--TODO: Changelog-->
         </div>
         <div id="profile-page" class="main-menu-page" hidden>
           <!--TODO: Profile card, achievements, and playercard (and customization)-->
+        </div>
+
+        <div id="item-open-page" class="main-menu-page" hidden>
+          <!--TODO: Show cards you earned!-->
         </div>
 
       </div>
@@ -74,14 +80,21 @@
         <table id="main-battle-table">
           <tr>
             <td id="player-health-spot"></td>
+            <td id="timer-spot"></td>
             <td id="opponent-health-spot"></td>
           </tr>
           <tr>
-            <td id="player-sprite-spot"></td>
-            <td id="opponent-sprite-spot"></td>
+            <td id="main-sprite-spot" colspan="3">
+              <div id="player-played-card">
+                <div id="player-played-card-spot" style="position:relative; scale:0.4; left:-25px;"></div>
+              </div>
+              <div id="opponent-played-card">
+                <div id="opponent-played-card-spot" style="position:relative; scale:0.4; left:-25px;"></div>
+              </div>
+            </td>
           </tr>
           <tr>
-            <td id="player-cards-spot"></td>
+            <td id="player-cards-spot" colspan="2"></td>
             <td id="card-statistics-spot"></td>
           </tr>
         </table>

@@ -34,6 +34,11 @@ const postcardList = [
         title: "Burg's Buyout Ending",  imgSource: "buyout_ending.png", postcardCredit: "starryskyez", showLocked: true,
         postcardDesc: "You and Burg collected quintillions of coins and tipped the Iceberg.",
         unlockDesc: "Unlock this postcard by completing The Box Update in Burg's Buyout and redeeming the code."
+    },
+    {
+        title: "Summer Splash Bingo",  imgSource: "jul2026.png", postcardCredit: "Samster68", showLocked: true,
+        postcardDesc: "You scored a bingo during the Summer Splash party.",
+        unlockDesc: "Unlock this postcard by scoring a bingo in the Summer Splash Bingo."
     }
 ];
 
