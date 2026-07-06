@@ -135,7 +135,7 @@ const mar2026Event = {
 const jul2026Event = {
     title: "Summer Splash Bingo",
     imgSource: "jul2026",
-    availability: "Available!",
+    availability: "July 2nd - July 5th, 2026",
     postcardEarnedID: 6,
     style: 'bingo',
     randomize: true,
