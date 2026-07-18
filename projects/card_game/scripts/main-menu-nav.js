@@ -16,21 +16,26 @@ function displayCardCollection() {
 
     let display = ``;
 
-    for (var b=0; b<setData.length; b++) {
+    for (var b=setData.length-1; b>-1; b--) {
 
-        display += `${setData[b].name}<br><table id='collection-table'>`;
+        display += `<h2>${setData[b].name}</h2><br><table id='collection-table'>`;
+        let cardsShown = 0;
         for (var a=0; a<setData[b].cardList.length; a++) {
-            if (a % 6 === 0) {display += `<tr>`;}
+            if (cardsShown % 6 === 0) {display += `<tr>`;}
 
             // Add Card
                 if (player.cardCollection[setData[b].cardList[a]] === 0) {
-                    display += `<td style='text-align:center;'><div class='card-main missing-card'><br>${a+1}</div></td>`;
+                    if (setData[b].displayMissing === true) {
+                        display += `<td style='text-align:center;'><div class='card-main missing-card'><br>${a+1}</div></td>`;
+                        cardsShown++;
+                    }
                 }
                 if (player.cardCollection[setData[b].cardList[a]] > 0) {
-                    display += `<td><div style='zoom:0.4' onmouseenter='displayCollCard(${setData[b].cardList[a]});' onmouseleave='emptyCollCard();'>${generateCard(setData[b].cardList[a])}</div></td>`;
+                    display += `<td><div class='coll-card-div' onmouseenter='displayCollCard(${setData[b].cardList[a]});' onmouseleave='emptyCollCard();'>${generateCard(setData[b].cardList[a])}</div></td>`;
+                    cardsShown++;
                 }
 
-            if (a % 6 === 5) {display += `</tr>`;}
+            if (cardsShown % 6 === 0) {display += `</tr>`;}
         }
         display += `</table><br>`;
 
@@ -39,7 +44,7 @@ function displayCardCollection() {
     $('#card-collection-spot').html(display);
 };
 function displayCollCard(num) {
-    $('#big-card-spot').html(`<h2>${cardData[num].displayName}</h2>${generateCard(num)}`);
+    $('#big-card-spot').html(`<h2>${cardData[num].displayName}</h2><div id='the-big-card'>${generateCard(num)}</div>`);
 };
 function emptyCollCard() {
     $('#big-card-spot').html(``);
@@ -121,4 +126,14 @@ function openStoreItem(itemNum) {
 
 function emojiInsert(input) {
     return `<img height=10 src='images/emoji/${input}.png'>`;
+};
+
+
+
+function generateCampaignPage() {
+    let display = ``;
+    for (var a=0; a<campaignData.length; a++) {
+        display += `<div onclick='startCampaignLevel(${a});'>${campaignData[a].name}</div><br>`;
+    }
+    $('#campaign-page').html(display);
 };

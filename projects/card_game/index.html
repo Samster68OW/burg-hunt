@@ -4,9 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Card Game</title>
     <link rel="icon" type="image/x-icon" href="images/site/favicon.ico">
 
+    <!-- External Sources -->
+      <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap" rel="stylesheet">
     <!-- Internal Javascript -->
       <!-- Scripts -->
         <script type="text/javascript" src="scripts/game-code.js"></script>
@@ -17,10 +21,11 @@
         <script type="text/javascript" src="data/campaign-data.js"></script>
         <script type="text/javascript" src="data/card-data.js"></script>
         <script type="text/javascript" src="data/set-data.js"></script>
+        <script type="text/javascript" src="data/splash-text.js"></script>
         <script type="text/javascript" src="data/store-control.js"></script>
         <script type="text/javascript" src="data/store-data.js"></script>
     <!-- Internal CSS -->
-        <link rel="stylesheet" href="stylesheet/main.css">
+        <link rel="stylesheet" href="stylesheets/main.css">
 
   </head>
   <body>
@@ -41,9 +46,10 @@
 
         <div id="home-page" class="main-menu-page" hidden>
           <br><br>
-          <h1 style="font-size:50px; text-align:center;">Card Game</h1>
+          <h1 style="font-size:50px; text-align:center;">Untitled Game</h1>
           <!--TODO: Show stats and ongoing events, perhaps a cool title animation, annoucement, player card-->
-          <button onclick="startCampaignLevel(2);">Play Test Battle</button>
+          <div onclick="loadPage('campaign-page')">Campaign</div>
+          <div id="splash-text-spot"></div>
           <!--Tutorial and random battle-->
         </div>
         <div id="deck-page" class="main-menu-page" hidden>
@@ -102,6 +108,12 @@
 
 
 
+      <div id="campaign-page" class="main-page">
+
+      </div>
+
+
+
     </div>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
     <script type="text/javascript">
@@ -113,10 +125,12 @@ $(document).ready(function(){
   setupStore();
   loadPage('main-menu');
   loadMainMenuPage('home-page');
+  $('#splash-text-spot').html(splashScreenData[Math.floor(Math.random()*splashScreenData.length)]);
 });
 function loadPage(pageName) {
   $('.main-page').fadeOut(0);
   $(`#${pageName}`).fadeIn(0);
+  if (pageName === 'campaign-page') {generateCampaignPage();}
 };
 
 

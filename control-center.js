@@ -23,4 +23,4 @@ const activeHuntStatus = false;
 
 
 // Latest CPZ Version
-const latestVersion = `v1.1.4.7`;
+const latestVersion = `v1.1.4.9`;

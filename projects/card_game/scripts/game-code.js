@@ -16,9 +16,10 @@ function generateCard(cardNum) {
         let display = `
             <div class="card-main" style="background-color:${cardColor};">
                 <div class="card-art">
-                    <div class="card-type" style="background-color:${cardColor};">${cardData[cardNum].type}</div>
+                    <div class="card-type" style="background-color:${cardColor};"><img src='images/card/${cardData[cardNum].type}.png'></div>
                     <div class="card-number">${findCardSet(cardNum)}</div>
                 </div>
+                <img class='card-sheen-img' src='images/card/1410.png'>
             </div>
         `;
         return display;
@@ -31,7 +32,12 @@ function findCardSet(cardNum) {
     for (var a=0; a<setData.length; a++) {
         for (var b=0; b<setData[a].cardList.length; b++) {
             if (setData[a].cardList[b] === cardNum) {
-                setInfo = `${setData[a].id} ${b + 1}/${setData[a].cardList.length} ${rarityData[cardData[cardNum].rarity]}`;
+                if (setData[a].displayMissing === true) {
+                    setInfo = `${setData[a].id} ${b + 1}/${setData[a].cardList.length} ${rarityData[cardData[cardNum].rarity]}`;
+                }
+                else if (setData[a].displayMissing === false) {
+                    setInfo = `${setData[a].id} ${b + 1} ${rarityData[cardData[cardNum].rarity]}`;
+                }
                 break;
             }
         }

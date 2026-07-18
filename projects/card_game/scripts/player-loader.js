@@ -6,7 +6,6 @@ let player = {
     username: "Samster68",
     coins: 0,
     obtainedCards: [3, 4, 2, 1],
-    cardCollection: [],
     gifts: []
 };
 
