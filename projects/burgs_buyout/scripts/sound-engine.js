@@ -1,5 +1,5 @@
 // The Truth Engine
-// by Samuel Britnell
+// by Samster68
 // Version: 1.0.1
 // Created: January 20th, 2021
 // Updated: March 1st, 2021
