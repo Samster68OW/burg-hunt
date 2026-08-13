@@ -39,6 +39,11 @@ const postcardList = [
         title: "Summer Splash Bingo",  imgSource: "jul2026.png", postcardCredit: "Samster68", showLocked: true,
         postcardDesc: "You scored a bingo during the Summer Splash party.",
         unlockDesc: "Unlock this postcard by scoring a bingo in the Summer Splash Bingo."
+    },
+    {
+        title: "Burg's Quest: An Interactive Adventure",  imgSource: "placeholder.png", postcardCredit: "Samster68", showLocked: true,
+        postcardDesc: "You helped Burg uncover the Ancient Pirate's treasure.",
+        unlockDesc: "Participated in the 'Burg's Quest: An Interactive Adventure' event."
     }
 ];
 

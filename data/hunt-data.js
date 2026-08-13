@@ -168,3 +168,30 @@ const jul2026Event = {
         {obj: "Complete a game of Pizzatron"},
     ]
 };
+
+
+
+const aug2026Event = {
+    title: "Burg's Quest: An Interactive Adventure",
+    imgSource: "aug2026",
+    availability: "August 14th, 2026",
+    postcardEarnedID: 7,
+    style: 'mascot-visit',
+    randomize: false,
+    winMsg: "You helped Burg find the Ancient Pirate's treasure! He gave you a postcard as thanks!",
+    itemList: [
+        {type: `Description`, text: "Make sure you are online at the right time. Burg will meet you at the Beach at 3pm, 5pm, and 7pm PST."},
+        {type: `Question`, text: "Listen to Burg's story. What do you say at the start of a treasure hunt? (One word)", answer: "AHOY"},
+        {type: `Description`, text: "Correct!<br>The map says to go to the Dock."},
+        {type: `Question`, text: "What kind of fish was mentioned in Burg's story? (One word)", answer: "MULLET"},
+        {type: `Description`, text: "Correct!<br>Go to where you can find a Mullet wall mount."},
+        {type: `Minigame`, text: "Try to catch a Mullet!", name: "Fishing-Minigame"},
+        {type: `Description`, text: "Nice catch!<br>To dig up the treasure, you will need a shovel. Go to where you can buy one."},
+        {type: `Minigame`, text: "Work with your fellow penguins to figure out where you are supposed to go next.", name: "One-Letter-Minigame"},
+        {type: `Description`, text: "Correct!<br>The treasure is buried somewhere in the Forest!"},
+        {type: `Minigame`, text: "Dig down to the treasure!", name: "Digging-Minigame"},
+        {type: `Description`, text: "You found the treasure!<br>Follow Burg to its new location."},
+        {type: `Question`, text: "What words does Burg finish this adventure with? (Two words)", answer: "THANK YOU"}
+    ],
+    roomList: []
+};

@@ -8,7 +8,8 @@ const huntList = [
     jan2026Event,
     feb2026Event,
     mar2026Event,
-    jul2026Event
+    jul2026Event,
+    aug2026Event
 ];
 
 
@@ -16,7 +17,7 @@ const huntList = [
 // Active Scavenger Hunt
 // Set this to false if there are no active hunts.
 // Set this to the index of the hunt above.
-const activeHunt = false;
+const activeHunt = 4;
 // Set the status of the active hunt. (false = coming soon, true = available)
 const activeHuntStatus = false;
 
