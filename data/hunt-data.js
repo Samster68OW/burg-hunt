@@ -187,7 +187,7 @@ const aug2026Event = {
         {type: `Description`, text: "Correct, he was saved by a Mullet!<br>Follow Burg to the next location."},
         {type: `Minigame`, text: "Catch a Mullet!", name: "Fishing-Minigame"},
         {type: `Description`, text: "Nice catch!<br>Let Burg know that you caught a Mullet, then follow him to the next location."},
-        {type: `Minigame`, text: "Work with your fellow penguins to figure out where you are supposed to go next. (Ye clue may not be the same as your other crewmates'!)", name: "One-Letter-Minigame", answer: "FOREST"},
+        {type: `Minigame`, text: "Work with your fellow penguins to figure out where you are supposed to go next.<br>(Ye clue may not be the same as your other crewmates' clues!)", name: "One-Letter-Minigame", answer: "FOREST"},
         {type: `Description`, text: "Correct!<br>Follow Burg to the Forest."},
         {type: `Minigame`, text: "Dig down for the map!", name: "Digging-Minigame"},
         {type: `Description`, text: "You found the map! It shows you where the treasure is located in the Forest.<br>Follow Burg to the treasure (Burg's Igloo)."},

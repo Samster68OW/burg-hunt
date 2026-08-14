@@ -116,7 +116,7 @@ function startFishingLoop() {
                     $('#fishing-minigame-frame').css('background-image','url("images/aug2026/fishing-default.png")');
                     $('#fishing-status-spot').html(``);
                     fishingMinigame.mode = 'waiting';
-                    fishingMinigame.ticksLeft = 10;
+                    fishingMinigame.ticksLeft = 6;
                     break;
             }
         }
@@ -128,7 +128,7 @@ function fishingReelIn() {
             $('#fishing-minigame-frame').css('background-image','url("images/aug2026/fishing-fail.png")');
             $('#fishing-status-spot').html(`MISS!`);
             fishingMinigame.mode = 'miss';
-            fishingMinigame.ticksLeft = 4;
+            fishingMinigame.ticksLeft = 3;
             break;
         case 'line tugged':
             fishingMinigame.fishCaught++;
@@ -142,7 +142,7 @@ function fishingReelIn() {
             else {
                 $('#fishing-minigame-frame').css('background-image','url("images/aug2026/fishing-caught.png")');
                 fishingMinigame.mode = 'caught';
-                fishingMinigame.ticksLeft = 4;
+                fishingMinigame.ticksLeft = 3;
             }
             break;
         case 'game won':
