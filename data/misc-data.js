@@ -23,7 +23,7 @@ const postcardList = [
     {
         title: "The Iceberg Stargazing Party",  imgSource: "may2026.png", postcardCredit: "starryskyez", showLocked: true,
         postcardDesc: "You met Burg at the Iceberg Stargazing Party and he gave you this postcard as thanks.",
-        unlockDesc: "Participated in the 'Iceberg Stargazing Party' event."
+        unlockDesc: "Participated in the 'Iceberg Stargazing Party' event and redeeming the code."
     },
     {
         title: "Burg's Buyout",  imgSource: "buyout2026.png", postcardCredit: "samuel", showLocked: true,
@@ -41,7 +41,7 @@ const postcardList = [
         unlockDesc: "Unlock this postcard by scoring a bingo in the Summer Splash Bingo."
     },
     {
-        title: "Burg's Quest: An Interactive Adventure",  imgSource: "placeholder.png", postcardCredit: "Samster68", showLocked: true,
+        title: "Burg's Quest: An Interactive Adventure",  imgSource: "aug2026.png", postcardCredit: "starryskyez", showLocked: true,
         postcardDesc: "You helped Burg uncover the Ancient Pirate's treasure.",
         unlockDesc: "Participated in the 'Burg's Quest: An Interactive Adventure' event."
     }

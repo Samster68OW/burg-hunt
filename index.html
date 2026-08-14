@@ -26,6 +26,7 @@
         <script type="text/javascript" src="control-center.js"></script>
     <!-- Internal CSS -->
         <link rel="stylesheet" href="stylesheets/animations.css">
+        <link rel="stylesheet" href="stylesheets/mascot-visit-style.css">
         <link rel="stylesheet" href="stylesheets/master.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -105,7 +106,7 @@
                 <h2>August 14th - Burg's Quest: An Interactive Adventure</h2>
                 <p class="lead p-savior">Solve puzzles with Burg on Friday, August 14th! Locate the adventure in the 'Adventures' tab.</p>
                 
-                <br><img src="images/site/samster68.png" style="width:100px; height:auto;" alt="Samster68" onclick="startHunt(5);">
+                <br><img src="images/site/samster68.png" style="width:100px; height:auto;" alt="Samster68" onclick="startHunt(4);">
               </div>
             </div>
           </div>
@@ -390,6 +391,23 @@
            <div id="hunt-container-mascot-visit" class="hunt-container" hidden>
             <p class="hunt-title">???</p><br>
             <p class="lead hunt-header">???</p>
+            <div id="Fishing-Minigame-content" hidden><center>
+              <div class='minigame-frame' id='fishing-minigame-frame'>
+                <div id="fishing-minigame-text-spot">Click the button to reel in when you get a tug.</div>
+                <br><br><br><br><br><br><br><br>
+                <div id="fishing-status-spot"></div>
+                <br><br><br>
+                <div id="reel-in-button" onclick="fishingReelIn();">Reel In!</div>
+              </div>
+            </center></div>
+            <div id="Digging-Minigame-content" hidden><center>
+              <div class='minigame-frame' id='digging-minigame-frame'>
+                <div id="digging-minigame-text-spot">Press the spacebar to dig!</div>
+                <div id="snows-dug-spot" hidden></div>
+                <br><br><br>
+                <div id="LA-PALA-TEXT" hidden>LA PALA!</div>
+              </div>
+            </center></div>
             <div id="mascot-visit-content-spot"></div><br>
             <button type="button" class="btn btn-success" onclick="submitAnswer();" id="submit-button-4">???</button>
           </div>
@@ -452,7 +470,7 @@
 
     </div>
     <br><br>
-    <p id="footer">Made by fans. This site is not affiliated with Club Penguin Zero or any of its properties.</p>
+    <p id="footer" hidden>Made by fans. This site is not affiliated with Club Penguin Zero or any of its properties.</p>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -485,6 +503,20 @@ function loadPage(name) {
 const inputField = document.querySelector('#secret-code-input');
 inputField.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {submitSecretCode();}
+});
+
+
+
+// Minigames
+document.addEventListener('keydown', (event) => {
+  if (event.key === ' ' && currentHunt.huntID === 4) {
+    diggingDigOut();
+  }
+});
+document.addEventListener('keyup', (event) => {
+  if (event.key === ' ' && currentHunt.huntID === 4) {
+    diggingDigIn();
+  }
 });
 
 

@@ -1,0 +1,69 @@
+/* Mascot Visit Style Specifics */
+
+
+
+.minigame-frame {
+    border: 3px solid white;
+    height: 400px;
+    width: 600px;
+}
+
+
+
+#fishing-minigame-frame {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#fishing-minigame-text-spot {
+    background-color: rgba(0, 0, 0, 0.532);
+    font-size: 22px;
+    padding: 20px;
+    text-align: center;
+}
+#fishing-status-spot {
+    color: rgb(76, 76, 235);
+    font-size: 30px;
+    font-weight: bold;
+    height: 35px;
+}
+#reel-in-button {
+    background-color: red;
+    border-radius: 10px;
+    padding: 10px;
+    width: 120px;
+}
+#reel-in-button:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+
+#digging-minigame-frame {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+#digging-minigame-text-spot {
+    background-color: rgba(0, 0, 0, 0.532);
+    font-size: 22px;
+    padding: 20px;
+    text-align: center;
+}
+#snows-dug-spot {
+    background: -webkit-linear-gradient(#1ba0d7, #002d3f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 35px;
+    text-align: left;
+}
+#LA-PALA-TEXT {
+    animation: textPulse 0.5s alternate infinite;
+    color: blue;
+    font-size: 80px;
+    font-weight: bold;
+    transform: rotate(-5deg);
+}
+@keyframes textPulse {
+    0% {font-size: 80px;}
+    100% {font-size: 90px;}
+}

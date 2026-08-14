@@ -103,10 +103,10 @@ function displayPostcards() {
                     <br><br><br><br>`;
             }
             else if (postcardList[a].showLocked === true) {
-                display += `<p class="lead">??????????</p>
-                    <img src="images/postcard/${postcardList[a].imgSource}" class="img-responsive img-postcard" style="width:600px; opacity:0.20;" alt="Postcard">
+                display += `<p class="lead">${postcardList[a].title}</p>
+                    <img src="images/postcard/${postcardList[a].imgSource}" class="img-responsive img-postcard" style="width:600px; opacity:0.30;" alt="Postcard">
                     <br>
-                    <div class='postcard-desc-spot img-responsive'>(Postcard courtesy of ${postcardList[a].postcardCredit}.)</div>
+                    <div class='postcard-desc-spot img-responsive'>${postcardList[a].unlockDesc}<br>(Postcard courtesy of ${postcardList[a].postcardCredit}.)</div>
                     <br><br><br><br>`;
             }
         }
