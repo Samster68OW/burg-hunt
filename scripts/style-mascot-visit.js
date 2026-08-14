@@ -120,7 +120,7 @@ function startFishingLoop() {
                     break;
             }
         }
-    },500);
+    },800);
 };
 function fishingReelIn() {
     switch (fishingMinigame.mode) {
