@@ -64,6 +64,7 @@ function mascotVisitMinigame(name) {
     switch (name) {
         case 'Fishing-Minigame':
             startFishingMinigame();
+            $('#fishing-status-spot').html(``);
             $('#Fishing-Minigame-content').fadeIn(0);
             break;
         case 'One-Letter-Minigame':
@@ -77,6 +78,8 @@ function mascotVisitMinigame(name) {
             break;
         case 'Digging-Minigame':
             startDiggingMinigame();
+            $('#snows-dug-spot').fadeOut(0);
+            $('#LA-PALA-TEXT').fadeOut(0);
             $('#Digging-Minigame-content').fadeIn(0);
             break;
     }
