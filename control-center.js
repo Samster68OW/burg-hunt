@@ -17,9 +17,9 @@ const huntList = [
 // Active Scavenger Hunt
 // Set this to false if there are no active hunts.
 // Set this to the index of the hunt above.
-const activeHunt = 4;
+const activeHunt = false;
 // Set the status of the active hunt. (false = coming soon, true = available)
-const activeHuntStatus = true;
+const activeHuntStatus = false;
 
 
 
