@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Snow Shoveling</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <!-- Internal Javascript -->
+      <!-- Scripts -->
+        <script type="text/javascript" src="game-code.js"></script>
+    <!-- Internal CSS -->
+        <link rel="stylesheet" href="stylesheets/main.css">
+
+  </head>
+  <body>
+
+
+
+    <div id="game-frame">
+      <div id="digging-minigame-text-spot">Press the spacebar to dig!</div>
+      <div id="snows-dug-spot" hidden></div>
+      <br><br><br><br>
+      <div id="LA-PALA-TEXT" hidden>LA PALA!</div>
+    </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+
+
+$(document).ready(function(){
+  startDiggingMinigame();
+});
+
+
+
+// Input
+document.addEventListener('keydown', (event) => {
+  if (event.key === ' ') diggingDigOut();
+});
+document.addEventListener('keyup', (event) => {
+  if (event.key === ' ') diggingDigIn();
+});
+
+
+
+    </script>
+  </body>
+</html>
