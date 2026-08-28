@@ -113,3 +113,48 @@ function displayPostcards() {
     // Show postcards
         $('#postcard-display-spot').html(display);
 };
+
+
+
+// Player Profile
+function displayProfile() {
+    // Start stat display
+        let display = ``;
+    // Burg Postcards
+        let burgPostcards = 0;
+        for (var i=0; i<player.postcardData.length; i++) {
+            if (player.postcardData[i] === 'T') burgPostcards++;
+        }
+    // Finish Display
+        display += `
+            Burg Postcards: ${burgPostcards}<br>
+            Stamps: ${player.profileData.stamps} / ${totalStamps}<br>
+            Pins: ${player.profileData.pins}<br>
+            Most Coins Held: ${player.profileData.coins} thousand<br>
+            `;
+        $('#profile-output-spot').html(display);
+    // Second display
+        display = `
+            Stamps: <input type="text" class="text-input" id="profile-field-1" style='width:80px;' value="${player.profileData.stamps}" maxlength=3><br>
+            Pins: <input type="text" class="text-input" id="profile-field-2" style='width:80px;' value="${player.profileData.pins}" maxlength=3><br>
+            Most Coins Held: <input type="text" class="text-input" id="profile-field-3" style='width:80px;' value="${player.profileData.coins}" maxlength=5> thousand
+            `;
+        $('#profile-edit-spot').html(display);
+        
+};
+function toggleProfilePage(value) {
+    if (value === 'back') {
+        $('#profile-front').fadeOut(0);
+        $('#profile-back').fadeIn(0);
+    }
+    else if (value === 'front') {
+        $('#profile-front').fadeIn(0);
+        $('#profile-back').fadeOut(0);
+        // Grab info from the text fields, display, and save.
+            player.profileData.stamps = document.getElementById(`profile-field-1`).value;
+            player.profileData.pins = document.getElementById(`profile-field-2`).value;
+            player.profileData.coins = document.getElementById(`profile-field-3`).value;
+            displayProfile();
+            savePlayerData();
+    }
+};

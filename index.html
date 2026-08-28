@@ -70,6 +70,7 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile</span></a>
               <ul class="dropdown-menu">
+                <!--<li><a href="#" onclick="loadPage('player-stats');">My Statistics</a></li>-->
                 <li><a href="#" onclick="loadPage('postcards');">My Postcards</a></li>
                 <li><a href="#" onclick="loadPage('enter-code');">Enter Secret Code</a></li>
               </ul>
@@ -218,6 +219,7 @@
             <iframe src="https://www.youtube.com/embed/JLsMkudWytM?si=xJykXvJWPRaceK_v" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br><br>
             <p class="lead p-savior">August 14th - Burg hosted an event called, "Burg's Quest: An Interactive Adventure" where his friends helped him located the Ancient Pirate's treasure. They answered questions and played minigames to find the treasure in the Forest.</p>
             <iframe src="https://www.youtube.com/embed//Jcu7MhLUD30?si=ZkUKWBP6pSqQwcOh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br><br>
+            <p class="lead p-savior">August 27th - Zero Nation's discord server used its boosts to create a BURG server tag!</p>
           </div>
         </div>
       </div>
@@ -313,6 +315,43 @@
         </div>
       </div>
       <!-- My Profile -->
+      <div class="page-main" id="page-player-stats" hidden>
+        <div class="title-area">
+          <h1>My Profile</h1><br>
+        </div>
+        <div class="lore-box" id="profile-front">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6" style="text-align: center;">
+                <br>
+                <img src="images/site/burg_portrait.png" class="img-savior" style="width:300px;" alt="Burg Portrait">
+                <br><br>
+                <a onclick="toggleProfilePage('back');" class="edit-button">[ Edit Statistics ]</a>
+              </div>
+              <div class="col-md-6">
+                <h2>My Statistics</h2>
+                <div id="profile-output-spot"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="lore-box" id="profile-back" hidden>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6" style="text-align: center;">
+                <br>
+                <img src="images/site/burg_portrait.png" class="img-savior" style="width:300px;" alt="Burg Portrait">
+                <br><br>
+                <a onclick="toggleProfilePage('front');" class="edit-button">[ Save Changes ]</a>
+              </div>
+              <div class="col-md-6">
+                <h2>My Statistics</h2>
+                <div id="profile-edit-spot"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="page-main" id="page-postcards" hidden>
         <div class="title-area">
           <h1>Postcards</h1><br>
@@ -500,6 +539,7 @@ function loadPage(name) {
   $(".navbar-collapse").collapse('hide');
   switch (name) {
     case 'postcards': displayPostcards(); break;
+    case 'player-stats': displayProfile(); break;
   };
   setTimeout(function(){
     $(`#page-${name}`).fadeIn(fadeTimer);

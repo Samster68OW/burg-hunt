@@ -24,4 +24,5 @@ const activeHuntStatus = false;
 
 
 // Latest CPZ Version
-const latestVersion = `v1.1.5.7`;
+const latestVersion = `v1.1.6.2`;
+const totalStamps = 186;

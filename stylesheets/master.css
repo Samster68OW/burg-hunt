@@ -187,3 +187,14 @@ h1 {
     text-align: center;
     width: 80px;
 }
+
+
+
+/* My Profile */
+.edit-button {
+    color: yellow;
+}
+.edit-button:hover {
+    color: rgb(0, 198, 0);
+    cursor: pointer;
+}
