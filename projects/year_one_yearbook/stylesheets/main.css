@@ -34,18 +34,40 @@ body {
     width: 900px;
     z-index: 2;
 }
+#page-display img {
+    height: 600px;
+    width: 900px;
+}
 
 
 
 .turn-page-button {
-    bottom: 20px;
     cursor: url('../images/cursor/pointer.png'), auto;
-    height: 130px;
     opacity: 0.5;
     position: absolute;
-    width: 100px;
     z-index: 3;
 }
+#turn-left {
+    bottom: 80px;
+    height: 120px;
+    left: 50px;
+    width: 100px;
+}
 #turn-right {
-    right: 0px;
+    bottom: 80px;
+    height: 120px;
+    right: 50px;
+    width: 100px;
+}
+#open-right {
+    bottom: 60px;
+    height: 570px;
+    right: 270px;
+    width: 100px;
+}
+#hover-secret {
+    height: 70px;
+    top: 70px;
+    right: 120px;
+    width: 330px;
 }

@@ -17,11 +17,13 @@
 
     <div id="main-heading">Zero Nation 2026 Yearbook</div>
     <div id="game-frame">
-      <div id="page-display">
-        <div id='turn-left' class="turn-page-button" onclick="turnLeft();"></div>
-        <div id='turn-right' class="turn-page-button" onclick="turnRight();"></div>
-      </div>
+      <div id="page-display"></div>
+      <div id='turn-left' class="turn-page-button" onclick="turnLeft();" hidden></div>
+      <div id='turn-right' class="turn-page-button" onclick="turnRight();" hidden></div>
+      <div id='open-right' class="turn-page-button" onclick="turnRight();" hidden></div>
+      <div id='hover-secret' class="turn-page-button" onmouseenter="revealSecret();" onmouseleave="hideSecret();" hidden></div>
     </div>
+    Click on the page corners to flip through the book.
 
 
 
@@ -34,29 +36,67 @@
 
 
 $(document).ready(function(){
+  initialLoad();
   displayPage();
 });
 
 
 
-const totalPages = 2;
+const totalPages = 21;
+const lastPageWithSecret = 17;
+
+
+
+function initialLoad() {
+  let display = ``;
+  for (let i=0; i<totalPages; i++) {
+    display += `<img id='page_${i}_img' src='images/pages/page_${i}.png' style='display:none;'>`;
+    if (i >= 2 && i <= lastPageWithSecret) display += `<img id='page_${i}s_img' src='images/pages/page_${i}s.png' style='display:none;'>`;
+  }
+  $('#page-display').html(display);
+};
 
 
 
 let yearbookPage = 0;
 function displayPage() {
-    $('#page-display').css('background-image',`url("images/pages/page_${yearbookPage}.png")`);
+  $(`#page_${yearbookPage}_img`).fadeIn(0);
+  // Default buttons
+    $('#turn-left').fadeIn(0);
+    $('#turn-right').fadeIn(0);
+    $('#open-right').fadeOut(0);
+    $('#hover-secret').fadeOut(0);
+  // Adjust buttons
+    if (yearbookPage === 0) {
+      $('#turn-left').fadeOut(0);
+      $('#turn-right').fadeOut(0);
+      $('#open-right').fadeIn(0);
+    }
+    if (yearbookPage === totalPages-1) $('#turn-right').fadeOut(0);
+    if (yearbookPage >= 2 && yearbookPage <= lastPageWithSecret) $('#hover-secret').fadeIn(0);
 };
-
 function turnLeft() {
-    yearbookPage--;
-    if (yearbookPage < 0) yearbookPage = 0;
-    displayPage();
+  $(`#page_${yearbookPage}_img`).fadeOut(0);
+  yearbookPage--;
+  if (yearbookPage < 0) yearbookPage = 0;
+  displayPage();
 };
 function turnRight() {
-    yearbookPage++;
-    if (yearbookPage >= totalPages) yearbookPage = totalPages - 1;
-    displayPage();
+  $(`#page_${yearbookPage}_img`).fadeOut(0);
+  yearbookPage++;
+  if (yearbookPage >= totalPages) yearbookPage = totalPages - 1;
+  displayPage();
+};
+
+
+
+function revealSecret() {
+  $(`#page_${yearbookPage}_img`).fadeOut(0);
+  $(`#page_${yearbookPage}s_img`).fadeIn(0);
+};
+function hideSecret() {
+  $(`#page_${yearbookPage}_img`).fadeIn(0);
+  $(`#page_${yearbookPage}s_img`).fadeOut(0);
 };
 
 
