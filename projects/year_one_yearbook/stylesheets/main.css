@@ -16,6 +16,7 @@ body {
 }
 #main-heading {
     font-size: 40px;
+    text-shadow: 3px 3px gray;
 }
 #game-frame {
     cursor: url('../images/cursor/default.png'), auto;
