@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zero Nation 2026 Yearbook</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <!-- Internal CSS -->
+        <link rel="stylesheet" href="stylesheets/main.css">
+
+  </head>
+  <body><center>
+
+
+
+    <div id="main-heading">Zero Nation 2026 Yearbook</div>
+    <div id="game-frame">
+      <div id="page-display">
+        <div id='turn-left' class="turn-page-button" onclick="turnLeft();"></div>
+        <div id='turn-right' class="turn-page-button" onclick="turnRight();"></div>
+      </div>
+    </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+
+
+$(document).ready(function(){
+  displayPage();
+});
+
+
+
+const totalPages = 2;
+
+
+
+let yearbookPage = 0;
+function displayPage() {
+    $('#page-display').css('background-image',`url("images/pages/page_${yearbookPage}.png")`);
+};
+
+function turnLeft() {
+    yearbookPage--;
+    if (yearbookPage < 0) yearbookPage = 0;
+    displayPage();
+};
+function turnRight() {
+    yearbookPage++;
+    if (yearbookPage >= totalPages) yearbookPage = totalPages - 1;
+    displayPage();
+};
+
+
+
+    </script>
+  </center></body>
+</html>
