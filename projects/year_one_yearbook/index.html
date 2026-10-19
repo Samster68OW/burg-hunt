@@ -37,6 +37,7 @@
 
 
 
+let musicStarted = false;
 $(document).ready(function(){
   initialLoad();
   displayPage();
@@ -90,6 +91,7 @@ function turnRight() {
   if (yearbookPage >= totalPages) yearbookPage = totalPages - 1;
   displayPage();
   playFlipSound();
+  playMusic();
 };
 
 
@@ -113,6 +115,11 @@ function playFlipSound() {
   loadSounds();
   playSound(`Flip ${currentSound}`);
 };
+function playMusic() {
+  if (musicStarted === true) return;
+  musicStarted = true;
+  playSound('Box Dim 3');
+}
 
 
 

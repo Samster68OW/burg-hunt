@@ -25,11 +25,11 @@ var masterVolume = 1.0; // Can be anywhere from 0 to 1.
 // vol: The volume your sound will be played at. Can be anywhere from 0 to 1.
 // mode: Can be 'default' or 'loop'.
 var soundData = [
-    // Bread
-        {name:'Flip 1', src:'flip_1.wav', vol:1.0, mode:'play'},
-        {name:'Flip 2', src:'flip_2.wav', vol:1.0, mode:'play'},
-        {name:'Flip 3', src:'flip_3.wav', vol:1.0, mode:'play'},
-        {name:'Secret Found', src:'secret_found.wav', vol:1.0, mode:'play'},
+    {name:'Flip 1', src:'flip_1.wav', vol:1.0, mode:'play'},
+    {name:'Flip 2', src:'flip_2.wav', vol:1.0, mode:'play'},
+    {name:'Flip 3', src:'flip_3.wav', vol:1.0, mode:'play'},
+    {name:'Secret Found', src:'secret_found.wav', vol:1.0, mode:'play'},
+    {name:'Box Dim 3', src:'box_dim_3.webm', vol:0.3, mode:'loop'},
 ];
 
 
