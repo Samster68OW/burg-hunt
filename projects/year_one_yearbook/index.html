@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Zero Nation Yearbook</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-
+    <!-- Internal Javascript -->
+      <!-- Scripts -->
+        <script type="text/javascript" src="sound-engine.js"></script>
     <!-- Internal CSS -->
         <link rel="stylesheet" href="stylesheets/main.css">
 
@@ -80,12 +82,14 @@ function turnLeft() {
   yearbookPage--;
   if (yearbookPage < 0) yearbookPage = 0;
   displayPage();
+  playFlipSound();
 };
 function turnRight() {
   $(`#page_${yearbookPage}_img`).fadeOut(0);
   yearbookPage++;
   if (yearbookPage >= totalPages) yearbookPage = totalPages - 1;
   displayPage();
+  playFlipSound();
 };
 
 
@@ -93,10 +97,21 @@ function turnRight() {
 function revealSecret() {
   $(`#page_${yearbookPage}_img`).fadeOut(0);
   $(`#page_${yearbookPage}s_img`).fadeIn(0);
+  playSound("Secret Found");
 };
 function hideSecret() {
   $(`#page_${yearbookPage}_img`).fadeIn(0);
   $(`#page_${yearbookPage}s_img`).fadeOut(0);
+};
+
+
+
+let currentSound = 0;
+function playFlipSound() {
+  currentSound++;
+  if (currentSound === 4) currentSound = 1;
+  loadSounds();
+  playSound(`Flip ${currentSound}`);
 };
 
 
