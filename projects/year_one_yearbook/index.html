@@ -24,6 +24,7 @@
       <div id='turn-right' class="turn-page-button" onclick="turnRight();" hidden></div>
       <div id='open-right' class="turn-page-button" onclick="turnRight();" hidden></div>
       <div id='hover-secret' class="turn-page-button" onmouseenter="revealSecret();" onmouseleave="hideSecret();" hidden></div>
+      <div id='hover-secret-two' class="turn-page-button" onmouseenter="revealSecret();" onmouseleave="hideSecret();" hidden></div>
     </div>
     Click on the page corners to flip through the book.
 
@@ -54,7 +55,7 @@ function initialLoad() {
   let display = ``;
   for (let i=0; i<totalPages; i++) {
     display += `<img id='page_${i}_img' src='images/pages/page_${i}.png' style='display:none;'>`;
-    if (i >= 2 && i <= lastPageWithSecret) display += `<img id='page_${i}s_img' src='images/pages/page_${i}s.png' style='display:none;'>`;
+    if (i >= 2 && i <= lastPageWithSecret | i === 19) display += `<img id='page_${i}s_img' src='images/pages/page_${i}s.png' style='display:none;'>`;
   }
   $('#page-display').html(display);
 };
@@ -69,6 +70,7 @@ function displayPage() {
     $('#turn-right').fadeIn(0);
     $('#open-right').fadeOut(0);
     $('#hover-secret').fadeOut(0);
+    $('#hover-secret-two').fadeOut(0);
   // Adjust buttons
     if (yearbookPage === 0) {
       $('#turn-left').fadeOut(0);
@@ -77,6 +79,7 @@ function displayPage() {
     }
     if (yearbookPage === totalPages-1) $('#turn-right').fadeOut(0);
     if (yearbookPage >= 2 && yearbookPage <= lastPageWithSecret) $('#hover-secret').fadeIn(0);
+    if (yearbookPage === 19) $('#hover-secret-two').fadeIn(0);
 };
 function turnLeft() {
   $(`#page_${yearbookPage}_img`).fadeOut(0);
