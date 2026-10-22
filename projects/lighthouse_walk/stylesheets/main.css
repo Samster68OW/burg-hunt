@@ -110,7 +110,7 @@ body {
     border: 5px solid white;
     bottom: 50px;
     cursor: pointer;
-    height: 55px;
+    height: 60px;
     left: 200px;
     padding: 10px;
     position: absolute;
@@ -125,6 +125,7 @@ body {
     z-index: 4;
 }
 .ghost {
+    background-size: 100% 100%;
     border-radius: 100px;
     cursor: pointer;
     opacity: 0.5;

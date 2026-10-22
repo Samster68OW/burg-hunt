@@ -24,7 +24,7 @@ function startGameButton() {
         $('.main-div').fadeOut(0);
 
     // Load first room
-        currentLevel = 5;
+        currentLevel = 1;
         setTimeout(function(){
             currentDia = 0;
             loadRoom(currentLevel);
@@ -146,7 +146,7 @@ function gameLoop() {
 
                 // Add to display
                     gameDis += `<div class='ghost' style='
-                        background-color: ${enemyList[i].imgFile};
+                        background-image: url("images/ghost/${enemyList[i].imgFile}.png");
                         bottom: ${yOffset}px;
                         height: ${enemyList[i].size}px;
                         left: ${xOffset}px;
