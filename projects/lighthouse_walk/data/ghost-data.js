@@ -36,7 +36,7 @@ const ghostData = [
         name: "Boss Ghost",
         imgFile: "boss_ghost",
         speed: 25,
-        health: 20,
+        health: 17,
         size: 220
     }
 

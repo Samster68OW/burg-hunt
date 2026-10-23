@@ -12,6 +12,7 @@ let currentEnemyEl = 0;
 let enemyList = [];
 let intervalVar;
 let hoveringEnemy = false;
+let lastSpawnpoint = 10;
 
 
 
@@ -20,11 +21,10 @@ function startGameButton() {
 
     // Load everything!
         loadSounds();
-        //playsound TODO
         $('.main-div').fadeOut(0);
 
     // Load first room
-        currentLevel = 1;
+        currentLevel = 0;
         setTimeout(function(){
             currentDia = 0;
             loadRoom(currentLevel);
@@ -41,11 +41,17 @@ function loadRoom(roomNum) {
         $('#gameplay-screen').css('background-image',`url("images/backgrounds/area_${roomNum}.png")`);
         if (roomNum >= 1 && roomNum <= 5) displayFriend();
         else $('#surferbro-img').fadeOut(0);
+        $('#the-end-title').fadeOut(0);
+        $('#the-end-title-two').fadeOut(0);
         $('#black-box').css('opacity','0');
         loadArea('gameplay', true);
         setTimeout(function(){
             loadDialogue();
         },3000);
+
+    // Background Music
+        if (roomNum === 0) {restartSound('BG Music - Sea Waves');}
+        if (roomNum === 6) {restartSound('BG Music - Final Scene');}
 
 };
 function displayFriend() {
@@ -81,6 +87,16 @@ function loadDialogue() {
 
     // Unique Interactions
         if (currentLevel === 0 && currentDia === 5) displayFriend();
+        if (currentLevel === 5 && currentDia === 2) {
+            $('#gameplay-screen').addClass('shakingScreenInfClass');
+            restartSound('Rumbling');
+        }
+        if (currentLevel === 5 && currentDia === 3) {
+            setTimeout(function(){
+                $('#gameplay-screen').removeClass('shakingScreenInfClass');
+                pauseSound('Rumbling');
+            },2000);
+        }
 
 };
 let boxClickable = false;
@@ -89,6 +105,7 @@ function clickDialogueBox() {
     boxClickable = false;
     
     currentDia++;
+    playSound('Dialogue');
     $('#dialogue-box').fadeOut(0);
     setTimeout(function() {
         loadDialogue();
@@ -107,6 +124,10 @@ function startRound() {
     
     // Setup Screen
         $('#black-box').css('opacity','0.5');
+        playSound('Lights Off');
+        if (currentLevel === 5) restartSound('BG Music - Boss Battle Song');
+        else restartSound('BG Music - Haunt Song');
+        
 
     // Start the loop
         intervalVar = setInterval(function() {
@@ -126,7 +147,10 @@ function gameLoop() {
     // Damage enemy
         if (hoveringEnemy !== false) {
             enemyList[hoveringEnemy].health--;
-            if (enemyList[hoveringEnemy].health <= 0) hoveringEnemy = false;
+            if (enemyList[hoveringEnemy].health <= 0) {
+                hoveringEnemy = false;
+                restartSound('Flashlight Zap');
+            }
         }
 
     // Spawn new enemy
@@ -151,7 +175,7 @@ function gameLoop() {
                         height: ${enemyList[i].size}px;
                         left: ${xOffset}px;
                         width: ${enemyList[i].size}px;'
-                        onmouseenter='hoveringEnemy = ${i};'
+                        onmouseenter='hoverGhost(${i});'
                         onmouseleave='hoveringEnemy = false;'
                         ></div>`;
 
@@ -159,6 +183,10 @@ function gameLoop() {
         }
         $('#gameplay-content').html(gameDis);
 
+};
+function hoverGhost(i) {
+    if (hoveringEnemy === false) restartSound("Flashlight Click");
+    hoveringEnemy = i;
 };
 
 
@@ -180,11 +208,14 @@ function addEnemy(num) {
         newEnemy.health = Math.floor(newEnemy.health * gameStat.fps);
         if (num === 3) {
             newEnemy.pos = {x: 400, y: 650}; // Boss Ghost
+            playSound('Boss Spawn');
         }
         else {
-            newEnemy.pos = JSON.parse(JSON.stringify(levelData[currentLevel].spawnpoints[
-                Math.floor(Math.random()*levelData[currentLevel].spawnpoints.length)
-            ]));
+            let currSpawnpoint = Math.floor(Math.random()*levelData[currentLevel].spawnpoints.length);
+            if (currSpawnpoint === lastSpawnpoint) currSpawnpoint++;
+            if (currSpawnpoint >= levelData[currentLevel].spawnpoints.length) currSpawnpoint = 0;
+            lastSpawnpoint = currSpawnpoint;
+            newEnemy.pos = JSON.parse(JSON.stringify(levelData[currentLevel].spawnpoints[currSpawnpoint]));
         }
     enemyList.push(newEnemy);
 };
@@ -202,7 +233,9 @@ function calculateMotion(i) {
         let xDistProp = xDist / totalDistDiff;
 
     // Check for loss
-        if (yDist < 50 && xDist < 50) {clearInterval(intervalVar);}
+        if (yDist < 50 && xDist < 50) {
+            levelLost();
+        }
 
     // Move enemy
         if (enemyList[i].pos.y > levelData[currentLevel].endpoint.y) enemyList[i].pos.y -= yDistProp * enemyList[i].speed;
@@ -214,11 +247,32 @@ function calculateMotion(i) {
 
 
 
+// Lose Level
+function levelLost() {
+    clearInterval(intervalVar);
+    $('#black-box').css('opacity','1.0');
+    pauseSound('BG Music - Haunt Song');
+    pauseSound('BG Music - Boss Battle Song');
+    currentLevel--;
+    setTimeout(function() {
+        $('#gameplay-content').html("");
+        hoveringEnemy = false;
+    },200);
+    setTimeout(function() {
+        nextLevel();
+    },3000);
+};
+
+
+
 // Complete Level
 function levelComplete() {
     $('#gameplay-content').html("");
     $('#black-box').css('opacity','0');
     clearInterval(intervalVar);
+    pauseSound('BG Music - Haunt Song');
+    pauseSound('BG Music - Boss Battle Song');
+    playSound('Level Complete');
     setTimeout(function() {
         nextLevel();
     },2500);
@@ -228,13 +282,28 @@ function nextLevel() {
     currentLevel++;
     hoveringEnemy = false;
 
+    // Sounds
+        if (currentLevel === 1) {pauseSound('BG Music - Sea Waves');}
+
     // End Game
         if (currentLevel === 7) {
             playerDataLH.completedGame = 1;
-            $('.main-div').fadeOut(3000);
             setTimeout(function() {
-                loadArea('main-menu', true);
-            },4000);
+                $('#the-end-title').fadeIn(2000);
+                $('#black-box').fadeOut(0);
+                $('#black-box').css('opacity','0.8');
+                $('#black-box').fadeIn(2000);
+                setTimeout(function() {
+                    $('#the-end-title-two').fadeIn(500);
+                    setTimeout(function() {
+                        $('.main-div').fadeOut(3000);
+                        setTimeout(function() {
+                            pauseSound('BG Music - Final Scene');
+                            loadArea('main-menu', true);
+                        },4000);
+                    },5500);
+                },4000);
+            },1000);
         }
         
     // Next Level
@@ -245,4 +314,3 @@ function nextLevel() {
             },1000);
         }
 }
-       

@@ -15,7 +15,7 @@
 
 // Control Panel:
 var sourceFolder = 'sounds/'; // Location of your audio files. (Leave blank if in same directory.)
-var masterVolume = 0.8; // Can be anywhere from 0 to 1.
+var masterVolume = 1.0; // Can be anywhere from 0 to 1.
 
 
 
@@ -25,7 +25,17 @@ var masterVolume = 0.8; // Can be anywhere from 0 to 1.
 // vol: The volume your sound will be played at. Can be anywhere from 0 to 1.
 // mode: Can be 'default' or 'loop'.
 var soundData = [
-    
+    {name:'Dialogue', src:'click_coin.wav', vol:0.6, mode:'play'},
+    {name:'BG Music - Sea Waves', src:'sea_waves.mp3', vol:0.8, mode:'loop'},
+    {name:'Lights Off', src:'lights_off.wav', vol:0.1, mode:'play'},
+    {name:'BG Music - Haunt Song', src:'dark_hallway.mp3', vol:0.15, mode:'loop'},
+    {name:'Flashlight Click', src:'flashlight_click.wav', vol:0.5, mode:'play'},
+    {name:'Flashlight Zap', src:'zap.wav', vol:0.3, mode:'play'},
+    {name:'Level Complete', src:'Pickup_GemBells14.wav', vol:0.3, mode:'play'},
+    {name:'Rumbling', src:'box_shrink.wav', vol:0.1, mode:'play'},
+    {name:'BG Music - Boss Battle Song', src:'big_boo_battle.mp3', vol:0.15, mode:'loop'},
+    {name:'Boss Spawn', src:'box_opened.wav', vol:0.3, mode:'play'},
+    {name:'BG Music - Final Scene', src:'haunted_disco.mp3', vol:0.2, mode:'loop'}
 ];
 
 
