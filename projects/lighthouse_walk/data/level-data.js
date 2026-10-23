@@ -7,7 +7,7 @@ const levelData = [
     {
         name: "Intro: The Cove",
         dialogue: [
-            ["SETTING", "Uh oh. It looks like the sun has gone down. (Click this box to continue.)"],
+            ["SETTING", "Uh, oh. It looks like the sun has gone down. (Click this box to continue.)"],
             ["SETTING", "You've had a long day of exploring the island, hanging out with friends, and sitting around the fire."],
             ["SETTING", "You must've dozed off. It looks like everyone has left."],
             ["SETTING", "Oh well. It's time to head back to your igloo."],
