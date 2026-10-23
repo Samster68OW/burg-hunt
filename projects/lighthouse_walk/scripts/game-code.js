@@ -24,7 +24,7 @@ function startGameButton() {
         $('.main-div').fadeOut(0);
 
     // Load first room
-        currentLevel = 3;
+        currentLevel = 0;
         setTimeout(function(){
             currentDia = 0;
             loadRoom(currentLevel);
