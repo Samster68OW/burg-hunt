@@ -24,7 +24,7 @@ function startGameButton() {
         $('.main-div').fadeOut(0);
 
     // Load first room
-        currentLevel = 0;
+        currentLevel = 3;
         setTimeout(function(){
             currentDia = 0;
             loadRoom(currentLevel);
@@ -214,7 +214,8 @@ function addEnemy(num) {
             let currSpawnpoint = Math.floor(Math.random()*levelData[currentLevel].spawnpoints.length);
             if (currSpawnpoint === lastSpawnpoint) currSpawnpoint++;
             if (currSpawnpoint >= levelData[currentLevel].spawnpoints.length) currSpawnpoint = 0;
-            lastSpawnpoint = currSpawnpoint;
+            lastSpawnpoint = JSON.parse(JSON.stringify(currSpawnpoint));
+            console.log(currSpawnpoint);
             newEnemy.pos = JSON.parse(JSON.stringify(levelData[currentLevel].spawnpoints[currSpawnpoint]));
         }
     enemyList.push(newEnemy);
