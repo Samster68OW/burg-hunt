@@ -17,14 +17,14 @@ let lastSpawnpoint = 10;
 
 
 // Start Button
-function startGameButton() {
+function startGameButton(num) {
 
     // Load everything!
         loadSounds();
         $('.main-div').fadeOut(0);
 
     // Load first room
-        currentLevel = 0;
+        currentLevel = num;
         setTimeout(function(){
             currentDia = 0;
             loadRoom(currentLevel);
