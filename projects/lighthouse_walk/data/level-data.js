@@ -174,6 +174,33 @@ const levelData = [
             ["NEXT LEVEL"]
         ]
     },
+    {
+        name: "Bonus Level: Ski Village",
+        dialogue: [
+            ["Gary", "Gadzooks!"],
+            ["START LEVEL"]
+        ],
+        waves: [
+            [3, 0], [3, 0], [3, 0],
+            [7, 1], [7, 1],
+            [10, 2],
+            [13, 2], [13.5, 2], [15, 2],
+            [18, 1], [19, 1], [20, 2], [21, 2],
+            [23, 2], [23, 2],
+            [25, 0], [25, 1], [25, 2], [25, 0], [25, 1], [25, 2],
+            [30, 2], [30, 2], [30, 2], [30, 2]
+        ],
+        timeToSurvive: 40,
+        endpoint: {x: 600, y: 200},
+        spawnpoints: [
+            {x: 100, y: 750},
+            {x: 300, y: 750},
+            {x: 500, y: 750},
+            {x: 700, y: 750},
+            {x: 900, y: 750},
+            {x: 1100, y: 750}
+        ]
+    }
 
 ];
 
@@ -183,5 +210,6 @@ const diaColors = [
     ["?????","#ff9d3a"],
     ["Orange Penguin","#ff9d3a"],
     ["SurferBro27","#ff9d3a"],
-    ["Party Host","#c679fa"]
+    ["Party Host","#c679fa"],
+    ["Gary","#4c61ff"]
 ];

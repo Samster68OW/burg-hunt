@@ -39,7 +39,7 @@ function loadRoom(roomNum) {
 
     // Load into room
         $('#gameplay-screen').css('background-image',`url("images/backgrounds/area_${roomNum}.png")`);
-        if (roomNum >= 1 && roomNum <= 5) displayFriend();
+        if (roomNum >= 1 && roomNum <= 5 | roomNum === 7) displayFriend();
         else $('#surferbro-img').fadeOut(0);
         $('#the-end-title').fadeOut(0);
         $('#the-end-title-two').fadeOut(0);
