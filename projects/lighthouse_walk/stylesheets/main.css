@@ -206,7 +206,7 @@ body {
 
 /* Level Select Screen */
 #level-select-screen div {
-    cursor: pointer;
+    cursor: url('../images/cursor/flashlight_on.png'), auto;
     padding: 5px;
 }
 #level-select-screen div:hover {
