@@ -52,7 +52,7 @@ const levelData = [
         dialogue: [
             ["SurferBro27", "That was a close one! Were those ghosts?"],
             ["SurferBro27", "Bro, I didn't know there were ghosts on Club Penguin Island! I thought there was no such thing as ghosts!"],
-            ["SurferBro27", "Well your flashlight seemed to scare them off. Keep your guard up, I think more are on the way."],
+            ["SurferBro27", "Well your flashlight seemed to scare them off. If you can hold them off long enough, they'll go away."],
             ["SurferBro27", "It looks like the ghosts retain damage even if you look away from them. Change your target if a different ghost seems like a larger threat."],
             ["START LEVEL"]
         ],
