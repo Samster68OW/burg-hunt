@@ -8,7 +8,7 @@ const eng = {
 
         mainMenu: [
             `Walk to the<br>Lighthouse`,
-            `Made by Samster68.<br>Spanish translation by Silverpetals.<br>This game is played with the mouse.`,
+            `Made by Samster68.<br>This game is played with the mouse.`,
             `Start Game`,
             `Bonus Story`
         ],
@@ -88,7 +88,7 @@ const eng = {
             [`Gary`, `Hello, friend! Glad to see you received my message.`],
             [`Gary`, `When I read your letter about the ghosts, I was completely flummoxed! I've never heard such a thing!`],
             [`Gary`, `I'm not saying I don't believe you, but I <i>am</i> a scientist. I'd like to verify this for myself.`],
-            [`Gary`, `Which is the reason why we're here! With your help, I'd like to run some tests on the Ski Hill to see if we can talk to these ghosts.`],
+            [`Gary`, `Which is the reason why we're here! With your help, I'd like to run some tests on the top of the Ski Hill to see if we can talk to these ghosts.`],
             [`Gary`, `I've created the Specter Speaker 3000, a device that can speak to creatures <i>on the other side</i>!`],
             [`Gary`, `Maybe we can have a chat with them to see what they want.`],
             [`Gary`, `Alright, let's head to the Ski Hill!`],
@@ -96,10 +96,18 @@ const eng = {
         ],
         [
             [`Gary`, `Ok, everything is in position. We're ready to test!`],
-            [`Gary`, `There is a slight chance that our ghoulish friends don't enjoy our meddling.`],
+            [`Gary`, `There is a slight chance that our ghoulish friends won't enjoy our meddling.`],
             [`Gary`, `That's why you'll start guard while I test. You have the most experience, after all.`],
-            [`Gary`, `Take this Ghost Zapper 3001, which scares the ghosts <i>twice as fast</i>!`],
+            [`Gary`, `Take this Ghost Zapper 3001, which scares the ghosts <i>twice as fast as your flashlight</i>!`],
             [`Gary`, `Alright, let's get started!`],
+            [`START LEVEL`]
+        ],
+        [
+            [`Gary`, `Gadzooks! You weren't kidding about the ghosts!`],
+            [`Gary`, ``],
+            [`Gary`, ``],
+            [`Gary`, ``],
+            [`Gary`, ``],
             [`START LEVEL`]
         ]
 

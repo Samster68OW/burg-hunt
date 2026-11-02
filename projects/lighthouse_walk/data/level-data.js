@@ -183,6 +183,5 @@ const diaColors = [
     ["?????","#ff9d3a"],
     ["Orange Penguin","#ff9d3a"],
     ["SurferBro27","#ff9d3a"],
-    ["Party Host","#c679fa"],
-    ["Gary","#4c61ff"]
+    ["Party Host","#c679fa"]
 ];

@@ -37,10 +37,12 @@ function startGameButton(num) {
 // Dialogue
 function loadRoom(roomNum) {
 
+    // Friends
+        $('.friend-img').fadeOut(0);
+        if (levelData[roomNum].prop.friend !== false) displayFriend(levelData[roomNum].prop.friend);
+
     // Load into room
         $('#gameplay-screen').css('background-image',`url("images/backgrounds/area_${roomNum}.png")`);
-        if (roomNum >= 1 && roomNum <= 5 | roomNum >= 7) displayFriend();
-        else $('#surferbro-img').fadeOut(0);
         $('#the-end-title').fadeOut(0);
         $('#the-end-title-two').fadeOut(0);
         $('#black-box').css('opacity','0');
@@ -50,14 +52,13 @@ function loadRoom(roomNum) {
         },3000);
 
     // Background Music
-        if (roomNum === 0) {restartSound('BG Music - Sea Waves');}
-        if (roomNum === 6) {restartSound('BG Music - Final Scene');}
+        if (levelData[roomNum].prop.bgMusic !== false) restartSound(levelData[roomNum].prop.bgMusic);
 
 };
-function displayFriend() {
-    $('#surferbro-img').fadeIn(0);
-    $('#surferbro-img').css('left',`${levelData[currentLevel].endpoint.x - 50}px`);
-    $('#surferbro-img').css('bottom',`${levelData[currentLevel].endpoint.y - 50}px`);
+function displayFriend(input) {
+    $(`#${input}-img`).fadeIn(0);
+    $(`#${input}-img`).css('left',`${levelData[currentLevel].endpoint.x - 50}px`);
+    $(`#${input}-img`).css('bottom',`${levelData[currentLevel].endpoint.y - 50}px`);
 };
 function loadDialogue() {
         boxClickable = true;
@@ -89,7 +90,7 @@ function loadDialogue() {
         }
 
     // Unique Interactions
-        if (currentLevel === 0 && currentDia === 5) displayFriend();
+        if (currentLevel === 0 && currentDia === 5) displayFriend('surferbro');
         if (currentLevel === 5 && currentDia === 2) {
             $('#gameplay-screen').addClass('shakingScreenInfClass');
             restartSound('Rumbling');
@@ -130,7 +131,6 @@ function startRound() {
         playSound('Lights Off');
         if (currentLevel === 5) restartSound('BG Music - Boss Battle Song');
         else restartSound('BG Music - Haunt Song');
-        
 
     // Start the loop
         intervalVar = setInterval(function() {
@@ -149,8 +149,7 @@ function gameLoop() {
 
     // Damage enemy
         if (hoveringEnemy !== false) {
-            enemyList[hoveringEnemy].health--;
-            if (currentLevel >= 8) enemyList[hoveringEnemy].health--;
+            enemyList[hoveringEnemy].health -= levelData[currentLevel].prop.damage;
             if (enemyList[hoveringEnemy].health <= 0) {
                 hoveringEnemy = false;
                 restartSound('Flashlight Zap');
@@ -225,10 +224,6 @@ function addEnemy(num) {
 };
 function calculateMotion(i) {
 
-    // Get variables
-        let pointA = enemyList[i].pos;
-        let pointB = levelData[currentLevel].endpoint;
-
     // Find slope & distance
         let yDist = Math.abs(enemyList[i].pos.y - levelData[currentLevel].endpoint.y);
         let xDist = Math.abs(enemyList[i].pos.x - levelData[currentLevel].endpoint.x);
@@ -237,9 +232,7 @@ function calculateMotion(i) {
         let xDistProp = xDist / totalDistDiff;
 
     // Check for loss
-        if (yDist < 50 && xDist < 50) {
-            levelLost();
-        }
+        if (yDist < 50 && xDist < 50) levelLost();
 
     // Move enemy
         if (enemyList[i].pos.y > levelData[currentLevel].endpoint.y) enemyList[i].pos.y -= yDistProp * enemyList[i].speed;
@@ -290,12 +283,10 @@ function nextLevel() {
         if (currentLevel === 1) {pauseSound('BG Music - Sea Waves');}
         
     // Next Level
-        else {
-            $('.main-div').fadeOut(1000);
-            setTimeout(function() {
-                loadRoom(currentLevel);
-            },1000);
-        }
+        $('.main-div').fadeOut(1000);
+        setTimeout(function() {
+            loadRoom(currentLevel);
+        },1000);
 }
 
 

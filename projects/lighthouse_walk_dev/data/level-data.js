@@ -6,10 +6,12 @@ let levelData = [
 
     {
         name: "Intro: The Cove",
+        prop: {friend: false, bgMusic: 'BG Music - Sea Waves', damage: 1},
         endpoint: {x: 680, y: 410}
     },
     {
         name: "Level 1: The Forest",
+        prop: {friend: 'surferbro', bgMusic: false, damage: 1},
         waves: [
             [3, 0],
             [8, 0], [9, 0], [10, 0],
@@ -28,6 +30,7 @@ let levelData = [
     },
     {
         name: "Level 2: The Plaza",
+        prop: {friend: 'surferbro', bgMusic: false, damage: 1},
         waves: [
             [3, 0],
             [7, 0], [7, 0],
@@ -48,6 +51,7 @@ let levelData = [
     },
     {
         name: "Level 3: Snow Forts",
+        prop: {friend: 'surferbro', bgMusic: false, damage: 1},
         waves: [
             [3, 0],
             [8, 0], [8, 0], [10, 1],
@@ -67,6 +71,7 @@ let levelData = [
     },
     {
         name: "Level 4: The Town",
+        prop: {friend: 'surferbro', bgMusic: false, damage: 1},
         waves: [
             [3, 0], [3, 0], [3, 0],
             [7, 1], [7, 1],
@@ -90,6 +95,7 @@ let levelData = [
     },
     {
         name: "Level 5: The Dock",
+        prop: {friend: 'surferbro', bgMusic: false, damage: 1},
         waves: [
             [1, 3],
             [5, 0], [6, 1],
@@ -110,14 +116,17 @@ let levelData = [
         ]
     },
     {
-        name: "Outro: The Beach"
+        name: "Outro: The Beach",
+        prop: {friend: false, bgMusic: 'BG Music - Final Scene', damage: 1}
     },
     {
-        name: "Bonus Story Intro: Sports Shop",
-        endpoint: {x: 650, y: 500}
+        name: "Bonus Intro: Ski Village",
+        prop: {friend: 'gary', bgMusic: false, damage: 1},
+        endpoint: {x: 550, y: 300}
     },
     {
-        name: "Bonus Level 1: Ski Hill 1",
+        name: "Bonus Level 1: Ski Hill",
+        prop: {friend: 'gary', bgMusic: false, damage: 2},
         waves: [
             [3, 0], [3, 0], [3, 0],
             [5, 1], [5, 1],
@@ -142,7 +151,8 @@ let levelData = [
         ]
     },
     {
-        name: "Bonus Level 2: Ski Hill 2",
+        name: "Bonus Level 2: Outer Box Dimension",
+        prop: {friend: 'gary', bgMusic: false, damage: 2},
         waves: [
             [3, 0], [3, 0], [3, 0],
             [5, 1], [5, 1],
@@ -165,6 +175,21 @@ let levelData = [
             {x: 900, y: 750},
             {x: 1100, y: 750}
         ]
+    },
+    {
+        name: "Bonus Level 3: Burg's Buyout",
+        prop: {friend: 'gary', bgMusic: false, damage: 2},
+        endpoint: {x: 550, y: 300}
+    },
+    {
+        name: "Bonus Cutscene: The Beast",
+        prop: {friend: 'gary', bgMusic: false, damage: 2},
+        endpoint: {x: 550, y: 300}
+    },
+    {
+        name: "Bonus Outro: The Town",
+        prop: {friend: 'gary', bgMusic: false, damage: 2},
+        endpoint: {x: 550, y: 300}
     }
 
 ];

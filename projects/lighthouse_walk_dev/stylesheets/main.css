@@ -139,7 +139,7 @@ body {
     width: 100%;
     z-index: 4;
 }
-#surferbro-img {
+.friend-img {
     height: 100px;
     position: absolute;
     width: 100px;
@@ -233,7 +233,7 @@ body {
 #level-select-content div {
     cursor: url('../images/cursor/flashlight_on.png'), auto;
     padding: 5px;
-    width: 300px;
+    width: 400px;
 }
 #level-select-content div:hover {
     color: yellow;

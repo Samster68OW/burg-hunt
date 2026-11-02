@@ -33,12 +33,12 @@
     <div id="game-frame">
       <div id="main-menu-screen" class="main-div" hidden>
         <img id="main-menu-dev-button" onclick="loadArea('level-select');">
-        <img id="main-menu-surferbro" src="images/surferbro.png" hidden>
+        <img id="main-menu-surferbro" src="images/friends/surferbro.png" hidden>
         <div id="main-menu-container">
           <div id="main-menu-title"></div>
           <span id="main-menu-flavor"></span>
           <span id="start-game-button" onclick="startGameButton(0);"></span>
-          <span id="start-bonus-game-button" onclick="startGameButton(7);" hidden></span>
+          <span id="start-bonus-game-button" onclick="startGameButton(7);"></span>
         </div>
       </div>
       <div id="gameplay-screen" class="main-div" hidden>
@@ -49,7 +49,8 @@
         </div>
         <div id="vignette-box"></div>
         <div id="black-box"></div>
-        <img id="surferbro-img" src="images/surferbro.png" hidden>
+        <img id="surferbro-img" class="friend-img" src="images/friends/surferbro.png" hidden>
+        <img id="gary-img" class="friend-img" src="images/friends/gary.png" hidden>
         <div id="gameplay-content"></div>
         <div id="dialogue-box" onclick="clickDialogueBox();" hidden></div>
       </div>
@@ -80,11 +81,9 @@ function loadArea(name, fadeIn) {
   // Main Menu
     if (playerDataLH.completedGame === 0) {
       $('#main-menu-surferbro').fadeOut(0);
-      $('#start-bonus-game-button').fadeOut(0);
     }
     else if (playerDataLH.completedGame === 1) {
       $('#main-menu-surferbro').fadeIn(0);
-      $('#start-bonus-game-button').fadeIn(0);
     }
 };
 
