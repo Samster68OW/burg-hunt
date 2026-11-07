@@ -112,10 +112,8 @@ const eng = {
         ],
         [
             [`Gary`, `WHERE ARE WE???`],
-            [`Gary`, ``],
-            [`Gary`, ``],
-            [`Gary`, ``],
-            [`Gary`, ``],
+            [`Gary`, `This place is weird, and my Dimension Hopper doesn't know what it is. I'm not sure it's working anymore.`],
+            [`Gary`, `I'm going to try to recalibrate it. You know the drill. Hold off those ghosts!`],
             [`START LEVEL`]
         ],
         [
@@ -129,16 +127,16 @@ const eng = {
             [`Samster68`, `That <i>beast</i> has been keeping me here until I can answer those questions.`],
             [`Samster68`, `But thanks for listening. I've been asking myself these questions for a while, so it was nice to have someone share them with.`],
             [`Samster68`, `I won't hold you here any longer. I'll send you back to Club Penguin Island.`],
-            [`Samster68`, `One more thing: There is a secret on the main menu. You can find it by clicking on the number 6.`],
+            [`Samster68`, `One more thing: There is a secret on the main menu. You can find it by clicking on the buoy.`],
             [`Samster68`, `OK, that's all. Hope to see you later!`],
             [`NEXT LEVEL`]
         ],
         [
-            [`Gary`, ``],
-            [`Gary`, ``],
-            [`Gary`, ``],
-            [`Gary`, ``],
-            [`Gary`, ``],
+            [`Gary`, `Oh, you're back! I was worried I was the only one that made it out.`],
+            [`Gary`, `I'm not sure what happened back there. I saw the ghosts take you away, and then suddenly I was back in Town!`],
+            [`Gary`, `You'll have to tell me about what you saw sometime.`],
+            [`Gary`, `Regardless, thank you for your help. This has been a strange Halloween.`],
+            [`Gary`, `I'm going to go help dig out the Dojo. See you around!`],
             [`ROLL CREDITS`]
         ],
 
@@ -151,7 +149,7 @@ const eng = {
         [`SurferBro27`,`#ff9d3a`],
         [`Party Host`,`#c679fa`],
         [`Gary`,`#808ffd`],
-        [`Samster68`,`##4af145`],
+        [`Samster68`,`#4af145`],
 
     ]
     

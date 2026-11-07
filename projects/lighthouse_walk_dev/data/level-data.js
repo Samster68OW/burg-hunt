@@ -209,7 +209,7 @@ let levelData = [
     },
     {
         name: "Bonus Outro: The Town",
-        prop: {friend: 'gary', bgMusic: false, damage: 1},
+        prop: {friend: 'gary', bgMusic: 'BG Music - Final Scene', damage: 1},
         endpoint: {x: 550, y: 300}
     }
 

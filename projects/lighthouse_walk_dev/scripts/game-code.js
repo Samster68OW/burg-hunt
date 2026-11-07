@@ -292,10 +292,12 @@ function nextLevel() {
 
 
 function rollCredits() {
+    // Save data
+        if (currentLevel === 6) playerDataLH.completedGame = 1;
+        if (currentLevel === 12) playerDataLH.completedBonus = 1;
     currentDia = 0;
     currentLevel++;
     hoveringEnemy = false;
-    playerDataLH.completedGame = 1;
     saveGame();
     setTimeout(function() {
         $('#the-end-title').fadeIn(2000);

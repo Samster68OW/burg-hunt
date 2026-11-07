@@ -4,6 +4,8 @@
 
 let playerDataLH = {
     completedGame: 0,
+    completedBonus: 0,
+    completedAltEnding: 0,
     preferredLanguage: 0
 };
 

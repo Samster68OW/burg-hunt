@@ -34,6 +34,8 @@
       <div id="main-menu-screen" class="main-div" hidden>
         <img id="main-menu-dev-button" onclick="loadArea('level-select');">
         <img id="main-menu-surferbro" src="images/friends/surferbro.png" hidden>
+        <img id="main-menu-gary" src="images/friends/gary.png" hidden>
+        <img id="main-menu-book" src="images/friends/book.png" hidden>
         <div id="main-menu-container">
           <div id="main-menu-title"></div>
           <span id="main-menu-flavor"></span>
@@ -59,7 +61,7 @@
         <div id="credit-text-content">
           Credits<br><br>
           Created by Samster68<br>
-          Ending art by Silverpetals<br>
+          Ending artpiece by Silverpetals<br>
           Screenshots from CPZ Wiki<br>
           Music from Luigi's Mansion and CPZ
         </div>
@@ -85,12 +87,26 @@ function loadArea(name, fadeIn) {
   $('.main-div').fadeOut(0);
   if (fadeIn === true) $(`#${name}-screen`).fadeIn(2000);
   else $(`#${name}-screen`).fadeIn(0);
-  // Main Menu
+  // Main Menu SurferBro
     if (playerDataLH.completedGame === 0) {
       $('#main-menu-surferbro').fadeOut(0);
     }
     else if (playerDataLH.completedGame === 1) {
       $('#main-menu-surferbro').fadeIn(0);
+    }
+  // Main Menu Gary
+    if (playerDataLH.completedBonus === 0) {
+      $('#main-menu-gary').fadeOut(0);
+    }
+    else if (playerDataLH.completedBonus === 1) {
+      $('#main-menu-gary').fadeIn(0);
+    }
+  // Main Menu Book
+    if (playerDataLH.completedAltEnding === 0) {
+      $('#main-menu-book').fadeOut(0);
+    }
+    else if (playerDataLH.completedAltEnding === 1) {
+      $('#main-menu-book').fadeIn(0);
     }
 };
 
@@ -100,9 +116,18 @@ function generateLevelSelect() {
   let display = `Secret Developer Level Select Menu<br><br>`;
   for (let i=0; i<levelData.length; i++) {
     display += `<div onclick='startGameButton(${i});'>${levelData[i].name}</div>`;
+    if (i === 6) display += `<br>`;
   }
+  display += `<div onclick='altEndingButton();' style="width:248px;"><a href='https://samster68ow.github.io/burg-hunt/' target='_blank'>Secret Alternative Ending</a></div>`;
   display += `<br><div onclick="loadArea('main-menu');">(Back to Main Menu)</div>`;
   $('#level-select-content').html(display);
+};
+
+
+
+function altEndingButton() {
+  playerDataLH.completedAltEnding = 1;
+  loadArea('main-menu', true);
 };
 
 
