@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hear Sensei</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+    <!-- Internal CSS -->
+        <link rel="stylesheet" href="stylesheets/main.css">
+
+  </head>
+  <body>
+
+
+
+    <div id="game-frame">
+      <div id="game-container">
+        <div id="main-menu"><br><br><br><br><br>
+          Click the button below to hear the Sensei's thoughts.<br><br>
+          <span id="start-button" onclick="receiveWisdom();">Receive Wisdom</span>
+        </div>
+        <div id="sensei-text-box" hidden></div>
+      </div>
+    </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+
+
+$(document).ready(function(){
+  shuffle(quoteList);
+});
+function shuffle(array) {
+  let currentIndex = array.length;
+
+  // While there remain elements to shuffle...
+  while (currentIndex != 0) {
+
+    // Pick a remaining element...
+    let randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+}
+let currentQuote = -1;
+
+
+
+function receiveWisdom() {
+
+  // Set Text
+    currentQuote++;
+    if (currentQuote >= quoteList.length) currentQuote = 0;
+    $('#sensei-text-box').html(`${quoteList[currentQuote]}<div id="ok-button" onclick="returnToMenu();">OK</div>`);
+
+  $('#main-menu').fadeOut(2000);
+  setTimeout(function() {
+    $('#sensei-text-box').fadeIn(1000);
+  },3000);
+
+};
+
+function returnToMenu() {
+  $('#main-menu').fadeIn(0);
+  $('#sensei-text-box').fadeOut(0);
+};
+
+
+
+let quoteList = [
+  `young grasshopper,<br>if you miss your flight, there is a secret flight you can access by harassing minimum-wage flight attendants`,
+  `young grasshopper,<br>i'm from the irs. where's rockhopper`,
+  `young grasshopper,<br>remember to make all your memes in google slides`,
+  `young grasshopper,<br>i'm here to talk to you about your car's extended warranty.`,
+  `young grasshopper,<br>why do they call it oven when you of in the cold food of out hot eat the food`,
+  `young grasshopper,<br>butts are for sitting`,
+  `young grasshopper,<br>man door hand hook car door`,
+  `I miss my wife, grasshopper.<br>I miss her a lot. I'll be back.`,
+  `young grasshopper,<br>remember to use code KBLADEHERO in the fortnite shop.`
+];
+
+
+
+    </script>
+  </body>
+</html>
