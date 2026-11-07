@@ -229,6 +229,7 @@ body {
 /* Level Select Screen */
 #level-select-screen {
     background-color: black;
+    position: relative;
 }
 #level-select-content div {
     cursor: url('../images/cursor/flashlight_on.png'), auto;
@@ -251,4 +252,10 @@ body {
     src: url('../fonts/CPSecretAgent.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+#credit-text-content {
+    text-align: right;
+    top: 10px;
+    position: absolute;
+    right: 10px;
 }

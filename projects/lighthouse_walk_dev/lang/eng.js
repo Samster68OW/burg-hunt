@@ -87,29 +87,60 @@ const eng = {
         [
             [`Gary`, `Hello, friend! Glad to see you received my message.`],
             [`Gary`, `When I read your letter about the ghosts, I was completely flummoxed! I've never heard such a thing!`],
-            [`Gary`, `I'm not saying I don't believe you, but I <i>am</i> a scientist. I'd like to verify this for myself.`],
-            [`Gary`, `Which is the reason why we're here! With your help, I'd like to run some tests on the top of the Ski Hill to see if we can talk to these ghosts.`],
-            [`Gary`, `I've created the Specter Speaker 3000, a device that can speak to creatures <i>on the other side</i>!`],
-            [`Gary`, `Maybe we can have a chat with them to see what they want.`],
+            [`Gary`, `I'm not saying I don't believe you, but I <i>am</i> a scientist. I'd like to see these ghosts for myself.`],
+            [`Gary`, `After running some tests, it seems like the ghosts are coming here from another dimension! Crazy, right? I'd love to visit it.`],
+            [`Gary`, `Which is the reason why we're here! With your help, I'd like to follow the ghosts <i>into their dimension</i>.`],
+            [`Gary`, `I've created the Dimension Hooper 3000, a device that should allow us to follow them into their realm!`],
+            [`Gary`, `Maybe once we're there we can see what they want.`],
             [`Gary`, `Alright, let's head to the Ski Hill!`],
             [`NEXT LEVEL`]
         ],
         [
-            [`Gary`, `Ok, everything is in position. We're ready to test!`],
+            [`Gary`, `Ok, everything is in position. Are you ready?`],
             [`Gary`, `There is a slight chance that our ghoulish friends won't enjoy our meddling.`],
-            [`Gary`, `That's why you'll start guard while I test. You have the most experience, after all.`],
+            [`Gary`, `That's why you'll stand guard while I activate the device. You have the most experience, after all.`],
             [`Gary`, `Take this Ghost Zapper 3001, which scares the ghosts <i>twice as fast as your flashlight</i>!`],
             [`Gary`, `Alright, let's get started!`],
             [`START LEVEL`]
         ],
         [
-            [`Gary`, `Gadzooks! You weren't kidding about the ghosts!`],
+            [`Gary`, `Gadzooks! Where are we?`],
+            [`Gary`, `According to the Dimension Hopper, we appear to be somewhere in the Box Dimension.`],
+            [`Gary`, `However, I don't recognize this area of the Box Dimension at all! We must have warped far away.`],
+            [`Gary`, `I'm going to reconfigure the device to return us to solid ground. Keep an eye out for more ghosts!`],
+            [`START LEVEL`]
+        ],
+        [
+            [`Gary`, `WHERE ARE WE???`],
             [`Gary`, ``],
             [`Gary`, ``],
             [`Gary`, ``],
             [`Gary`, ``],
             [`START LEVEL`]
-        ]
+        ],
+        [
+            [`Samster68`, `What gives a penguin value?`],
+            [`Samster68`, `Do we value penguins based on how many stamps or coins they collect?`],
+            [`Samster68`, `...Or by how stylish their outfit or igloo is?`],
+            [`Samster68`, `Perhaps it's based on how many friends they have, or how much they give back to the community.`],
+            [`Samster68`, `Can value even be earned, or is it given?`],
+            [`Samster68`, `Maybe if I can do <i>one more cool thing</i> everyone will like me. Just <i>one more</i>.`],
+            [`Samster68`, `...`],
+            [`Samster68`, `That <i>beast</i> has been keeping me here until I can answer those questions.`],
+            [`Samster68`, `But thanks for listening. I've been asking myself these questions for a while, so it was nice to have someone share them with.`],
+            [`Samster68`, `I won't hold you here any longer. I'll send you back to Club Penguin Island.`],
+            [`Samster68`, `One more thing: There is a secret on the main menu. You can find it by clicking on the number 6.`],
+            [`Samster68`, `OK, that's all. Hope to see you later!`],
+            [`NEXT LEVEL`]
+        ],
+        [
+            [`Gary`, ``],
+            [`Gary`, ``],
+            [`Gary`, ``],
+            [`Gary`, ``],
+            [`Gary`, ``],
+            [`ROLL CREDITS`]
+        ],
 
     ],
 
@@ -119,7 +150,8 @@ const eng = {
         [`Orange Penguin`,`#ff9d3a`],
         [`SurferBro27`,`#ff9d3a`],
         [`Party Host`,`#c679fa`],
-        [`Gary`,`#808ffd`]
+        [`Gary`,`#808ffd`],
+        [`Samster68`,`##4af145`],
 
     ]
     

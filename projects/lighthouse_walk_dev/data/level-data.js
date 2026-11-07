@@ -179,16 +179,37 @@ let levelData = [
     {
         name: "Bonus Level 3: Burg's Buyout",
         prop: {friend: 'gary', bgMusic: false, damage: 2},
-        endpoint: {x: 550, y: 300}
+        waves: [
+            [3, 0], [3, 0], [3, 0],
+            [5, 1], [5, 1],
+            [7, 2], [7, 2], [7, 2], [7, 2], [7, 2],
+            [12, 0], [12, 1], [12, 0],
+            [15, 1], [15, 2], [15, 2], [15, 2],
+            [19, 0], [19, 0], [19, 0], [19, 0], [19, 0],
+            [20, 2], [20, 2], [20, 2],
+            [23, 0], [23, 1], [23, 2], [23, 0], [23, 1], [23, 2],
+            [26, 2], [26, 2], [26, 2], [26, 2],
+            [27, 0], [27, 0], [27, 0], [27, 0]
+        ],
+        timeToSurvive: 38,
+        endpoint: {x: 600, y: 350},
+        spawnpoints: [
+            {x: 100, y: 750},
+            {x: 300, y: 750},
+            {x: 500, y: 750},
+            {x: 700, y: 750},
+            {x: 900, y: 750},
+            {x: 1100, y: 750}
+        ]
     },
     {
         name: "Bonus Cutscene: The Beast",
-        prop: {friend: 'gary', bgMusic: false, damage: 2},
+        prop: {friend: 'samster', bgMusic: false, damage: 1},
         endpoint: {x: 550, y: 300}
     },
     {
         name: "Bonus Outro: The Town",
-        prop: {friend: 'gary', bgMusic: false, damage: 2},
+        prop: {friend: 'gary', bgMusic: false, damage: 1},
         endpoint: {x: 550, y: 300}
     }
 
