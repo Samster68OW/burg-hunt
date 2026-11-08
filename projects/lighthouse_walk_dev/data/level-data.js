@@ -166,7 +166,7 @@ let levelData = [
             [27, 0], [27, 0], [27, 0], [27, 0]
         ],
         timeToSurvive: 38,
-        endpoint: {x: 600, y: 350},
+        endpoint: {x: 900, y: 250},
         spawnpoints: [
             {x: 100, y: 750},
             {x: 300, y: 750},
@@ -192,7 +192,7 @@ let levelData = [
             [27, 0], [27, 0], [27, 0], [27, 0]
         ],
         timeToSurvive: 38,
-        endpoint: {x: 600, y: 350},
+        endpoint: {x: 200, y: 450},
         spawnpoints: [
             {x: 100, y: 750},
             {x: 300, y: 750},
@@ -205,12 +205,12 @@ let levelData = [
     {
         name: "Bonus Cutscene: The Beast",
         prop: {friend: 'samster', bgMusic: false, damage: 1},
-        endpoint: {x: 550, y: 300}
+        endpoint: {x: 600, y: 400}
     },
     {
         name: "Bonus Outro: The Town",
         prop: {friend: 'gary', bgMusic: 'BG Music - Final Scene', damage: 1},
-        endpoint: {x: 550, y: 300}
+        endpoint: {x: 850, y: 250}
     }
 
 ];

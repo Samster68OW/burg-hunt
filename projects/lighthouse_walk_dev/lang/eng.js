@@ -124,10 +124,10 @@ const eng = {
             [`Samster68`, `Can value even be earned, or is it given?`],
             [`Samster68`, `Maybe if I can do <i>one more cool thing</i> everyone will like me. Just <i>one more</i>.`],
             [`Samster68`, `...`],
-            [`Samster68`, `That <i>beast</i> has been keeping me here until I can answer those questions.`],
+            [`Samster68`, `That beast has been keeping me here until I can answer those questions.`],
             [`Samster68`, `But thanks for listening. I've been asking myself these questions for a while, so it was nice to have someone share them with.`],
             [`Samster68`, `I won't hold you here any longer. I'll send you back to Club Penguin Island.`],
-            [`Samster68`, `One more thing: There is a secret on the main menu. You can find it by clicking on the buoy.`],
+            [`Samster68`, `One more thing... There is a secret on the main menu. You can find it by clicking on the buoy.`],
             [`Samster68`, `OK, that's all. Hope to see you later!`],
             [`NEXT LEVEL`]
         ],
