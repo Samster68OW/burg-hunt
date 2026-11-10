@@ -136,7 +136,7 @@ const eng = {
             [`Gary`, `I'm not sure what happened back there. I saw the ghosts take you away, and then suddenly I was back in Town!`],
             [`Gary`, `You'll have to tell me about what you saw sometime.`],
             [`Gary`, `Regardless, thank you for your help. This has been a strange Halloween.`],
-            [`Gary`, `I'm going to go help dig out the Dojo. See you around!`],
+            [`Gary`, `I'm going to go check out the new Dojo. See you around!`],
             [`ROLL CREDITS`]
         ],
 

@@ -130,6 +130,7 @@ function startRound() {
         $('#black-box').css('opacity','0.5');
         playSound('Lights Off');
         if (currentLevel === 5) restartSound('BG Music - Boss Battle Song');
+        if (currentLevel === 10) restartSound('BG Music - Burg Song');
         else restartSound('BG Music - Haunt Song');
 
     // Start the loop
@@ -209,10 +210,10 @@ function addEnemy(num) {
         let newEnemy = JSON.parse(JSON.stringify(ghostData[num]));
         newEnemy.speed = Math.floor(newEnemy.speed / gameStat.fps);
         newEnemy.health = Math.floor(newEnemy.health * gameStat.fps);
-        if (num === 3) { // Boss Ghost
-            newEnemy.pos = {x: 400, y: 650};
-            playSound('Boss Spawn');
-        }
+        
+        if (num === 3) playSound('Boss Spawn');  // Boss Ghost
+        if (num === 3 && currentLevel === 5) newEnemy.pos = {x: 400, y: 650}; // Boss Ghost
+
         else {
             let currSpawnpoint = Math.floor(Math.random()*levelData[currentLevel].spawnpoints.length);
             if (currSpawnpoint === lastSpawnpoint) currSpawnpoint++;
@@ -250,6 +251,7 @@ function levelLost() {
     $('#black-box').css('opacity','1.0');
     pauseSound('BG Music - Haunt Song');
     pauseSound('BG Music - Boss Battle Song');
+    pauseSound('BG Music - Burg Song');
     currentLevel--;
     setTimeout(function() {
         $('#gameplay-content').html("");
@@ -269,6 +271,7 @@ function levelComplete() {
     clearInterval(intervalVar);
     pauseSound('BG Music - Haunt Song');
     pauseSound('BG Music - Boss Battle Song');
+    pauseSound('BG Music - Burg Song');
     playSound('Level Complete');
     setTimeout(function() {
         nextLevel();
