@@ -1,4 +1,4 @@
-# Burg's Adventures
+# Burg's Camp
 This simple GitHub Pages site is designed for the Zero Nation Discord server. Join in on the adventures to help Burg with his shenanigans! Please reach out if you have any ideas or suggestions.
 
 - Created by Samster68
