@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'IBM_Plex_Serif'; /* Give your font a name */
-    src: url('Google_Fonts/IBMPlexSerif-Medium.ttf') format('truetype');
+    src: url('../fonts/Google_Fonts/IBMPlexSerif-Medium.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -63,6 +63,12 @@ body {
         top: 120px;
     }
 }
+#main-menu-flavor {
+    position: absolute;
+    text-align: center;
+    top: 490px;
+    width: 100%;
+}
 #start-game-button {
     background-color: black;
     border: 3px solid white;
@@ -72,21 +78,28 @@ body {
     position: absolute;
     right: 135px;
     text-align: center;
-    top: 630px;
+    top: 590px;
     width: 50%;
 }
 #start-game-button:hover {
     background-color: white;
     color: black;
 }
-#main-menu-surferbro {
-    bottom: 400px;
-    height: 100px;
-    left: 350px;
-    opacity: 0.3;
+#start-bonus-game-button {
+    background-color: black;
+    border: 3px solid white;
+    cursor: url('../images/cursor/flashlight_on.png'), auto;
+    font-size: 30px;
+    padding: 10px;
     position: absolute;
-    width: 100px;
-    z-index: 2;
+    right: 135px;
+    text-align: center;
+    top: 670px;
+    width: 50%;
+}
+#start-bonus-game-button:hover {
+    background-color: white;
+    color: black;
 }
 #main-menu-dev-button {
     cursor: url('../images/cursor/flashlight_on.png'), auto;
@@ -96,6 +109,35 @@ body {
     position: absolute;
     top: 330px;
     width: 50px;
+    z-index: 2;
+}
+
+
+
+/* Main Menu Friends */
+#main-menu-surferbro {
+    bottom: 400px;
+    height: 100px;
+    left: 350px;
+    opacity: 0.3;
+    position: absolute;
+    width: 100px;
+    z-index: 2;
+}
+#main-menu-gary {
+    bottom: 300px;
+    height: 100px;
+    left: 400px;
+    position: absolute;
+    width: 100px;
+    z-index: 2;
+}
+#main-menu-book {
+    bottom: 300px;
+    height: 100px;
+    left: 250px;
+    position: absolute;
+    width: 100px;
     z-index: 2;
 }
 
@@ -117,7 +159,7 @@ body {
     width: 100%;
     z-index: 4;
 }
-#surferbro-img {
+.friend-img {
     height: 100px;
     position: absolute;
     width: 100px;
@@ -205,10 +247,43 @@ body {
 
 
 /* Level Select Screen */
-#level-select-screen div {
+#level-select-screen {
+    background-color: black;
+    position: relative;
+}
+#level-select-content div {
     cursor: url('../images/cursor/flashlight_on.png'), auto;
     padding: 5px;
+    width: 400px;
 }
-#level-select-screen div:hover {
+#level-select-content div:hover {
+    color: yellow;
+}
+#cryptic-text {
+    bottom: 10px;
+    font-family: "CPSecretAgent", sans-serif;
+    font-size: 30px;
+    opacity: 0.20;
+    position: absolute;
+    right: 10px;
+}
+@font-face {
+    font-family: 'CPSecretAgent';
+    src: url('../fonts/CPSecretAgent.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+#credit-text-content {
+    text-align: right;
+    top: 10px;
+    position: absolute;
+    right: 10px;
+}
+a {
+    color: white;
+    cursor: url('../images/cursor/flashlight_on.png'), auto;
+    text-decoration: none;
+}
+a:hover {
     color: yellow;
 }

@@ -3,7 +3,10 @@
 
 
 let playerDataLH = {
-    completedGame: 0
+    completedGame: 0,
+    completedBonus: 0,
+    completedAltEnding: 0,
+    preferredLanguage: 0
 };
 
 
@@ -11,7 +14,8 @@ let playerDataLH = {
 function loadGame() {
     let dataRetrieval = localStorage.getItem('playerDataLH');
     if (dataRetrieval == null) {}
-    else playerDataLH = JSON.parse(dataRetrieval);
+    else {playerDataLH = JSON.parse(dataRetrieval);}
+    loadArea('main-menu');
 };
 function saveGame() {
     localStorage.setItem('playerDataLH', JSON.stringify(playerDataLH));

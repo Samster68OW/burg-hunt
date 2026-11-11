@@ -37,10 +37,12 @@ function startGameButton(num) {
 // Dialogue
 function loadRoom(roomNum) {
 
+    // Friends
+        $('.friend-img').fadeOut(0);
+        if (levelData[roomNum].prop.friend !== false) displayFriend(levelData[roomNum].prop.friend);
+
     // Load into room
         $('#gameplay-screen').css('background-image',`url("images/backgrounds/area_${roomNum}.png")`);
-        if (roomNum >= 1 && roomNum <= 5 | roomNum === 7) displayFriend();
-        else $('#surferbro-img').fadeOut(0);
         $('#the-end-title').fadeOut(0);
         $('#the-end-title-two').fadeOut(0);
         $('#black-box').css('opacity','0');
@@ -50,14 +52,13 @@ function loadRoom(roomNum) {
         },3000);
 
     // Background Music
-        if (roomNum === 0) {restartSound('BG Music - Sea Waves');}
-        if (roomNum === 6) {restartSound('BG Music - Final Scene');}
+        if (levelData[roomNum].prop.bgMusic !== false) restartSound(levelData[roomNum].prop.bgMusic);
 
 };
-function displayFriend() {
-    $('#surferbro-img').fadeIn(0);
-    $('#surferbro-img').css('left',`${levelData[currentLevel].endpoint.x - 50}px`);
-    $('#surferbro-img').css('bottom',`${levelData[currentLevel].endpoint.y - 50}px`);
+function displayFriend(input) {
+    $(`#${input}-img`).fadeIn(0);
+    $(`#${input}-img`).css('left',`${levelData[currentLevel].endpoint.x - 50}px`);
+    $(`#${input}-img`).css('bottom',`${levelData[currentLevel].endpoint.y - 50}px`);
 };
 function loadDialogue() {
         boxClickable = true;
@@ -75,6 +76,9 @@ function loadDialogue() {
             case "START LEVEL":
                 startRound();
                 break;
+            case "ROLL CREDITS":
+                rollCredits();
+                break;
             default:
                 let textColor = "white";
                 for (let i=0; i<diaColors.length; i++) {
@@ -86,7 +90,7 @@ function loadDialogue() {
         }
 
     // Unique Interactions
-        if (currentLevel === 0 && currentDia === 5) displayFriend();
+        if (currentLevel === 0 && currentDia === 5) displayFriend('surferbro');
         if (currentLevel === 5 && currentDia === 2) {
             $('#gameplay-screen').addClass('shakingScreenInfClass');
             restartSound('Rumbling');
@@ -126,8 +130,8 @@ function startRound() {
         $('#black-box').css('opacity','0.5');
         playSound('Lights Off');
         if (currentLevel === 5) restartSound('BG Music - Boss Battle Song');
+        if (currentLevel === 10) restartSound('BG Music - Burg Song');
         else restartSound('BG Music - Haunt Song');
-        
 
     // Start the loop
         intervalVar = setInterval(function() {
@@ -146,7 +150,7 @@ function gameLoop() {
 
     // Damage enemy
         if (hoveringEnemy !== false) {
-            enemyList[hoveringEnemy].health--;
+            enemyList[hoveringEnemy].health -= levelData[currentLevel].prop.damage;
             if (enemyList[hoveringEnemy].health <= 0) {
                 hoveringEnemy = false;
                 restartSound('Flashlight Zap');
@@ -206,25 +210,20 @@ function addEnemy(num) {
         let newEnemy = JSON.parse(JSON.stringify(ghostData[num]));
         newEnemy.speed = Math.floor(newEnemy.speed / gameStat.fps);
         newEnemy.health = Math.floor(newEnemy.health * gameStat.fps);
-        if (num === 3) {
-            newEnemy.pos = {x: 400, y: 650}; // Boss Ghost
-            playSound('Boss Spawn');
-        }
+        
+        if (num === 3) playSound('Boss Spawn');  // Boss Ghost
+        if (num === 3 && currentLevel === 5) newEnemy.pos = {x: 400, y: 650}; // Boss Ghost
+
         else {
             let currSpawnpoint = Math.floor(Math.random()*levelData[currentLevel].spawnpoints.length);
             if (currSpawnpoint === lastSpawnpoint) currSpawnpoint++;
             if (currSpawnpoint >= levelData[currentLevel].spawnpoints.length) currSpawnpoint = 0;
             lastSpawnpoint = JSON.parse(JSON.stringify(currSpawnpoint));
-            console.log(currSpawnpoint);
             newEnemy.pos = JSON.parse(JSON.stringify(levelData[currentLevel].spawnpoints[currSpawnpoint]));
         }
     enemyList.push(newEnemy);
 };
 function calculateMotion(i) {
-
-    // Get variables
-        let pointA = enemyList[i].pos;
-        let pointB = levelData[currentLevel].endpoint;
 
     // Find slope & distance
         let yDist = Math.abs(enemyList[i].pos.y - levelData[currentLevel].endpoint.y);
@@ -234,9 +233,7 @@ function calculateMotion(i) {
         let xDistProp = xDist / totalDistDiff;
 
     // Check for loss
-        if (yDist < 50 && xDist < 50) {
-            levelLost();
-        }
+        if (yDist < 50 && xDist < 50) levelLost();
 
     // Move enemy
         if (enemyList[i].pos.y > levelData[currentLevel].endpoint.y) enemyList[i].pos.y -= yDistProp * enemyList[i].speed;
@@ -254,6 +251,7 @@ function levelLost() {
     $('#black-box').css('opacity','1.0');
     pauseSound('BG Music - Haunt Song');
     pauseSound('BG Music - Boss Battle Song');
+    pauseSound('BG Music - Burg Song');
     currentLevel--;
     setTimeout(function() {
         $('#gameplay-content').html("");
@@ -273,6 +271,7 @@ function levelComplete() {
     clearInterval(intervalVar);
     pauseSound('BG Music - Haunt Song');
     pauseSound('BG Music - Boss Battle Song');
+    pauseSound('BG Music - Burg Song');
     playSound('Level Complete');
     setTimeout(function() {
         nextLevel();
@@ -285,33 +284,38 @@ function nextLevel() {
 
     // Sounds
         if (currentLevel === 1) {pauseSound('BG Music - Sea Waves');}
-
-    // End Game
-        if (currentLevel === 7) {
-            playerDataLH.completedGame = 1;
-            setTimeout(function() {
-                $('#the-end-title').fadeIn(2000);
-                $('#black-box').fadeOut(0);
-                $('#black-box').css('opacity','0.8');
-                $('#black-box').fadeIn(2000);
-                setTimeout(function() {
-                    $('#the-end-title-two').fadeIn(500);
-                    setTimeout(function() {
-                        $('.main-div').fadeOut(3000);
-                        setTimeout(function() {
-                            pauseSound('BG Music - Final Scene');
-                            loadArea('main-menu', true);
-                        },4000);
-                    },5500);
-                },4000);
-            },1000);
-        }
         
     // Next Level
-        else {
-            $('.main-div').fadeOut(1000);
-            setTimeout(function() {
-                loadRoom(currentLevel);
-            },1000);
-        }
+        $('.main-div').fadeOut(1000);
+        setTimeout(function() {
+            loadRoom(currentLevel);
+        },1000);
 }
+
+
+
+function rollCredits() {
+    // Save data
+        if (currentLevel === 6) playerDataLH.completedGame = 1;
+        if (currentLevel === 12) playerDataLH.completedBonus = 1;
+    currentDia = 0;
+    currentLevel++;
+    hoveringEnemy = false;
+    saveGame();
+    setTimeout(function() {
+        $('#the-end-title').fadeIn(2000);
+        $('#black-box').fadeOut(0);
+        $('#black-box').css('opacity','0.8');
+        $('#black-box').fadeIn(2000);
+        setTimeout(function() {
+            $('#the-end-title-two').fadeIn(500);
+            setTimeout(function() {
+                $('.main-div').fadeOut(3000);
+                setTimeout(function() {
+                    pauseSound('BG Music - Final Scene');
+                    loadArea('main-menu', true);
+                },4000);
+            },5500);
+        },4000);
+    },1000);
+};

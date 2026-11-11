@@ -35,7 +35,9 @@ var soundData = [
     {name:'Rumbling', src:'box_shrink.wav', vol:0.1, mode:'play'},
     {name:'BG Music - Boss Battle Song', src:'big_boo_battle.mp3', vol:0.15, mode:'loop'},
     {name:'Boss Spawn', src:'box_opened.wav', vol:0.3, mode:'play'},
-    {name:'BG Music - Final Scene', src:'haunted_disco.mp3', vol:0.2, mode:'loop'}
+    {name:'BG Music - Final Scene', src:'haunted_disco.mp3', vol:0.2, mode:'loop'},
+    {name:'Secret Hover', src:'secret_found.wav', vol:0.3, mode:'play'},
+    {name:'BG Music - Burg Song', src:'paris.mp3', vol:0.15, mode:'loop'}
 ];
 
 
