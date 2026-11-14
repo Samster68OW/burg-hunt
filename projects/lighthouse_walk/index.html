@@ -17,6 +17,7 @@
       <script type="text/javascript" src="data/level-data.js"></script>
     <!-- Lang -->
       <script type="text/javascript" src="lang/eng.js"></script>
+      <script type="text/javascript" src="lang/spa.js"></script>
      <!-- Scripts -->
       <script type="text/javascript" src="scripts/game-code.js"></script>
       <script type="text/javascript" src="scripts/lang-loader.js"></script>
@@ -41,6 +42,7 @@
           <span id="main-menu-flavor"></span>
           <span id="start-game-button" onclick="startGameButton(0);"></span>
           <span id="start-bonus-game-button" onclick="startGameButton(7);"></span>
+          <div id="language-button" onclick="toggleLanguage();"></div>
         </div>
       </div>
       <div id="gameplay-screen" class="main-div" hidden>
@@ -130,6 +132,15 @@ function altEndingButton() {
   playerDataLH.completedAltEnding = 1;
   saveGame();
   loadArea('main-menu', true);
+};
+
+
+
+function toggleLanguage() {
+  let j = playerDataLH.preferredLanguage + 1;
+  if (j >= langList.length) j = 0;
+  setLanguage(j);
+  saveGame();
 };
 
 

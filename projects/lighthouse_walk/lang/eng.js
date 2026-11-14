@@ -6,9 +6,11 @@ const eng = {
 
     interface: {
 
+        language: `English`,
+
         mainMenu: [
             `Walk to the<br>Lighthouse`,
-            `Made by Samster68.<br>This game is played with the mouse.`,
+            `Made by Samster68.<br>Spanish Translation by Silverpetals.<br>This game is played with the mouse.`,
             `Start Game`,
             `Bonus Story`
         ],

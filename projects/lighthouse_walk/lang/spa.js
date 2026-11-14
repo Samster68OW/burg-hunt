@@ -49,7 +49,7 @@ const spa = {
             [`SurferBro27`, `¡Eso estuvo cerca! ¿Eran fantasmas?`],
             [`SurferBro27`, `Hermano, ¡no sabía que habían fantasmas en la Isla de Club Penguin! ¡Pensaba que no existía tal cosa como los fantasmas!`],
             [`SurferBro27`, `Bueno, parece que tu linterna los ha asustado. Si consigues mantenerlos a raya, se irán.`],
-            [`SurferBro27`, `Parece que los fantasmas retienen el daño incluso si dejas de mirarlos. Cambia de objetivo si un fantasma diferente parece ser una amenaza mayor`],
+            [`SurferBro27`, `<span style='font-size: 18px;'>Parece que los fantasmas retienen el daño incluso si dejas de mirarlos. Cambia de objetivo si un fantasma diferente parece ser una amenaza mayor.</span>`],
             [`START LEVEL`]
         ],
         [

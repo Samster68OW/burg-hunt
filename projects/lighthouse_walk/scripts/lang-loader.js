@@ -2,11 +2,16 @@
 
 
 
-const langList = [eng];
+const langList = [eng, spa];
 
 
 
 function setLanguage(i) {
+
+    playerDataLH.preferredLanguage = i;
+
+    // Language
+        $('#language-button').html(`Language: ${langList[i].interface.language}`);
     
     // Interface
         $('#main-menu-title').html(langList[i].interface.mainMenu[0]);

@@ -54,6 +54,7 @@ body {
     right: 110px;
     -webkit-filter: drop-shadow(5px 5px 5px rgb(0, 0, 0));
     filter: drop-shadow(5px 5px 5px black);
+    text-align: center;
 }
 @keyframes titleBounce {
     0% {
@@ -66,7 +67,7 @@ body {
 #main-menu-flavor {
     position: absolute;
     text-align: center;
-    top: 490px;
+    top: 440px;
     width: 100%;
 }
 #start-game-button {
@@ -78,7 +79,7 @@ body {
     position: absolute;
     right: 135px;
     text-align: center;
-    top: 590px;
+    top: 540px;
     width: 50%;
 }
 #start-game-button:hover {
@@ -94,7 +95,7 @@ body {
     position: absolute;
     right: 135px;
     text-align: center;
-    top: 670px;
+    top: 620px;
     width: 50%;
 }
 #start-bonus-game-button:hover {
@@ -110,6 +111,22 @@ body {
     top: 330px;
     width: 50px;
     z-index: 2;
+}
+#language-button {
+    background-color: black;
+    border: 3px solid white;
+    cursor: url('../images/cursor/flashlight_on.png'), auto;
+    font-size: 18px;
+    padding: 10px;
+    position: absolute;
+    right: 165px;
+    text-align: center;
+    top: 700px;
+    width: 40%;
+}
+#language-button:hover {
+    background-color: white;
+    color: black;
 }
 
 
