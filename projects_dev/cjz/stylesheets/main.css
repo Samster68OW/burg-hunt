@@ -18,7 +18,7 @@ body {
     width: 1200px;
     z-index: 1;
     animation: animate-bg 10s linear infinite;
-    background: url("../images/background.png") repeat 0 0;
+    background: url("../images/menu/background.png") repeat 0 0;
 }
 @keyframes animate-bg {
     100% {
@@ -30,6 +30,14 @@ h1 {
 }
 h2 {
     text-shadow: 2px 2px black;
+}
+
+
+
+/* Launch Screen */
+#image-load-spot img {
+    height: 50px;
+    width: 50px;
 }
 
 

@@ -13,6 +13,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap" rel="stylesheet">
     <!-- Internal Javascript -->
       <!-- Scripts -->
+        <script type="text/javascript" src="scripts/asset-loader.js"></script>
         <script type="text/javascript" src="scripts/game-code.js"></script>
         <script type="text/javascript" src="scripts/main-menu-nav.js"></script>
         <script type="text/javascript" src="scripts/player-loader.js"></script>
@@ -20,6 +21,7 @@
       <!-- Data -->
         <script type="text/javascript" src="data/campaign-data.js"></script>
         <script type="text/javascript" src="data/card-data.js"></script>
+        <script type="text/javascript" src="data/image-data.js"></script>
         <script type="text/javascript" src="data/set-data.js"></script>
         <script type="text/javascript" src="data/splash-text.js"></script>
         <script type="text/javascript" src="data/store-control.js"></script>
@@ -31,6 +33,13 @@
   </head>
   <body>
     <div id="game-frame">
+
+
+
+      <div id="launch-screen" class="main-page" hidden>
+        <button onclick="launchButton();">Launch Game</button>
+        <div id="image-load-spot"></div>
+      </div>
 
 
 
@@ -124,7 +133,7 @@
 $(document).ready(function(){
   loadCardCollection();
   setupStore();
-  loadPage('main-menu');
+  loadPage('launch-screen');
   loadMainMenuPage('home-page');
   $('#splash-text-spot').html(splashScreenData[Math.floor(Math.random()*splashScreenData.length)]);
 });
