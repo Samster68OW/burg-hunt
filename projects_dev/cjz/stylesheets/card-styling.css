@@ -1,0 +1,82 @@
+/* Card Styling */
+
+
+
+/*
+Card Layering
+1: card-main
+2: card-art
+3: card-frame
+4: card-type
+
+
+
+/* z-index: 1 */
+.card-main {
+    background-image: url('../images/card_detail/card_background.png');
+    background-size: 100% 100%;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+    color: black;
+    cursor: pointer;
+    height: 500px;
+    padding: 0px;
+    position: absolute;
+    width: 300px;
+    z-index: 1;
+}
+
+/* z-index: 2 */
+.card-art {
+    border-radius: 10px;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+}
+
+/* z-index: 3 */
+.card-frame {
+    background-image: url('../images/card_detail/card_frame.png');
+    background-size: 100% 100%;
+    border-radius: 10px;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    z-index: 3;
+}
+
+/* z-index: 4 */
+.card-type {
+    background-image: url('../images/card_detail/card_frame.png');
+    background-size: 100% 100%;
+    border-radius: 5px;
+    height: 60px;
+    left: 15px;
+    position: absolute;
+    text-align: center;
+    top: 20px;
+    width: 60px;
+    z-index: 4;
+}
+
+
+
+
+.card-type img {
+    height: 50px;
+    width: 50px;
+}
+.card-number {
+    left: 5px;
+    position: absolute;
+    bottom: 2px;
+    z-index: 5;
+}
+.card-sheen-img {
+    height: 100%;
+    width: 100%;
+    opacity: 0.1;
+    position: absolute;
+    z-index: 6;
+}
