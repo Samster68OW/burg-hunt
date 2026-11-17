@@ -26,7 +26,15 @@ function displayCardCollection() {
             // Add Card
                 if (player.cardCollection[setData[b].cardList[a]] === 0) {
                     if (setData[b].displayMissing === true) {
-                        display += `<td style='text-align:center;'><div class='card-main missing-card'><br>${a+1}</div></td>`;
+                        display += `
+                        <td><div class='coll-card-div'>
+                            <div class="card-main missing-card">
+                                <div class="card-frame">
+                                    <div style="text-align:center;"><br><br>${cardsShown}</div>
+                                </div>
+                            </div>
+                        </div></td>
+                        `;
                         cardsShown++;
                     }
                 }

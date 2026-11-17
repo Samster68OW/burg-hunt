@@ -8,6 +8,16 @@ Card Layering
 2: card-art
 3: card-frame
 4: card-type
+*/
+
+
+
+@font-face {
+    font-family: 'Proxima_Nova'; /* Give your font a name */
+    src: url('fonts/FontsFree-Net-Proxima-Nova-Cond-Xbold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 
 
@@ -16,7 +26,6 @@ Card Layering
     background-image: url('../images/card_detail/card_background.png');
     background-size: 100% 100%;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px black;
     color: black;
     cursor: pointer;
     height: 500px;
@@ -28,10 +37,13 @@ Card Layering
 
 /* z-index: 2 */
 .card-art {
+    background-size: 100% 100%;
     border-radius: 10px;
-    height: 100%;
+    height: 496px;
+    left: 2px;
     position: absolute;
-    width: 100%;
+    top: 2px;
+    width: 296px;
     z-index: 2;
 }
 
@@ -40,6 +52,7 @@ Card Layering
     background-image: url('../images/card_detail/card_frame.png');
     background-size: 100% 100%;
     border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
     height: 100%;
     position: absolute;
     width: 100%;
@@ -68,15 +81,28 @@ Card Layering
     width: 50px;
 }
 .card-number {
+    color: white;
+    font-family: 'Proxima_Nova', 'serif';
+    font-size: 60px;
+    height: 60px;
+    left: 15px;
+    position: absolute;
+    text-align: center;
+    top: 80px;
+    width: 60px;
+    z-index: 4;
+}
+.card-little-info {
+    bottom: 2px;
+    font-family: "Proxima_Nova", serif;
     left: 5px;
     position: absolute;
-    bottom: 2px;
-    z-index: 5;
+    z-index: 4;
 }
 .card-sheen-img {
     height: 100%;
-    width: 100%;
     opacity: 0.1;
+    height: 100%;
     position: absolute;
-    z-index: 6;
+    z-index: 5;
 }

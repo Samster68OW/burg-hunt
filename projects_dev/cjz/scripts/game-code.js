@@ -20,17 +20,14 @@ function generateCard(cardNum) {
     // Display Card
         let display = `
             <div class="card-main">
-                <div class="card-art" style="background-image:url('images/card/card_${cardNum}.png')">
-                    <div class="card-frame">
-                        <div class="card-type" style="background-image:url('images/card_detail/${cardData[cardNum].type}.png')"></div>
-                    </div>
+                <div class="card-art" style="background-image:url('images/card/card_${cardNum}.png')"></div>
+                <div class="card-frame">
+                    <div class="card-type" style="background-image:url('images/card_detail/${cardData[cardNum].type}.png')"></div>
+                    <div class="card-number">${cardData[cardNum].stat.toString()}</div>
                 </div>
             </div>
         `;
-        let addLater = `
-                    
-                    <div class="card-number">${findCardSet(cardNum)}</div>
-                <img class='card-sheen-img' src='images/card_detail/1410.png'>`;
+        let addLater = `<div class="card-number">${findCardSet(cardNum)}</div><img class='card-sheen-img' src='images/card_detail/1410.png'>`;
         return display;
 };
 
