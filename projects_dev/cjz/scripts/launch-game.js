@@ -4,6 +4,7 @@
 
 function launchButton() {
 
+    loadPage('loading-screen');
     loadImages();
 
 };
@@ -18,11 +19,12 @@ function loadImages() {
     let display = ``;
 
     // Card Artwork
-        for (let a=0; a<cardData.length; a++) {
+    // TODO: Comment this out once the artwork is actually in the files!
+        //for (let a=0; a<cardData.length; a++) {
             //newImageList.push(`images/card/card_${a}.png`);
             //display += `<span id="imageLoad${imageCount}"></span>`;
             //imageCount++;
-        }
+        //}
 
     // Remaining images
         for (let a=0; a<imageData.length; a++) {
@@ -34,11 +36,9 @@ function loadImages() {
     // Loaded Images
         $('#image-load-spot').html(display);
         for (let a=0; a<imageCount; a++) {
-            console.log(a);
             $(`#imageLoad${a}`).html(`<img src="${newImageList[a]}">`);
-            $(`#imageLoad${a}`).load(function() {
+            $(`#imageLoad${a} img`).load(function() {
                 totalImagesLoaded++;
-                console.log(totalImagesLoaded);
                 if (totalImagesLoaded >= imageCount - 1) loadPage('main-menu');
             });
         }

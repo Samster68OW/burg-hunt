@@ -12,7 +12,7 @@ const imageData = [
 
     `emoji/coin.png`,
 
-    `menu/background.png`,
+    `menu/CJZ_logo.png`,
 
     `store_item/bgs_booster_pack.png`
 

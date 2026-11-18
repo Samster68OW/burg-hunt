@@ -35,7 +35,7 @@ const cardData = [
         flavorText: ""
     },
     {
-        id: 2, displayName: "Campfire", type: "Fire", stat: 3,
+        id: 2, displayName: "Campfire", type: "Fire", stat: 68,
         rarity: 1, artist: "None",
         tooltip: "Campfire - Fire",
         flavorText: ""

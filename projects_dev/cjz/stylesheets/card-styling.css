@@ -31,7 +31,7 @@ Card Layering
     height: 500px;
     padding: 0px;
     position: absolute;
-    width: 300px;
+    width: 350px;
     z-index: 1;
 }
 
@@ -43,7 +43,7 @@ Card Layering
     left: 2px;
     position: absolute;
     top: 2px;
-    width: 296px;
+    width: 346px;
     z-index: 2;
 }
 
@@ -65,17 +65,13 @@ Card Layering
     background-size: 100% 100%;
     border-radius: 5px;
     height: 60px;
-    left: 15px;
+    left: 23px;
     position: absolute;
     text-align: center;
     top: 20px;
     width: 60px;
     z-index: 4;
 }
-
-
-
-
 .card-type img {
     height: 50px;
     width: 50px;
@@ -85,7 +81,7 @@ Card Layering
     font-family: 'Proxima_Nova', 'serif';
     font-size: 60px;
     height: 60px;
-    left: 15px;
+    left: 23px;
     position: absolute;
     text-align: center;
     top: 80px;
@@ -93,16 +89,9 @@ Card Layering
     z-index: 4;
 }
 .card-little-info {
-    bottom: 2px;
+    bottom: 20px;
     font-family: "Proxima_Nova", serif;
-    left: 5px;
+    left: 25px;
     position: absolute;
     z-index: 4;
-}
-.card-sheen-img {
-    height: 100%;
-    opacity: 0.1;
-    height: 100%;
-    position: absolute;
-    z-index: 5;
 }

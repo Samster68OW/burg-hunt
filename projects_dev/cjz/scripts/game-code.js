@@ -25,9 +25,9 @@ function generateCard(cardNum) {
                     <div class="card-type" style="background-image:url('images/card_detail/${cardData[cardNum].type}.png')"></div>
                     <div class="card-number">${cardData[cardNum].stat.toString()}</div>
                 </div>
+                <div class="card-little-info">${findCardSet(cardNum)}</div>
             </div>
         `;
-        let addLater = `<div class="card-number">${findCardSet(cardNum)}</div><img class='card-sheen-img' src='images/card_detail/1410.png'>`;
         return display;
 };
 

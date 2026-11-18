@@ -13,8 +13,8 @@
       <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap" rel="stylesheet">
     <!-- Internal Javascript -->
       <!-- Scripts -->
-        <script type="text/javascript" src="scripts/asset-loader.js"></script>
         <script type="text/javascript" src="scripts/game-code.js"></script>
+        <script type="text/javascript" src="scripts/launch-game.js"></script>
         <script type="text/javascript" src="scripts/main-menu-nav.js"></script>
         <script type="text/javascript" src="scripts/player-loader.js"></script>
         <script type="text/javascript" src="scripts/start-battle.js"></script>
@@ -37,8 +37,17 @@
 
 
       <div id="launch-screen" class="main-page" hidden>
+        <br><br><br><br><br><br>
+        <img src="images/menu/CJZ_logo.png" style="zoom: 0.5;">
+        <br><br><br>
         <button onclick="launchButton();">Launch Game</button>
-        <div id="image-load-spot"></div>
+        <br><br>
+        Created by Samster68 and samuel.
+      </div>
+      <div id="loading-screen" class="main-page" hidden>
+        <br><br><br><br><br><br>
+        <h1 style="font-size: 60px;">Loading...</h1>
+        <div id="image-load-spot" hidden></div>
       </div>
 
 
@@ -56,7 +65,8 @@
 
         <div id="home-page" class="main-menu-page" hidden>
           <br><br>
-          <h1 style="font-size:50px; text-align:center;">Untitled Game</h1>
+          <img src="images/menu/CJZ_logo.png" style="zoom: 0.5;">
+          <br><br>
           <!--TODO: Show stats and ongoing events, perhaps a cool title animation, annoucement, player card-->
           <div onclick="loadPage('campaign-page')">Campaign</div>
           <div id="splash-text-spot"></div>
