@@ -3,24 +3,9 @@
 
 
 #main-menu {
-    background-color: rgba(0, 79, 108, 0.8);
+    background: radial-gradient(circle, #a20000 0%, #510000 100%);
+    background-size: 100% 100%;
     height: 100%;
-}
-#main-menu-table {
-    background-color: rgba(0, 11, 46, 0.8);
-    position: relative;
-    width: 100%;
-}
-#main-menu-table td {
-    display: inline-block;
-    min-width: 50px;
-    padding: 10px;
-    text-align: center;
-}
-#main-menu-table td:hover {
-    background-color: white;
-    color: black;
-    cursor: pointer;
 }
 .main-menu-page {
     height: 100%;
@@ -34,24 +19,37 @@
     height: 100%;
     width: 100%;
 }
-#home-page-bottom-bar {
-    background-color: rgb(62, 62, 62);
-    bottom: 0px;
-    left: 0px;
-    position: absolute;
-    width: 100%;
+#main-menu-table {
+    border-collapse: collapse;
+    width: 70%;
 }
-#home-page-bottom-bar td {
+#main-menu-table td {
+    background-color: rgba(62, 62, 62, 0.75);
+    cursor: pointer;
     height: 40px;
     text-align: center;
+    vertical-align: center;
     width: 100px;
 }
+#main-menu-table td:hover {
+    background-color: white;
+    color: black;
+    opacity: 0.5;
+}
 #home-page-logo {
+    animation: titleBounce 1.5s alternate-reverse infinite ease-in-out;
     position: absolute;
-    text-align: right;
-    top: 10px;
-    right: 10px;
+    left: 110px;
     width: 80%;
+    scale: 0.5;
+}
+@keyframes titleBounce {
+    0% {
+        top: -100px;
+    }
+    100% {
+        top: -110px;
+    }
 }
 
 

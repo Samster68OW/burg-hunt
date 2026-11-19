@@ -2,11 +2,6 @@
 
 
 
-const cardColorData = [
-    "#ff3232", // Fire
-    "#3265ff", // Water
-    "#fff132", // Snow
-];
 const rarityData = [
     "P", // Promo = 0
     "$", // Common = 1

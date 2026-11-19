@@ -47,4 +47,65 @@ const monthNames = [
     `October`,
     `November`,
     `December`
-]
+];
+
+
+
+
+
+
+
+function buyStoreItem(itemNum) {
+
+    // Check to make sure the player wants to open it.
+        if (confirm(`Are you sure you want to purchase a ${storeItemData[currentStoreOfferings[itemNum].storeItemID].name}?`) === false) {return}
+        if (player.coins < currentStoreOfferings[itemNum].coins) {
+            alert("You do not have enough coins to purchase this.");
+            return
+        }
+        player.coins -= currentStoreOfferings[itemNum].coins;
+
+    // Open the item!
+        openStoreItem(currentStoreOfferings[itemNum].storeItemID);
+
+}
+function openStoreItem(itemNum) {
+
+    // Setup card output
+        let output = [];
+
+    let item = storeItemData[itemNum];
+
+    // Get total weight
+        let totalWeight = 0;
+        for (var a=0; a<item.outcomes.length; a++) {
+            totalWeight += item.outcomes[a].weight;
+        }
+    
+    // Grab all the cards!
+        for (var b=0; b<item.rolls; b++) {
+
+            // Pick category
+            let random = Math.random() * totalWeight;
+            for (var c=0; c<item.outcomes.length; c++) {
+                random -= item.outcomes[c].weight;
+                if (random <= 0) {
+
+                    // Pick card in category
+                    let chosenCard = Math.floor(Math.random()*item.outcomes[c].cardList.length);
+                    let newCard = item.outcomes[c].cardList[chosenCard];
+                    player.obtainedCards.push(newCard);
+                    output.push(cardData[newCard].displayName);
+                    break;
+
+                }
+            }
+
+        }
+
+    // Recalculate player's cards
+        loadCardCollection();
+
+    return output
+
+};

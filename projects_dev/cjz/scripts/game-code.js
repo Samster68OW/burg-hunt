@@ -2,33 +2,20 @@
 
 
 
-// Card Texture: https://www.magnific.com/free-photos-vectors/trading-card-texture
-// Font: https://fonts.google.com/selection/embed
-
-
-
 function generateCard(cardNum) {
-
-    // Get color
-        let cardColor = "#000000";
-        switch (cardData[cardNum].element) {
-            case "Fire": cardColor = cardColorData[0]; break
-            case "Water": cardColor = cardColorData[1]; break
-            case "Snow": cardColor = cardColorData[2]; break
-        }
     
-    // Display Card
-        let display = `
-            <div class="card-main">
-                <div class="card-art" style="background-image:url('images/card/card_${cardNum}.png')"></div>
-                <div class="card-frame">
-                    <div class="card-element" style="background-image:url('images/card_detail/${cardData[cardNum].element}.png')"></div>
-                    <div class="card-number">${cardData[cardNum].stat.toString()}</div>
-                </div>
-                <div class="card-little-info">${findCardSet(cardNum)}</div>
+    let display = `
+        <div class="card-main">
+            <div class="card-art" style="background-image:url('images/card/card_${cardNum}.png')"></div>
+            <div class="card-frame">
+                <div class="card-element" style="background-image:url('images/card_detail/${cardData[cardNum].element}.png')"></div>
+                <div class="card-number">${cardData[cardNum].stat.toString()}</div>
             </div>
-        `;
-        return display;
+            <div class="card-little-info">${findCardSet(cardNum)}</div>
+        </div>
+    `;
+    return display;
+
 };
 
 
