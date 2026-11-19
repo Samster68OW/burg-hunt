@@ -12,6 +12,14 @@ const setData = [
         ]
     },
     {
+        id: "FPS",
+        name: "Featured Penguins",
+        displayMissing: false,
+        cardList: [
+            25
+        ]
+    },
+    {
         id: "BGS",
         name: "Beginnings",
         displayMissing: true,

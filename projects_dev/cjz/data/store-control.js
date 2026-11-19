@@ -11,3 +11,11 @@ const currentStoreOfferings = [
 const limitedLoginRewards = [
     
 ];
+
+
+
+const activePromoCodes = [
+
+    {storeItemID: 0, code: "TESTCODE", startDate: "", endDate: ""}
+
+];

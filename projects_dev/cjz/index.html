@@ -28,6 +28,7 @@
         <script type="text/javascript" src="data/store-data.js"></script>
     <!-- Internal CSS -->
         <link rel="stylesheet" href="stylesheets/card-styling.css">
+        <link rel="stylesheet" href="stylesheets/main-menu.css">
         <link rel="stylesheet" href="stylesheets/main.css">
 
   </head>
@@ -54,23 +55,36 @@
 
       <div id="main-menu" class="main-page" hidden>
 
-        <table id="main-menu-table"><tr>
+       <!--<table id="main-menu-table"><tr>
           <td id="home-page-butt" onclick="loadMainMenuPage('home-page');">Home</td>
           <td id="deck-page-butt" onclick="loadMainMenuPage('deck-page');">Decks</td>
           <td id="collection-page-butt" onclick="loadMainMenuPage('collection-page');">Collection</td>
           <td id="store-page-butt" onclick="loadMainMenuPage('store-page');">Store</td>
           <td id="options-page-butt" onclick="loadMainMenuPage('options-page');">Options</td>
           <td id="profile-page-butt" onclick="loadMainMenuPage('profile-page');">Profile</td>
-        </tr></table>
+        </tr></table>-->
 
         <div id="home-page" class="main-menu-page" hidden>
-          <br><br>
-          <img src="images/menu/CJZ_logo.png" style="zoom: 0.5;">
-          <br><br>
-          <!--TODO: Show stats and ongoing events, perhaps a cool title animation, annoucement, player card-->
-          <div onclick="loadPage('campaign-page')">Campaign</div>
-          <div id="splash-text-spot"></div>
-          <!--Tutorial and random battle-->
+          <table id="home-page-table">
+            <tr>
+              <td style="padding: 10px; vertical-align: top;">
+                <span style="font-size: 25px;">Samster68</span><br>
+                C 3 gazillion<br>
+                G None
+              </td>
+              <td id="home-page-logo"><img src="images/menu/CJZ_logo.png" style="zoom: 0.2;"></td>
+            </tr>
+            <tr>
+              <td colspan="4">Body</td>
+            </tr>
+            <tr><td>
+              <table id="home-page-bottom-bar"><tr>
+                <td>Beans</td>
+                <td>Beans</td>
+                <td>Beans</td>
+              </tr></table>
+            </td></tr>
+          </table>
         </div>
         <div id="deck-page" class="main-menu-page" hidden>
           <!--TODO: Customize Deck, three presets-->

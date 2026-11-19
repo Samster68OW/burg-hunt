@@ -11,7 +11,7 @@ function generateCard(cardNum) {
 
     // Get color
         let cardColor = "#000000";
-        switch (cardData[cardNum].type) {
+        switch (cardData[cardNum].element) {
             case "Fire": cardColor = cardColorData[0]; break
             case "Water": cardColor = cardColorData[1]; break
             case "Snow": cardColor = cardColorData[2]; break
@@ -22,7 +22,7 @@ function generateCard(cardNum) {
             <div class="card-main">
                 <div class="card-art" style="background-image:url('images/card/card_${cardNum}.png')"></div>
                 <div class="card-frame">
-                    <div class="card-type" style="background-image:url('images/card_detail/${cardData[cardNum].type}.png')"></div>
+                    <div class="card-element" style="background-image:url('images/card_detail/${cardData[cardNum].element}.png')"></div>
                     <div class="card-number">${cardData[cardNum].stat.toString()}</div>
                 </div>
                 <div class="card-little-info">${findCardSet(cardNum)}</div>

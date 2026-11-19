@@ -106,13 +106,13 @@ function playCard(cardNum) {
 
     // Who won?
         setTimeout(function() {
-            if (playersCard.type === 'Fire' && opponentsCard.type === 'Snow' || playersCard.type === 'Water' && opponentsCard.type === 'Fire' || playersCard.type === 'Snow' && opponentsCard.type === 'Water') {
+            if (playersCard.element === 'Fire' && opponentsCard.element === 'Snow' || playersCard.element === 'Water' && opponentsCard.element === 'Fire' || playersCard.element === 'Snow' && opponentsCard.element === 'Water') {
                 // Player wins hand
                 $('#opponent-played-card-spot').fadeOut(0);
                 battle.opponent.health -= battle.energy;
                 battle.energy = 1;
             }
-            else if (opponentsCard.type === 'Fire' && playersCard.type === 'Snow' || opponentsCard.type === 'Water' && playersCard.type === 'Fire' || opponentsCard.type === 'Snow' && playersCard.type === 'Water') {
+            else if (opponentsCard.element === 'Fire' && playersCard.element === 'Snow' || opponentsCard.element === 'Water' && playersCard.element === 'Fire' || opponentsCard.element === 'Snow' && playersCard.element === 'Water') {
                 // Opponent wins hand
                 $('#player-played-card-spot').fadeOut(0);
                 battle.player.health -= battle.energy;
