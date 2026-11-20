@@ -19,12 +19,11 @@ function loadImages() {
     let display = ``;
 
     // Card Artwork
-    // TODO: Comment this out once the artwork is actually in the files!
-        //for (let a=0; a<cardData.length; a++) {
-            //newImageList.push(`images/card/card_${a}.png`);
-            //display += `<span id="imageLoad${imageCount}"></span>`;
-            //imageCount++;
-        //}
+        for (let a=0; a<cardData.length; a++) {
+            newImageList.push(`images/card/card_${a}.png`);
+            display += `<span id="imageLoad${imageCount}"></span>`;
+            imageCount++;
+        }
 
     // Remaining images
         for (let a=0; a<imageData.length; a++) {

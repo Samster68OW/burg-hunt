@@ -6,7 +6,11 @@ function generateCard(cardNum) {
     
     let display = `
         <div class="card-main">
-            <div class="card-art" style="background-image:url('images/card/card_${cardNum}.png')"></div>
+            <div class="card-art" style="
+                background-image: url('images/card/card_${cardNum}.png');
+                background-position: ${cardData[cardNum].background.x}px ${cardData[cardNum].background.y}px;
+                background-size: ${cardData[cardNum].background.size}px;
+                "></div>
             <div class="card-frame">
                 <div class="card-element" style="background-image:url('images/card_detail/${cardData[cardNum].element}.png')"></div>
                 <div class="card-number">${cardData[cardNum].stat.toString()}</div>

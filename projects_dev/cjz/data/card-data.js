@@ -18,159 +18,38 @@ const rarityData = [
 
 const cardData = [
     {
-        id: 0, displayName: "Test Card", element: "Fire", stat: 4,
-        rarity: 0, artist: "None",
-        tooltip: "Test Card - Fire",
-        flavorText: ""
+        id: 0, displayName: "Card 0", element: "Snow", stat: 4, rarity: 0, artist: "None", tooltip: `nothing - Snow`,
+        background: {x: 0, y: 10, size: 500},
+        flavorText: `blah blah text`
     },
     {
-        id: 1, displayName: "Hot Sauce", element: "Fire", stat: 5,
-        rarity: 1, artist: "None",
-        tooltip: "Hot Sauce - Fire",
-        flavorText: ""
+        id: 1, displayName: "Card 1", element: "Fire", stat: 4, rarity: 1, artist: "None", tooltip: `Card 1 - Fire`,
+        background: {x: -350, y: 0, size: 800},
+        flavorText: `N/A`
     },
     {
-        id: 2, displayName: "Campfire", element: "Fire", stat: 68,
-        rarity: 1, artist: "None",
-        tooltip: "Campfire - Fire",
-        flavorText: ""
+        id: 2, displayName: "Card 2", element: "Water", stat: 4, rarity: 1, artist: "None", tooltip: `Card 2 - Water`,
+        background: {x: 0, y: 0, size: 500},
+        flavorText: `N/A`
     },
     {
-        id: 3, displayName: "?", element: "Fire", stat: 3,
-        rarity: 1, artist: "None",
-        tooltip: "? - Fire",
-        flavorText: ""
+        id: 3, displayName: "Card 3", element: "Snow", stat: 4, rarity: 1, artist: "None", tooltip: `Card 3 - Snow`,
+        background: {x: 0, y: 0, size: 500},
+        flavorText: `N/A`
     },
     {
-        id: 4, displayName: "?", element: "Fire", stat: 3,
-        rarity: 1, artist: "None",
-        tooltip: "? - Fire",
-        flavorText: ""
+        id: 4, displayName: "Card 4", element: "Water", stat: 4, rarity: 1, artist: "None", tooltip: `Card 4 - Water`,
+        background: {x: 0, y: 0, size: 500},
+        flavorText: `N/A`
     },
     {
-        id: 5, displayName: "?", element: "Fire", stat: 3,
-        rarity: 2, artist: "None",
-        tooltip: "? - Fire",
-        flavorText: ""
+        id: 5, displayName: "Card 5", element: "Snow", stat: 4, rarity: 1, artist: "None", tooltip: `Card 5 - Snow`,
+        background: {x: 0, y: 0, size: 500},
+        flavorText: `N/A`
     },
     {
-        id: 6, displayName: "?", element: "Fire", stat: 3,
-        rarity: 2, artist: "None",
-        tooltip: "? - Fire",
-        flavorText: ""
-    },
-    {
-        id: 7, displayName: "Water Balloon", element: "Water", stat: 3,
-        rarity: 1, artist: "None",
-        tooltip: "Water Balloon - Water",
-        flavorText: ""
-    },
-    {
-        id: 8, displayName: "Water Hose", element: "Water", stat: 3,
-        rarity: 1, artist: "None",
-        tooltip: "Water Hose - Water",
-        flavorText: ""
-    },
-    {
-        id: 9, displayName: "?", element: "Water", stat: 3,
-        rarity: 1, artist: "None",
-        tooltip: "? - Water",
-        flavorText: ""
-    },
-    {
-        id: 10, displayName: "?", element: "Water", stat: 3,
-        rarity: 1, artist: "None",
-        tooltip: "? - Water",
-        flavorText: ""
-    },
-    {
-        id: 11, displayName: "?", element: "Water", stat: 3,
-        rarity: 2, artist: "None",
-        tooltip: "? - Water",
-        flavorText: ""
-    },
-    {
-        id: 12, displayName: "?", element: "Water", stat: 3,
-        rarity: 2, artist: "None",
-        tooltip: "? - Water",
-        flavorText: ""
-    },
-    {
-        id: 13, displayName: "Snowball", element: "Snow", stat: 3,
-        rarity: 1, artist: "None",
-        tooltip: "Snowball - Snow",
-        flavorText: ""
-    },
-    {
-        id: 14, displayName: "Snowflake", element: "Snow", stat: 3,
-        rarity: 1, artist: "None",
-        tooltip: "Snowflake - Snow",
-        flavorText: ""
-    },
-    {
-        id: 15, displayName: "?", element: "Snow", stat: 3,
-        rarity: 1, artist: "None",
-        tooltip: "? - Snow",
-        flavorText: ""
-    },
-    {
-        id: 16, displayName: "?", element: "Snow", stat: 3,
-        rarity: 1, artist: "None",
-        tooltip: "? - Snow",
-        flavorText: ""
-    },
-    {
-        id: 17, displayName: "?", element: "Snow", stat: 3,
-        rarity: 2, artist: "None",
-        tooltip: "? - Snow",
-        flavorText: ""
-    },
-    {
-        id: 18, displayName: "?", element: "Snow", stat: 3,
-        rarity: 2, artist: "None",
-        tooltip: "? - Snow",
-        flavorText: ""
-    },
-    {
-        id: 19, displayName: "?", element: "Fire", stat: 3,
-        rarity: 2, artist: "None",
-        tooltip: "? - Fire",
-        flavorText: ""
-    },
-    {
-        id: 20, displayName: "?", element: "Water", stat: 3,
-        rarity: 2, artist: "None",
-        tooltip: "? - Water",
-        flavorText: ""
-    },
-    {
-        id: 21, displayName: "?", element: "Snow", stat: 3,
-        rarity: 2, artist: "None",
-        tooltip: "? - Snow",
-        flavorText: ""
-    },
-    {
-        id: 22, displayName: "?", element: "Fire", stat: 3,
-        rarity: 3, artist: "None",
-        tooltip: "? - Fire",
-        flavorText: ""
-    },
-    {
-        id: 23, displayName: "?", element: "Water", stat: 3,
-        rarity: 3, artist: "None",
-        tooltip: "? - Water",
-        flavorText: ""
-    },
-    {
-        id: 24, displayName: "?", element: "Snow", stat: 3,
-        rarity: 3, artist: "None",
-        tooltip: "? - Snow",
-        flavorText: ""
-    },
-    {
-        id: 25, displayName: "Samster68", element: "Water", stat: 3,
-        rarity: 0, artist: "None",
-        tooltip: "Samster68 - Water",
-        flavorText: ""
+        id: 6, displayName: "Card 6", element: "Snow", stat: 4, rarity: 1, artist: "None", tooltip: `Card 6 - Snow`,
+        background: {x: 0, y: 0, size: 500},
+        flavorText: `N/A`
     }
 ];

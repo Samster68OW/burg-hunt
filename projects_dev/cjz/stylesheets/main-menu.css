@@ -4,12 +4,23 @@
 
 #main-menu {
     background: radial-gradient(circle, #a20000 0%, #510000 100%);
-    background-size: 100% 100%;
     height: 100%;
 }
 .main-menu-page {
     height: 100%;
+    position: absolute;
     width: 100%;
+}
+#profile-mini {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    left: 5px;
+    line-height: 1.25;
+    padding: 10px;
+    position: absolute;
+    top: 5px;
+    vertical-align: top;
+    width: 200px;
 }
 
 
@@ -51,50 +62,89 @@
         top: -110px;
     }
 }
+#home-page-deck {
+    bottom: 80px;
+    cursor: pointer;
+    font-size: 20px;
+    height: 180px;
+    position: absolute;
+    right: 50px;
+    text-align: center;
+    width: 200px;
+}
+#home-page-deck img {
+    zoom: 0.08;
+}
+#home-page-deck img:hover {
+    -webkit-filter: drop-shadow(30px 30px 30px yellow);
+    filter: drop-shadow(30px 30px 30px yellow);
+}
 
 
 
 /* Collection Screen */
+#card-collection-big-table {
+    /*background: radial-gradient(circle, #e8bc6f 0%, #7c643a 100%);*/
+    background-color: #e8bc6f;
+    width: 100%;
+}
 #card-collection-spot {
-    align-items: flex-start;
-    background-color: rgba(0, 56, 108, 0.4);
-    border-radius: 3px;
     height: 600px;
     overflow-y: scroll;
-    padding: 10px;
-    position: fixed;
-    width: 700px;
+    position: absolute;
+    width: 750px;
+}
+.set-title {
+    background-color: #7c643a;
+    border-radius: 5px;
+    padding: 2px;
+    padding-left: 10px;
+    width: 95%;
 }
 #collection-table {
     border-spacing: 5px;
 }
 #collection-table td {
-    height: 190px;
-    width: 120px;
+    height: 160px;
+    opacity: 0.8;
+    width: 110px;
     vertical-align: top;
 }
+#collection-table td:hover {
+    opacity: 1.0;
+}
 #big-card-spot {
-    background-color: rgba(0, 56, 108, 0.6);
-    border-radius: 3px;
+    background-color: #7c643a;
     height: 600px;
-    padding-left: 30px;
-    position: absolute;
-    right: 0px;
     vertical-align: top;
-    width: 400px;
+    width: 440px;
+}
+#big-card-table {
+    height: 100%;
+    position: relative;
+    width: 100%;
 }
 .coll-card-div {
     zoom: 0.30;
 }
-#the-big-card {
-    display: block;
-    left: 30px;
-    position: relative;
+#big-card-title {
+    font-size: 25px;
+    text-align: center;
+    width: 100%;
 }
-.missing-card {
-    color: white;
-    font-size: 90px;
-    opacity: 0.25;
+#the-big-card {
+    height: 400px;
+    position: absolute;
+    width: 100%;
+    zoom: 0.8;
+}
+#card-flavor-text {
+    top: 490px;
+    font-size: 16px;
+    padding: 20px;
+    position: absolute;
+    width: 400px;
+    word-wrap: normal;
 }
 
 

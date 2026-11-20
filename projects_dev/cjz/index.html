@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <title>Card-Jitsu Zero</title>
-    <link rel="icon" type="image/x-icon" href="images/site/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="images/menu/game_icon.ico">
 
     <!-- External Sources -->
       <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap" rel="stylesheet">
@@ -54,27 +54,41 @@
 
 
       <div id="main-menu" class="main-page" hidden>
-
-        <div style="padding: 10px; vertical-align: top;">
+        <div id="profile-mini">
           <span style="font-size: 25px;">Samster68</span><br>
           Coins: 300<br>
           Gems: 5
         </div>
 
+        <!-- Home Page -->
         <div id="home-page" class="main-menu-page" hidden>
           <img id="home-page-logo" src="images/menu/CJZ_logo.png">
+          <div id="home-page-deck" onclick="loadMainMenuPage('collection-page');">
+            <img src="images/menu/card_deck.webp"><br>
+            Collection
+          </div>
           
         </div>
-        <div id="deck-page" class="main-menu-page" hidden>
-          <!--TODO: Customize Deck, three presets-->
-        </div>
+
+        <!-- Card Collection Page -->
         <div id="collection-page" class="main-menu-page" hidden>
           <h1 style="text-align:center;">Card Collection</h1>
-          <table><tr>
+          <table id="card-collection-big-table"><tr>
             <td id="card-collection-spot"></td>
-            <td id="big-card-spot"></td>
+            <td id="big-card-spot">
+              <table id='big-card-table'>
+                <tr><td style='height: 58px;'>
+                  <div id='big-card-title'></div>
+                </td></tr>
+                <tr><td id='the-big-card'></td></tr>
+                <tr><td id='card-flavor-text'></td></tr>
+              </table>
+            </td>
           </tr></table>
         </div>
+
+
+
         <div id="store-page" class="main-menu-page" hidden>
           <!--TODO: Purchase booster packs and redeem gifts-->
           <h1>Store</h1>

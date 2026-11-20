@@ -18,7 +18,7 @@ function displayCardCollection() {
 
     for (var b=setData.length-1; b>-1; b--) {
 
-        display += `<h2>${setData[b].name}</h2><br><table id='collection-table'>`;
+        display += `<div class='set-title'>${setData[b].name}</div><table id='collection-table'>`;
         let cardsShown = 0;
         for (var a=0; a<setData[b].cardList.length; a++) {
             if (cardsShown % 6 === 0) {display += `<tr>`;}
@@ -28,10 +28,8 @@ function displayCardCollection() {
                     if (setData[b].displayMissing === true) {
                         display += `
                         <td><div class='coll-card-div'>
-                            <div class="card-main missing-card">
-                                <div class="card-frame">
-                                    <div style="text-align:center;"><br><br>${cardsShown}</div>
-                                </div>
+                            <div class="missing-card">
+                                <div><br>${cardsShown + 1}</div>
                             </div>
                         </div></td>
                         `;
@@ -45,17 +43,23 @@ function displayCardCollection() {
 
             if (cardsShown % 6 === 0) {display += `</tr>`;}
         }
-        display += `</table><br>`;
+        if (cardsShown % 6 !== 0) {display += `</tr>`;}
+        display += `</table>`;
 
     }
     
     $('#card-collection-spot').html(display);
 };
 function displayCollCard(num) {
-    $('#big-card-spot').html(`<h2>${cardData[num].displayName}</h2><div id='the-big-card'>${generateCard(num)}</div>`);
+    $('#big-card-title').html(cardData[num].displayName);
+    $('#the-big-card').html(`<div style='left: 105px; position: absolute;'>${generateCard(num)}</div>`);
+    $('#card-flavor-text').html(cardData[num].flavorText);
+
 };
 function emptyCollCard() {
-    $('#big-card-spot').html(``);
+    $('#big-card-title').html(``);
+    $('#the-big-card').html(``);
+    $('#card-flavor-text').html(``);
 };
 
 
@@ -73,60 +77,6 @@ function setupStore() {
         }
         display += `</center>`
         $('#store-section').html(display);
-
-};
-function buyStoreItem(itemNum) {
-
-    // Check to make sure the player wants to open it.
-        if (confirm(`Are you sure you want to purchase a ${storeItemData[currentStoreOfferings[itemNum].storeItemID].name}?`) === false) {return}
-        if (player.coins < currentStoreOfferings[itemNum].coins) {
-            alert("You do not have enough coins to purchase this.");
-            return
-        }
-        player.coins -= currentStoreOfferings[itemNum].coins;
-
-    // Open the item!
-        openStoreItem(currentStoreOfferings[itemNum].storeItemID);
-
-}
-function openStoreItem(itemNum) {
-
-    // Setup card output
-        let output = [];
-
-    let item = storeItemData[itemNum];
-
-    // Get total weight
-        let totalWeight = 0;
-        for (var a=0; a<item.outcomes.length; a++) {
-            totalWeight += item.outcomes[a].weight;
-        }
-    
-    // Grab all the cards!
-        for (var b=0; b<item.rolls; b++) {
-
-            // Pick category
-            let random = Math.random() * totalWeight;
-            for (var c=0; c<item.outcomes.length; c++) {
-                random -= item.outcomes[c].weight;
-                if (random <= 0) {
-
-                    // Pick card in category
-                    let chosenCard = Math.floor(Math.random()*item.outcomes[c].cardList.length);
-                    let newCard = item.outcomes[c].cardList[chosenCard];
-                    player.obtainedCards.push(newCard);
-                    output.push(cardData[newCard].displayName);
-                    break;
-
-                }
-            }
-
-        }
-
-    // Recalculate player's cards
-        loadCardCollection();
-
-    return output
 
 };
 

@@ -37,6 +37,7 @@ Card Layering
 
 /* z-index: 2 */
 .card-art {
+    background-repeat: no-repeat;
     background-size: 100% 100%;
     border-radius: 10px;
     height: 496px;
@@ -60,7 +61,7 @@ Card Layering
 }
 
 /* z-index: 4 */
-.card-type {
+.card-element {
     background-image: url('../images/card_detail/card_frame.png');
     background-size: 100% 100%;
     border-radius: 5px;
@@ -72,7 +73,7 @@ Card Layering
     width: 60px;
     z-index: 4;
 }
-.card-type img {
+.card-element img {
     height: 50px;
     width: 50px;
 }
@@ -81,7 +82,8 @@ Card Layering
     font-family: 'Proxima_Nova', 'serif';
     font-size: 60px;
     height: 60px;
-    left: 23px;
+    left: 21px;
+    line-height: 1.25;
     position: absolute;
     text-align: center;
     top: 80px;
@@ -94,4 +96,26 @@ Card Layering
     left: 25px;
     position: absolute;
     z-index: 4;
+}
+
+
+
+/* Missing Card */
+
+.missing-card {
+    background-color: gray;
+    border-radius: 10px;
+    color: white;
+    font-size: 90px;
+    height: 500px;
+    opacity: 0.3;
+    padding: 0px;
+    position: absolute;
+    width: 350px;
+    z-index: 1;
+}
+.missing-card div {
+    line-height: 1.8;
+    height: 100%;
+    text-align: center;
 }
