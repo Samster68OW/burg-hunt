@@ -64,6 +64,7 @@ function buyStoreItem(itemNum) {
             return
         }
         player.coins -= currentStoreOfferings[itemNum].coins;
+        updatePlayerMini();
 
     // Open the item!
         openStoreItem(currentStoreOfferings[itemNum].storeItemID);

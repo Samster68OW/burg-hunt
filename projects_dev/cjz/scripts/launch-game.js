@@ -38,7 +38,10 @@ function loadImages() {
             $(`#imageLoad${a}`).html(`<img src="${newImageList[a]}">`);
             $(`#imageLoad${a} img`).load(function() {
                 totalImagesLoaded++;
-                if (totalImagesLoaded >= imageCount - 1) loadPage('main-menu');
+                if (totalImagesLoaded === imageCount) {
+                    $('.main-page').fadeOut(0);
+                    $('#main-menu').fadeIn(1500);
+                }
             });
         }
 

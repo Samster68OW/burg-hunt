@@ -8,6 +8,7 @@ function loadMainMenuPage(pageName) {
   $(`#${pageName}`).fadeIn(0);
   $(`#${pageName}-butt`).css('text-decoration','underline');
   if (pageName === 'collection-page') {displayCardCollection();}
+  updatePlayerMini();
 };
 
 
@@ -15,10 +16,14 @@ function loadMainMenuPage(pageName) {
 function displayCardCollection() {
 
     let display = ``;
+    let cardsCollected = [];
+
+    // Create set progress list
+        for (var a=0; a<setData.length; a++) {cardsCollected.push(0);}
 
     for (var b=setData.length-1; b>-1; b--) {
 
-        display += `<div class='set-title'>${setData[b].name}</div><table id='collection-table'>`;
+        display += `<div class='set-title'>${setData[b].name} <span id='set-progress-${b}'></span></div><table id='collection-table'>`;
         let cardsShown = 0;
         for (var a=0; a<setData[b].cardList.length; a++) {
             if (cardsShown % 6 === 0) {display += `<tr>`;}
@@ -39,6 +44,7 @@ function displayCardCollection() {
                 if (player.cardCollection[setData[b].cardList[a]] > 0) {
                     display += `<td><div class='coll-card-div' onmouseenter='displayCollCard(${setData[b].cardList[a]});' onmouseleave='emptyCollCard();'>${generateCard(setData[b].cardList[a])}</div></td>`;
                     cardsShown++;
+                    cardsCollected[b]++;
                 }
 
             if (cardsShown % 6 === 0) {display += `</tr>`;}
@@ -47,8 +53,16 @@ function displayCardCollection() {
         display += `</table>`;
 
     }
-    
     $('#card-collection-spot').html(display);
+
+    // Set Progress
+        for (var b=setData.length-1; b>-1; b--) {
+            if (setData[b].displayMissing === true) {
+                if (cardsCollected[b] === setData[b].cardList.length) $(`#set-progress-${b}`).html(`(COMPLETE)`);
+                else $(`#set-progress-${b}`).html(`(${cardsCollected[b]} / ${setData[b].cardList.length})`);
+            }
+        }
+
 };
 function displayCollCard(num) {
     $('#big-card-title').html(cardData[num].displayName);
@@ -83,7 +97,7 @@ function setupStore() {
 
 
 function emojiInsert(input) {
-    return `<img height=10 src='images/emoji/${input}.png'>`;
+    return `<img height=14 src='images/emoji/${input}.png'>`;
 };
 
 
@@ -94,4 +108,16 @@ function generateCampaignPage() {
         display += `<div onclick='startCampaignLevel(${a});'>${campaignData[a].name}</div><br>`;
     }
     $('#campaign-page').html(display);
+};
+
+
+
+function updatePlayerMini() {
+
+    $('#profile-mini').html(`
+        <span style="font-size: 25px;">${player.username}</span><br>
+        ${emojiInsert('coin')} ${player.coins}<br>
+        Gems: ${player.gems}
+        `);
+
 };

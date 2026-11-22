@@ -18,6 +18,7 @@
         <script type="text/javascript" src="scripts/main-menu-nav.js"></script>
         <script type="text/javascript" src="scripts/player-loader.js"></script>
         <script type="text/javascript" src="scripts/start-battle.js"></script>
+        <script type="text/javascript" src="scripts/store-code.js"></script>
       <!-- Data -->
         <script type="text/javascript" src="data/campaign-data.js"></script>
         <script type="text/javascript" src="data/card-data.js"></script>
@@ -54,11 +55,7 @@
 
 
       <div id="main-menu" class="main-page" hidden>
-        <div id="profile-mini">
-          <span style="font-size: 25px;">Samster68</span><br>
-          Coins: 300<br>
-          Gems: 5
-        </div>
+        <div id="profile-mini"></div>
 
         <!-- Home Page -->
         <div id="home-page" class="main-menu-page" hidden>
@@ -67,7 +64,6 @@
             <img src="images/menu/card_deck.webp"><br>
             Collection
           </div>
-          
         </div>
 
         <!-- Card Collection Page -->
@@ -87,13 +83,14 @@
           </tr></table>
         </div>
 
-
-
+        <!-- Store Page-->
         <div id="store-page" class="main-menu-page" hidden>
-          <!--TODO: Purchase booster packs and redeem gifts-->
-          <h1>Store</h1>
+          <h1 style="text-align:center;">Store</h1>
           <div id="store-section"></div>
         </div>
+
+
+
         <div id="settings-page" class="main-menu-page" hidden>
           <!--TODO: Changelog-->
         </div>
