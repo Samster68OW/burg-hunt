@@ -116,8 +116,7 @@ function updatePlayerMini() {
 
     $('#profile-mini').html(`
         <span style="font-size: 25px;">${player.username}</span><br>
-        ${emojiInsert('coin')} ${player.coins}<br>
-        Gems: ${player.gems}
+        ${emojiInsert('coin')} ${player.coins} Gems: ${player.gems}
         `);
 
 };
