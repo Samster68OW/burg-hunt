@@ -6,7 +6,6 @@
 
 const date1 = new Date("November 12, 2026");
 const date2 = new Date("November 18, 2026");
-console.log(dateActive(date1, date2));
 
 
 
