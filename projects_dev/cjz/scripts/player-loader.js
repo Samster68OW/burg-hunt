@@ -6,8 +6,8 @@ let player = {
     username: "Samster68",
     coins: 200,
     gems: 0,
-    obtainedCards: [2, 1, 0],
-    gifts: []
+    obtainedCards: [],
+    inbox: []
 };
 
 

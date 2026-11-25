@@ -7,25 +7,18 @@ const setData = [
         id: "PRO",
         name: "Promo",
         displayMissing: false,
-        cardList: [
-            0
-        ]
+        cardList: [0]
     },
     {
         id: "FPS",
         name: "Featured Penguins",
-        displayMissing: false,
-        cardList: [
-            0
-        ]
+        displayMissing: true,
+        cardList: [1, 2, 3]
     },
     {
         id: "BGS",
         name: "Beginnings",
         displayMissing: true,
-        cardList: [
-             0,  1,  2,  3,  4,  5,
-             6
-        ]
+        cardList: [4, 5, 6, 7, 8, 9]
     }
 ];

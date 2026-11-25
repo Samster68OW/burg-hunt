@@ -23,7 +23,7 @@ function displayCardCollection() {
 
     for (var b=setData.length-1; b>-1; b--) {
 
-        display += `<div class='set-title'>${setData[b].name} <span id='set-progress-${b}'></span></div><table id='collection-table'>`;
+        display += `<div class='set-title'>${setData[b].name} <span id='set-progress-${b}'></span></div><table id='table-set-${b}' class='collection-table'>`;
         let cardsShown = 0;
         for (var a=0; a<setData[b].cardList.length; a++) {
             if (cardsShown % 6 === 0) {display += `<tr>`;}
@@ -42,7 +42,7 @@ function displayCardCollection() {
                     }
                 }
                 if (player.cardCollection[setData[b].cardList[a]] > 0) {
-                    display += `<td><div class='coll-card-div' onmouseenter='displayCollCard(${setData[b].cardList[a]});' onmouseleave='emptyCollCard();'>${generateCard(setData[b].cardList[a])}</div></td>`;
+                    display += `<td><div class='coll-card-div' onmouseenter='displayCollCard(${setData[b].cardList[a]});' onmouseleave='emptyCollCard();'>${generateCard(setData[b].cardList[a], true)}</div></td>`;
                     cardsShown++;
                     cardsCollected[b]++;
                 }
@@ -61,13 +61,16 @@ function displayCardCollection() {
                 if (cardsCollected[b] === setData[b].cardList.length) $(`#set-progress-${b}`).html(`(COMPLETE)`);
                 else $(`#set-progress-${b}`).html(`(${cardsCollected[b]} / ${setData[b].cardList.length})`);
             }
+            else if (setData[b].displayMissing === false && cardsCollected[b] === 0) {
+                $(`#table-set-${b}`).html('<tr><td style="color: black;">No cards have been collected for this set.</td></tr>');
+            }
         }
 
 };
 function displayCollCard(num) {
     $('#big-card-title').html(cardData[num].displayName);
-    $('#the-big-card').html(`<div style='left: 105px; position: absolute;'>${generateCard(num)}</div>`);
-    $('#card-flavor-text').html(cardData[num].flavorText);
+    $('#the-big-card').html(`<div style='left: 105px; position: absolute;'>${generateCard(num, true)}</div>`);
+    $('#card-flavor-text').html(`${cardData[num].flavorText}<br><i>Artist: ${cardData[num].artist}</i>`);
 
 };
 function emptyCollCard() {
@@ -86,6 +89,7 @@ function setupStore() {
         for (var a=0; a<currentStoreOfferings.length; a++) {
             display += `<div>
                 <img src='images/store_item/${storeItemData[currentStoreOfferings[a].storeItemID].imgSource}' onclick='buyStoreItem(${a});' class='store-class'><br>
+                ${storeItemData[currentStoreOfferings[a].storeItemID].name}<br>
                 ${currentStoreOfferings[a].coins} ${emojiInsert('coin')}
                 </div>`;
         }

@@ -13,7 +13,7 @@
       <link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap" rel="stylesheet">
     <!-- Internal Javascript -->
       <!-- Scripts -->
-        <script type="text/javascript" src="scripts/game-code.js"></script>
+        <script type="text/javascript" src="scripts/card-code.js"></script>
         <script type="text/javascript" src="scripts/launch-game.js"></script>
         <script type="text/javascript" src="scripts/main-menu-nav.js"></script>
         <script type="text/javascript" src="scripts/player-loader.js"></script>
@@ -22,6 +22,7 @@
       <!-- Data -->
         <script type="text/javascript" src="data/campaign-data.js"></script>
         <script type="text/javascript" src="data/card-data.js"></script>
+        <script type="text/javascript" src="data/control-center.js"></script>
         <script type="text/javascript" src="data/image-data.js"></script>
         <script type="text/javascript" src="data/set-data.js"></script>
         <script type="text/javascript" src="data/store-control.js"></script>
@@ -44,7 +45,8 @@
         <br><br><br>
         <button onclick="launchButton();">Launch Game</button>
         <br><br>
-        Created by Samster68 and samuel.
+        Created by Samster68 and samuel.<br>
+        <span id="version-spot"></span>
       </div>
       <div id="loading-screen" class="main-page" hidden>
         <br><br><br><br><br><br>
@@ -61,11 +63,11 @@
         <div id="home-page" class="main-menu-page" hidden>
           <img id="home-page-logo" src="images/menu/CJZ_logo.png">
           <div id="home-page-deck" onclick="loadMainMenuPage('collection-page');">
-            <img src="images/menu/card_deck.webp"><br>
+            <img src="images/menu/card_deck.png"><br>
             Collection
           </div>
           <div id="home-page-news" onclick="loadMainMenuPage('news-page');">
-            <img src="images/menu/card_deck.webp"><br>
+            <img src="images/menu/news_icon.png"><br>
             News
           </div>
         </div>
@@ -134,7 +136,19 @@
 
 
 
-      <div id="battle-page" class="main-page" hidden>
+      <div id="opening-screen" class="main-page" hidden>
+        <center>
+          <div id="item-drop-zone"></div>
+          <div id="opening-choices">
+            <button onclick="loadPage('main-menu'); loadMainMenuPage('collection-page');">View Collection</button><br><br>
+            <button onclick="loadPage('main-menu'); loadMainMenuPage('store-page');">Back to Store</button>
+          </div>
+        </center>
+      </div>
+
+
+
+      <div id="battle-screen" class="main-page" hidden>
         <table id="main-battle-table">
           <tr>
             <td id="player-health-spot"></td>
@@ -175,6 +189,7 @@
 $(document).ready(function(){
   loadCardCollection();
   setupStore();
+  $('#version-spot').html(gameVersion);
   loadPage('launch-screen');
   loadMainMenuPage('home-page');
 });

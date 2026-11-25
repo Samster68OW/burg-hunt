@@ -66,7 +66,10 @@ function buyStoreItem(itemNum) {
         updatePlayerMini();
 
     // Open the item!
-        openStoreItem(currentStoreOfferings[itemNum].storeItemID);
+        let newCardList = openStoreItem(currentStoreOfferings[itemNum].storeItemID);
+
+    // Do the theatrics!
+        revealStoreItem(itemNum, newCardList);
 
 }
 function openStoreItem(itemNum) {
@@ -95,7 +98,7 @@ function openStoreItem(itemNum) {
                     let chosenCard = Math.floor(Math.random()*item.outcomes[c].cardList.length);
                     let newCard = item.outcomes[c].cardList[chosenCard];
                     player.obtainedCards.push(newCard);
-                    output.push(cardData[newCard].displayName);
+                    output.push(newCard);
                     break;
 
                 }
@@ -107,5 +110,27 @@ function openStoreItem(itemNum) {
         loadCardCollection();
 
     return output
+
+};
+
+
+
+function revealStoreItem(itemNum, itemOutput) {
+
+    let isNew = '';
+    if (player.cardCollection[itemOutput[0]] === 1) isNew = 'NEW!';
+
+    switch (storeItemData[itemNum].type) {
+        case 'booster':
+            $('#item-drop-zone').html(`
+                <h1>Cards Obtained:</h1><br>
+                <div style='zoom: 0.6;'>${generateCard(itemOutput[0])}</div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                ${isNew}
+                `);
+            break;
+    }
+
+
+    loadPage('opening-screen');
 
 };

@@ -3,7 +3,7 @@
 
 
 const currentStoreOfferings = [
-    {storeItemID: 0, coins: 100}
+    {storeItemID: 0, coins: 10}
 ];
 
 

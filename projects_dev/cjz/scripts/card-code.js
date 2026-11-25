@@ -1,8 +1,16 @@
-// Game Code
+// Card Code
 
 
 
-function generateCard(cardNum) {
+function generateCard(cardNum, amountTag) {
+
+    // Show the amount of cards collected?
+        if (!amountTag) amountTag = false;
+        let amountDiv = ``;
+        if (amountTag === true && player.cardCollection[cardNum] > 1) {
+            amountDiv = `<div class='card-amount'>${player.cardCollection[cardNum]}</div>`;
+            console.log('yep');
+        }
     
     let display = `
         <div class="card-main">
@@ -16,6 +24,7 @@ function generateCard(cardNum) {
                 <div class="card-number">${cardData[cardNum].stat.toString()}</div>
             </div>
             <div class="card-little-info">${findCardSet(cardNum)}</div>
+            ${amountDiv}
         </div>
     `;
     return display;

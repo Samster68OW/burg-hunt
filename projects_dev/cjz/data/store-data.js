@@ -6,12 +6,10 @@ const storeItemData = [
     {
         storeItemID: 0,
         imgSource: "bgs_booster_pack.png",
-        name: "Beginnings Booster Pack", type: "booster",
-        rolls: 5,
+        name: "Featured Penguin Single", type: "booster",
+        rolls: 1,
         outcomes: [
-            {weight: 75, cardList: [1, 2, 3, 4, 5, 6]},
-            {weight: 20, cardList: [7]},
-            {weight: 5, cardList: [8]}
+            {weight: 100, cardList: [1, 2, 3]}
         ]
     }
 ];
