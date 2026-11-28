@@ -51,3 +51,23 @@ function findCardSet(cardNum) {
     }
     return setInfo
 };
+
+
+
+function generateStoreItem(itemNum) {
+
+    let display = `
+        <table class='pack-table'>
+            <tr>
+                <td class='pack-top-tab'></td>
+            </tr>
+            <tr>
+                <td class='pack-main-body'>
+                    Featured<br>Penguins
+                </td>
+            </tr>
+        </table>
+    `;
+    return display;
+
+};

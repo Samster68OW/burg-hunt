@@ -167,22 +167,51 @@
 
 
 /* Store Page */
-.store-class {
-    border: 5px solid black;
-    border-radius: 5px;
-    cursor:pointer;
-    width: 100px;
+.pack-table {
+    border-collapse: collapse;
+    opacity: 0.8;
+    width: 175px;
 }
-.store-class:hover {
-    border: 5px solid yellow;
+.pack-table:hover {
+    opacity: 1.0;
+}
+.pack-table td {
+    background: linear-gradient(0deg,rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);;
+    border-radius: 20px;
+}
+.pack-top-tab {
+    border-bottom: 5px dotted black;
+    height: 25px;
+}
+.pack-main-body {
+    height: 225px;
+    text-align: center;
+}
+.store-class {
+    cursor: pointer;
+}
+.slideCardUpClass {
+    animation-duration: 0.3s;
+    animation-name: slideCardUp;
+}
+@keyframes slideCardUp {
+    from {
+        opacity: 0.0;
+        top: 0px;
+    }
+    to {
+        opacity: 1.0;
+        top: 200px;
+    }
 }
 
 
 
 /* Opening Screen */
-#item-drop-zone {
+#opening-screen {
     background: radial-gradient(circle, #a20000 0%, #510000 100%);
-    height: 100%;
+}
+#item-drop-zone {
     position: absolute;
     width: 100%;
 }

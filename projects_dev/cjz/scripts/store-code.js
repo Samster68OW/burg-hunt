@@ -117,16 +117,22 @@ function openStoreItem(itemNum) {
 
 function revealStoreItem(itemNum, itemOutput) {
 
+    // Setup
+        $('#purchased-item-spot').fadeIn(0);
+        $('#item-drop-zone').fadeOut(0);
+
     let isNew = '';
     if (player.cardCollection[itemOutput[0]] === 1) isNew = 'NEW!';
 
     switch (storeItemData[itemNum].type) {
         case 'booster':
-            $('#item-drop-zone').html(`
-                <h1>Cards Obtained:</h1><br>
-                <div style='zoom: 0.6;'>${generateCard(itemOutput[0])}</div><br><br><br><br><br><br><br><br><br><br><br><br><br>
-                ${isNew}
-                `);
+            $('#purchased-item-spot').html(generateStoreItem(itemNum));
+            $('#purchased-item-spot').addClass('slideCardUpClass');
+            //$('#item-drop-zone').html(`
+                //<h1>Cards Obtained:</h1><br>
+                //<div style='zoom: 0.6;'>${generateCard(itemOutput[0])}</div><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                //${isNew}
+                //`);
             break;
     }
 

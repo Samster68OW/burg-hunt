@@ -84,14 +84,12 @@ function emptyCollCard() {
 // Store Functions
 function setupStore() {
 
-    // Loop through store and add stuff
+    // Loop through store and add stuff TODO
         let display = `<center>`
         for (var a=0; a<currentStoreOfferings.length; a++) {
-            display += `<div>
-                <img src='images/store_item/${storeItemData[currentStoreOfferings[a].storeItemID].imgSource}' onclick='buyStoreItem(${a});' class='store-class'><br>
-                ${storeItemData[currentStoreOfferings[a].storeItemID].name}<br>
-                ${currentStoreOfferings[a].coins} ${emojiInsert('coin')}
-                </div>`;
+            display += `<div class='store-class' onclick='buyStoreItem(${a});'>${generateStoreItem(a)}</div>`;
+            display += `${storeItemData[currentStoreOfferings[a].storeItemID].name}<br>
+                    ${currentStoreOfferings[a].coins} ${emojiInsert('coin')}`
         }
         display += `</center>`
         $('#store-section').html(display);
